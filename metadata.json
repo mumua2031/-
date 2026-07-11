@@ -1,0 +1,8 @@
+{
+  "name": "Intangible Cultural Heritage Han Embroidery Pattern Gene Bank",
+  "description": "A digital archive, search, and copyright management platform for Intangible Cultural Heritage Han Embroidery patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
