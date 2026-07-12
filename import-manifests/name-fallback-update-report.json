@@ -1,0 +1,30 @@
+{
+  "patched": [
+    {
+      "heCode": "HE-N-B-R02",
+      "name": "福字花卉蝙蝠汉绣",
+      "sourceCode": "HE-N-B-R03"
+    },
+    {
+      "heCode": "HE-N-B-B08",
+      "name": "紫龙戏珠蓝底汉绣",
+      "sourceCode": "HE-N-B-B04"
+    },
+    {
+      "heCode": "HE-N-S-B04",
+      "name": "蓝底金凤牡丹展陈汉绣",
+      "sourceCode": "HE-N-B-B11"
+    },
+    {
+      "heCode": "HE-N-B-M09",
+      "name": "蝶恋花牡丹圆绣汉绣",
+      "sourceCode": "HE-N-B-M03"
+    },
+    {
+      "heCode": "HE-N-B-R08",
+      "name": "龙凤呈祥戏珠红底汉绣",
+      "sourceCode": "HE-N-B-R04"
+    }
+  ],
+  "missing": []
+}

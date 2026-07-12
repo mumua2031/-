@@ -59,8 +59,8 @@ export function AdminLayout() {
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               className="bg-transparent border-none focus:outline-none text-white/90 bg-[#121417]"
             >
-              <option value="zh-CN">简中</option>
-              <option value="en">English</option>
+              <option value="zh-CN">CN</option>
+              <option value="en">EN</option>
             </select>
           </div>
         </header>

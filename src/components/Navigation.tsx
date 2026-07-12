@@ -8,11 +8,8 @@ export function Navigation() {
   const [isScanning, setIsScanning] = useState(false);
 
   const languages = [
-    { code: 'zh-CN', label: '简' },
-    { code: 'zh-TW', label: '繁' },
+    { code: 'zh-CN', label: 'CN' },
     { code: 'en', label: 'EN' },
-    { code: 'ja', label: '日' },
-    { code: 'ko', label: '韩' },
   ];
 
   const analyzeImage = async (file: File) => {
@@ -57,7 +54,7 @@ export function Navigation() {
               {t('nav.explore')}
             </NavLink>
             <NavLink to="/deconstruct" className={linkClassName}>
-              基因解构
+              {t('nav.deconstruct')}
             </NavLink>
           </nav>
         </div>
@@ -70,7 +67,7 @@ export function Navigation() {
               placeholder={t('search_placeholder')}
               className="bg-transparent border-none text-xs text-white/80 w-56 focus:outline-none focus:ring-0 placeholder-white/30"
             />
-            <label className="cursor-pointer ml-2 hover:text-white text-white/40 transition-colors" title="AI 纹样分析">
+            <label className="cursor-pointer ml-2 hover:text-white text-white/40 transition-colors" title={i18n.language === 'en' ? 'Pattern analysis' : '纹样分析'}>
               <input
                 type="file"
                 accept="image/*"

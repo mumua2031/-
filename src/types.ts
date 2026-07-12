@@ -8,7 +8,11 @@ export interface MultilingualString {
 
 export interface PatternGene {
   id: string; // Document ID
-  heCode: string; // HE-N-B-R01
+  heCode: string; // HE-NB-R01
+  patternCategory?: string;
+  meaningCategory?: string;
+  colorCategory?: string;
+  sequence?: number;
   name: MultilingualString;
   imageUrl: string; // Main transparent PNG
   originalImageUrl?: string; // Pre-digitalization photo

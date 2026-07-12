@@ -17,6 +17,7 @@ type CircularGalleryProps = {
   fontUrl?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  onActiveIndexChange?: (index: number) => void;
 };
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
@@ -392,6 +393,8 @@ class App {
   scroll: { ease: number; current: number; target: number; last: number; position: number };
   onCheckDebounce: () => void;
   scrollSpeed: number;
+  onActiveIndexChange?: (index: number) => void;
+  activeIndex = -1;
   renderer!: Renderer;
   gl!: any;
   camera!: Camera;
@@ -411,12 +414,13 @@ class App {
   boundOnTouchUp!: () => void;
   boundOnKeyDown!: (event: KeyboardEvent) => void;
 
-  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05 }: CircularGalleryProps) {
+  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, onActiveIndexChange }: CircularGalleryProps) {
     autoBind(this);
     this.container = container;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0, position: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
     this.scrollSpeed = scrollSpeed;
+    this.onActiveIndexChange = onActiveIndexChange;
     this.createRenderer();
     this.createCamera();
     this.createScene();
@@ -546,6 +550,15 @@ class App {
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     this.medias.forEach((media) => media.update(this.scroll, direction));
+    if (this.medias[0] && this.onActiveIndexChange) {
+      const width = this.medias[0].width || 1;
+      const sourceLength = Math.max(1, this.mediasImages.length / 2);
+      const nextIndex = ((Math.round(Math.abs(this.scroll.current) / width) % sourceLength) + sourceLength) % sourceLength;
+      if (nextIndex !== this.activeIndex) {
+        this.activeIndex = nextIndex;
+        this.onActiveIndexChange(nextIndex);
+      }
+    }
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
     this.raf = window.requestAnimationFrame(this.update);
@@ -598,6 +611,7 @@ export default function CircularGallery({
   fontUrl,
   scrollSpeed = 2,
   scrollEase = 0.05,
+  onActiveIndexChange,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -614,13 +628,14 @@ export default function CircularGallery({
         font: resolvedFont,
         scrollSpeed,
         scrollEase,
+        onActiveIndexChange,
       });
     });
     return () => {
       isMounted = false;
       app?.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, onActiveIndexChange]);
 
   return (
     <div

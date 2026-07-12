@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { mockPatterns } from '../data';
+import { buildHECode, getPatternClassification } from '../lib/classification';
 import { Loader2, Sparkles } from 'lucide-react';
 
 export function AdminUpload() {
@@ -21,22 +22,23 @@ export function AdminUpload() {
   const [aiDescription, setAiDescription] = useState('');
 
   const generateCode = (currentData = formData) => {
-    const prefix = `HE-${currentData.category}-${currentData.symbolism}-${currentData.color}`;
-    // Simulate checking database for existing codes with this prefix
-    const existing = mockPatterns.filter(p => p.heCode.startsWith(prefix));
-    
-    // Find highest number
-    let max = 0;
-    existing.forEach(p => {
-      const match = p.heCode.match(/\d+$/);
-      if (match) {
-        const num = parseInt(match[0], 10);
-        if (num > max) max = num;
-      }
-    });
+    const existingSequences = mockPatterns
+      .map(getPatternClassification)
+      .filter((classification) => (
+        classification.patternCategory === currentData.category &&
+        classification.meaningCategory === currentData.symbolism &&
+        classification.colorCategory === currentData.color &&
+        classification.sequence !== null
+      ))
+      .map((classification) => classification.sequence || 0);
 
-    const nextId = (max + 1).toString().padStart(2, '0');
-    setGeneratedCode(`${prefix}${nextId}`);
+    const nextSequence = Math.max(0, ...existingSequences) + 1;
+    setGeneratedCode(buildHECode({
+      patternCategory: currentData.category,
+      meaningCategory: currentData.symbolism,
+      colorCategory: currentData.color,
+      sequence: nextSequence,
+    }));
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -226,7 +226,7 @@ export function InteractiveBackground() {
         camera.updateProjectionMatrix();
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.setSize(window.innerWidth, window.innerHeight);
-        particleAnchor.position.x = window.innerWidth < 900 ? 0.2 : 7.35;
+        particleAnchor.position.x = window.innerWidth < 900 ? 0.2 : 8.15;
         particleAnchor.position.y = window.innerWidth < 900 ? -0.28 : -0.26;
         particleAnchor.scale.setScalar(window.innerWidth < 900 ? 0.68 : 0.84);
       };
@@ -245,7 +245,7 @@ export function InteractiveBackground() {
         currentParallax.lerp(targetParallax, 0.045);
         camera.position.x += (currentParallax.x - camera.position.x) * 0.045;
         camera.position.y += (-currentParallax.y - camera.position.y) * 0.045;
-        camera.lookAt(window.innerWidth < 900 ? 0.2 : 5.72, -0.22, 0);
+        camera.lookAt(window.innerWidth < 900 ? 0.2 : 6.35, -0.22, 0);
 
         burstStrength *= 0.935;
 

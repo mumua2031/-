@@ -6,6 +6,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { FloatingActions } from './components/FloatingActions';
+import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Explore } from './pages/Explore';
 import { GeneDeconstruct } from './pages/GeneDeconstruct';
@@ -25,6 +26,7 @@ export default function App() {
             <Navigation />
             <Home />
             <FloatingActions />
+            <Footer />
           </>
         } />
         <Route path="/explore" element={
@@ -32,6 +34,7 @@ export default function App() {
             <Navigation />
             <Explore />
             <FloatingActions />
+            <Footer />
           </>
         } />
         <Route path="/deconstruct" element={
@@ -39,6 +42,7 @@ export default function App() {
             <Navigation />
             <GeneDeconstruct />
             <FloatingActions />
+            <Footer />
           </>
         } />
         <Route path="/pattern/:heCode" element={
@@ -46,6 +50,7 @@ export default function App() {
             <Navigation />
             <PatternDetail />
             <FloatingActions />
+            <Footer />
           </>
         } />
         
