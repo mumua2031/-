@@ -121,7 +121,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'Han Embroidery Patterns',
     textZh: '余戟平、洪叶、陈沐雨著，作为汉绣纹样图像、题材整理与视觉归档的核心参考。',
     textEn: 'A focused reference for Han embroidery pattern images, subjects and visual archiving.',
-    span: 'md:col-span-4 md:row-span-2',
+    span: 'md:col-span-1 md:row-span-2',
     imageUrl: '/books/hanxiu-tu-an.jpg',
     tone: 'from-fuchsia-500/28 via-black/72 to-black',
   },
@@ -130,7 +130,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'Jingchu Han Embroidery',
     textZh: '冯泽民著，聚焦荆楚传统服饰文化与汉绣技艺，是地域工艺语境的重要参照。',
     textEn: 'A bilingual reference on Jingchu dress culture and Han embroidery craft context.',
-    span: 'md:col-span-4 md:row-span-2',
+    span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/jingchu-hanxiu.jpg',
     tone: 'from-sky-500/24 via-black/70 to-black',
   },
@@ -139,7 +139,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'Three Thousand Years of Chinese Patterns',
     textZh: '沈鹏石图、洛樱笙文，梳理中国纹样演变线索，为纹样年代与造型比较提供参考。',
     textEn: 'A visual guide to Chinese pattern history for period clues and motif comparison.',
-    span: 'md:col-span-4',
+    span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/zhongguo-wenyang-3000.jpg',
     tone: 'from-amber-500/24 via-black/70 to-black',
   },
@@ -148,7 +148,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'The V&A Sourcebook of Pattern & Ornament',
     textZh: 'V&A 纹样与装饰资料汇编，提供跨文化图案、花卉与装饰结构的比较参照。',
     textEn: 'A V&A sourcebook for cross-cultural ornament, floral pattern and decorative structure references.',
-    span: 'md:col-span-4',
+    span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/va-pattern-ornament.png',
     tone: 'from-emerald-500/22 via-black/72 to-black',
   },
@@ -157,7 +157,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'V&A Pattern Plates',
     textZh: '以植物、鸟兽、边饰和装饰图版作为色彩搭配与纹样构成的辅助参考。',
     textEn: 'Plate references for color pairing, birds, plants, borders and ornamental composition.',
-    span: 'md:col-span-4',
+    span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/va-pattern-plates.jpg',
     tone: 'from-rose-500/22 via-black/72 to-black',
   },
@@ -166,7 +166,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     en: 'Qin and Han Patterns',
     textZh: '传统拓片纹样图集，收录秦汉时期图案造型，为早期纹样结构与符号比较提供参考。',
     textEn: 'A rubbing-pattern collection for comparing early Chinese motif structures and symbols.',
-    span: 'md:col-span-4',
+    span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/qinhan-wenyang.jpg',
     tone: 'from-blue-500/24 via-black/72 to-black',
   },
@@ -357,7 +357,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid auto-rows-[220px] gap-5 md:grid-cols-12">
+          <div className="grid auto-rows-[220px] gap-5 md:grid-cols-[1.05fr_1fr_1fr_1fr_1fr] md:auto-rows-[180px] xl:auto-rows-[205px]">
             {hanxiuBookCards.map((book, index) => (
               <article
                 key={book.zh}
@@ -371,21 +371,14 @@ export function Home() {
                   loading="lazy"
                   className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.52] transition-transform duration-500 group-hover:scale-105"
                 />
-                <img
-                  src={book.imageUrl}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  className="pointer-events-none absolute -bottom-8 -right-8 h-3/4 w-3/4 object-contain opacity-[0.32] blur-[0.2px] transition-transform duration-500 group-hover:scale-110"
-                />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />
                 <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.62)_58%,rgba(0,0,0,0.92))]" />
                 <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-300/55 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-8">
                   <div>
-                    <h3 className="max-w-[22rem] text-3xl font-semibold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] md:text-4xl">{isEnglish ? book.en : book.zh}</h3>
+                    <h3 className="max-w-[22rem] text-3xl font-semibold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] md:text-2xl xl:text-4xl">{isEnglish ? book.en : book.zh}</h3>
                   </div>
-                  <p className="max-w-2xl text-sm font-medium leading-7 text-white/72 md:text-base">{isEnglish ? book.textEn : book.textZh}</p>
+                  <p className="line-clamp-3 max-w-2xl text-sm font-medium leading-7 text-white/72 md:text-sm xl:text-base">{isEnglish ? book.textEn : book.textZh}</p>
                 </div>
               </article>
             ))}
