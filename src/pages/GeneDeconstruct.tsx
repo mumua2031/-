@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ChevronLeft, ChevronRight, Eye, Flower2, Layers3, LayoutGrid, Palette, Shapes, Sparkles } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
+import { stitchTechniques } from '../lib/stitches';
 import type { MultilingualString, PatternGene } from '../types';
 import {
   buildHECode,
@@ -31,14 +32,18 @@ const symbolShowcaseCards: ShowcaseCard[] = [
   { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', labelZh: '\u591a\u5143\u5171\u751f', labelEn: 'Composite Order', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: mockPatterns[8]?.imageUrl || mockPatterns[2]?.imageUrl || '', icon: Sparkles },
 ];
 
-const techniqueShowcaseCards: ShowcaseCard[] = [
-  { titleZh: '\u5957\u9488', titleEn: 'Layered Stitch', labelZh: '\u5c42\u5c42\u9012\u8fdb', labelEn: 'Layered Progression', textZh: '\u5957\u9488\u4ee5\u591a\u5c42\u7ebf\u8ff9\u538b\u53e0\u4e0e\u8854\u63a5\u5851\u9020\u8272\u5f69\u6e10\u53d8\uff0c\u80fd\u8868\u73b0\u82b1\u74e3\u7ffb\u5377\u3001\u53f6\u8109\u8d77\u4f0f\u548c\u7ee3\u9762\u539a\u5ea6\u3002', textEn: 'Layered stitches build color transitions and surface depth through overlapping thread paths.', imageUrl: mockPatterns[3]?.imageUrl || '', icon: Layers3 },
-  { titleZh: '\u76d8\u91d1\u7ee3', titleEn: 'Gold Couching', labelZh: '\u91d1\u7ebf\u52fe\u8fb9', labelEn: 'Gold Outlining', textZh: '\u76d8\u91d1\u7ee3\u4ee5\u91d1\u7ebf\u76d8\u7f6e\u56fe\u50cf\u8fb9\u754c\uff0c\u5f3a\u5316\u8f6e\u5ed3\u3001\u5149\u611f\u4e0e\u793c\u4eea\u611f\uff0c\u662f\u6c49\u7ee3\u5bcc\u4e3d\u6c14\u8d28\u7684\u91cd\u8981\u6765\u6e90\u3002', textEn: 'Gold couching defines edges and ceremonial brightness with laid metallic threads.', imageUrl: mockPatterns[4]?.imageUrl || '', icon: Palette },
-  { titleZh: '\u6253\u7c7d\u7ee3', titleEn: 'Seed Stitch', labelZh: '\u9897\u7c92\u7acb\u4f53', labelEn: 'Raised Texture', textZh: '\u6253\u7c7d\u7ee3\u4ee5\u4e1d\u7ebf\u6253\u7ed3\u5f62\u6210\u51f8\u8d77\u9897\u7c92\uff0c\u5e38\u7528\u4e8e\u82b1\u854a\u4e0e\u7ec6\u90e8\u70b9\u7f00\uff0c\u589e\u5f3a\u7ee3\u54c1\u7684\u89e6\u611f\u4e0e\u5c42\u6b21\u3002', textEn: 'Seed stitches create raised knots for stamens and fine decorative details.', imageUrl: mockPatterns[5]?.imageUrl || '', icon: LayoutGrid },
-  { titleZh: '\u9f50\u9488', titleEn: 'Straight Stitch', labelZh: '\u5e73\u6574\u94fa\u6392', labelEn: 'Even Filling', textZh: '\u9f50\u9488\u4ee5\u5e73\u884c\u7ebf\u8ff9\u6574\u9f50\u94fa\u6392\uff0c\u5e38\u7528\u4e8e\u5927\u9762\u79ef\u8272\u5757\u548c\u56fe\u50cf\u57fa\u7840\u8f6e\u5ed3\u7684\u5efa\u7acb\u3002', textEn: 'Straight stitches arrange parallel threads for broad color fields and clear forms.', imageUrl: mockPatterns[6]?.imageUrl || mockPatterns[0]?.imageUrl || '', icon: Layers3 },
-  { titleZh: '\u9501\u9488', titleEn: 'Chain Stitch', labelZh: '\u8fde\u73af\u52fe\u8fb9', labelEn: 'Linked Outlining', textZh: '\u9501\u9488\u4ee5\u8fde\u73af\u7ebf\u8ff9\u8fde\u7eed\u884c\u8d70\uff0c\u9002\u5408\u52fe\u52d2\u8f6e\u5ed3\u3001\u8fde\u63a5\u7ec6\u8282\u548c\u5f3a\u5316\u7ebf\u6027\u8282\u594f\u3002', textEn: 'Chain stitches build linked outlines and rhythmic linear detail.', imageUrl: mockPatterns[7]?.imageUrl || mockPatterns[1]?.imageUrl || '', icon: Sparkles },
-  { titleZh: '\u6e38\u9488\u7ee3', titleEn: 'Long-and-short Stitch', labelZh: '\u6e10\u53d8\u6655\u67d3', labelEn: 'Soft Gradation', textZh: '\u6e38\u9488\u7ee3\u4ee5\u957f\u77ed\u9488\u4ea4\u9519\u8fc7\u6e21\uff0c\u7528\u4e8e\u82b1\u74e3\u548c\u7fbd\u6bdb\u7684\u67d4\u548c\u8272\u5f69\u8854\u63a5\u3002', textEn: 'Long-and-short stitches create soft gradients for petals and feathers.', imageUrl: mockPatterns[8]?.imageUrl || mockPatterns[2]?.imageUrl || '', icon: Palette },
-];
+const techniqueIcons = [Layers3, Palette, LayoutGrid, Sparkles];
+
+const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch, index) => ({
+  titleZh: stitch.name,
+  titleEn: stitch.enName,
+  labelZh: stitch.name,
+  labelEn: stitch.enName,
+  textZh: stitch.summary['zh-CN'],
+  textEn: stitch.summary.en || stitch.summary['zh-CN'],
+  imageUrl: stitch.imageUrl,
+  icon: techniqueIcons[index % techniqueIcons.length],
+}));
 
 type ComparisonDimension = 'pattern' | 'meaning' | 'color' | 'technique' | 'carrier';
 

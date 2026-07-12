@@ -17,11 +17,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "传统婚嫁喜庆汉绣小品",
@@ -72,16 +76,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M01.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "当代，国家级传承人任本荣晚年创作",
@@ -133,11 +137,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "传统服饰镶边复刻汉绣",
@@ -189,15 +197,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "现代节庆文创台屏绣芯",
@@ -248,16 +256,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-M12.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "当代传统婚嫁花鸟题材汉绣",
@@ -309,11 +317,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "清代官服补子复原汉绣",
@@ -364,16 +376,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-B08.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样（H）",
-        "en": "人文 / 民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉类（S）",
-        "en": "精神文脉类（S）"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "蓝黑色（B）",
-        "en": "蓝黑色（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "第七届世界军人运动会城市纪念文创汉绣",
@@ -424,16 +436,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R03.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "当代传统富贵花鸟题材汉绣",
@@ -485,15 +497,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "荆楚地域文化主题装饰汉绣",
@@ -544,16 +556,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-L-R02.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣类（L）",
-        "en": "文人雅趣类（L）"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "当代极简文人花卉小品汉绣",
@@ -604,16 +616,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R01.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "当代传统瑞兽吉祥题材汉绣",
@@ -664,16 +676,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-B01.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝色系（B）",
-        "en": "蓝色系（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "传统福寿纹样当代复原汉绣",
@@ -725,15 +737,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "武汉城市地标竖幅文创绣品",
@@ -784,16 +796,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-R02.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "红色系 (R)",
-        "en": "红色系 (R)"
+        "en": "Red (R)"
       }
     ],
     "era": "武汉城市纪念礼品汉绣",
@@ -844,16 +856,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M03.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "当代红色主题创新汉绣作品",
@@ -904,16 +916,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-A02.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "金银色系 (A)",
-        "en": "金银色系 (A)"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "高端城市纪念台屏绣芯",
@@ -965,11 +977,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "汉剧戏服局部绣复刻",
@@ -1020,16 +1036,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-B04.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝色系（B）",
-        "en": "蓝色系（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "传统祥龙祈福题材当代汉绣",
@@ -1081,15 +1097,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "长辈祝寿专用圆台屏绣芯",
@@ -1140,16 +1156,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-S-A01.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神信仰类（S）",
-        "en": "精神信仰类（S）"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "金银色系（A）",
-        "en": "金银色系（A）"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "当代荆楚文化主题创新汉绣",
@@ -1200,16 +1216,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-L-M10.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文/民俗纹样（H）",
-        "en": "人文/民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "文人雅趣类（L）",
-        "en": "文人雅趣类（L）"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "荆楚楚文化复原主题当代汉绣",
@@ -1261,15 +1277,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "高端祝寿台屏汉绣",
@@ -1320,16 +1336,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M07.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "传统民间儿童服饰绣品",
@@ -1381,15 +1397,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "通用节庆商务礼品汉绣小品",
@@ -1441,11 +1457,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "仿古青花瓷风格汉绣",
@@ -1496,16 +1516,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-M02.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "湖北非遗民俗文化主题装饰绣片",
@@ -1557,15 +1577,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "传统女装衣饰复原绣片",
@@ -1617,15 +1637,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣类 (L)",
-        "en": "文人雅趣类 (L)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "金银色系 (A)",
-        "en": "金银色系 (A)"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "非遗盘金工艺示范绣品",
@@ -1677,11 +1697,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "新春贺岁文创绣片",
@@ -1733,15 +1757,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "祝寿、乔迁通用软装绣片",
@@ -1793,15 +1817,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣 (L)",
-        "en": "文人雅趣 (L)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "书房极简文人花卉小品",
@@ -1852,16 +1876,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M02.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "当代戏曲服饰侧边装饰绣片",
@@ -1913,11 +1937,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "国风软装壁挂绣片",
@@ -1968,16 +1996,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R04.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "传统子孙绵延花鸟民俗题材当代汉绣复刻",
@@ -2028,16 +2056,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-R09.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样（H）",
-        "en": "人文 / 民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "现代婚庆、庆典喜庆国风圆绣片",
@@ -2088,16 +2116,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-R08.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文/民俗纹样（H）",
-        "en": "人文/民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉类（S）",
-        "en": "精神文脉类（S）"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "荆楚文化主题大型装饰汉绣",
@@ -2148,16 +2176,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-B07.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福（B）",
-        "en": "吉祥祈福（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色（B）",
-        "en": "蓝黑色（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "长辈祝寿礼品文创汉绣摆件",
@@ -2208,12 +2236,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-L-M08.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样(N)",
-        "en": "自然纹样(N)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣(L)",
-        "en": "文人雅趣(L)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "现代文人花鸟小品汉绣",
@@ -2264,16 +2296,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R07.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福（B）",
-        "en": "吉祥祈福（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "商务、新春通用喜庆礼品汉绣摆件",
@@ -2324,16 +2356,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-L-M01.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣类（L）",
-        "en": "文人雅趣类（L）"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "当代湖湘清雅文人花鸟汉绣",
@@ -2384,16 +2416,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-S-B04.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神信仰类（S）",
-        "en": "精神信仰类（S）"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "蓝色系（B）",
-        "en": "蓝色系（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "当代非遗展览主题汉绣",
@@ -2445,11 +2477,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "传统袄服对襟装饰绣片",
@@ -2501,15 +2537,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "新中式长款竖幅软装绣品",
@@ -2560,16 +2596,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-R03.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "红色系 (R)",
-        "en": "红色系 (R)"
+        "en": "Red (R)"
       }
     ],
     "era": "婚嫁喜庆国风壁挂绣片",
@@ -2621,11 +2657,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "新中式简约文创圆绣",
@@ -2676,16 +2716,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-R01.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "红色系 (R)",
-        "en": "红色系 (R)"
+        "en": "Red (R)"
       }
     ],
     "era": "佛教文化主题纪念装饰绣片",
@@ -2736,16 +2776,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-A03.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "金银色系 (A)",
-        "en": "金银色系 (A)"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "高端城市纪念圆绣摆件",
@@ -2796,16 +2836,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R06.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福（B）",
-        "en": "吉祥祈福（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "新婚、乔迁伴手礼文创汉绣摆件",
@@ -2856,12 +2896,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M08.png",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样(N)",
-        "en": "自然纹样(N)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福(B)",
-        "en": "吉祥祈福(B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "现代简约文创圆绣片",
@@ -2912,16 +2956,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-R05.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样（N）",
-        "en": "自然纹样（N）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福（B）",
-        "en": "吉祥祈福（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "红色系（R）",
-        "en": "红色系（R）"
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "传统汉剧旦角戏服装饰绣片",
@@ -2972,16 +3016,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-B-M15.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样（H）",
-        "en": "人文 / 民俗纹样（H）"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "文人雅趣类（L）",
-        "en": "文人雅趣类（L）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "荆楚楚文化复原主题现代汉绣",
@@ -3033,15 +3077,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "蓝色系（B）",
-        "en": "蓝色系（B）"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "现代节庆圆台屏绣芯",
@@ -3092,16 +3136,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-L-M11.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文/民俗纹样（H）",
-        "en": "人文/民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "文人雅趣类（L）",
-        "en": "文人雅趣类（L）"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "仿古博古题材非遗汉绣",
@@ -3153,15 +3197,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
-        "en": "多色系 (M)"
+        "en": "Multicolor (M)"
       }
     ],
     "era": "婚嫁专用软装绣片",
@@ -3212,16 +3256,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-M01.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样（H）",
-        "en": "人文 / 民俗纹样（H）"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福类（B）",
-        "en": "吉祥祈福类（B）"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "多色系（M）",
-        "en": "多色系（M）"
+        "zh-CN": "多色系 (M)",
+        "en": "Multicolor (M)"
       }
     ],
     "era": "复刻清代传统补子纹样，当代复原绣品",
@@ -3272,16 +3316,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-R02.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "红色系 (R)",
-        "en": "红色系 (R)"
+        "en": "Red (R)"
       }
     ],
     "era": "长辈贺寿高端礼品壁挂绣片",
@@ -3332,16 +3376,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-B15.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神文脉 (S)",
-        "en": "精神文脉 (S)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
-        "zh-CN": "蓝黑色 (B)",
-        "en": "蓝黑色 (B)"
+        "zh-CN": "蓝绿色系 (B)",
+        "en": "Blue-Green (B)"
       }
     ],
     "era": "荆楚文化展馆大型主题装饰汉绣",
@@ -3392,16 +3436,16 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-L-A14.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文民俗纹样 (H)",
-        "en": "人文民俗纹样 (H)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "文人雅趣 (L)",
-        "en": "文人雅趣 (L)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
-        "zh-CN": "金银色系 (A)",
-        "en": "金银色系 (A)"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "楚文化仿古工艺展示绣品",
@@ -3453,15 +3497,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "人文 / 民俗纹样 (H)",
-        "en": "人文 / 民俗纹样 (H)"
+        "en": "Humanities Pattern (H)"
       },
       {
         "zh-CN": "吉祥祈福类 (B)",
-        "en": "吉祥祈福类 (B)"
+        "en": "Blessing (B)"
       },
       {
-        "zh-CN": "金银色系 (A)",
-        "en": "金银色系 (A)"
+        "zh-CN": "金色系 (A)",
+        "en": "Gold (A)"
       }
     ],
     "era": "宫廷龙纹复刻汉绣",
@@ -3513,11 +3557,15 @@ export const mockPatterns: PatternGene[] = [
     "categoryLabels": [
       {
         "zh-CN": "自然纹样 (N)",
-        "en": "自然纹样 (N)"
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福 (B)",
-        "en": "吉祥祈福 (B)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
+      },
+      {
+        "zh-CN": "红色系 (R)",
+        "en": "Red (R)"
       }
     ],
     "era": "婚嫁喜庆壁挂绣品",

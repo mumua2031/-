@@ -6,6 +6,26 @@ export interface MultilingualString {
   ko?: string;
 }
 
+export interface PatternVisualAnalysis {
+  originalPattern: MultilingualString;
+  outlineExtraction: MultilingualString;
+  mainColorRatio: MultilingualString;
+  patternUnit: MultilingualString;
+  symmetry: MultilingualString;
+  repetition: MultilingualString;
+  compositionCenter: MultilingualString;
+  structureDescription: MultilingualString;
+}
+
+export interface StitchTechnique {
+  name: string;
+  enName: string;
+  aliases?: string[];
+  imageUrl: string;
+  summary: MultilingualString;
+  source: string;
+}
+
 export interface PatternGene {
   id: string; // Document ID
   heCode: string; // HE-NB-R01
@@ -31,6 +51,7 @@ export interface PatternGene {
   scenario: MultilingualString;
   literature: MultilingualString;
   inheritor: MultilingualString;
+  visualAnalysis?: PatternVisualAnalysis;
 
   createdAt: string; // ISO String
   views: number;

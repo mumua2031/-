@@ -1,0 +1,485 @@
+{
+  "labelSuggestions": [],
+  "rows": [
+    {
+      "heCode": "HE-N-B-M12",
+      "name": "九首彩凤白底圆绣片",
+      "canonicalHECode": "HE-NB-M12",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比39%，红色占比12%，粉色占比9%，绿色占比9%，橙色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M01",
+      "name": "鸿图大展双狮戏绣球汉绣",
+      "canonicalHECode": "HE-NB-M01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比73%，黄色占比13%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B10",
+      "name": "三色牡丹黑底装饰绣片",
+      "canonicalHECode": "HE-NB-B10",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比68%，黄色占比14%，绿色占比8%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B03",
+      "name": "丹凤牡丹圆框汉绣",
+      "canonicalHECode": "HE-NB-B03",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比48%，绿色占比14%，红色占比14%，白色占比7%，灰色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-M12",
+      "name": "鸳鸯荷花繁花汉绣",
+      "canonicalHECode": "HE-HS-M12",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B09",
+      "name": "黑底五福捧寿圆团花绣",
+      "canonicalHECode": "HE-NB-B09",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比59%，蓝色占比17%，红色占比10%，黄色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-B08",
+      "name": "军运兵兵江城地标深蓝底纪念汉绣",
+      "canonicalHECode": "HE-HS-B08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比73%，灰色占比6%，黄色占比5%，黑色占比4%，白色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R03",
+      "name": "凤栖牡丹橙底汉绣",
+      "canonicalHECode": "HE-NB-R03",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "棕色占比39%，金色占比25%，绿色占比8%，橙色占比7%，黑色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-S-M01",
+      "name": "凤鸣楚天群凤横向壁挂汉绣",
+      "canonicalHECode": "HE-NS-M01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比33%，蓝色占比26%，红色占比14%，绿色占比10%，橙色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-L-R02",
+      "name": "半开粉荷白底汉绣",
+      "canonicalHECode": "HE-NL-R02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "橙色占比51%，红色占比46%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R01",
+      "name": "双狮戏绣球圆框汉绣",
+      "canonicalHECode": "HE-NB-R01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比43%，黄色占比18%，粉色占比11%，灰色占比6%，紫色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B01",
+      "name": "双龙捧寿银线汉绣",
+      "canonicalHECode": "HE-NB-B01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比76%，灰色占比19%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-S-M04",
+      "name": "古黄鹤楼彩凤群鹤竖幅装饰汉绣",
+      "canonicalHECode": "HE-NS-M04",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-R02",
+      "name": "红底古黄鹤楼群鹤方形绣片",
+      "canonicalHECode": "HE-HS-R02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "棕色占比33%，金色占比26%，绿色占比15%，橙色占比12%，红色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M03",
+      "name": "喜迎二十大金凤和平牡丹主题汉绣",
+      "canonicalHECode": "HE-NB-M03",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比61%，黄色占比9%，绿色占比8%，橙色占比5%，金色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-A02",
+      "name": "圆框金线黄鹤楼山水汉绣",
+      "canonicalHECode": "HE-HS-A02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比30%，橙色占比23%，黄色占比18%，黑色占比13%，红色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M14",
+      "name": "五彩彩凤祥云局部绣片",
+      "canonicalHECode": "HE-NB-M14",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比45%，橙色占比16%，蓝色占比12%，绿色占比9%，黄色占比8%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B04",
+      "name": "旭日金龙戏珠蓝底汉绣",
+      "canonicalHECode": "HE-NB-B04",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比39%，黑色占比21%，灰色占比10%，红色占比7%，黄色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M05",
+      "name": "松鹤延年圆形框装汉绣",
+      "canonicalHECode": "HE-NB-M05",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比26%，橙色占比24%，黄色占比19%，灰色占比11%，红色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-S-A01",
+      "name": "楚凤江城图圆框汉绣",
+      "canonicalHECode": "HE-NS-A01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比24%，黄色占比22%，蓝色占比18%，绿色占比11%，红色占比11%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-L-M10",
+      "name": "楚式对称凤鹿复古白地汉绣",
+      "canonicalHECode": "HE-HL-M10",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比37%，橙色占比27%，黄色占比22%，白色占比5%，黑色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B14",
+      "name": "橄榄绿底双鹤朝日圆台屏绣芯",
+      "canonicalHECode": "HE-NB-B14",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "绿色占比69%，黄色占比17%，蓝色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M07",
+      "name": "橙底荷塘花鸟围兜汉绣",
+      "canonicalHECode": "HE-NB-M07",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比23%，橙色占比19%，棕色占比13%，蓝色占比13%，绿色占比11%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B13",
+      "name": "湖绿底国色天香牡丹蝴蝶方形绣片",
+      "canonicalHECode": "HE-NB-B13",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比66%，绿色占比12%，红色占比8%，黄色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B11",
+      "name": "湖蓝底描金牡丹绣片",
+      "canonicalHECode": "HE-NB-B11",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比49%，灰色占比29%，黑色占比12%，黄色占比8%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-M02",
+      "name": "湘莲闹三棒鼓舞民俗人物汉绣",
+      "canonicalHECode": "HE-HB-M02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比31%，黑色占比22%，白色占比16%，红色占比14%，蓝色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M06",
+      "name": "浅灰底牡丹八宝吉祥纹衣饰汉绣",
+      "canonicalHECode": "HE-NB-M06",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比25%，橙色占比19%，绿色占比14%，红色占比13%，蓝色占比11%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-L-A13",
+      "name": "盘金凤凰羽翼局部绣",
+      "canonicalHECode": "HE-NL-A13",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R02",
+      "name": "朱红底福字花卉蝙蝠方形绣片",
+      "canonicalHECode": "HE-NB-R02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比55%，橙色占比13%，黄色占比11%，粉色占比6%，绿色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B05",
+      "name": "黑底福寿瓜果彩蝶方形装饰汉绣",
+      "canonicalHECode": "HE-NB-B05",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比27%，绿色占比24%，金色占比14%，红色占比14%，黄色占比13%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-L-B01",
+      "name": "白地粉荷蜜蜂小品汉绣",
+      "canonicalHECode": "HE-NL-B01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M02",
+      "name": "紫花对条浅白底戏服汉绣",
+      "canonicalHECode": "HE-NB-M02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "橙色占比54%，棕色占比24%，红色占比9%，黄色占比5%，黑色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B08",
+      "name": "紫龙戏珠蓝底装饰绣片",
+      "canonicalHECode": "HE-NB-B08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比77%，紫色占比16%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R04",
+      "name": "红底松鼠葡萄对幅汉绣",
+      "canonicalHECode": "HE-NB-R04",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比55%，橙色占比14%，黄色占比9%，绿色占比8%，黑色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-R09",
+      "name": "红底金线青绿五爪龙圆团绣片",
+      "canonicalHECode": "HE-HB-R09",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-R08",
+      "name": "红底金线黄鹤楼双凤楚纹汉绣",
+      "canonicalHECode": "HE-HS-R08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比83%，橙色占比5%，黄色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B07",
+      "name": "八鹤祥云黑檀镂空圆台屏",
+      "canonicalHECode": "HE-NB-B07",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比62%，黄色占比16%，橙色占比8%，红色占比4%，蓝色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-L-M08",
+      "name": "翠竹双绶带鸟白地绣片",
+      "canonicalHECode": "HE-NL-M08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "绿色占比41%，红色占比19%，蓝色占比17%，灰色占比12%，黑色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R07",
+      "name": "荣华富贵牡丹蝴蝶圆台屏",
+      "canonicalHECode": "HE-NB-R07",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比60%，黄色占比20%，红色占比13%，绿色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-L-M01",
+      "name": "荷塘双鹤汉绣",
+      "canonicalHECode": "HE-NL-M01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-S-B04",
+      "name": "蓝底金凤牡丹展陈汉绣",
+      "canonicalHECode": "HE-NS-B04",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比81%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M13",
+      "name": "蓝白牡丹对称黑底绣片",
+      "canonicalHECode": "HE-NB-M13",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比71%，黄色占比7%，白色占比7%，灰色占比6%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B06",
+      "name": "蓝调青花百花蝴蝶长款竖幅汉绣",
+      "canonicalHECode": "HE-NB-B06",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比31%，黄色占比25%，蓝色占比17%，灰色占比15%，绿色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-R03",
+      "name": "红底蝶仙游鱼神话装饰汉绣",
+      "canonicalHECode": "HE-HB-R03",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比60%，橙色占比16%，黄色占比9%，金色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M09",
+      "name": "浅白底蝶恋花牡丹圆形绣片",
+      "canonicalHECode": "HE-NB-M09",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比31%，绿色占比26%，金色占比13%，黄色占比10%，橙色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-R01",
+      "name": "红底西十七座降龙尊者人物汉绣",
+      "canonicalHECode": "HE-HS-R01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比59%，橙色占比8%，棕色占比7%，金色占比6%，蓝色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-A03",
+      "name": "金线黄鹤楼云鹤圆形装饰绣片",
+      "canonicalHECode": "HE-HS-A03",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比52%，黄色占比35%，橙色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R06",
+      "name": "银杏双喜鹊粉底黑檀圆台屏",
+      "canonicalHECode": "HE-NB-R06",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比52%，橙色占比15%，棕色占比13%，红色占比10%，金色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M08",
+      "name": "银杏三锦鲤圆片绣",
+      "canonicalHECode": "HE-NB-M08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "灰色占比51%，黄色占比23%，橙色占比12%，金色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R05",
+      "name": "锦鸡牡丹红底汉剧服饰绣片",
+      "canonicalHECode": "HE-NB-R05",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比83%，橙色占比9%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M15",
+      "name": "楚式对称凤鹿复古白地汉绣",
+      "canonicalHECode": "HE-NB-M15",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比71%，绿色占比9%，黄色占比6%，红色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-B02",
+      "name": "青蓝蝶恋花绣球汉绣",
+      "canonicalHECode": "HE-NB-B02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "蓝色占比64%，黑色占比13%，灰色占比8%，黄色占比7%，绿色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-L-M11",
+      "name": "仿古青铜花觚对幅汉绣",
+      "canonicalHECode": "HE-HL-M11",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黄色占比35%，黑色占比27%，灰色占比19%，蓝色占比15%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-M04",
+      "name": "浅白底鸳鸯荷花繁花方形绣片",
+      "canonicalHECode": "HE-NB-M04",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比78%，绿色占比5%，红色占比4%，黄色占比4%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-M01",
+      "name": "麒麟送子圆补汉绣",
+      "canonicalHECode": "HE-HB-M01",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比34%，绿色占比20%，黄色占比14%，黑色占比11%，蓝色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-R02",
+      "name": "红底麻姑献寿人物祝寿汉绣",
+      "canonicalHECode": "HE-HB-R02",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比43%，黄色占比16%，蓝色占比11%，橙色占比8%，粉色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-S-B15",
+      "name": "黑底满铺楚凤云水横向大型壁挂汉绣",
+      "canonicalHECode": "HE-HS-B15",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黑色占比28%，橙色占比16%，蓝色占比15%，绿色占比14%，红色占比10%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-L-A14",
+      "name": "黑底盘金楚白虎圆形工艺展示绣片",
+      "canonicalHECode": "HE-HL-A14",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "黄色占比30%，橙色占比27%，红色占比22%，黑色占比12%，金色占比7%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-H-B-A12",
+      "name": "黑底金线正龙海水江崖绣片",
+      "canonicalHECode": "HE-HB-A12",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%",
+      "categoryLabelSuggestion": false
+    },
+    {
+      "heCode": "HE-N-B-R08",
+      "name": "红底龙凤呈祥戏珠大幅绣片",
+      "canonicalHECode": "HE-NB-R08",
+      "usesLegacyHECodeFormat": true,
+      "mainColorRatio": "红色占比67%，金色占比10%，橙色占比5%，黄色占比4%",
+      "categoryLabelSuggestion": false
+    }
+  ]
+}

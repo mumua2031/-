@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Download, Share2, Star } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
 import { mockPatterns } from '../data';
+import { patternVisualAnalysis } from '../generated/pattern-visual-analysis';
+import { findStitchesInText } from '../lib/stitches';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
 
@@ -130,6 +132,10 @@ export function PatternDetail() {
   const pattern = mockPatterns.find((item) => item.heCode === heCode || getCanonicalCode(item) === heCode);
 
   const similarPatterns = useMemo(() => (pattern ? getSimilarPatterns(pattern, currentLang) : []), [currentLang, pattern]);
+  const matchedStitches = useMemo(
+    () => (pattern ? findStitchesInText(getMLStr(pattern.craft, currentLang, '')) : []),
+    [currentLang, pattern],
+  );
 
   useEffect(() => {
     if (location.hash === '#basic-record') {
@@ -150,6 +156,7 @@ export function PatternDetail() {
   const isFavorite = favoriteCodes.includes(pattern.heCode);
   const copyrightText = getDisplayValue(pattern.copyrightOwner, fallback);
   const sourceText = getMLStr(pattern.origin, currentLang, fallback);
+  const visualAnalysis = pattern.visualAnalysis || patternVisualAnalysis[pattern.heCode] || patternVisualAnalysis[canonicalCode];
   const imageLabel = {
     pattern: isEnglish ? 'Pattern' : '高清纹样图',
     carrier: isEnglish ? 'Carrier' : '实物载体图',
@@ -189,6 +196,17 @@ export function PatternDetail() {
     [t('pattern.source'), sourceText],
     [t('pattern.copyright'), copyrightText],
   ];
+
+  const analysisItems = visualAnalysis ? [
+    [isEnglish ? 'Original Pattern' : '原始纹样', getMLStr(visualAnalysis.originalPattern, currentLang, fallback)],
+    [isEnglish ? 'Outline Extraction' : '轮廓提取', getMLStr(visualAnalysis.outlineExtraction, currentLang, fallback)],
+    [isEnglish ? 'Main Color Ratio' : '主色比例', getMLStr(visualAnalysis.mainColorRatio, currentLang, fallback)],
+    [isEnglish ? 'Pattern Unit' : '单元纹样', getMLStr(visualAnalysis.patternUnit, currentLang, fallback)],
+    [isEnglish ? 'Symmetry' : '对称关系', getMLStr(visualAnalysis.symmetry, currentLang, fallback)],
+    [isEnglish ? 'Repetition' : '重复规律', getMLStr(visualAnalysis.repetition, currentLang, fallback)],
+    [isEnglish ? 'Composition Center' : '构图中心', getMLStr(visualAnalysis.compositionCenter, currentLang, fallback)],
+    [isEnglish ? 'Structure Description' : '结构说明', getMLStr(visualAnalysis.structureDescription, currentLang, fallback)],
+  ] : [];
 
   return (
     <div className="min-h-screen bg-[#08090a] pt-16 text-white">
@@ -281,19 +299,34 @@ export function PatternDetail() {
             </div>
           )}
           {activeTab === 'meaning' && <p>{getMLStr(pattern.symbolism, currentLang, fallback)}</p>}
-          {activeTab === 'craft' && <p>{getMLStr(pattern.craft, currentLang, fallback)}</p>}
+          {activeTab === 'craft' && (
+            <div className="space-y-6">
+              <p>{getMLStr(pattern.craft, currentLang, fallback)}</p>
+              {matchedStitches.length > 0 && (
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {matchedStitches.map((stitch) => (
+                    <article key={stitch.name} className="overflow-hidden rounded-lg border border-white/10 bg-black/20">
+                      <div className="aspect-[4/3] bg-white">
+                        <img src={stitch.imageUrl} alt={stitch.name} className="h-full w-full object-contain" loading="lazy" />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-base font-medium text-white">{stitch.name}</h3>
+                        <p className="mt-2 text-xs leading-6 text-white/58">{getMLStr(stitch.summary, currentLang, stitch.summary['zh-CN'])}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
           {activeTab === 'analysis' && (
             <div className="grid gap-4 md:grid-cols-2">
-              {[
-                isEnglish ? 'Original Pattern' : '原始纹样',
-                isEnglish ? 'Outline Extraction' : '轮廓提取',
-                isEnglish ? 'Main Color Ratio' : '主色比例',
-                isEnglish ? 'Pattern Unit' : '单元纹样',
-                isEnglish ? 'Symmetry' : '对称关系',
-                isEnglish ? 'Repetition' : '重复规律',
-                isEnglish ? 'Composition Center' : '构图中心',
-                isEnglish ? 'Structure Description' : '结构说明',
-              ].map((item) => <div key={item} className="rounded border border-white/8 bg-black/20 p-4">{item}</div>)}
+              {analysisItems.map(([label, value]) => (
+                <div key={label} className="rounded border border-white/8 bg-black/20 p-4">
+                  <span className="block text-white/42">{label}</span>
+                  <strong className="mt-2 block font-normal leading-7 text-white/76">{value}</strong>
+                </div>
+              ))}
             </div>
           )}
           {activeTab === 'copyright' && (
