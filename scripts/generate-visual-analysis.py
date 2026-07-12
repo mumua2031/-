@@ -26,8 +26,8 @@ MEANING_LABELS = {
 
 COLOR_LABELS = {
     "R": ("红色系 (R)", "Red (R)"),
-    "G": ("蓝绿色系 (G)", "Blue-Green (G)"),
-    "B": ("蓝绿色系 (B)", "Blue-Green (B)"),
+    "G": ("绿色系 (G)", "Green (G)"),
+    "B": ("蓝色系 (B)", "Blue (B)"),
     "A": ("金色系 (A)", "Gold (A)"),
     "M": ("多色系 (M)", "Multicolor (M)"),
 }

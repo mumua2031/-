@@ -715,40 +715,6 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合米白底方形装饰绣片形制组织画面。"
     }
   },
-  "HE-N-B-B14": {
-    "originalPattern": {
-      "zh-CN": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。",
-      "en": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。"
-    },
-    "outlineExtraction": {
-      "zh-CN": "保留鹤外轮廓与主要装饰边界。",
-      "en": "保留鹤外轮廓与主要装饰边界。"
-    },
-    "mainColorRatio": {
-      "zh-CN": "绿色占比69%，黄色占比17%，蓝色占比5%",
-      "en": "绿色占比69%，黄色占比17%，蓝色占比5%"
-    },
-    "patternUnit": {
-      "zh-CN": "鹤为核心单元。",
-      "en": "鹤为核心单元。"
-    },
-    "symmetry": {
-      "zh-CN": "近似中心均衡，横纵方向较稳定。",
-      "en": "近似中心均衡，横纵方向较稳定。"
-    },
-    "repetition": {
-      "zh-CN": "双主体呼应，辅助纹样环绕重复。",
-      "en": "双主体呼应，辅助纹样环绕重复。"
-    },
-    "compositionCenter": {
-      "zh-CN": "视觉重心居中。",
-      "en": "视觉重心居中。"
-    },
-    "structureDescription": {
-      "zh-CN": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。",
-      "en": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。"
-    }
-  },
   "HE-N-B-M07": {
     "originalPattern": {
       "zh-CN": "以“橙底荷塘花鸟围兜汉绣”为数字归档原纹样。",
@@ -781,40 +747,6 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
     "structureDescription": {
       "zh-CN": "花鸟为主体，结合橙缎底儿童围兜绣件形制组织画面。",
       "en": "花鸟为主体，结合橙缎底儿童围兜绣件形制组织画面。"
-    }
-  },
-  "HE-N-B-B13": {
-    "originalPattern": {
-      "zh-CN": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。",
-      "en": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。"
-    },
-    "outlineExtraction": {
-      "zh-CN": "保留牡丹、蝴蝶外轮廓与主要装饰边界。",
-      "en": "保留牡丹、蝴蝶外轮廓与主要装饰边界。"
-    },
-    "mainColorRatio": {
-      "zh-CN": "蓝色占比66%，绿色占比12%，红色占比8%，黄色占比4%",
-      "en": "蓝色占比66%，绿色占比12%，红色占比8%，黄色占比4%"
-    },
-    "patternUnit": {
-      "zh-CN": "牡丹、蝴蝶为核心单元。",
-      "en": "牡丹、蝴蝶为核心单元。"
-    },
-    "symmetry": {
-      "zh-CN": "近似中心均衡，横纵方向较稳定。",
-      "en": "近似中心均衡，横纵方向较稳定。"
-    },
-    "repetition": {
-      "zh-CN": "主体单元突出，局部装饰重复。",
-      "en": "主体单元突出，局部装饰重复。"
-    },
-    "compositionCenter": {
-      "zh-CN": "视觉重心居中。",
-      "en": "视觉重心居中。"
-    },
-    "structureDescription": {
-      "zh-CN": "牡丹、蝴蝶为主体，结合湖绿暗纹缎方形独立装饰绣片形制组织画面。",
-      "en": "牡丹、蝴蝶为主体，结合湖绿暗纹缎方形独立装饰绣片形制组织画面。"
     }
   },
   "HE-N-B-B11": {
@@ -2039,6 +1971,74 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
     "structureDescription": {
       "zh-CN": "凤、龙为主体，结合正红缎横向长款装饰绣片形制组织画面。",
       "en": "凤、龙为主体，结合正红缎横向长款装饰绣片形制组织画面。"
+    }
+  },
+  "HE-N-B-G13": {
+    "originalPattern": {
+      "zh-CN": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。",
+      "en": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。"
+    },
+    "outlineExtraction": {
+      "zh-CN": "保留牡丹、蝴蝶外轮廓与主要装饰边界。",
+      "en": "保留牡丹、蝴蝶外轮廓与主要装饰边界。"
+    },
+    "mainColorRatio": {
+      "zh-CN": "湖绿色占比66%，绿色占比12%，红色占比8%，黄色占比4%",
+      "en": "Lake green 66%, green 12%, red 8%, yellow 4%"
+    },
+    "patternUnit": {
+      "zh-CN": "牡丹、蝴蝶为核心单元。",
+      "en": "牡丹、蝴蝶为核心单元。"
+    },
+    "symmetry": {
+      "zh-CN": "近似中心均衡，横纵方向较稳定。",
+      "en": "近似中心均衡，横纵方向较稳定。"
+    },
+    "repetition": {
+      "zh-CN": "主体单元突出，局部装饰重复。",
+      "en": "主体单元突出，局部装饰重复。"
+    },
+    "compositionCenter": {
+      "zh-CN": "视觉重心居中。",
+      "en": "视觉重心居中。"
+    },
+    "structureDescription": {
+      "zh-CN": "牡丹、蝴蝶为主体，结合湖绿暗纹缎方形独立装饰绣片形制组织画面。",
+      "en": "牡丹、蝴蝶为主体，结合湖绿暗纹缎方形独立装饰绣片形制组织画面。"
+    }
+  },
+  "HE-N-B-G14": {
+    "originalPattern": {
+      "zh-CN": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。",
+      "en": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。"
+    },
+    "outlineExtraction": {
+      "zh-CN": "保留鹤外轮廓与主要装饰边界。",
+      "en": "保留鹤外轮廓与主要装饰边界。"
+    },
+    "mainColorRatio": {
+      "zh-CN": "绿色占比69%，黄色占比17%，蓝色占比5%",
+      "en": "绿色占比69%，黄色占比17%，蓝色占比5%"
+    },
+    "patternUnit": {
+      "zh-CN": "鹤为核心单元。",
+      "en": "鹤为核心单元。"
+    },
+    "symmetry": {
+      "zh-CN": "近似中心均衡，横纵方向较稳定。",
+      "en": "近似中心均衡，横纵方向较稳定。"
+    },
+    "repetition": {
+      "zh-CN": "双主体呼应，辅助纹样环绕重复。",
+      "en": "双主体呼应，辅助纹样环绕重复。"
+    },
+    "compositionCenter": {
+      "zh-CN": "视觉重心居中。",
+      "en": "视觉重心居中。"
+    },
+    "structureDescription": {
+      "zh-CN": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。",
+      "en": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。"
     }
   }
 };

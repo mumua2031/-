@@ -32,7 +32,8 @@ const meaningSubFilters: SubFilter[] = meaningCategories.map((category) => ({
 
 const colorSubFilters: SubFilter[] = [
   { label: '\u7ea2\u8272\u7cfb', en: 'Red', code: 'R' },
-  { label: '\u84dd\u7eff\u8272\u7cfb', en: 'Blue-Green', code: 'GB' },
+  { label: '\u84dd\u8272\u7cfb', en: 'Blue', code: 'B' },
+  { label: '\u7eff\u8272\u7cfb', en: 'Green', code: 'G' },
   { label: '\u91d1\u8272\u7cfb', en: 'Gold', code: 'A' },
   { label: '\u591a\u8272\u7cfb', en: 'Multicolor', code: 'M' },
 ];
@@ -131,12 +132,7 @@ export function Explore() {
       }
 
       if (activeMeaning && classification.meaningCategory !== activeMeaning) return false;
-      if (activeColor) {
-        const colorMatches = activeColor === 'GB'
-          ? classification.colorCategory === 'G' || classification.colorCategory === 'B'
-          : classification.colorCategory === activeColor;
-        if (!colorMatches) return false;
-      }
+      if (activeColor && classification.colorCategory !== activeColor) return false;
 
       if (activeTechnique) {
         const techniqueText = getMultilingualValues(pattern.craft).toLowerCase();
