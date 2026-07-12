@@ -29,8 +29,10 @@ const zh = {
   updating: '\u6301\u7eed\u66f4\u65b0',
   close: '\u5173\u95ed',
   closeCopyright: '\u5173\u95ed\u7248\u6743\u8bf4\u660e',
-  copyrightLine: '\u00a9 2026 \u90b9\u7267\u5e0c Zoey. All Rights Reserved.',
+  copyrightLine: '\u00a9 2026 \u90b9\u7267\u5e0c\uff08\u82f1\u6587\u540d\u7b80\u79f0\uff1aZoey\uff09. All Rights Reserved.',
 };
+
+const enCopyrightLine = '\u00a9 2026 \u90b9\u7267\u5e0c (English name abbreviation: Zoey). All Rights Reserved.';
 
 const footerLinks = [
   { zh: zh.about, en: 'About XIUYIJING', to: '/about' },
@@ -91,12 +93,12 @@ const footerModalContent: Record<FooterModalKey, {
     titleZh: '版权与使用',
     titleEn: 'Copyright and Use',
     paragraphsZh: [
-      '本平台原创内容及具有独创性的选择、编排与视觉表达，其相关权利归邹牧希 Zoey 所有；第三方资料及既有作品的相关权利归原作者、出版机构、收藏机构或原权利人所有。',
+      '本平台原创内容及具有独创性的选择、编排与视觉表达，其相关权利归邹牧希（英文名简称：Zoey）所有；第三方资料及既有作品的相关权利归原作者、出版机构、收藏机构或原权利人所有。',
       '访问、浏览或查看平台内容，不代表获得复制、下载、传播、改编、商业使用或用于模型训练、商业数据库、文创产品等用途的许可。',
       '如权利人认为平台内容涉及其合法权益，可通过页面公布的联系方式提交权利通知。平台将在收到有效材料后视情况核实、补充来源、修正信息、限制展示或删除内容。',
     ],
     paragraphsEn: [
-      'Original platform content and original selection, arrangement and visual expression belong to Zoey. Third-party materials and existing works remain owned by their original authors, publishers, collection institutions or right holders.',
+      'Original platform content and original selection, arrangement and visual expression belong to \u90b9\u7267\u5e0c (English name abbreviation: Zoey). Third-party materials and existing works remain owned by their original authors, publishers, collection institutions or right holders.',
       'Accessing or viewing the platform does not grant permission to copy, download, distribute, adapt, commercially use, train models with, build commercial databases from or apply the materials to products.',
       'Right holders may submit notices through the published contact channel. The platform may verify, supplement sources, correct information, restrict display or remove content after receiving valid materials.',
     ],
@@ -228,7 +230,7 @@ export function Footer() {
         </div>
 
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/38 md:flex-row md:items-center md:justify-between">
-          <p>{zh.copyrightLine}</p>
+          <p>{isEnglish ? enCopyrightLine : zh.copyrightLine}</p>
           <a className="transition-colors hover:text-fuchsia-200" href="mailto:mumua2031@gmail.com">
             mumua2031@gmail.com
           </a>
