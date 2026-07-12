@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { mockPatterns } from '../data';
 import { getPatternClassification } from '../lib/classification';
-import type { PatternGene } from '../types';
+import { stitchTechniques } from '../lib/stitches';
 
 const zh = {
   about: '\u5173\u4e8e\u7ee3\u827a\u5883',
@@ -40,14 +40,6 @@ const footerLinks = [
   { zh: zh.contactZoey, en: 'Contact Zoey', href: 'mailto:mumua2031@gmail.com' },
 ] as const;
 
-function splitTechniqueNames(pattern: PatternGene) {
-  const craft = pattern.craft['zh-CN'] || pattern.craft.en || '';
-  return craft
-    .split(/[\u3001\uff0c,|]/)
-    .map((name) => name.trim())
-    .filter(Boolean);
-}
-
 function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
   mockPatterns.forEach((pattern) => {
@@ -63,11 +55,7 @@ function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
 }
 
 function countTechniqueTypes() {
-  const values = new Set<string>();
-  mockPatterns.forEach((pattern) => {
-    splitTechniqueNames(pattern).forEach((technique) => values.add(technique));
-  });
-  return values.size;
+  return stitchTechniques.length;
 }
 
 function formatOverviewValue(value: number | null, zhFallback: string, enFallback: string, isEnglish: boolean) {

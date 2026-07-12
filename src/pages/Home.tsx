@@ -7,6 +7,7 @@ import { GeneWall } from '../components/GeneWall';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import { mockPatterns } from '../data';
 import { archiveTopFilters, getCategoryLabel, getPatternClassification, matchesArchiveTopFilter } from '../lib/classification';
+import { stitchTechniques } from '../lib/stitches';
 import type { PatternGene } from '../types';
 
 type ClassificationCard = {
@@ -177,11 +178,7 @@ function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
 }
 
 function countTechniqueTypes() {
-  const values = new Set<string>();
-  mockPatterns.forEach((pattern) => {
-    splitTechniqueNames(pattern).forEach((technique) => values.add(technique));
-  });
-  return values.size;
+  return stitchTechniques.length;
 }
 
 function formatOverviewValue(value: number | null, fallback: string) {
