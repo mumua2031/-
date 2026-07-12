@@ -115,6 +115,10 @@ type HanxiuBookCard = {
   en: string;
   textZh: string;
   textEn: string;
+  overviewZh: string;
+  overviewEn: string;
+  directionsZh: string[];
+  directionsEn: string[];
   span: string;
   imageUrl: string;
   tone: string;
@@ -124,8 +128,12 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '汉绣图案',
     en: 'Han Embroidery Patterns',
-    textZh: '余戟平、洪叶、陈沐雨著，作为汉绣纹样图像、题材整理与视觉归档的核心参考。',
-    textEn: 'A focused reference for Han embroidery pattern images, subjects and visual archiving.',
+    textZh: '汉绣实物图像、题材归类与传统配色参考。',
+    textEn: 'Pattern images, subject sorting and color references for Han embroidery.',
+    overviewZh: '编著：余戟平、洪叶、陈沐雨。本书系统采集传世汉绣实物图像，完成题材归类与视觉标准化归档，收录民间嫁妆绣、戏服、壁挂等传统绣品纹样，留存汉绣瑞兽、戏曲人物、民俗吉祥花卉图案，并记录载体、原始尺寸与传统配色信息。',
+    overviewEn: 'Compiled by Yu Jiping, Hong Ye and Chen Muyu. The book collects inherited Han embroidery object images, organizes subjects and standardizes visual records, covering dowry embroidery, opera costumes, wall hangings, auspicious beasts, opera figures, folk flowers, carriers, dimensions and traditional colors.',
+    directionsZh: ['民间刺绣视觉档案整理', '工艺美术教学与图案临摹', '服饰、家纺、插画与文创设计', '古旧绣品形制与图案复原'],
+    directionsEn: ['Folk embroidery visual archiving', 'Craft teaching and motif copying', 'Fashion, textile, illustration and cultural-product design', 'Historical embroidery form and motif restoration'],
     span: 'md:col-span-1 md:row-span-2',
     imageUrl: '/books/hanxiu-tu-an.jpg',
     tone: 'from-fuchsia-500/28 via-black/72 to-black',
@@ -133,8 +141,12 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '荆楚汉绣',
     en: 'Jingchu Han Embroidery',
-    textZh: '冯泽民著，聚焦荆楚传统服饰文化与汉绣技艺，是地域工艺语境的重要参照。',
-    textEn: 'A bilingual reference on Jingchu dress culture and Han embroidery craft context.',
+    textZh: '荆楚地域刺绣史、工艺流程与传承脉络参考。',
+    textEn: 'Regional embroidery history, craft process and inheritance context.',
+    overviewZh: '著者：冯泽民。本书立足荆楚地域文化脉络，梳理先秦楚绣至近现代汉绣的技艺传承，涵盖楚地传统服饰规制、刺绣工艺流程、地方匠人谱系，并区分荆楚汉绣与其他地域刺绣在工艺和审美上的差异。',
+    overviewEn: 'Written by Feng Zemin. The book follows Jingchu regional culture, tracing craft inheritance from pre-Qin Chu embroidery to modern Han embroidery, including dress conventions, embroidery processes, local maker lineages and differences from other regional embroidery traditions.',
+    directionsZh: ['地域刺绣非遗史学研究', '传统针法与面料适配解析', '多流派刺绣横向比较', '婚嫁、戏曲与礼仪服饰复原', '非遗传承与产业研究'],
+    directionsEn: ['Regional embroidery heritage history', 'Stitch and fabric process analysis', 'Cross-school embroidery comparison', 'Wedding, opera and ritual dress restoration', 'Heritage transmission and industry research'],
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/jingchu-hanxiu.jpg',
     tone: 'from-sky-500/24 via-black/70 to-black',
@@ -142,8 +154,12 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '中国纹样三千年',
     en: 'Three Thousand Years of Chinese Patterns',
-    textZh: '沈鹏石图、洛樱笙文，梳理中国纹样演变线索，为纹样年代与造型比较提供参考。',
-    textEn: 'A visual guide to Chinese pattern history for period clues and motif comparison.',
+    textZh: '中国历代纹样断代、母题演变与分类参考。',
+    textEn: 'Chinese pattern period clues, motif evolution and classification reference.',
+    overviewZh: '绘：沈鹏，文：洛樱。通史类纹样工具书，梳理从上古彩陶、商周青铜、战国帛画、秦汉瓦当至唐宋织锦、明清刺绣的装饰纹样发展脉络，按时代标注图腾瑞兽、花草、几何、礼乐纹样的年代、寓意与造型演变。',
+    overviewEn: 'Illustrated by Shen Peng and written by Luo Ying. This historical reference traces Chinese decorative patterns from painted pottery, bronzes, silk paintings and tiles to brocade and embroidery, marking period, meaning and form evolution across auspicious beasts, plants, geometry and ritual motifs.',
+    directionsZh: ['传统纹样断代溯源', '经典母题演变研究', '中式传统美学与装饰法则研究', '影视、游戏与古风美术参考', '艺术设计课程教学', '传统纹样分类体系搭建'],
+    directionsEn: ['Traditional pattern period tracing', 'Classic motif evolution research', 'Chinese aesthetics and ornament theory', 'Film, game and period-art reference', 'Art and design teaching', 'Traditional motif taxonomy building'],
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/zhongguo-wenyang-3000.jpg',
     tone: 'from-amber-500/24 via-black/70 to-black',
@@ -151,8 +167,12 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '世界经典纹样大全',
     en: 'The V&A Sourcebook of Pattern & Ornament',
-    textZh: 'V&A 纹样与装饰资料汇编，提供跨文化图案、花卉与装饰结构的比较参照。',
-    textEn: 'A V&A sourcebook for cross-cultural ornament, floral pattern and decorative structure references.',
+    textZh: 'V&A 跨文明装饰纹样理论与比较框架参考。',
+    textEn: 'V&A cross-cultural ornament theory and comparison framework.',
+    overviewZh: '资料汇编来源：英国 V&A 博物馆馆藏纹样文献。全书覆盖古埃及、古希腊、波斯、伊斯兰、古印度、欧洲中世纪、东亚浮世绘等装饰体系，从历史背景、宗教内涵、构图逻辑解析卷草、几何、神兽、花卉纹样，建立跨文化纹样比较框架。',
+    overviewEn: 'Compiled from V&A Museum pattern references. The book covers ancient Egyptian, Greek, Persian, Islamic, Indian, medieval European and East Asian ornament systems, explaining scrollwork, geometry, mythical beasts and floral motifs through history, religion and composition.',
+    directionsZh: ['中外装饰纹样比较研究', '比较艺术学与跨文明传播研究', '国际化视觉设计创作', '双语艺术内容编撰', '海外传统文化传播策划'],
+    directionsEn: ['Chinese and international ornament comparison', 'Comparative art and cross-cultural transmission research', 'International visual design', 'Bilingual art content writing', 'Overseas cultural communication planning'],
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/va-pattern-ornament.png',
     tone: 'from-emerald-500/22 via-black/72 to-black',
@@ -160,8 +180,12 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '世界经典纹样大全',
     en: 'V&A Pattern Plates',
-    textZh: '以植物、鸟兽、边饰和装饰图版作为色彩搭配与纹样构成的辅助参考。',
-    textEn: 'Plate references for color pairing, birds, plants, borders and ornamental composition.',
+    textZh: 'V&A 高清图版、线条肌理与原始配色参考。',
+    textEn: 'V&A image plates, line texture and original color reference.',
+    overviewZh: 'V&A 馆藏纹样汇编配套高清图像图集，以织物、壁画、陶瓷、版画、建筑浮雕原始实拍图为核心内容，侧重视觉素材呈现，还原全球古纹样原生线条、肌理与原始配色，可用于线稿提取与视觉对照。',
+    overviewEn: 'A high-resolution image-plate companion to V&A pattern references, centered on textiles, murals, ceramics, prints and architectural reliefs. It emphasizes visual material, original linework, texture and color for tracing and comparative display.',
+    directionsZh: ['复古纹样视觉素材提取', '跨文明图文对比展示', '数字艺术、三维贴图与空间装饰', '传统色彩体系对照研究', '艺术临摹图集配套'],
+    directionsEn: ['Vintage motif extraction', 'Cross-cultural visual comparison', 'Digital art, 3D textures and spatial decoration', 'Traditional color-system comparison', 'Art copying and plate study'],
     span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/va-pattern-plates.jpg',
     tone: 'from-rose-500/22 via-black/72 to-black',
@@ -169,13 +193,22 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   {
     zh: '秦汉纹样',
     en: 'Qin and Han Patterns',
-    textZh: '传统拓片纹样图集，收录秦汉时期图案造型，为早期纹样结构与符号比较提供参考。',
-    textEn: 'A rubbing-pattern collection for comparing early Chinese motif structures and symbols.',
+    textZh: '秦汉金石拓片、四神云气与上古图腾参考。',
+    textEn: 'Qin-Han rubbing plates, four spirits, cloud forms and early symbols.',
+    overviewZh: '金石拓片专项图集，收录秦代瓦当、青铜器、简帛纹样，以及汉代画像石、画像砖、马王堆帛绣、漆器、铜镜拓印图案，聚焦中华上古装饰源头，留存四神、云气、龙凤、茱萸、几何图腾原始造型。',
+    overviewEn: 'A specialized rubbing-pattern collection covering Qin tiles, bronzes, bamboo and silk motifs, Han pictorial stones and bricks, Mawangdui silk embroidery, lacquerware and bronze-mirror rubbings, preserving early four-spirit, cloud, dragon-phoenix, cornelian-cherry and geometric forms.',
+    directionsZh: ['上古装饰母题溯源', '先秦两汉工艺美术研究', '新中式国风视觉设计', '古代文物复原工程', '传统符号学研究', '上古纹样资料库搭建'],
+    directionsEn: ['Early ornament motif tracing', 'Pre-Qin and Han craft-art research', 'New Chinese visual design', 'Ancient artifact restoration', 'Traditional semiotics research', 'Early-pattern archive building'],
     span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/qinhan-wenyang.jpg',
     tone: 'from-blue-500/24 via-black/72 to-black',
   },
 ];
+
+const bookshelfOverall = {
+  zh: ['传统工艺美术与装饰设计史研究', '传统纹样图像归档与分类资料库搭建', '服装、包装、数字插画与三维文创设计', '非遗展馆、文旅展陈与图文脚本制作', '美术与设计专业传统图案课程教学', '古代服饰、漆器、绣品复刻与修复', '中外传统艺术对比科普与多语言传播'],
+  en: ['Traditional craft and ornament history research', 'Pattern image archiving and taxonomy building', 'Fashion, packaging, digital illustration and 3D cultural-product design', 'Heritage exhibition and tourism display scripting', 'Traditional-pattern teaching for art and design', 'Historical dress, lacquerware and embroidery restoration', 'Cross-cultural art education and multilingual communication'],
+};
 
 function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
@@ -225,6 +258,7 @@ export function Home() {
   const categoryLanguage = isEnglish ? 'en' : 'zh';
   const [activeArchiveCategory, setActiveArchiveCategory] = useState('all');
   const [activeCard, setActiveCard] = useState(1);
+  const [selectedBook, setSelectedBook] = useState<HanxiuBookCard | null>(null);
   const currentCards = cardGroups[0];
   const archivePatterns = useMemo(() => mockPatterns.filter((pattern) => matchesArchiveTopFilter(pattern, activeArchiveCategory)), [activeArchiveCategory]);
 
@@ -364,9 +398,11 @@ export function Home() {
 
           <div className="grid auto-rows-[220px] gap-5 md:grid-cols-[1.05fr_1fr_1fr_1fr_1fr] md:auto-rows-[180px] xl:auto-rows-[205px]">
             {hanxiuBookCards.map((book, index) => (
-              <article
-                key={book.zh}
-                className={'group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] opacity-0 animate-[gene-origin-card-in_420ms_ease_both] transition-all duration-300 hover:-translate-y-1 hover:border-fuchsia-300/45 hover:shadow-[0_18px_70px_rgba(217,70,239,0.16)] ' + book.span}
+              <button
+                key={`${book.en}-${index}`}
+                type="button"
+                onClick={() => setSelectedBook(book)}
+                className={'group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] text-left opacity-0 animate-[gene-origin-card-in_420ms_ease_both] transition-all duration-300 hover:-translate-y-1 hover:border-fuchsia-300/45 hover:shadow-[0_18px_70px_rgba(217,70,239,0.16)] ' + book.span}
                 style={{ animationDelay: String(index * 80) + 'ms' }}
               >
                 <img
@@ -374,22 +410,73 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
-                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.52] transition-transform duration-500 group-hover:scale-105"
+                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.72] transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />
-                <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.62)_58%,rgba(0,0,0,0.92))]" />
+                <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.44)_56%,rgba(0,0,0,0.84))]" />
                 <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-300/55 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-8">
                   <div>
-                    <h3 className="max-w-[22rem] text-3xl font-semibold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] md:text-2xl xl:text-4xl">{isEnglish ? book.en : book.zh}</h3>
+                    <h3 className="max-w-[22rem] text-2xl font-semibold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] md:text-xl xl:text-3xl">{isEnglish ? book.en : book.zh}</h3>
                   </div>
-                  <p className="line-clamp-3 max-w-2xl text-sm font-medium leading-7 text-white/72 md:text-sm xl:text-base">{isEnglish ? book.textEn : book.textZh}</p>
+                  <p className="line-clamp-2 max-w-2xl text-sm font-medium leading-6 text-white/72">{isEnglish ? book.textEn : book.textZh}</p>
                 </div>
-              </article>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {selectedBook && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/76 px-5 backdrop-blur-md" onClick={() => setSelectedBook(null)}>
+          <section className="grid max-h-[84vh] w-full max-w-6xl overflow-y-auto rounded-lg border border-white/12 bg-[#050506] shadow-[0_28px_110px_rgba(0,0,0,0.7)] md:grid-cols-[0.92fr_1.08fr]" onClick={(event) => event.stopPropagation()}>
+            <div className="relative min-h-[320px] overflow-hidden bg-black md:min-h-[620px]">
+              <img src={selectedBook.imageUrl} alt={isEnglish ? selectedBook.en : selectedBook.zh} className="absolute inset-0 h-full w-full object-cover opacity-85" />
+              <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.38)_54%,rgba(0,0,0,0.86))]" />
+              <div className="absolute inset-x-0 bottom-0 p-8">
+                <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/64">{isEnglish ? 'Reference Book' : '馆藏典籍资源'}</p>
+                <h3 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-4xl">{isEnglish ? selectedBook.en : selectedBook.zh}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/70">{isEnglish ? selectedBook.textEn : selectedBook.textZh}</p>
+              </div>
+            </div>
+
+            <div className="p-7 md:p-10">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-fuchsia-200/55">{isEnglish ? 'Full-Dimension Reference' : '全维度参考说明'}</p>
+                  <h4 className="mt-3 text-2xl font-semibold text-white">{isEnglish ? 'Reference Scope' : '基础概况'}</h4>
+                </div>
+                <button type="button" onClick={() => setSelectedBook(null)} className="shrink-0 rounded-full border border-white/14 px-4 py-2 text-sm text-white/58 transition-colors hover:border-fuchsia-300/40 hover:text-white">
+                  {isEnglish ? 'Close' : '关闭'}
+                </button>
+              </div>
+
+              <p className="mt-6 text-sm leading-8 text-white/66">{isEnglish ? selectedBook.overviewEn : selectedBook.overviewZh}</p>
+
+              <div className="mt-9">
+                <h5 className="text-lg font-semibold text-white">{isEnglish ? 'Reference Directions' : '适用参考方向'}</h5>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {(isEnglish ? selectedBook.directionsEn : selectedBook.directionsZh).map((item, index) => (
+                    <div key={item} className="rounded border border-white/10 bg-white/[0.025] px-4 py-3 text-sm leading-6 text-white/68">
+                      <span className="mr-3 font-mono text-xs text-fuchsia-200/70">{String(index + 1).padStart(2, '0')}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-9 border-t border-white/10 pt-7">
+                <h5 className="text-lg font-semibold text-white">{isEnglish ? 'Overall Use' : '整体资源综合应用方向'}</h5>
+                <ol className="mt-4 grid gap-x-5 gap-y-2 pl-5 text-sm leading-7 text-white/60 sm:grid-cols-2">
+                  {(isEnglish ? bookshelfOverall.en : bookshelfOverall.zh).map((item) => (
+                    <li key={item} className="list-decimal pl-1">{item}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
 
 
     </main>
