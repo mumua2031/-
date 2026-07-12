@@ -308,7 +308,6 @@ export function Home() {
 
           <div className="hanxiu-symbol-carousel">
             {currentCards.map((card, index) => {
-              const Icon = card.icon;
               const offset = index - activeCard;
 
               return (
@@ -330,10 +329,6 @@ export function Home() {
                     />
                   )}
                   <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.78))]" />
-                  <span className="hanxiu-symbol-icon relative z-10">
-                    <Icon className="h-8 w-8" />
-                  </span>
-                  <span className="relative z-10 text-sm text-fuchsia-200/70">{isEnglish ? card.enTitle : '\u7b26\u53f7\u5206\u7c7b'}</span>
                   <span className="relative z-10 flex w-full items-center justify-between gap-4">
                     <strong className="text-3xl font-semibold text-white">{isEnglish ? card.enTitle : card.title}</strong>
                   </span>
