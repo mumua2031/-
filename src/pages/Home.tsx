@@ -158,7 +158,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     tone: 'from-emerald-500/22 via-black/72 to-black',
   },
   {
-    zh: '世界经典纹样大全·图版参考',
+    zh: '世界经典纹样大全',
     en: 'V&A Pattern Plates',
     textZh: '以植物、鸟兽、边饰和装饰图版作为色彩搭配与纹样构成的辅助参考。',
     textEn: 'Plate references for color pairing, birds, plants, borders and ornamental composition.',
