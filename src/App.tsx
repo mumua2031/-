@@ -8,6 +8,7 @@ import { Navigation } from './components/Navigation';
 import { FloatingActions } from './components/FloatingActions';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
+import { AboutProject } from './pages/AboutProject';
 import { Explore } from './pages/Explore';
 import { GeneDeconstruct } from './pages/GeneDeconstruct';
 import { PatternDetail } from './pages/PatternDetail';
@@ -35,6 +36,12 @@ export default function App() {
             <Explore />
             <FloatingActions />
             <Footer />
+          </>
+        } />
+        <Route path="/about" element={
+          <>
+            <Navigation />
+            <AboutProject />
           </>
         } />
         <Route path="/deconstruct" element={

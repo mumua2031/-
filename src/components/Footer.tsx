@@ -32,7 +32,7 @@ const zh = {
 };
 
 const footerLinks = [
-  { zh: zh.about, en: 'About XIUYIJING', href: '#about-xiuyijing' },
+  { zh: zh.about, en: 'About XIUYIJING', to: '/about' },
   { zh: zh.researchMethod, en: 'Research Method', to: '/deconstruct' },
   { zh: zh.dataSources, en: 'Data Sources', to: '/explore' },
   { zh: zh.codingStandards, en: 'Coding Standards', to: '/explore' },
@@ -108,12 +108,12 @@ export function Footer() {
             </div>
 
             <div className="flex lg:justify-end">
-              <a
-                href="#hanxiu-site-footer"
+              <Link
+                to="/about"
                 className="w-max rounded-full border border-fuchsia-300/35 bg-fuchsia-950/20 px-5 py-2 text-sm text-fuchsia-100 shadow-[0_0_22px_rgba(217,70,239,0.18)] transition-colors hover:border-fuchsia-200/70 hover:bg-fuchsia-800/25"
               >
                 {isEnglish ? 'Learn More' : zh.learnMore}
-              </a>
+              </Link>
             </div>
           </div>
 
