@@ -17,6 +17,9 @@ type CircularGalleryProps = {
   fontUrl?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  autoPlay?: boolean;
+  autoPlaySpeed?: number;
+  autoPlayResumeDelay?: number;
   onActiveIndexChange?: (index: number) => void;
 };
 
@@ -393,6 +396,10 @@ class App {
   scroll: { ease: number; current: number; target: number; last: number; position: number };
   onCheckDebounce: () => void;
   scrollSpeed: number;
+  autoPlay: boolean;
+  autoPlaySpeed: number;
+  autoPlayResumeDelay: number;
+  autoPlayResumeAt = 0;
   onActiveIndexChange?: (index: number) => void;
   activeIndex = -1;
   renderer!: Renderer;
@@ -414,12 +421,15 @@ class App {
   boundOnTouchUp!: () => void;
   boundOnKeyDown!: (event: KeyboardEvent) => void;
 
-  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, onActiveIndexChange }: CircularGalleryProps) {
+  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, autoPlay = false, autoPlaySpeed = 0.018, autoPlayResumeDelay = 1400, onActiveIndexChange }: CircularGalleryProps) {
     autoBind(this);
     this.container = container;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0, position: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
     this.scrollSpeed = scrollSpeed;
+    this.autoPlay = autoPlay;
+    this.autoPlaySpeed = autoPlaySpeed;
+    this.autoPlayResumeDelay = autoPlayResumeDelay;
     this.onActiveIndexChange = onActiveIndexChange;
     this.createRenderer();
     this.createCamera();
@@ -483,6 +493,7 @@ class App {
 
   onTouchDown(e: MouseEvent | TouchEvent) {
     this.isDown = true;
+    this.pauseAutoPlay();
     this.scroll.position = this.scroll.current;
     this.start = 'touches' in e ? e.touches[0].clientX : e.clientX;
   }
@@ -496,35 +507,60 @@ class App {
 
   onTouchUp() {
     this.isDown = false;
+    this.scheduleAutoPlayResume();
     this.onCheck();
   }
 
   onWheel(e: WheelEvent) {
+    this.pauseAutoPlay();
     const delta = e.deltaY || 0;
     this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+    this.scheduleAutoPlayResume();
     this.onCheckDebounce();
   }
 
   onKeyDown(e: KeyboardEvent) {
+    let handled = true;
     switch (e.key) {
       case 'ArrowRight':
         e.preventDefault();
+        this.pauseAutoPlay();
         this.scroll.target += this.scrollSpeed * 5;
+        this.scheduleAutoPlayResume();
         this.onCheckDebounce();
         break;
       case 'ArrowLeft':
         e.preventDefault();
+        this.pauseAutoPlay();
         this.scroll.target -= this.scrollSpeed * 5;
+        this.scheduleAutoPlayResume();
         this.onCheckDebounce();
         break;
       case 'Home':
         e.preventDefault();
+        this.pauseAutoPlay();
         this.scroll.target = 0;
+        this.scheduleAutoPlayResume();
         this.onCheckDebounce();
         break;
       default:
+        handled = false;
         break;
     }
+    if (handled) this.container.focus();
+  }
+
+  pauseAutoPlay() {
+    this.autoPlayResumeAt = Number.POSITIVE_INFINITY;
+  }
+
+  scheduleAutoPlayResume() {
+    this.autoPlayResumeAt = window.performance.now() + this.autoPlayResumeDelay;
+  }
+
+  applyAutoPlay() {
+    if (!this.autoPlay || this.isDown || window.performance.now() < this.autoPlayResumeAt) return;
+    this.scroll.target += this.autoPlaySpeed;
   }
 
   onCheck() {
@@ -547,6 +583,7 @@ class App {
   }
 
   update() {
+    this.applyAutoPlay();
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     this.medias.forEach((media) => media.update(this.scroll, direction));
@@ -611,6 +648,9 @@ export default function CircularGallery({
   fontUrl,
   scrollSpeed = 2,
   scrollEase = 0.05,
+  autoPlay = false,
+  autoPlaySpeed = 0.018,
+  autoPlayResumeDelay = 1400,
   onActiveIndexChange,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -628,6 +668,9 @@ export default function CircularGallery({
         font: resolvedFont,
         scrollSpeed,
         scrollEase,
+        autoPlay,
+        autoPlaySpeed,
+        autoPlayResumeDelay,
         onActiveIndexChange,
       });
     });
@@ -635,7 +678,7 @@ export default function CircularGallery({
       isMounted = false;
       app?.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, onActiveIndexChange]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, onActiveIndexChange]);
 
   return (
     <div

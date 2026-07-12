@@ -201,6 +201,9 @@ export function GeneDeconstruct() {
               scrollSpeed={1.8}
               scrollEase={0.045}
               font="600 28px Noto Sans SC"
+              autoPlay
+              autoPlaySpeed={0.02}
+              autoPlayResumeDelay={1600}
               onActiveIndexChange={handleGalleryIndexChange}
             />
           </div>
