@@ -5,6 +5,8 @@ import { mockPatterns } from '../data';
 import { getPatternClassification } from '../lib/classification';
 import { stitchTechniques } from '../lib/stitches';
 
+type FooterModalKey = 'research' | 'sources' | 'coding' | 'copyright';
+
 const zh = {
   about: '\u5173\u4e8e\u7ee3\u827a\u5883',
   researchMethod: '\u7814\u7a76\u65b9\u6cd5',
@@ -27,18 +29,79 @@ const zh = {
   updating: '\u6301\u7eed\u66f4\u65b0',
   close: '\u5173\u95ed',
   closeCopyright: '\u5173\u95ed\u7248\u6743\u8bf4\u660e',
-  copyrightText: '\u672c\u7f51\u7ad9\u7684\u89c6\u89c9\u8bbe\u8ba1\u3001\u754c\u9762\u8bbe\u8ba1\u3001\u4ea4\u4e92\u8bbe\u8ba1\u3001\u7814\u7a76\u5185\u5bb9\u53ca\u6570\u5b57\u8d44\u6e90\u7248\u6743\u5f52\u90b9\u7267\u5e0c\u4e2a\u4eba\u6240\u6709\u3002\u672a\u7ecf\u6388\u6743\uff0c\u4e0d\u5f97\u590d\u5236\u3001\u8f6c\u8f7d\u3001\u4fee\u6539\u6216\u7528\u4e8e\u5546\u4e1a\u7528\u9014\u3002',
   copyrightLine: '\u00a9 2026 \u90b9\u7267\u5e0c Zoey. All Rights Reserved.',
 };
 
 const footerLinks = [
   { zh: zh.about, en: 'About XIUYIJING', to: '/about' },
-  { zh: zh.researchMethod, en: 'Research Method', to: '/deconstruct' },
-  { zh: zh.dataSources, en: 'Data Sources', to: '/explore' },
-  { zh: zh.codingStandards, en: 'Coding Standards', to: '/explore' },
-  { zh: zh.copyright, en: 'Copyright', action: 'copyright' },
+  { zh: zh.researchMethod, en: 'Research Method', modal: 'research' },
+  { zh: zh.dataSources, en: 'Data Sources', modal: 'sources' },
+  { zh: zh.codingStandards, en: 'Coding Standards', modal: 'coding' },
+  { zh: zh.copyright, en: 'Copyright', modal: 'copyright' },
   { zh: zh.contactZoey, en: 'Contact Zoey', href: 'mailto:mumua2031@gmail.com' },
 ] as const;
+
+const footerModalContent: Record<FooterModalKey, {
+  titleZh: string;
+  titleEn: string;
+  paragraphsZh: string[];
+  paragraphsEn: string[];
+  itemsZh?: string[];
+  itemsEn?: string[];
+}> = {
+  research: {
+    titleZh: '研究方法',
+    titleEn: 'Research Method',
+    paragraphsZh: [
+      '本项目以“观绣”和“解绣”为基本方法：先整理公开图像、文献、线下观察与拍摄资料，再从题材、寓意、色彩、针法、载体和年代线索建立结构化档案。',
+      '平台中的分类、释义和编码主要服务于资料整理、检索和展示，不作为文物鉴定、权属鉴定、学术定论或商业授权依据。',
+    ],
+    paragraphsEn: [
+      'The project combines visual observation and structured interpretation: public images, literature, offline observation and field records are organized before subjects, meanings, colors, stitches, carriers and period clues are archived.',
+      'The classifications and interpretations support research, retrieval and display only. They are not authentication, ownership confirmation, academic finality or commercial authorization.',
+    ],
+  },
+  sources: {
+    titleZh: '数据来源',
+    titleEn: 'Data Sources',
+    paragraphsZh: [
+      '平台资料主要来源于线上与线下公开资源，包括公开网络资料、书籍文献、学术资料、博物馆及文化机构公开信息，以及项目实践中形成的拍摄、访谈、观察和整理记录。',
+      '平台会尽量标注已知来源；如部分资料存在来源不完整、名称差异、年代争议或解释分歧，应以原始文献、实物记录和权威机构资料进一步核实。',
+    ],
+    paragraphsEn: [
+      'Materials mainly come from public online and offline resources, including public web information, books, academic references, museum and cultural-institution records, plus project photography, interviews, observation and organization notes.',
+      'Known sources are recorded where possible. Incomplete provenance, naming differences, period disputes or interpretation gaps should be checked against original documents, physical records and authoritative institutions.',
+    ],
+  },
+  coding: {
+    titleZh: '编码规范',
+    titleEn: 'Coding Standards',
+    paragraphsZh: [
+      'HE 编码是本项目内部使用的汉绣纹样数字档案编码，用于分类检索、数据管理和页面展示。',
+      '编码结构示例：HE-NB-R01。HE 为 Han Embroidery 固定前缀；N/H/G 表示纹样大类；B/S/L 表示寓意大类；R/G/B/A/M 表示色彩大类；01 表示同一分类组合下的唯一序号。',
+      'HE 编码不代表对传统纹样、历史实物、原始图像、馆藏资料或第三方文化资源权属的认定。',
+    ],
+    paragraphsEn: [
+      'HE codes are internal archive identifiers for Han embroidery pattern records, supporting retrieval, data management and page display.',
+      'Example: HE-NB-R01. HE is the fixed Han Embroidery prefix; N/H/G marks the motif category; B/S/L marks the meaning category; R/G/B/A/M marks the color category; 01 is the sequence number under that category combination.',
+      'HE codes do not determine ownership of traditional motifs, historical objects, original images, collection records or third-party cultural resources.',
+    ],
+  },
+  copyright: {
+    titleZh: '版权与使用',
+    titleEn: 'Copyright and Use',
+    paragraphsZh: [
+      '本平台原创内容及具有独创性的选择、编排与视觉表达，其相关权利归邹牧希 Zoey 所有；第三方资料及既有作品的相关权利归原作者、出版机构、收藏机构或原权利人所有。',
+      '访问、浏览或查看平台内容，不代表获得复制、下载、传播、改编、商业使用或用于模型训练、商业数据库、文创产品等用途的许可。',
+      '如权利人认为平台内容涉及其合法权益，可通过页面公布的联系方式提交权利通知。平台将在收到有效材料后视情况核实、补充来源、修正信息、限制展示或删除内容。',
+    ],
+    paragraphsEn: [
+      'Original platform content and original selection, arrangement and visual expression belong to Zoey. Third-party materials and existing works remain owned by their original authors, publishers, collection institutions or right holders.',
+      'Accessing or viewing the platform does not grant permission to copy, download, distribute, adapt, commercially use, train models with, build commercial databases from or apply the materials to products.',
+      'Right holders may submit notices through the published contact channel. The platform may verify, supplement sources, correct information, restrict display or remove content after receiving valid materials.',
+    ],
+  },
+};
 
 function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
@@ -77,8 +140,9 @@ function getOverviewItems(isEnglish: boolean) {
 export function Footer() {
   const { i18n } = useTranslation();
   const isEnglish = i18n.language === 'en';
-  const [isCopyrightOpen, setIsCopyrightOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState<FooterModalKey | null>(null);
   const overviewItems = getOverviewItems(isEnglish);
+  const modalContent = activeModal ? footerModalContent[activeModal] : null;
 
   return (
     <>
@@ -138,9 +202,9 @@ export function Footer() {
               const className = 'group rounded-lg border border-white/10 bg-white/[0.025] px-4 py-3 text-left transition-colors hover:border-fuchsia-300/35 hover:bg-fuchsia-950/10';
               const content = <span className="block text-sm text-white/78 group-hover:text-white">{isEnglish ? link.en : link.zh}</span>;
 
-              if ('action' in link) {
+              if ('modal' in link) {
                 return (
-                  <button key={link.en} type="button" className={className} onClick={() => setIsCopyrightOpen(true)}>
+                  <button key={link.en} type="button" className={className} onClick={() => setActiveModal(link.modal)}>
                     {content}
                   </button>
                 );
@@ -171,27 +235,34 @@ export function Footer() {
         </div>
       </footer>
 
-      {isCopyrightOpen && (
+      {modalContent && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center px-5">
           <button
             type="button"
             className="absolute inset-0 bg-black/72 backdrop-blur-sm"
-            onClick={() => setIsCopyrightOpen(false)}
-            aria-label={isEnglish ? 'Close copyright notice' : zh.closeCopyright}
+            onClick={() => setActiveModal(null)}
+            aria-label={isEnglish ? 'Close notice' : zh.closeCopyright}
           />
-          <section className="relative z-10 w-full max-w-2xl rounded-lg border border-fuchsia-200/18 bg-[#08090a] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.58)]">
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/55">{isEnglish ? 'Copyright' : zh.copyright}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">{isEnglish ? 'Copyright' : zh.copyright}</h3>
-            <p className="mt-5 text-sm leading-8 text-white/68">
-              {isEnglish
-                ? 'The visual design, interface design, interaction design, research content and digital assets of this website are personally created and owned by Zoey. Unauthorized reproduction, modification, distribution or commercial use is prohibited.'
-                : zh.copyrightText}
-            </p>
+          <section className="relative z-10 max-h-[82vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-fuchsia-200/18 bg-[#08090a] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.58)]">
+            <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/55">{isEnglish ? modalContent.titleEn : modalContent.titleZh}</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">{isEnglish ? modalContent.titleEn : modalContent.titleZh}</h3>
+            <div className="mt-5 space-y-4 text-sm leading-8 text-white/68">
+              {(isEnglish ? modalContent.paragraphsEn : modalContent.paragraphsZh).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {(isEnglish ? modalContent.itemsEn : modalContent.itemsZh)?.length ? (
+                <ol className="space-y-2 pl-5 text-white/72">
+                  {(isEnglish ? modalContent.itemsEn : modalContent.itemsZh)?.map((item) => (
+                    <li key={item} className="list-decimal pl-2">{item}</li>
+                  ))}
+                </ol>
+              ) : null}
+            </div>
             <div className="mt-7 flex justify-end">
               <button
                 type="button"
                 className="rounded-full border border-fuchsia-300/35 bg-fuchsia-950/20 px-5 py-2 text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-200/70 hover:bg-fuchsia-800/25"
-                onClick={() => setIsCopyrightOpen(false)}
+                onClick={() => setActiveModal(null)}
               >
                 {isEnglish ? 'Close' : zh.close}
               </button>
