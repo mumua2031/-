@@ -28,7 +28,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "传统婚嫁喜庆汉绣小品",
+    "era": "当代复原",
     "carrier": "白底圆形独立绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -88,7 +88,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代，国家级传承人任本荣晚年创作",
+    "era": "当代",
     "carrier": "真丝软缎绣底，实木镜框装饰绣品",
     "region": "湖北武汉汉口绣花街汉绣传承区",
     "copyrightOwner": "传统 “双狮滚绣球” 民俗纹样属于公有非遗素材；本幅构图、配色、画面绣制为任本荣原创，商用需取得任氏传承家族授权",
@@ -148,7 +148,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "传统服饰镶边复刻汉绣",
+    "era": "当代复原",
     "carrier": "黑底方形衣饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -208,7 +208,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "现代节庆文创台屏绣芯",
+    "era": "当代复原",
     "carrier": "深蓝暗纹缎圆形框装绣片",
     "region": "湖北武汉",
     "copyrightOwner": "丹凤、牡丹为传统公有纹样；深蓝圆框对称构图当代原创，商用需授权",
@@ -268,7 +268,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代传统婚嫁花鸟题材汉绣",
+    "era": "当代复原",
     "carrier": "黑色底绸缎装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "鸳鸯、荷花、四季花卉为传统公有古典纹样；整幅错落藤蔓构图、多彩渐变配色为当代原创，商用需取得制作方授权",
@@ -328,7 +328,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "清代官服补子复原汉绣",
+    "era": "当代复原（参考清代）",
     "carrier": "黑缎圆团绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -388,7 +388,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "第七届世界军人运动会城市纪念文创汉绣",
+    "era": "当代（2019年）",
     "carrier": "深蓝底方形纪念装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "兵兵、黄鹤楼、江豚为城市公有纪念符号；全幅江城元素融合深蓝低饱和配色构图为当代原创，商用需取得授权",
@@ -448,7 +448,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "当代传统富贵花鸟题材汉绣",
+    "era": "当代复原",
     "carrier": "橙红色绸缎底竖幅装饰绣品",
     "region": "湖北武汉",
     "copyrightOwner": "凤凰、牡丹、祥云为传统公有古典纹样；橙红底色搭配金线祥云构图为当代原创，商用需取得制作方授权",
@@ -508,7 +508,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "荆楚地域文化主题装饰汉绣",
+    "era": "当代复原（参考战国）",
     "carrier": "浅杂色缎横向大幅壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "楚凤、云水为荆楚公有图腾；群凤满铺横向构图当代原创，商用需授权",
@@ -568,7 +568,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "当代极简文人花卉小品汉绣",
+    "era": "当代复原",
     "carrier": "白底独立花卉装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "荷花为传统公有古典纹样；特写单荷极简留白构图、淡粉柔红配色为当代原创，商用需取得制作方授权",
@@ -628,7 +628,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "当代传统瑞兽吉祥题材汉绣",
+    "era": "当代复原",
     "carrier": "正红色底圆形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "狮子、绣球、飘带为传统公有古典纹样；圆形对称构图、红底配色方案为当代原创，商用需取得制作方授权",
@@ -688,7 +688,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "传统福寿纹样当代复原汉绣",
+    "era": "当代复原（参考明清）",
     "carrier": "湖蓝色绸缎面料，服饰帷幔类绣品",
     "region": "湖北武汉",
     "copyrightOwner": "双龙、寿字、祥云纹样为明清公有传统纹样；对称构图、银线刺绣表现形式为当代原创，商用需取得制作方授权",
@@ -748,7 +748,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "武汉城市地标竖幅文创绣品",
+    "era": "当代",
     "carrier": "浅灰缎长款竖幅装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "黄鹤楼、凤鹤为公有文化符号；竖幅山水禽鸟融合构图当代原创，商用需授权",
@@ -808,7 +808,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "武汉城市纪念礼品汉绣",
+    "era": "当代",
     "carrier": "大红缎方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "黄鹤楼、仙鹤为公有城市符号；红底楼阁群鹤构图当代原创，商用需授权",
@@ -868,7 +868,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代红色主题创新汉绣作品",
+    "era": "当代（2022年）",
     "carrier": "正红色绸缎底方形装饰绣品",
     "region": "湖北武汉",
     "copyrightOwner": "凤凰、牡丹、和平鸽、麦穗为传统公有吉祥纹样；整幅红色主题构图、文字搭配、元素组合为黄春萍原创，商用需取得黄春萍本人授权",
@@ -928,7 +928,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "高端城市纪念台屏绣芯",
+    "era": "当代",
     "carrier": "浅灰底圆形实木框绣片，金线为画面主体视觉",
     "region": "湖北武汉",
     "copyrightOwner": "黄鹤楼山水为公有景观符号；圆形满盘金山水构图当代原创，商用需授权",
@@ -988,7 +988,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "汉剧戏服局部绣复刻",
+    "era": "当代复原",
     "carrier": "黑缎戏服装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -1048,7 +1048,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "传统祥龙祈福题材当代汉绣",
+    "era": "当代复原",
     "carrier": "藏蓝色竖幅装饰绸缎绣品",
     "region": "湖北武汉",
     "copyrightOwner": "金龙、宝珠、旭日、海水祥云为传统公有古典纹样；深蓝底立龙构图、暖金渐变配色为当代原创，商用需取得制作方授权",
@@ -1108,7 +1108,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "长辈祝寿专用圆台屏绣芯",
+    "era": "当代复原",
     "carrier": "米白缎圆形实木框绣片",
     "region": "湖北武汉",
     "copyrightOwner": "松鹤祥云为传统公有祝寿纹样；留白圆框低饱和配色当代原创，商用需授权",
@@ -1168,7 +1168,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "当代荆楚文化主题创新汉绣",
+    "era": "当代",
     "carrier": "墨绿色绸缎绣底，红边圆形实木镜框装饰摆件",
     "region": "湖北武汉",
     "copyrightOwner": "楚凤、江海水纹、古城楼阁属于传统公有古典纹样；圆形构图、配色、纹样组合布局为王子怡原创，商用需取得王子怡本人授权",
@@ -1228,7 +1228,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "荆楚楚文化复原主题当代汉绣",
+    "era": "当代复原（参考战国）",
     "carrier": "米白底方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "楚凤、楚鹿、云卷草为传统公有古纹样；对称复原构图、浅底复古配色为当代原创，商用需取得制作方授权",
@@ -1288,7 +1288,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "高端祝寿台屏汉绣",
+    "era": "当代复原",
     "carrier": "橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座",
     "region": "湖北武汉",
     "copyrightOwner": "双鹤朝日、海水江崖为传统公有祝寿纹样；橄榄绿深色基底配色当代原创，商用需授权",
@@ -1348,7 +1348,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "传统民间儿童服饰绣品",
+    "era": "当代复原",
     "carrier": "橙缎底儿童围兜绣件",
     "region": "湖北武汉",
     "copyrightOwner": "荷塘花鸟、石榴、八宝卷草为传统公有古典纹样；多层撞色镶边围兜形制为当代复刻创作，商用需取得制作方授权",
@@ -1408,7 +1408,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "通用节庆商务礼品汉绣小品",
+    "era": "当代复原",
     "carrier": "湖绿暗纹缎方形独立装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "牡丹蝴蝶、山石为传统公有纹样；题字国色天香湖绿素雅配色构图当代原创，商用需授权",
@@ -1468,7 +1468,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "仿古青花瓷风格汉绣",
+    "era": "当代",
     "carrier": "浅湖蓝暗纹缎面绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -1528,7 +1528,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "湖北非遗民俗文化主题装饰绣片",
+    "era": "当代复原",
     "carrier": "浅杂色缎方形民俗壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "三棒鼓舞民俗形象为地方公有非遗素材；莲荷环绕人物满铺构图当代原创，商用需授权",
@@ -1588,7 +1588,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "传统女装衣饰复原绣片",
+    "era": "当代复原（参考民国）",
     "carrier": "浅灰缎成对长条衣饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "牡丹八宝卷草为传统公有吉祥纹样；浅灰底满铺对称构图当代原创，商用需授权",
@@ -1648,7 +1648,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "非遗盘金工艺示范绣品",
+    "era": "当代",
     "carrier": "黑底局部工艺展示绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -1708,7 +1708,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "新春贺岁文创绣片",
+    "era": "当代",
     "carrier": "朱红缎方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -1768,7 +1768,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "祝寿、乔迁通用软装绣片",
+    "era": "当代复原",
     "carrier": "纯黑缎方形独立绣片",
     "region": "湖北武汉",
     "copyrightOwner": "寿桃、南瓜、牡丹为传统公有福寿纹样；黑底撞色瓜果构图当代原创，商用需授权",
@@ -1828,7 +1828,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "书房极简文人花卉小品",
+    "era": "当代复原",
     "carrier": "米白缎方形小型装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "荷花蜜蜂为传统公有草木纹样；极简留白小品构图当代原创，商用需授权",
@@ -1888,7 +1888,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代戏曲服饰侧边装饰绣片",
+    "era": "当代复原",
     "carrier": "米白色绸缎戏服衣身",
     "region": "湖北武汉",
     "copyrightOwner": "花卉枝叶为传统公有古典纹样；竖条对称排布、浅底紫花配色为当代原创，商用需取得制作方授权",
@@ -1948,7 +1948,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "国风软装壁挂绣片",
+    "era": "当代复原",
     "carrier": "藏青缎方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -2008,7 +2008,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "传统子孙绵延花鸟民俗题材当代汉绣复刻",
+    "era": "当代复原（参考清代）",
     "carrier": "米纹红底双幅长条服饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "松鼠、葡萄藤蔓为传统公有古典纹样；双幅对称排布、红底暗纹配色为当代原创，商用需取得制作方授权",
@@ -2068,7 +2068,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "现代婚庆、庆典喜庆国风圆绣片",
+    "era": "当代复原",
     "carrier": "大红缎面圆形独立装饰绣片，可配实木圆台屏",
     "region": "湖北武汉",
     "copyrightOwner": "龙、祥云卷草为传统公有古纹样；红底团龙圆形对称构图、青绿撞色龙身配色为当代原创，商用需取得授权",
@@ -2128,7 +2128,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "荆楚文化主题大型装饰汉绣",
+    "era": "当代",
     "carrier": "大红缎面大幅壁挂绣品",
     "region": "湖北武汉",
     "copyrightOwner": "黄鹤楼、楚",
@@ -2188,7 +2188,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "长辈祝寿礼品文创汉绣摆件",
+    "era": "当代复原",
     "carrier": "黑檀木镂空龙头环形底座，圆形缎面绣芯",
     "region": "湖北武汉",
     "copyrightOwner": "仙鹤、祥云、蝙蝠为传统公有古纹样；圆形满铺金线台屏构图配色当代原创，商用需授权",
@@ -2248,7 +2248,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "现代文人花鸟小品汉绣",
+    "era": "现代",
     "carrier": "白底平面装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -2308,7 +2308,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "商务、新春通用喜庆礼品汉绣摆件",
+    "era": "当代复原",
     "carrier": "黑檀镂空环形圆台屏，浅黄缎圆形绣芯",
     "region": "湖北武汉",
     "copyrightOwner": "牡丹、蝴蝶传统公有纹样，题字「榮華富貴」圆形构图配色当代原创，商用需授权",
@@ -2368,7 +2368,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代湖湘清雅文人花鸟汉绣",
+    "era": "当代复原",
     "carrier": "浅灰底方形装饰绸缎绣片",
     "region": "湖北武汉",
     "copyrightOwner": "仙鹤、荷花荷叶为传统公有古典纹样；荷塘栖鹤构图、柔和配色方案为当代原创，商用需取得制作方授权",
@@ -2428,7 +2428,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "当代非遗展览主题汉绣",
+    "era": "当代复原",
     "carrier": "藏蓝色竖幅绸缎展陈绣品",
     "region": "湖北武汉",
     "copyrightOwner": "金凤、牡丹纹样为传统公有古典纹样；展陈文字排版、蓝底暗纹构图为当代原创，商用需取得制作方授权",
@@ -2488,7 +2488,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "传统袄服对襟装饰绣片",
+    "era": "当代复原",
     "carrier": "黑底成对长条绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -2548,7 +2548,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "新中式长款竖幅软装绣品",
+    "era": "当代复原",
     "carrier": "藏青缎长款竖幅壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "百花蝴蝶为传统公有纹样；青花冷调竖幅满铺构图当代原创，商用需授权",
@@ -2608,7 +2608,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "婚嫁喜庆国风壁挂绣片",
+    "era": "当代复原",
     "carrier": "大红缎方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "蝶仙、游鱼为传统神话公有纹样；红底仙鱼对称构图当代原创，商用需授权",
@@ -2668,7 +2668,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "新中式简约文创圆绣",
+    "era": "现代",
     "carrier": "米白缎圆形独立绣片（可配圆框）",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -2728,7 +2728,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "佛教文化主题纪念装饰绣片",
+    "era": "当代复原",
     "carrier": "朱红缎方形宗教人物壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "降龙罗汉、金龙为传统公有宗教纹样；红底人物满铺构图当代原创，商用需授权",
@@ -2788,7 +2788,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "高端城市纪念圆绣摆件",
+    "era": "当代",
     "carrier": "浅灰底圆形独立绣片，金线楼阁仙鹤为核心视觉",
     "region": "湖北武汉",
     "copyrightOwner": "黄鹤楼、仙鹤为公有城市符号；圆形满金线简约构图当代原创，商用需授权",
@@ -2848,7 +2848,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "新婚、乔迁伴手礼文创汉绣摆件",
+    "era": "当代复原",
     "carrier": "黑檀镂空龙头圆台屏，圆形粉缎绣芯",
     "region": "湖北武汉",
     "copyrightOwner": "银杏、喜鹊传统公有纹样，粉底金叶国风构图配色当代原创，商用需授权",
@@ -2908,7 +2908,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "现代简约文创圆绣片",
+    "era": "当代复原",
     "carrier": "圆形独立绣片（可配框/屏风）",
     "region": "湖北武汉",
     "copyrightOwner": "花鸟、瑞兽、花卉均为传统公有纹样；台屏形制、配色、构图为当代原创，商用需授权。",
@@ -2968,7 +2968,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "传统汉剧旦角戏服装饰绣片",
+    "era": "当代复原",
     "carrier": "大红缎汉剧角色戏服绣片",
     "region": "湖北武汉",
     "copyrightOwner": "锦鸡牡丹传统公有纹样，红底金线镶边对称构图当代原创，商用需授权",
@@ -3028,7 +3028,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "荆楚楚文化复原主题现代汉绣",
+    "era": "当代复原（参考战国）",
     "carrier": "米白色方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "楚凤、楚鹿、卷草云纹为传统公有古纹样；对称构图、浅底配色方案为当代原创，商用需取得授权",
@@ -3088,7 +3088,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "现代节庆圆台屏绣芯",
+    "era": "当代复原",
     "carrier": "深蓝缎圆形框装绣片",
     "region": "湖北武汉",
     "copyrightOwner": "绣球、蝴蝶、花叶为传统公有古典纹样；青花蓝调配色、金边轮廓造型为当代原创，商用需取得制作方授权",
@@ -3148,7 +3148,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "仿古博古题材非遗汉绣",
+    "era": "当代",
     "carrier": "浅木色底双联装饰框绣片",
     "region": "湖北武汉",
     "copyrightOwner": "青铜花觚、回纹、古卷草为传统公有古纹样；对称双联构图、青绿金线仿古配色为姜成国原创，商用需取得作者授权",
@@ -3208,7 +3208,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "婚嫁专用软装绣片",
+    "era": "当代复原",
     "carrier": "米白缎方形装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "鸳鸯荷花为传统婚嫁公有纹样；繁花环绕对称构图当代原创，商用需授权",
@@ -3268,7 +3268,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "复刻清代传统补子纹样，当代复原绣品",
+    "era": "当代复原（参考明清）",
     "carrier": "圆形绸缎绣片，传统服饰补子类绣品",
     "region": "湖北武汉",
     "copyrightOwner": "麒麟送子为明清公有传统民俗纹样；本幅配色、绣制表现形式为当代复原原创，商用需取得制作方授权",
@@ -3328,7 +3328,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "长辈贺寿高端礼品壁挂绣片",
+    "era": "当代复原",
     "carrier": "正红缎横向长款人物壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "麻姑寿星仙桃为传统公有祝寿神话纹样；红底人物山水构图当代原创，商用需授权",
@@ -3388,7 +3388,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue-Green (B)"
       }
     ],
-    "era": "荆楚文化展馆大型主题装饰汉绣",
+    "era": "当代复原（参考战国）",
     "carrier": "纯黑缎横向巨型壁挂软装绣品",
     "region": "湖北武汉",
     "copyrightOwner": "楚凤、云水卷草为先秦公有图腾纹样；横向满铺宏大暗黑金彩构图当代原创，商用需授权",
@@ -3448,7 +3448,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "楚文化仿古工艺展示绣品",
+    "era": "当代复原（参考战国）",
     "carrier": "黑缎圆形独立装饰绣片，满盘金白虎为画面主体",
     "region": "湖北武汉",
     "copyrightOwner": "楚白虎图腾为先秦公有古纹样；圆形满盘金特写构图当代原创，商用需授权",
@@ -3508,7 +3508,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold (A)"
       }
     ],
-    "era": "宫廷龙纹复刻汉绣",
+    "era": "当代",
     "carrier": "黑缎大幅壁挂绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
@@ -3568,7 +3568,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "婚嫁喜庆壁挂绣品",
+    "era": "当代复原",
     "carrier": "正红缎横向长款装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "版权信息待后台复核",
