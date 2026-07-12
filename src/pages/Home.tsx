@@ -7,6 +7,7 @@ import { GeneWall } from '../components/GeneWall';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import { mockPatterns } from '../data';
 import { archiveTopFilters, getCategoryLabel, getPatternClassification, matchesArchiveTopFilter } from '../lib/classification';
+import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { stitchTechniques } from '../lib/stitches';
 import type { PatternGene } from '../types';
 
@@ -28,6 +29,7 @@ const symbolCategoryMeta = [
     enTitle: 'Nature Pattern',
     code: 'N',
     text: '来源于花卉、动物与自然物象的汉绣纹样。',
+    enText: 'Han embroidery motifs derived from flowers, animals and natural forms.',
     icon: Flower2,
   },
   {
@@ -35,6 +37,7 @@ const symbolCategoryMeta = [
     enTitle: 'Humanities Pattern',
     code: 'H',
     text: '记录礼俗、人物与日常生活意象的汉绣纹样。',
+    enText: 'Han embroidery motifs recording ritual customs, figures and everyday-life imagery.',
     icon: Crown,
   },
   {
@@ -42,12 +45,13 @@ const symbolCategoryMeta = [
     enTitle: 'Geometry Pattern',
     code: 'G',
     text: '以连续纹、回纹与抽象结构形成秩序骨架。',
+    enText: 'Ordered structures formed by continuous patterns, fret motifs and abstract geometry.',
     icon: Shapes,
   },
 ] as const;
 
 function getPatternName(pattern: PatternGene) {
-  return pattern.name['zh-CN'] || pattern.name.en || pattern.heCode;
+  return getLocalizedPatternName(pattern, 'zh-CN');
 }
 
 function getPatternCategoryCards(): ClassificationCard[] {
@@ -96,6 +100,7 @@ function getTechniqueCards(): ClassificationCard[] {
     enTitle: 'Stitch Technique',
     code: `T${String(index + 1).padStart(2, '0')}`,
     text: `来自档案工艺字段，可查看与“${technique}”相关的纹样记录。`,
+    enText: 'A stitch group extracted from archive craft fields for related pattern retrieval.',
     count: data.count,
     href: `/explore?technique=${encodeURIComponent(technique)}`,
     imageUrl: data.imageUrl,
@@ -211,7 +216,7 @@ function getArchiveMetaLabel(pattern: PatternGene, language: 'zh' | 'en') {
     ? getCategoryLabel('meaning', classification.meaningCategory, language)
     : '';
 
-  return patternLabel || meaningLabel || pattern.symbolism['zh-CN'] || pattern.symbolism.en || pattern.heCode;
+  return patternLabel || meaningLabel || getLocalizedText(pattern.symbolism, language === 'en' ? 'en' : 'zh-CN', pattern.heCode);
 }
 
 export function Home() {
@@ -225,23 +230,23 @@ export function Home() {
 
   return (
     <main className="hanxiu-home min-h-screen bg-black">
-      <section className="hanxiu-panel hanxiu-hero-stage relative overflow-hidden bg-black" aria-label="绣艺境汉绣纹样抽丝烟雾动画">
+      <section className="hanxiu-panel hanxiu-hero-stage relative overflow-hidden bg-black" aria-label={isEnglish ? 'XIUYIJING Han embroidery pattern background' : '绣艺境汉绣纹样抽丝烟雾动画'}>
         <InteractiveBackground />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.9),rgba(0,0,0,0.56)_34%,rgba(0,0,0,0.16)_62%,rgba(0,0,0,0.48))]" />
         <div className="hanxiu-hero-content relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-8 pt-16">
           <div className="hanxiu-hero-copy max-w-3xl">
             <h1 className="hanxiu-hero-title text-6xl font-semibold leading-none text-white md:text-8xl">
-              绣艺境
+              {isEnglish ? 'XIUYIJING' : '绣艺境'}
             </h1>
             <p className="hanxiu-hero-subtitle mt-8 text-2xl font-light tracking-[0.55em] text-white/82 md:text-4xl">
-              非遗汉绣纹样基因库
+              {isEnglish ? 'Han Embroidery Pattern Gene Archive' : '非遗汉绣纹样基因库'}
             </p>
           </div>
 
           <button
             className="hanxiu-scroll-cue absolute bottom-10 left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-fuchsia-200/30 bg-black/35 text-fuchsia-100 shadow-[0_0_28px_rgba(236,72,153,0.24)] backdrop-blur-sm"
             onClick={() => document.getElementById('hanxiu-origin')?.scrollIntoView({ behavior: 'smooth' })}
-            aria-label="向下浏览"
+            aria-label={isEnglish ? 'Scroll down' : '向下浏览'}
           >
             <ChevronDown className="h-7 w-7" />
           </button>
@@ -324,7 +329,7 @@ export function Home() {
                   style={{ '--offset': offset, '--lift': Math.abs(offset) } as CSSProperties}
                   onMouseEnter={() => setActiveCard(index)}
                   onFocus={() => setActiveCard(index)}
-                  aria-label={card.title}
+                  aria-label={isEnglish ? card.enTitle : card.title}
                 >
                   {card.imageUrl && (
                     <img
@@ -338,7 +343,7 @@ export function Home() {
                   <span className="relative z-10 flex w-full items-center justify-between gap-4">
                     <strong className="text-3xl font-semibold text-white">{isEnglish ? card.enTitle : card.title}</strong>
                   </span>
-                  <span className="relative z-10 line-clamp-3 min-h-[4.5rem] text-left text-base leading-6 text-white/64">{isEnglish ? card.enText || card.text : card.text}</span>
+                  <span className="relative z-10 line-clamp-3 min-h-[4.5rem] text-left text-base leading-6 text-white/64">{isEnglish ? card.enText || 'Archive category for related pattern records.' : card.text}</span>
                 </Link>
               );
             })}

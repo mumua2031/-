@@ -6,6 +6,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
 import { stitchTechniques } from '../lib/stitches';
+import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
 import type { MultilingualString, PatternGene } from '../types';
 import {
   buildHECode,
@@ -33,7 +34,7 @@ const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch) => 
   titleZh: stitch.name,
   titleEn: stitch.enName,
   textZh: stitch.summary['zh-CN'],
-  textEn: stitch.summary.en || stitch.summary['zh-CN'],
+  textEn: stitch.summary.en || 'No English stitch summary available.',
   imageUrl: stitch.imageUrl,
 }));
 
@@ -75,7 +76,9 @@ function matchesComparisonDimension(current: PatternGene, candidate: PatternGene
   if (dimension === 'meaning') return Boolean(currentClassification.meaningCategory && currentClassification.meaningCategory === candidateClassification.meaningCategory);
   if (dimension === 'color') return Boolean(currentClassification.colorCategory && currentClassification.colorCategory === candidateClassification.colorCategory);
   if (dimension === 'technique') return hasTechniqueOverlap(current, candidate, language);
-  return Boolean(normalizeField(current.carrier) && normalizeField(current.carrier) === normalizeField(candidate.carrier));
+  const currentCarrier = getLocalizedPlainText(current.carrier, language, '');
+  const candidateCarrier = getLocalizedPlainText(candidate.carrier, language, '');
+  return Boolean(normalizeField(currentCarrier) && normalizeField(currentCarrier) === normalizeField(candidateCarrier));
 }
 
 function getDifferenceTags(current: PatternGene, candidate: PatternGene, language: keyof MultilingualString, isEnglish: boolean) {
@@ -88,8 +91,12 @@ function getDifferenceTags(current: PatternGene, candidate: PatternGene, languag
   if (currentClassification.meaningCategory && candidateClassification.meaningCategory && currentClassification.meaningCategory !== candidateClassification.meaningCategory) add('\u4e0d\u540c\u5bd3\u610f', 'Different meaning');
   if (currentClassification.colorCategory && candidateClassification.colorCategory && currentClassification.colorCategory !== candidateClassification.colorCategory) add('\u4e0d\u540c\u8272\u7cfb', 'Different color group');
   if (splitTechniques(current, language).length > 0 && splitTechniques(candidate, language).length > 0 && !hasTechniqueOverlap(current, candidate, language)) add('\u4e0d\u540c\u9488\u6cd5', 'Different technique');
-  if (normalizeField(current.carrier) && normalizeField(candidate.carrier) && normalizeField(current.carrier) !== normalizeField(candidate.carrier)) add('\u4e0d\u540c\u8f7d\u4f53', 'Different carrier');
-  if (normalizeField(current.era) && normalizeField(candidate.era) && normalizeField(current.era) !== normalizeField(candidate.era)) add('\u4e0d\u540c\u5e74\u4ee3', 'Different period');
+  const currentCarrier = getLocalizedPlainText(current.carrier, language, '');
+  const candidateCarrier = getLocalizedPlainText(candidate.carrier, language, '');
+  const currentEra = getLocalizedPlainText(current.era, language, '');
+  const candidateEra = getLocalizedPlainText(candidate.era, language, '');
+  if (normalizeField(currentCarrier) && normalizeField(candidateCarrier) && normalizeField(currentCarrier) !== normalizeField(candidateCarrier)) add('\u4e0d\u540c\u8f7d\u4f53', 'Different carrier');
+  if (normalizeField(currentEra) && normalizeField(candidateEra) && normalizeField(currentEra) !== normalizeField(candidateEra)) add('\u4e0d\u540c\u5e74\u4ee3', 'Different period');
 
   return tags.slice(0, 3);
 }
@@ -106,12 +113,11 @@ function getRelatedComparisonCards(current: PatternGene, dimension: ComparisonDi
 }
 
 function getMLStr(field: MultilingualString | undefined, language: keyof MultilingualString, fallback: string) {
-  if (!field) return fallback;
-  return field[language] || field['zh-CN'] || field.en || fallback;
+  return getLocalizedText(field, language, fallback);
 }
 
 function getPatternName(pattern: PatternGene, language: keyof MultilingualString) {
-  return getMLStr(pattern.name, language, pattern.heCode);
+  return getLocalizedPatternName(pattern, language);
 }
 
 function getCanonicalCode(pattern: PatternGene) {

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PatternGene } from '../types';
 import { getCategoryLabel, getPatternClassification } from '../lib/classification';
+import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { motion, useReducedMotion } from 'motion/react';
 import { useMemo, useState } from 'react';
 
@@ -42,12 +43,12 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-x-10 gap-y-16 items-end justify-items-center">
         {patterns.map((pattern) => {
           const timing = timings.get(pattern.id) || getStableTiming(pattern.id);
-          const name = pattern.name[currentLang] || pattern.name['zh-CN'] || pattern.name.en || pattern.heCode;
+          const name = getLocalizedPatternName(pattern, currentLang);
           const isActive = activePatternId === pattern.id;
           const isDimmed = Boolean(activePatternId && !isActive);
           const classification = getPatternClassification(pattern);
           const categoryLabel = classification.patternCategory ? getCategoryLabel('pattern', classification.patternCategory, categoryLanguage) : '';
-          const metaLabel = getMetaLabel?.(pattern) || categoryLabel || pattern.symbolism[currentLang] || pattern.symbolism['zh-CN'] || '';
+          const metaLabel = getMetaLabel?.(pattern) || categoryLabel || getLocalizedText(pattern.symbolism, currentLang, '');
 
           return (
             <motion.div

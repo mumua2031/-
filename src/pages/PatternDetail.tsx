@@ -6,16 +6,16 @@ import { GeneWall } from '../components/GeneWall';
 import { mockPatterns } from '../data';
 import { patternVisualAnalysis } from '../generated/pattern-visual-analysis';
 import { findStitchesInText } from '../lib/stitches';
+import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
 
 const favoriteStorageKey = 'hanxiu:favorites';
 
 type DetailTab = 'basic' | 'meaning' | 'craft' | 'analysis' | 'copyright';
-type ImageMode = 'pattern' | 'carrier' | 'outline';
+type ImageMode = 'pattern';
 
 const detailTabs: DetailTab[] = ['basic', 'meaning', 'craft', 'analysis', 'copyright'];
-const imageModes: ImageMode[] = ['pattern'];
 
 function readFavorites() {
   try {
@@ -23,23 +23,6 @@ function readFavorites() {
   } catch {
     return [];
   }
-}
-
-function getMLStr(field: MultilingualString | undefined, language: keyof MultilingualString, fallback = '暂无资料') {
-  if (!field) return fallback;
-  return field[language] || field['zh-CN'] || field.en || fallback;
-}
-
-function getName(pattern: PatternGene, language: keyof MultilingualString) {
-  return getMLStr(pattern.name, language, pattern.heCode);
-}
-
-function getEnglishName(pattern: PatternGene) {
-  return pattern.name.en || pattern.name['zh-CN'] || pattern.heCode;
-}
-
-function getDisplayValue(value: string | undefined, fallback: string) {
-  return value && value.trim() ? value : fallback;
 }
 
 function getCanonicalCode(pattern: PatternGene) {
@@ -60,12 +43,13 @@ function getCategoryDisplay(pattern: PatternGene, type: 'pattern' | 'meaning' | 
       ? classification.meaningCategory
       : classification.colorCategory;
   const label = code ? getCategoryLabel(type, code, language) : '';
-  return code && label ? `${code} · ${label}` : language === 'en' ? 'No data' : '暂无资料';
+  if (!code || !label) return language === 'en' ? 'No data' : '暂无资料';
+  return `${code} ${language === 'en' ? '-' : '·'} ${label}`;
 }
 
 function splitTechniques(pattern: PatternGene, language: keyof MultilingualString) {
-  return getMLStr(pattern.craft, language, '')
-    .split(/[、,，/|]/)
+  return getLocalizedText(pattern.craft, language, '')
+    .split(/[、，,;；|]/)
     .map((item) => item.trim())
     .filter(Boolean);
 }
@@ -120,8 +104,9 @@ export function PatternDetail() {
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const categoryLanguage = isEnglish ? 'en' : 'zh';
-  const fallback = isEnglish ? 'No data' : '暂无资料';
-  const [activeImageMode, setActiveImageMode] = useState<ImageMode>('pattern');
+  const fallback = isEnglish ? 'No English record available.' : '暂无资料';
+  const plainFallback = isEnglish ? 'English information pending review.' : fallback;
+  const [activeImageMode] = useState<ImageMode>('pattern');
   const [activeTab, setActiveTab] = useState<DetailTab>('basic');
   const [isZoomed, setIsZoomed] = useState(false);
   const [transformOrigin, setTransformOrigin] = useState('50% 50%');
@@ -132,13 +117,12 @@ export function PatternDetail() {
 
   const similarPatterns = useMemo(() => (pattern ? getSimilarPatterns(pattern, currentLang) : []), [currentLang, pattern]);
   const matchedStitches = useMemo(
-    () => (pattern ? findStitchesInText(getMLStr(pattern.craft, currentLang, '')) : []),
-    [currentLang, pattern],
+    () => (pattern ? findStitchesInText(getLocalizedText(pattern.craft, 'zh-CN', '')) : []),
+    [pattern],
   );
 
   useEffect(() => {
     setActiveTab('basic');
-    setActiveImageMode('pattern');
     setIsZoomed(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [heCode]);
@@ -149,16 +133,12 @@ export function PatternDetail() {
 
   const canonicalCode = getCanonicalCode(pattern) || pattern.heCode;
   const parsedCode = parseHECode(canonicalCode);
-  const name = getName(pattern, currentLang);
+  const name = getLocalizedPatternName(pattern, currentLang);
+  const englishName = getLocalizedText(pattern.name, 'en', canonicalCode);
   const isFavorite = favoriteCodes.includes(pattern.heCode);
-  const copyrightText = getDisplayValue(pattern.copyrightOwner, fallback);
-  const sourceText = getMLStr(pattern.origin, currentLang, fallback);
+  const copyrightText = getLocalizedPlainText(pattern.copyrightOwner, currentLang, plainFallback);
+  const sourceText = getLocalizedText(pattern.origin, currentLang, fallback);
   const visualAnalysis = pattern.visualAnalysis || patternVisualAnalysis[pattern.heCode] || patternVisualAnalysis[canonicalCode];
-  const imageLabel = {
-    pattern: isEnglish ? 'Pattern' : '高清纹样图',
-    carrier: isEnglish ? 'Carrier' : '实物载体图',
-    outline: isEnglish ? 'Outline' : '轮廓图',
-  } satisfies Record<ImageMode, string>;
 
   const toggleFavorite = () => {
     setFavoriteCodes((current) => {
@@ -186,23 +166,23 @@ export function PatternDetail() {
     [t('pattern.category'), getCategoryDisplay(pattern, 'pattern', categoryLanguage)],
     [t('pattern.meaning_category'), getCategoryDisplay(pattern, 'meaning', categoryLanguage)],
     [t('pattern.color_category'), getCategoryDisplay(pattern, 'color', categoryLanguage)],
-    [t('pattern.era'), getDisplayValue(pattern.era, fallback)],
-    [t('pattern.region'), getDisplayValue(pattern.region, fallback)],
-    [t('pattern.carrier'), getDisplayValue(pattern.carrier, fallback)],
-    [t('pattern.craft'), getMLStr(pattern.craft, currentLang, fallback)],
+    [t('pattern.era'), getLocalizedPlainText(pattern.era, currentLang, plainFallback)],
+    [t('pattern.region'), getLocalizedPlainText(pattern.region, currentLang, plainFallback)],
+    [t('pattern.carrier'), getLocalizedPlainText(pattern.carrier, currentLang, plainFallback)],
+    [t('pattern.craft'), getLocalizedText(pattern.craft, currentLang, fallback)],
     [t('pattern.source'), sourceText],
     [t('pattern.copyright'), copyrightText],
   ];
 
   const analysisItems = visualAnalysis ? [
-    [isEnglish ? 'Original Pattern' : '原始纹样', getMLStr(visualAnalysis.originalPattern, currentLang, fallback)],
-    [isEnglish ? 'Outline Extraction' : '轮廓提取', getMLStr(visualAnalysis.outlineExtraction, currentLang, fallback)],
-    [isEnglish ? 'Main Color Ratio' : '主色比例', getMLStr(visualAnalysis.mainColorRatio, currentLang, fallback)],
-    [isEnglish ? 'Pattern Unit' : '单元纹样', getMLStr(visualAnalysis.patternUnit, currentLang, fallback)],
-    [isEnglish ? 'Symmetry' : '对称关系', getMLStr(visualAnalysis.symmetry, currentLang, fallback)],
-    [isEnglish ? 'Repetition' : '重复规律', getMLStr(visualAnalysis.repetition, currentLang, fallback)],
-    [isEnglish ? 'Composition Center' : '构图中心', getMLStr(visualAnalysis.compositionCenter, currentLang, fallback)],
-    [isEnglish ? 'Structure Description' : '结构说明', getMLStr(visualAnalysis.structureDescription, currentLang, fallback)],
+    [isEnglish ? 'Original Pattern' : '原始纹样', getLocalizedText(visualAnalysis.originalPattern, currentLang, fallback)],
+    [isEnglish ? 'Outline Extraction' : '轮廓提取', getLocalizedText(visualAnalysis.outlineExtraction, currentLang, fallback)],
+    [isEnglish ? 'Main Color Ratio' : '主色比例', getLocalizedText(visualAnalysis.mainColorRatio, currentLang, fallback)],
+    [isEnglish ? 'Pattern Unit' : '单元纹样', getLocalizedText(visualAnalysis.patternUnit, currentLang, fallback)],
+    [isEnglish ? 'Symmetry' : '对称关系', getLocalizedText(visualAnalysis.symmetry, currentLang, fallback)],
+    [isEnglish ? 'Repetition' : '重复规律', getLocalizedText(visualAnalysis.repetition, currentLang, fallback)],
+    [isEnglish ? 'Composition Center' : '构图中心', getLocalizedText(visualAnalysis.compositionCenter, currentLang, fallback)],
+    [isEnglish ? 'Structure Description' : '结构说明', getLocalizedText(visualAnalysis.structureDescription, currentLang, fallback)],
   ] : [];
 
   return (
@@ -221,27 +201,19 @@ export function PatternDetail() {
               setTransformOrigin(`${((event.clientX - rect.left) / rect.width) * 100}% ${((event.clientY - rect.top) / rect.height) * 100}%`);
             }}
           >
-            {activeImageMode === 'outline' ? (
-              <svg className="h-full w-full" viewBox="0 0 640 640" aria-label={imageLabel.outline}>
-                <path d="M82 402 C154 146, 284 168, 324 312 S490 498, 558 232" fill="none" stroke="rgba(255,255,255,.75)" strokeWidth="3" />
-                <path d="M152 438 C232 348, 298 398, 374 298 C430 226, 502 236, 574 164" fill="none" stroke="rgba(232,121,249,.72)" strokeWidth="2" />
-                <circle cx="326" cy="320" r="94" fill="none" stroke="rgba(255,255,255,.32)" />
-              </svg>
-            ) : (
-              <img
-                src={activeImageMode === 'carrier' ? pattern.originalImageUrl || pattern.imageUrl : pattern.imageUrl}
-                alt={name}
-                onClick={() => setIsZoomed((current) => !current)}
-                className={`h-full w-full cursor-zoom-in object-contain transition-transform duration-500 ${isZoomed ? 'scale-150' : 'scale-100'}`}
-                style={{ transformOrigin }}
-              />
-            )}
+            <img
+              src={activeImageMode === 'pattern' ? pattern.imageUrl : pattern.imageUrl}
+              alt={name}
+              onClick={() => setIsZoomed((current) => !current)}
+              className={`h-full w-full cursor-zoom-in object-contain transition-transform duration-500 ${isZoomed ? 'scale-150' : 'scale-100'}`}
+              style={{ transformOrigin }}
+            />
           </div>
         </div>
 
-        <aside className="flex h-full items-center bg-black/24 py-6 pl-0 backdrop-blur-xl lg:border-l lg:border-white/10 lg:py-8 lg:pl-8 lg:overflow-hidden">
+        <aside className="flex h-full items-center bg-black/24 py-6 pl-0 backdrop-blur-xl lg:border-l lg:border-white/10 lg:overflow-hidden lg:py-8 lg:pl-8">
           <div className="mx-auto flex w-full max-w-xl flex-col justify-center">
-            <p className="text-sm text-fuchsia-200/60">{getEnglishName(pattern)}</p>
+            <p className="text-sm text-fuchsia-200/60">{englishName}</p>
             <h1 className="mt-2 text-3xl font-medium tracking-wide text-white/92">{name}</h1>
             <div className="mt-4 inline-flex rounded border border-white/10 bg-white/5 px-3 py-1 font-mono text-sm uppercase tracking-widest text-fuchsia-400">
               {canonicalCode}
@@ -275,7 +247,7 @@ export function PatternDetail() {
         </aside>
       </section>
 
-      <section id="basic-record" className="mx-auto max-w-7xl px-5 py-16 scroll-mt-24">
+      <section id="basic-record" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-16">
         <div className="flex flex-wrap gap-3 border-b border-white/10 pb-4">
           {detailTabs.map((tab) => (
             <button key={tab} onClick={() => setActiveTab(tab)} className={`rounded-full border px-4 py-2 text-sm transition-colors ${activeTab === tab ? 'border-fuchsia-400/70 bg-fuchsia-950/30 text-white' : 'border-white/10 text-white/46 hover:text-white'}`}>
@@ -287,7 +259,7 @@ export function PatternDetail() {
         <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.025] p-6 text-sm leading-8 text-white/70">
           {activeTab === 'basic' && (
             <div className="grid gap-3 md:grid-cols-2">
-              {[...fields, [t('pattern.literature'), getMLStr(pattern.literature, currentLang, fallback)]].map(([label, value]) => (
+              {[...fields, [t('pattern.literature'), getLocalizedText(pattern.literature, currentLang, fallback)]].map(([label, value]) => (
                 <div key={label} className="border-b border-white/5 pb-3">
                   <span className="block text-white/36">{label}</span>
                   <strong className="font-normal text-white/76">{value}</strong>
@@ -295,23 +267,28 @@ export function PatternDetail() {
               ))}
             </div>
           )}
-          {activeTab === 'meaning' && <p>{getMLStr(pattern.symbolism, currentLang, fallback)}</p>}
+          {activeTab === 'meaning' && <p>{getLocalizedText(pattern.symbolism, currentLang, fallback)}</p>}
           {activeTab === 'craft' && (
             <div className="space-y-6">
-              <p>{getMLStr(pattern.craft, currentLang, fallback)}</p>
+              <p>{getLocalizedText(pattern.craft, currentLang, fallback)}</p>
               {matchedStitches.length > 0 && (
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {matchedStitches.map((stitch) => (
-                    <article key={stitch.name} className="overflow-hidden rounded-lg border border-white/10 bg-black/20">
-                      <div className="aspect-[4/3] bg-white">
-                        <img src={stitch.imageUrl} alt={stitch.name} className="h-full w-full object-contain" loading="lazy" />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-base font-medium text-white">{stitch.name}</h3>
-                        <p className="mt-2 text-xs leading-6 text-white/58">{getMLStr(stitch.summary, currentLang, stitch.summary['zh-CN'])}</p>
-                      </div>
-                    </article>
-                  ))}
+                  {matchedStitches.map((stitch) => {
+                    const stitchTitle = isEnglish ? stitch.enName : stitch.name;
+                    return (
+                      <article key={stitch.name} className="overflow-hidden rounded-lg border border-white/10 bg-black/20">
+                        <div className="aspect-[4/3] bg-white">
+                          <img src={stitch.imageUrl} alt={stitchTitle} className="h-full w-full object-contain" loading="lazy" />
+                        </div>
+                        <div className="p-4">
+                          <h3 className="text-base font-medium text-white">{stitchTitle}</h3>
+                          <p className="mt-2 text-xs leading-6 text-white/58">
+                            {getLocalizedText(stitch.summary, currentLang, isEnglish ? 'No English stitch summary available.' : stitch.summary['zh-CN'])}
+                          </p>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -330,7 +307,7 @@ export function PatternDetail() {
             <div className="space-y-3">
               <p>{t('pattern.source')}: {sourceText}</p>
               <p>{isEnglish ? 'Image Source' : '图片来源'}: {copyrightText}</p>
-              <p>{isEnglish ? 'Research Note' : '研究整理说明'}: {getMLStr(pattern.origin, currentLang, fallback)}</p>
+              <p>{isEnglish ? 'Research Note' : '研究整理说明'}: {getLocalizedText(pattern.origin, currentLang, fallback)}</p>
               <p>{isEnglish ? 'Usage Scope' : '使用范围'}: {isEnglish ? 'Research display only. Commercial use requires authorization.' : '仅供研究展示，商业使用需授权。'}</p>
               <p>{t('pattern.copyright_notice')}: {copyrightText}</p>
             </div>

@@ -10,6 +10,7 @@ import {
   getPatternClassification,
   meaningCategories,
 } from '../lib/classification';
+import { getLocalizedPatternName } from '../lib/multilingual';
 import type { PatternGene } from '../types';
 
 type TopFilterKey = 'all' | 'N' | 'H' | 'G' | 'meaning' | 'color';
@@ -94,7 +95,7 @@ function getTopFilterFromParams(searchParams: URLSearchParams): TopFilterKey {
 }
 
 function getPatternName(pattern: PatternGene, language: keyof PatternGene['name']) {
-  return pattern.name[language] || pattern.name['zh-CN'] || pattern.name.en || pattern.heCode;
+  return getLocalizedPatternName(pattern, language);
 }
 
 function updateParam(nextParams: URLSearchParams, key: string, value: string) {
