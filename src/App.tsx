@@ -42,6 +42,7 @@ export default function App() {
           <>
             <Navigation />
             <AboutProject />
+            <Footer />
           </>
         } />
         <Route path="/deconstruct" element={
