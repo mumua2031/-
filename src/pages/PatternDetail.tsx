@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Download, Share2, Star } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
@@ -116,7 +116,6 @@ function downloadRecord(pattern: PatternGene) {
 export function PatternDetail() {
   const { heCode } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
@@ -138,13 +137,11 @@ export function PatternDetail() {
   );
 
   useEffect(() => {
-    if (location.hash === '#basic-record') {
-      setActiveTab('basic');
-      window.requestAnimationFrame(() => {
-        document.getElementById('basic-record')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-  }, [location.hash]);
+    setActiveTab('basic');
+    setActiveImageMode('pattern');
+    setIsZoomed(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [heCode]);
 
   if (!pattern) {
     return <div className="pt-32 text-center text-white">{isEnglish ? 'Pattern not found' : '未找到纹样'}</div>;

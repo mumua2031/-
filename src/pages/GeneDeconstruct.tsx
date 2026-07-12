@@ -342,7 +342,7 @@ export function GeneDeconstruct() {
                 <div className="gene-related-hero-info">
                   <strong className="min-w-0 truncate text-2xl text-white">{getPatternName(comparisonPattern, currentLang)}</strong>
                   <Link
-                    to={'/pattern/' + comparisonCode + '#basic-record'}
+                    to={'/pattern/' + comparisonCode}
                     className="gene-related-record-button inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-950/20 text-fuchsia-100 transition-all hover:border-fuchsia-200/70"
                     aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
                     title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
