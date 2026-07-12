@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, ChevronLeft, ChevronRight, Eye, Flower2, Layers3, LayoutGrid, Palette, Shapes, Sparkles } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
 import { stitchTechniques } from '../lib/stitches';
@@ -15,34 +15,26 @@ import {
 type ShowcaseCard = {
   titleZh: string;
   titleEn: string;
-  labelZh: string;
-  labelEn: string;
   textZh: string;
   textEn: string;
   imageUrl: string;
-  icon: typeof Flower2;
 };
 
 const symbolShowcaseCards: ShowcaseCard[] = [
-  { titleZh: '\u82b1\u9e1f\u7eb9', titleEn: 'Floral and Bird Motifs', labelZh: '\u81ea\u7136\u751f\u606f', labelEn: 'Nature Motifs', textZh: '\u4ee5\u7261\u4e39\u3001\u83b2\u82b1\u3001\u8776\u9e1f\u6784\u6210\u795d\u9882\u79e9\u5e8f\uff0c\u8bb0\u5f55\u6c49\u7ee3\u4ece\u6c11\u95f4\u5ba1\u7f8e\u5230\u793c\u4fd7\u8868\u8fbe\u7684\u7eb9\u6837\u57fa\u56e0\u3002', textEn: 'Peonies, lotus, butterflies and birds form auspicious visual orders in Han embroidery.', imageUrl: mockPatterns[0]?.imageUrl || '', icon: Flower2 },
-  { titleZh: '\u795e\u517d\u7eb9', titleEn: 'Auspicious Beast Motifs', labelZh: '\u745e\u610f\u62a4\u4f51', labelEn: 'Auspicious Protection', textZh: '\u51e4\u3001\u9f99\u3001\u745e\u517d\u7b49\u5f62\u8c61\u627f\u8f7d\u7948\u798f\u4e0e\u5b88\u62a4\uff0c\u5728\u7ebf\u811a\u5bc6\u5ea6\u548c\u8272\u5f69\u5c42\u6b21\u4e2d\u5f62\u6210\u7cbe\u795e\u8c61\u5f81\u3002', textEn: 'Phoenix, dragon and auspicious animals carry blessings through dense stitches and layered color.', imageUrl: mockPatterns[1]?.imageUrl || '', icon: Sparkles },
-  { titleZh: '\u51e0\u4f55\u7eb9', titleEn: 'Geometric Motifs', labelZh: '\u79e9\u5e8f\u9aa8\u67b6', labelEn: 'Structural Order', textZh: '\u4e07\u5b57\u3001\u56de\u7eb9\u3001\u8fde\u73e0\u4e0e\u4e91\u96f7\u7eb9\u6784\u6210\u53ef\u590d\u7528\u7684\u7ed3\u6784\u9aa8\u67b6\uff0c\u4f7f\u4f20\u7edf\u7eb9\u6837\u80fd\u88ab\u7f16\u7801\u4e0e\u68c0\u7d22\u3002', textEn: 'Wan, fret and cloud-thunder motifs form reusable structures for coding and retrieval.', imageUrl: mockPatterns[2]?.imageUrl || '', icon: Shapes },
-  { titleZh: '\u6587\u5b57\u7eb9', titleEn: 'Character Motifs', labelZh: '\u5409\u8bed\u7b26\u53f7', labelEn: 'Auspicious Characters', textZh: '\u798f\u3001\u5bff\u3001\u559c\u7b49\u6587\u5b57\u4e0e\u88c5\u9970\u7ebf\u811a\u7ec4\u5408\uff0c\u5c06\u795d\u613f\u76f4\u63a5\u8f6c\u5316\u4e3a\u53ef\u8bc6\u522b\u7684\u7eb9\u6837\u7b26\u53f7\u3002', textEn: 'Fu, Shou and Xi characters combine with ornamental stitches as readable symbolic motifs.', imageUrl: mockPatterns[6]?.imageUrl || mockPatterns[0]?.imageUrl || '', icon: LayoutGrid },
-  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', labelZh: '\u5668\u7528\u610f\u8c61', labelEn: 'Object Imagery', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: mockPatterns[7]?.imageUrl || mockPatterns[1]?.imageUrl || '', icon: Shapes },
-  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', labelZh: '\u591a\u5143\u5171\u751f', labelEn: 'Composite Order', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: mockPatterns[8]?.imageUrl || mockPatterns[2]?.imageUrl || '', icon: Sparkles },
+  { titleZh: '\u82b1\u9e1f\u7eb9', titleEn: 'Floral and Bird Motifs', textZh: '\u4ee5\u7261\u4e39\u3001\u83b2\u82b1\u3001\u8776\u9e1f\u6784\u6210\u795d\u9882\u79e9\u5e8f\uff0c\u8bb0\u5f55\u6c49\u7ee3\u4ece\u6c11\u95f4\u5ba1\u7f8e\u5230\u793c\u4fd7\u8868\u8fbe\u7684\u7eb9\u6837\u57fa\u56e0\u3002', textEn: 'Peonies, lotus, butterflies and birds form auspicious visual orders in Han embroidery.', imageUrl: mockPatterns[0]?.imageUrl || '' },
+  { titleZh: '\u795e\u517d\u7eb9', titleEn: 'Auspicious Beast Motifs', textZh: '\u51e4\u3001\u9f99\u3001\u745e\u517d\u7b49\u5f62\u8c61\u627f\u8f7d\u7948\u798f\u4e0e\u5b88\u62a4\uff0c\u5728\u7ebf\u811a\u5bc6\u5ea6\u548c\u8272\u5f69\u5c42\u6b21\u4e2d\u5f62\u6210\u7cbe\u795e\u8c61\u5f81\u3002', textEn: 'Phoenix, dragon and auspicious animals carry blessings through dense stitches and layered color.', imageUrl: mockPatterns[1]?.imageUrl || '' },
+  { titleZh: '\u51e0\u4f55\u7eb9', titleEn: 'Geometric Motifs', textZh: '\u4e07\u5b57\u3001\u56de\u7eb9\u3001\u8fde\u73e0\u4e0e\u4e91\u96f7\u7eb9\u6784\u6210\u53ef\u590d\u7528\u7684\u7ed3\u6784\u9aa8\u67b6\uff0c\u4f7f\u4f20\u7edf\u7eb9\u6837\u80fd\u88ab\u7f16\u7801\u4e0e\u68c0\u7d22\u3002', textEn: 'Wan, fret and cloud-thunder motifs form reusable structures for coding and retrieval.', imageUrl: mockPatterns[2]?.imageUrl || '' },
+  { titleZh: '\u6587\u5b57\u7eb9', titleEn: 'Character Motifs', textZh: '\u798f\u3001\u5bff\u3001\u559c\u7b49\u6587\u5b57\u4e0e\u88c5\u9970\u7ebf\u811a\u7ec4\u5408\uff0c\u5c06\u795d\u613f\u76f4\u63a5\u8f6c\u5316\u4e3a\u53ef\u8bc6\u522b\u7684\u7eb9\u6837\u7b26\u53f7\u3002', textEn: 'Fu, Shou and Xi characters combine with ornamental stitches as readable symbolic motifs.', imageUrl: mockPatterns[6]?.imageUrl || mockPatterns[0]?.imageUrl || '' },
+  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: mockPatterns[7]?.imageUrl || mockPatterns[1]?.imageUrl || '' },
+  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: mockPatterns[8]?.imageUrl || mockPatterns[2]?.imageUrl || '' },
 ];
 
-const techniqueIcons = [Layers3, Palette, LayoutGrid, Sparkles];
-
-const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch, index) => ({
+const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch) => ({
   titleZh: stitch.name,
   titleEn: stitch.enName,
-  labelZh: stitch.name,
-  labelEn: stitch.enName,
   textZh: stitch.summary['zh-CN'],
   textEn: stitch.summary.en || stitch.summary['zh-CN'],
   imageUrl: stitch.imageUrl,
-  icon: techniqueIcons[index % techniqueIcons.length],
 }));
 
 type ComparisonDimension = 'pattern' | 'meaning' | 'color' | 'technique' | 'carrier';
@@ -228,14 +220,11 @@ export function GeneDeconstruct() {
 
             <div className="grid gap-6 md:grid-cols-3">
               {visibleSymbolShowcaseCards.map((card, index) => {
-                const Icon = card.icon;
                 return (
                   <button key={card.titleZh} type="button" onClick={() => setExpandedShowcaseCard(card)} className="group relative min-h-[410px] overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] p-8 text-left opacity-0 transition-all duration-300 animate-[gene-origin-card-in_420ms_ease_both] hover:-translate-y-1 hover:border-fuchsia-300/45" style={{ animationDelay: String(index * 90) + 'ms' }}>
                     <img src={card.imageUrl} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-contain p-12 opacity-[0.28] transition-transform duration-500 group-hover:scale-110" />
                     <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(236,72,153,0.22),rgba(0,0,0,0.46)_42%,rgba(0,0,0,0.9))]" />
                     <div className="relative z-10 flex h-full flex-col justify-end gap-5">
-                      <span className="hanxiu-symbol-icon"><Icon className="h-8 w-8" /></span>
-                      <span className="text-sm text-fuchsia-200/70">{isEnglish ? card.labelEn : card.labelZh}</span>
                       <strong className="text-4xl font-semibold text-white">{isEnglish ? card.titleEn : card.titleZh}</strong>
                       <span className="line-clamp-3 text-base leading-8 text-white/70">{isEnglish ? card.textEn : card.textZh}</span>
                     </div>
@@ -275,14 +264,11 @@ export function GeneDeconstruct() {
 
             <div className="grid gap-6 md:grid-cols-3">
               {visibleTechniqueShowcaseCards.map((card, index) => {
-                const Icon = card.icon;
                 return (
                   <button key={card.titleZh} type="button" onClick={() => setExpandedShowcaseCard(card)} className="group relative min-h-[410px] overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] p-8 text-left opacity-0 transition-all duration-300 animate-[gene-origin-card-in_420ms_ease_both] hover:-translate-y-1 hover:border-fuchsia-300/45" style={{ animationDelay: String(index * 90) + 'ms' }}>
                     <img src={card.imageUrl} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-contain p-12 opacity-[0.28] transition-transform duration-500 group-hover:scale-110" />
                     <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(236,72,153,0.22),rgba(0,0,0,0.46)_42%,rgba(0,0,0,0.9))]" />
                     <div className="relative z-10 flex h-full flex-col justify-end gap-5">
-                      <span className="hanxiu-symbol-icon"><Icon className="h-8 w-8" /></span>
-                      <span className="text-sm text-fuchsia-200/70">{isEnglish ? card.labelEn : card.labelZh}</span>
                       <strong className="text-4xl font-semibold text-white">{isEnglish ? card.titleEn : card.titleZh}</strong>
                       <span className="line-clamp-3 text-base leading-8 text-white/70">{isEnglish ? card.textEn : card.textZh}</span>
                     </div>
@@ -397,8 +383,7 @@ export function GeneDeconstruct() {
           <div className="grid w-full max-w-6xl overflow-hidden rounded-lg border border-white/12 bg-[#050506] shadow-[0_24px_120px_rgba(0,0,0,0.7)] md:grid-cols-[1.08fr_0.92fr]" onClick={(event) => event.stopPropagation()}>
             <div className="min-h-[420px] bg-white/[0.02] p-8"><img src={expandedShowcaseCard.imageUrl} alt="" className="h-full max-h-[640px] w-full object-contain" /></div>
             <div className="flex flex-col justify-center p-8 md:p-12">
-              <span className="text-sm tracking-[0.28em] text-fuchsia-300/78">{isEnglish ? expandedShowcaseCard.labelEn : expandedShowcaseCard.labelZh}</span>
-              <h3 className="mt-7 text-4xl font-semibold text-white md:text-5xl">{isEnglish ? expandedShowcaseCard.titleEn : expandedShowcaseCard.titleZh}</h3>
+              <h3 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? expandedShowcaseCard.titleEn : expandedShowcaseCard.titleZh}</h3>
               <p className="mt-8 max-w-xl text-base leading-9 text-white/68">{isEnglish ? expandedShowcaseCard.textEn : expandedShowcaseCard.textZh}</p>
               <button type="button" onClick={() => setExpandedShowcaseCard(null)} className="mt-8 w-max rounded-full border border-white/14 px-5 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/50 hover:text-white">{isEnglish ? 'Close' : '\u5173\u95ed'}</button>
             </div>

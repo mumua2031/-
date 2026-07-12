@@ -291,8 +291,8 @@ export function Home() {
         <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-medium uppercase tracking-[0.36em] text-fuchsia-200/55">{isEnglish ? 'Han Embroidery Classification' : '汉绣分类导航'}</p>
-              <h2 className="mt-4 text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Han Embroidery Classification' : '汉绣分类导航'}</h2>
+              <p className="text-xs font-medium uppercase tracking-[0.36em] text-fuchsia-200/55">{isEnglish ? 'Gene Analysis' : '基因解析'}</p>
+              <h2 className="mt-4 text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Gene Analysis' : '基因解析'}</h2>
               <p className="mt-4 text-base leading-8 text-white/64">{isEnglish ? 'Explore Han embroidery through pattern origins and traditional stitching techniques.' : '从纹样造型来源与传统刺绣工艺两个维度，认识汉绣纹样的分类关系。'}</p>
             </div>
 
