@@ -953,40 +953,6 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合纯黑缎方形独立绣片形制组织画面。"
     }
   },
-  "HE-N-L-B01": {
-    "originalPattern": {
-      "zh-CN": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。",
-      "en": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。"
-    },
-    "outlineExtraction": {
-      "zh-CN": "保留主体纹样外轮廓与主要装饰边界。",
-      "en": "保留主体纹样外轮廓与主要装饰边界。"
-    },
-    "mainColorRatio": {
-      "zh-CN": "橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%",
-      "en": "橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%"
-    },
-    "patternUnit": {
-      "zh-CN": "主体纹样为核心单元。",
-      "en": "主体纹样为核心单元。"
-    },
-    "symmetry": {
-      "zh-CN": "非严格对称，以动态均衡组织画面。",
-      "en": "非严格对称，以动态均衡组织画面。"
-    },
-    "repetition": {
-      "zh-CN": "主体单元突出，局部装饰重复。",
-      "en": "主体单元突出，局部装饰重复。"
-    },
-    "compositionCenter": {
-      "zh-CN": "视觉重心偏右偏下。",
-      "en": "视觉重心偏右偏下。"
-    },
-    "structureDescription": {
-      "zh-CN": "主体纹样为主体，结合米白缎方形小型装饰绣片形制组织画面。",
-      "en": "主体纹样为主体，结合米白缎方形小型装饰绣片形制组织画面。"
-    }
-  },
   "HE-N-B-M02": {
     "originalPattern": {
       "zh-CN": "以“紫花对条浅白底戏服汉绣”为数字归档原纹样。",
@@ -2039,6 +2005,40 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
     "structureDescription": {
       "zh-CN": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。",
       "en": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。"
+    }
+  },
+  "HE-N-L-R01": {
+    "originalPattern": {
+      "zh-CN": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。",
+      "en": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。"
+    },
+    "outlineExtraction": {
+      "zh-CN": "保留主体纹样外轮廓与主要装饰边界。",
+      "en": "保留主体纹样外轮廓与主要装饰边界。"
+    },
+    "mainColorRatio": {
+      "zh-CN": "橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%",
+      "en": "橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%"
+    },
+    "patternUnit": {
+      "zh-CN": "主体纹样为核心单元。",
+      "en": "主体纹样为核心单元。"
+    },
+    "symmetry": {
+      "zh-CN": "非严格对称，以动态均衡组织画面。",
+      "en": "非严格对称，以动态均衡组织画面。"
+    },
+    "repetition": {
+      "zh-CN": "主体单元突出，局部装饰重复。",
+      "en": "主体单元突出，局部装饰重复。"
+    },
+    "compositionCenter": {
+      "zh-CN": "视觉重心偏右偏下。",
+      "en": "视觉重心偏右偏下。"
+    },
+    "structureDescription": {
+      "zh-CN": "主体纹样为主体，结合米白缎方形小型装饰绣片形制组织画面。",
+      "en": "主体纹样为主体，结合米白缎方形小型装饰绣片形制组织画面。"
     }
   }
 };

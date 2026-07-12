@@ -1,0 +1,732 @@
+{
+  "sourceDir": "C:\\Users\\Administrator\\Desktop\\毕设设计\\汉绣纹样图库\\荆楚汉绣",
+  "docxPath": "C:\\Users\\Administrator\\Desktop\\毕设设计\\汉绣纹样图库\\书籍\\荆楚汉绣.docx",
+  "imageCount": 71,
+  "wordMatchedCount": 62,
+  "missingWordRecords": [
+    {
+      "heCode": "HE-H-B-R16",
+      "fileName": "HE-H-B-R16 《福禄图》禄星开脸人物汉绣局部.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "《福禄图》禄星开脸人物汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R16.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R16.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A02",
+      "fileName": "HE-N-B-A02 盘金彩绣凤凰纹汉绣.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "盘金彩绣凤凰纹汉绣",
+      "imageUrl": "/patterns/HE-N-B-A02.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A02.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B05",
+      "fileName": "HE-N-B-B05 青蓝单色菊花汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "青蓝单色菊花汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-B05.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B05.jpg"
+    },
+    {
+      "heCode": "HE-N-B-G01",
+      "fileName": "HE-N-B-G01 绿彩青蛙水草汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "绿彩青蛙水草汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-G01.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-G01.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M10",
+      "fileName": "HE-N-B-M10蓝底佛手石榴三多纹汉绣.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "蓝底佛手石榴三多纹汉绣",
+      "imageUrl": "/patterns/HE-N-B-M10.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M10.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M11",
+      "fileName": "HE-N-B-M11 紫底多色秋菊汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "紫底多色秋菊汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-M11.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M11.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M12",
+      "fileName": "HE-N-B-M12 紫彩蝴蝶牵牛花汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "紫彩蝴蝶牵牛花汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-M12.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M12.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R09",
+      "fileName": "HE-N-B-R09 红梅花枝汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "红梅花枝汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-R09.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R09.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R10",
+      "fileName": "HE-N-B-R10 红彩成对金鱼汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "红彩成对金鱼汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-R10.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R10.jpg"
+    }
+  ],
+  "replacedExistingCount": 71,
+  "finalPatternCount": 116,
+  "items": [
+    {
+      "heCode": "HE-G-B-A02",
+      "fileName": "HE-G-B-A02 戏服万字锦几何兽面汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "戏曲戏服万字锦兽面装饰汉绣",
+      "imageUrl": "/patterns/HE-G-B-A02.jpg",
+      "originalImageUrl": "/patterns/HE-G-B-A02.jpg"
+    },
+    {
+      "heCode": "HE-G-B-A03",
+      "fileName": "HE-G-B-A03 戏服芦席格几何花卉汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "戏曲戏服芦席格花卉几何汉绣",
+      "imageUrl": "/patterns/HE-G-B-A03.jpg",
+      "originalImageUrl": "/patterns/HE-G-B-A03.jpg"
+    },
+    {
+      "heCode": "HE-G-B-B09",
+      "fileName": "HE-G-B-B09 勾金回纹如意几何汉绣小样（王燕）.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王燕制勾金回纹如意几何汉绣小样",
+      "imageUrl": "/patterns/HE-G-B-B09.jpg",
+      "originalImageUrl": "/patterns/HE-G-B-B09.jpg"
+    },
+    {
+      "heCode": "HE-G-B-M01",
+      "fileName": "HE-G-B-M01 《立水江崖》几何江崖海水纹.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "戏曲《立水江崖》几何海水江崖汉绣局部",
+      "imageUrl": "/patterns/HE-G-B-M01.jpg",
+      "originalImageUrl": "/patterns/HE-G-B-M01.jpg"
+    },
+    {
+      "heCode": "HE-G-B-M02",
+      "fileName": "HE-G-B-M02 黄圣辉钉金平绣太极阴阳几何纹样.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "黄圣辉制钉金平绣太极阴阳几何汉绣",
+      "imageUrl": "/patterns/HE-G-B-M02.jpg",
+      "originalImageUrl": "/patterns/HE-G-B-M02.jpg"
+    },
+    {
+      "heCode": "HE-H-B-A03",
+      "fileName": "HE-H-B-A03 《百花庆寿》花卉寿字盘金汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "《百花庆寿》金线花卉寿字汉绣（湖北省群艺馆藏）",
+      "imageUrl": "/patterns/HE-H-B-A03.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-A03.jpg"
+    },
+    {
+      "heCode": "HE-H-B-A04",
+      "fileName": "HE-H-B-A04 红底盘金 “禧” 字文字汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底盘金篆书“禧”字汉绣",
+      "imageUrl": "/patterns/HE-H-B-A04.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-A04.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M13",
+      "fileName": "HE-H-B-M13 黄红英现代龙纹梅瓶装饰汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "黄红英制红地龙纹梅瓶现代装饰汉绣",
+      "imageUrl": "/patterns/HE-H-B-M13.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M13.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M14",
+      "fileName": "HE-H-B-M14 黑底关公人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "黑底关公武圣人物汉绣装饰绣片",
+      "imageUrl": "/patterns/HE-H-B-M14.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M14.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M15",
+      "fileName": "HE-H-B-M15 母子多子人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间母子多子图人物汉绣纹样",
+      "imageUrl": "/patterns/HE-H-B-M15.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M15.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M16",
+      "fileName": "HE-H-B-M16 折梅书生文人人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底折梅书生文人汉绣纹样",
+      "imageUrl": "/patterns/HE-H-B-M16.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M16.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M17",
+      "fileName": "HE-H-B-M17 采花仕女古典人物汉绣残片.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "清代采花仕女庭院汉绣残片",
+      "imageUrl": "/patterns/HE-H-B-M17.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M17.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M18",
+      "fileName": "HE-H-B-M18 戴美萱《龙瓶牡丹》博古桌帷汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "戴美萱制红底《龙瓶牡丹》博古桌帷汉绣",
+      "imageUrl": "/patterns/HE-H-B-M18.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M18.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M19",
+      "fileName": "HE-H-B-M19 《尤三姐》戏曲人物网绣汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "《尤三姐》古典戏曲人物网绣汉绣",
+      "imageUrl": "/patterns/HE-H-B-M19.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M19.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M20",
+      "fileName": "HE-H-B-M20 王燕《福耀中华》华表龙纹现代主题汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王燕制《福耀中华》华表龙纹现代汉绣",
+      "imageUrl": "/patterns/HE-H-B-M20.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M20.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M21",
+      "fileName": "HE-H-B-M21 传世红底《三请樊梨花》戏曲人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "传世红缎《三请樊梨花》戏曲人物汉绣",
+      "imageUrl": "/patterns/HE-H-B-M21.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M21.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M22",
+      "fileName": "HE-H-B-M22 吴寿康《八仙图》神话人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "吴寿康制《八仙图》群仙汉绣",
+      "imageUrl": "/patterns/HE-H-B-M22.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M22.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M23",
+      "fileName": "HE-H-B-M23 民间收藏《打金枝》戏曲人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间藏传世《打金枝》戏曲人物汉绣",
+      "imageUrl": "/patterns/HE-H-B-M23.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M23.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M24",
+      "fileName": "HE-H-B-M24 吴氏汉绣《渔歌》现代民俗人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "吴氏汉绣《渔歌》水乡情侣人物汉绣",
+      "imageUrl": "/patterns/HE-H-B-M24.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M24.jpg"
+    },
+    {
+      "heCode": "HE-H-B-M25",
+      "fileName": "HE-H-B-M25 辛亥革命馆藏《欢庆》近代革命人物汉绣局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "辛亥革命武昌起义馆藏《欢庆》革命主题汉绣桌帷局部",
+      "imageUrl": "/patterns/HE-H-B-M25.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-M25.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R05",
+      "fileName": "HE-H-B-R05 20 世纪 50 年代初新婚姻法花卉文字枕顶汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "20世纪50年代初新婚姻法花卉文字成套枕顶汉绣",
+      "imageUrl": "/patterns/HE-H-B-R05.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R05.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R06",
+      "fileName": "HE-H-B-R06 红底龙凤合体 “囍” 字汉绣（任本荣）.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "汉绣红底龙凤合体“囍”字装饰绣品（任本荣非遗作品）",
+      "imageUrl": "/patterns/HE-H-B-R06.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R06.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R14",
+      "fileName": "HE-H-B-R14 《三星图》禄星文官人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底《三星图》禄星文官汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R14.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R14.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R15",
+      "fileName": "HE-H-B-R15 《三星图》寿星人物汉绣局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底《三星图》寿星仙翁汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R15.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R15.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R16",
+      "fileName": "HE-H-B-R16 《福禄图》禄星开脸人物汉绣局部.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "《福禄图》禄星开脸人物汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R16.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R16.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R17",
+      "fileName": "HE-H-B-R17 传世红缎《福禄图》双禄星堂彩汉绣局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "传世红缎大型堂彩《福禄图》双禄星人物汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R17.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R17.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R18",
+      "fileName": "HE-H-B-R18 任本荣《状元踏鳌》红底轿衣汉绣局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "任本荣制红缎轿衣《状元踏鳌》汉绣局部",
+      "imageUrl": "/patterns/HE-H-B-R18.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R18.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R19",
+      "fileName": "HE-H-B-R19 任本荣《达摩渡江》红底宗教人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "任本荣《达摩渡江》竖幅宗教汉绣",
+      "imageUrl": "/patterns/HE-H-B-R19.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R19.jpg"
+    },
+    {
+      "heCode": "HE-H-B-R20",
+      "fileName": "HE-H-B-R20 叶依子《第一罗汉》红底罗汉汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "叶依子制红底《第一座宾度罗跋罗堕阇尊者》罗汉汉绣",
+      "imageUrl": "/patterns/HE-H-B-R20.jpg",
+      "originalImageUrl": "/patterns/HE-H-B-R20.jpg"
+    },
+    {
+      "heCode": "HE-H-S-M01",
+      "fileName": "HE-H-S-M01 战国楚菱形龙凤舞人动物纹经锦.png",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "战国楚菱形龙凤舞人动物纹三重经锦",
+      "imageUrl": "/patterns/HE-H-S-M01.png",
+      "originalImageUrl": "/patterns/HE-H-S-M01.png"
+    },
+    {
+      "heCode": "HE-H-S-M02",
+      "fileName": "HE-H-S-M02 战国楚蟠螭龙凤丝绣（马山楚墓）.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "战国楚蟠螭龙凤锁绣丝绣（江陵马山一号楚墓出土）",
+      "imageUrl": "/patterns/HE-H-S-M02.jpg",
+      "originalImageUrl": "/patterns/HE-H-S-M02.jpg"
+    },
+    {
+      "heCode": "HE-H-S-M03",
+      "fileName": "HE-H-S-M03 《木兰从军》洪湖吴氏汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "洪湖吴氏汉绣《木兰从军》人物绣品",
+      "imageUrl": "/patterns/HE-H-S-M03.jpg",
+      "originalImageUrl": "/patterns/HE-H-S-M03.jpg"
+    },
+    {
+      "heCode": "HE-H-S-M04",
+      "fileName": "HE-H-S-M04 《红娘》戏曲人物汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "古典戏曲《红娘》圆形构图汉绣",
+      "imageUrl": "/patterns/HE-H-S-M04.jpg",
+      "originalImageUrl": "/patterns/HE-H-S-M04.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A01",
+      "fileName": "HE-N-B-A01 三鱼旋转金线汉绣局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "三鱼旋转金线汉绣局部绣片",
+      "imageUrl": "/patterns/HE-N-B-A01.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A01.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A02",
+      "fileName": "HE-N-B-A02 盘金彩绣凤凰纹汉绣.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "盘金彩绣凤凰纹汉绣",
+      "imageUrl": "/patterns/HE-N-B-A02.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A02.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A04",
+      "fileName": "HE-N-B-A04 民间红底双龙戏珠盘金堂彩汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间红底双金龙戏珠大型堂彩汉绣（局部）",
+      "imageUrl": "/patterns/HE-N-B-A04.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A04.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A05",
+      "fileName": "HE-N-B-A05 清代黑底盘金鲤鱼祥云汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "清代黑底盘金鲤鱼海水祥云汉绣绣片",
+      "imageUrl": "/patterns/HE-N-B-A05.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A05.jpg"
+    },
+    {
+      "heCode": "HE-N-B-A06",
+      "fileName": "HE-N-B-A06 王燕双金龙戏珠团龙蹦针汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王燕制黑底双金龙戏珠团龙蹦针汉绣圆补",
+      "imageUrl": "/patterns/HE-N-B-A06.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-A06.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B04",
+      "fileName": "HE-N-B-B04 清代葫芦多子多福蓝调汉绣纹.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "清代蓝调葫芦多子多福绣纹残片",
+      "imageUrl": "/patterns/HE-N-B-B04.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B04.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B05",
+      "fileName": "HE-N-B-B05 青蓝单色菊花汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "青蓝单色菊花汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-B05.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B05.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B06",
+      "fileName": "HE-N-B-B06 葡萄多子多福植物汉绣纹样.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "青蓝葡萄多子多福植物汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-B06.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B06.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B07",
+      "fileName": "HE-N-B-B07 藏青底团龙多色汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "藏青底五彩团龙海水汉绣圆补",
+      "imageUrl": "/patterns/HE-N-B-B07.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B07.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B08",
+      "fileName": "HE-N-B-B08 黑底锦鸡牡丹均衡式枕顶汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "黑底锦鸡牡丹均衡式汉绣枕顶",
+      "imageUrl": "/patterns/HE-N-B-B08.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B08.jpg"
+    },
+    {
+      "heCode": "HE-N-B-B10",
+      "fileName": "HE-N-B-B10 王凤燕《蝶飞翠舞》黑底缠枝蝴蝶汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王凤燕参与制作黑底《蝶飞翠舞》缠枝蝴蝶汉绣",
+      "imageUrl": "/patterns/HE-N-B-B10.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-B10.jpg"
+    },
+    {
+      "heCode": "HE-N-B-G01",
+      "fileName": "HE-N-B-G01 绿彩青蛙水草汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "绿彩青蛙水草汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-G01.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-G01.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M07",
+      "fileName": "HE-N-B-M07 清代桃形福寿蝙蝠汉绣残片.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "清代桃形福寿蝙蝠复合纹样汉绣残片",
+      "imageUrl": "/patterns/HE-N-B-M07.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M07.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M08",
+      "fileName": "HE-N-B-M08 蹦龙针金鱼汉绣标本.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "汉绣蹦龙针金鱼纹样针法标本",
+      "imageUrl": "/patterns/HE-N-B-M08.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M08.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M10",
+      "fileName": "HE-N-B-M10蓝底佛手石榴三多纹汉绣.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "蓝底佛手石榴三多纹汉绣",
+      "imageUrl": "/patterns/HE-N-B-M10.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M10.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M11",
+      "fileName": "HE-N-B-M11 紫底多色秋菊汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "紫底多色秋菊汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-M11.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M11.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M12",
+      "fileName": "HE-N-B-M12 紫彩蝴蝶牵牛花汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "紫彩蝴蝶牵牛花汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-M12.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M12.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M14",
+      "fileName": "HE-N-B-M14 《连年有鱼》荷花金鱼吉祥汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "《连年有鱼》荷花金鱼多色汉绣枕顶纹样",
+      "imageUrl": "/patterns/HE-N-B-M14.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M14.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M15",
+      "fileName": "HE-N-B-M15 张先松《盛世麒麟》瑞兽汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "张先松制黑底《盛世麒麟》瑞兽汉绣",
+      "imageUrl": "/patterns/HE-N-B-M15.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M15.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M16",
+      "fileName": "HE-N-B-M16 张先松《凤鸣吉祥》百凤牡丹长卷汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "张先松《凤鸣吉祥》百凤牡丹长卷汉绣局部",
+      "imageUrl": "/patterns/HE-N-B-M16.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M16.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M17",
+      "fileName": "HE-N-B-M17 王炜佳《爱》心形玫瑰花卉汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王炜佳心形花卉汉绣《爱》",
+      "imageUrl": "/patterns/HE-N-B-M17.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M17.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M18",
+      "fileName": "HE-N-B-M18 王炜佳《LOVE》花卉字母心形汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王炜佳心形花卉字母汉绣《LOVE》",
+      "imageUrl": "/patterns/HE-N-B-M18.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M18.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M19",
+      "fileName": "HE-N-B-M19 武汉市博物馆藏复古牡丹中堂汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "武汉市博物馆藏复古牡丹中堂汉绣主体",
+      "imageUrl": "/patterns/HE-N-B-M19.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M19.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M20",
+      "fileName": "HE-N-B-M20 李健《天地人和》瑞兽螃蟹汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "李健制红底《天地人和》瑞兽汉绣",
+      "imageUrl": "/patterns/HE-N-B-M20.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M20.jpg"
+    },
+    {
+      "heCode": "HE-N-B-M21",
+      "fileName": "HE-N-B-M21 张先松设计、廖伶俐刺绣《锦羽祥云》双凤汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "张先松设计、廖伶俐刺绣《锦羽祥云》双凤竖幅汉绣",
+      "imageUrl": "/patterns/HE-N-B-M21.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-M21.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R02",
+      "fileName": "HE-N-B-R02 20 世纪初红底博古花卉桌帷汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "20世纪初民国红底博古花卉桌帷汉绣",
+      "imageUrl": "/patterns/HE-N-B-R02.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R02.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R04",
+      "fileName": "HE-N-B-R04 老汉口绣花街红底博古瓶花汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "老汉口绣花街风格红底博古瓶花方形汉绣",
+      "imageUrl": "/patterns/HE-N-B-R04.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R04.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R07",
+      "fileName": "HE-N-B-R07 红底双凤戏珠戏衣汉绣（女靠局部）.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "汉绣红底双凤戏珠戏曲女靠局部绣品",
+      "imageUrl": "/patterns/HE-N-B-R07.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R07.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R08",
+      "fileName": "HE-N-B-R08 红底鸳鸯荷花汉绣被单局部.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底鸳鸯荷花汉绣婚嫁被单局部",
+      "imageUrl": "/patterns/HE-N-B-R08.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R08.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R09",
+      "fileName": "HE-N-B-R09 红梅花枝汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "红梅花枝汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-R09.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R09.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R10",
+      "fileName": "HE-N-B-R10 红彩成对金鱼汉绣纹样.jpg",
+      "wordMatched": false,
+      "replacedExisting": true,
+      "name": "红彩成对金鱼汉绣纹样",
+      "imageUrl": "/patterns/HE-N-B-R10.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R10.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R11",
+      "fileName": "HE-N-B-R11 红底玉堂富贵牡丹文字汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "红底“玉堂富贵”牡丹花卉汉绣",
+      "imageUrl": "/patterns/HE-N-B-R11.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R11.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R12",
+      "fileName": "HE-N-B-R12 清代红底蓝鱼金线鲤鱼汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "清代红底金线鲤鱼海水汉绣绣片",
+      "imageUrl": "/patterns/HE-N-B-R12.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R12.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R13",
+      "fileName": "HE-N-B-R13 任本荣红底盘龙汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "任本荣制红底盘龙祥云汉绣",
+      "imageUrl": "/patterns/HE-N-B-R13.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R13.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R17",
+      "fileName": "HE-N-B-R17 民间收藏《松鹤延年》红底花鸟汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间藏红底《松鹤延年》双鹤汉绣",
+      "imageUrl": "/patterns/HE-N-B-R17.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R17.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R18",
+      "fileName": "HE-N-B-R18 王炜佳《楚凤飞》红底楚凤莲花汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "王炜佳制红底《楚凤飞》楚文化凤凰汉绣",
+      "imageUrl": "/patterns/HE-N-B-R18.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R18.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R19",
+      "fileName": "HE-N-B-R19 民间收藏古德禅寺门帘《四季富贵牡丹》汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间藏红缎古德禅寺门帘《四季富贵牡丹》汉绣",
+      "imageUrl": "/patterns/HE-N-B-R19.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R19.jpg"
+    },
+    {
+      "heCode": "HE-N-B-R20",
+      "fileName": "HE-N-B-R20 民间收藏《双狮五色旗》近代桌帷汉绣.jpg",
+      "wordMatched": true,
+      "replacedExisting": true,
+      "name": "民间藏红缎近代《双狮五色旗》桌帷汉绣",
+      "imageUrl": "/patterns/HE-N-B-R20.jpg",
+      "originalImageUrl": "/patterns/HE-N-B-R20.jpg"
+    }
+  ]
+}
