@@ -19,6 +19,14 @@ type ShowcaseCard = {
   textZh: string;
   textEn: string;
   imageUrl: string;
+  categoryZh?: string;
+  categoryEn?: string;
+  originZh?: string;
+  originEn?: string;
+  featuresZh?: string;
+  featuresEn?: string;
+  usageZh?: string;
+  usageEn?: string;
 };
 
 const symbolShowcaseCards: ShowcaseCard[] = [
@@ -36,6 +44,14 @@ const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch) => 
   textZh: stitch.summary['zh-CN'],
   textEn: stitch.summary.en || 'No English stitch summary available.',
   imageUrl: stitch.imageUrl,
+  categoryZh: stitch.category,
+  categoryEn: stitch.enCategory,
+  originZh: stitch.origin?.['zh-CN'],
+  originEn: stitch.origin?.en,
+  featuresZh: stitch.features?.['zh-CN'],
+  featuresEn: stitch.features?.en,
+  usageZh: stitch.usage?.['zh-CN'],
+  usageEn: stitch.usage?.en,
 }));
 
 type ComparisonDimension = 'pattern' | 'meaning' | 'color' | 'technique' | 'carrier';
@@ -257,8 +273,8 @@ export function GeneDeconstruct() {
       <section className="hanxiu-panel bg-[#09090b] px-5 py-24">
         <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 max-w-3xl">
-            <h2 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Technique Classification' : '\u6280\u827a\u5206\u7c7b'}</h2>
-            <p className="mt-5 text-base leading-8 text-white/60">{isEnglish ? 'Select a technique to view technique breakdown in sync.' : '\u9009\u4e2d\u6280\u827a\uff0c\u540c\u6b65\u5c55\u793a\u6280\u827a\u62c6\u89e3\u3002'}</p>
+            <h2 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Stitch Classification' : '针法分类'}</h2>
+            <p className="mt-5 text-base leading-8 text-white/60">{isEnglish ? 'Select a stitch to view its category, origin, craft features and usage.' : '选中针法，查看对应类别、由来、工艺特点与适用方向。'}</p>
           </div>
 
           <div className="group/showcase relative mx-auto w-full max-w-full md:max-w-[calc(100%-8rem)]">
@@ -392,8 +408,36 @@ export function GeneDeconstruct() {
           <div className="grid w-full max-w-6xl overflow-hidden rounded-lg border border-white/12 bg-[#050506] shadow-[0_24px_120px_rgba(0,0,0,0.7)] md:grid-cols-[1.08fr_0.92fr]" onClick={(event) => event.stopPropagation()}>
             <div className="min-h-[420px] bg-white/[0.02] p-8"><img src={expandedShowcaseCard.imageUrl} alt="" className="h-full max-h-[640px] w-full object-contain" /></div>
             <div className="flex flex-col justify-center p-8 md:p-12">
+              {(expandedShowcaseCard.categoryZh || expandedShowcaseCard.categoryEn) && (
+                <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-fuchsia-200/55">
+                  {isEnglish ? expandedShowcaseCard.categoryEn : expandedShowcaseCard.categoryZh}
+                </p>
+              )}
               <h3 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? expandedShowcaseCard.titleEn : expandedShowcaseCard.titleZh}</h3>
               <p className="mt-8 max-w-xl text-base leading-9 text-white/68">{isEnglish ? expandedShowcaseCard.textEn : expandedShowcaseCard.textZh}</p>
+              {(expandedShowcaseCard.originZh || expandedShowcaseCard.featuresZh || expandedShowcaseCard.usageZh) && (
+                <div className="mt-8 grid gap-4 text-sm leading-7 text-white/64">
+                  {[
+                    {
+                      label: isEnglish ? 'Origin' : '由来',
+                      value: isEnglish ? expandedShowcaseCard.originEn : expandedShowcaseCard.originZh,
+                    },
+                    {
+                      label: isEnglish ? 'Craft Features' : '工艺特点',
+                      value: isEnglish ? expandedShowcaseCard.featuresEn : expandedShowcaseCard.featuresZh,
+                    },
+                    {
+                      label: isEnglish ? 'Usage' : '适用',
+                      value: isEnglish ? expandedShowcaseCard.usageEn : expandedShowcaseCard.usageZh,
+                    },
+                  ].filter((item) => item.value).map((item) => (
+                    <div key={item.label} className="rounded border border-white/10 bg-white/[0.025] p-4">
+                      <span className="block text-xs font-medium uppercase tracking-[0.22em] text-fuchsia-200/55">{item.label}</span>
+                      <p className="mt-2 text-white/68">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
               <button type="button" onClick={() => setExpandedShowcaseCard(null)} className="mt-8 w-max rounded-full border border-white/14 px-5 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/50 hover:text-white">{isEnglish ? 'Close' : '\u5173\u95ed'}</button>
             </div>
           </div>

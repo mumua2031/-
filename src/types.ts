@@ -20,9 +20,14 @@ export interface PatternVisualAnalysis {
 export interface StitchTechnique {
   name: string;
   enName: string;
+  category?: string;
+  enCategory?: string;
   aliases?: string[];
   imageUrl: string;
   summary: MultilingualString;
+  origin?: MultilingualString;
+  features?: MultilingualString;
+  usage?: MultilingualString;
   source: string;
 }
 
