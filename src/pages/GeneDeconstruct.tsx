@@ -35,12 +35,12 @@ function getPatternImageByCode(heCode: string, fallback: string) {
 }
 
 const symbolShowcaseCards: ShowcaseCard[] = [
-  { titleZh: '\u82b1\u9e1f\u7eb9', titleEn: 'Floral and Bird Motifs', textZh: '\u4ee5\u7261\u4e39\u3001\u83b2\u82b1\u3001\u8776\u9e1f\u6784\u6210\u795d\u9882\u79e9\u5e8f\uff0c\u8bb0\u5f55\u6c49\u7ee3\u4ece\u6c11\u95f4\u5ba1\u7f8e\u5230\u793c\u4fd7\u8868\u8fbe\u7684\u7eb9\u6837\u57fa\u56e0\u3002', textEn: 'Peonies, lotus, butterflies and birds form auspicious visual orders in Han embroidery.', imageUrl: getPatternImageByCode('HE-N-B-G13', '/patterns-transparent/HE-N-B-G13.png') },
+  { titleZh: '\u82b1\u9e1f\u7eb9', titleEn: 'Floral and Bird Motifs', textZh: '\u4ee5\u7261\u4e39\u3001\u83b2\u82b1\u3001\u8776\u9e1f\u6784\u6210\u795d\u9882\u79e9\u5e8f\uff0c\u8bb0\u5f55\u6c49\u7ee3\u4ece\u6c11\u95f4\u5ba1\u7f8e\u5230\u793c\u4fd7\u8868\u8fbe\u7684\u7eb9\u6837\u57fa\u56e0\u3002', textEn: 'Peonies, lotus, butterflies and birds form auspicious visual orders in Han embroidery.', imageUrl: getPatternImageByCode('HE-N-B-B03', '/patterns-transparent/HE-N-B-B03.png') },
   { titleZh: '\u795e\u517d\u7eb9', titleEn: 'Auspicious Beast Motifs', textZh: '\u51e4\u3001\u9f99\u3001\u745e\u517d\u7b49\u5f62\u8c61\u627f\u8f7d\u7948\u798f\u4e0e\u5b88\u62a4\uff0c\u5728\u7ebf\u811a\u5bc6\u5ea6\u548c\u8272\u5f69\u5c42\u6b21\u4e2d\u5f62\u6210\u7cbe\u795e\u8c61\u5f81\u3002', textEn: 'Phoenix, dragon and auspicious animals carry blessings through dense stitches and layered color.', imageUrl: getPatternImageByCode('HE-N-B-R01', '/patterns-transparent/HE-N-B-R01.png') },
   { titleZh: '\u51e0\u4f55\u7eb9', titleEn: 'Geometric Motifs', textZh: '\u4e07\u5b57\u3001\u56de\u7eb9\u3001\u8fde\u73e0\u4e0e\u4e91\u96f7\u7eb9\u6784\u6210\u53ef\u590d\u7528\u7684\u7ed3\u6784\u9aa8\u67b6\uff0c\u4f7f\u4f20\u7edf\u7eb9\u6837\u80fd\u88ab\u7f16\u7801\u4e0e\u68c0\u7d22\u3002', textEn: 'Wan, fret and cloud-thunder motifs form reusable structures for coding and retrieval.', imageUrl: getPatternImageByCode('HE-G-B-B09', '/patterns/HE-G-B-B09.jpg') },
   { titleZh: '\u6587\u5b57\u7eb9', titleEn: 'Character Motifs', textZh: '\u798f\u3001\u5bff\u3001\u559c\u7b49\u6587\u5b57\u4e0e\u88c5\u9970\u7ebf\u811a\u7ec4\u5408\uff0c\u5c06\u795d\u613f\u76f4\u63a5\u8f6c\u5316\u4e3a\u53ef\u8bc6\u522b\u7684\u7eb9\u6837\u7b26\u53f7\u3002', textEn: 'Fu, Shou and Xi characters combine with ornamental stitches as readable symbolic motifs.', imageUrl: getPatternImageByCode('HE-H-B-A04', '/patterns/HE-H-B-A04.jpg') },
-  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: getPatternImageByCode('HE-N-B-R04', '/patterns/HE-N-B-R04.jpg') },
-  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: getPatternImageByCode('HE-N-B-B04', '/patterns/HE-N-B-B04.jpg') },
+  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: getPatternImageByCode('HE-N-B-R02', '/patterns/HE-N-B-R02.jpg') },
+  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: getPatternImageByCode('HE-N-B-M07', '/patterns-transparent/HE-N-B-M07.png') },
 ];
 
 const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch) => ({
@@ -194,13 +194,12 @@ export function GeneDeconstruct() {
   const navigate = useNavigate();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
-  const categoryLanguage = isEnglish ? 'en' : 'zh';
   const fallback = isEnglish ? 'No data available' : '暂无资料';
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(3);
   const [symbolShowcaseIndex, setSymbolShowcaseIndex] = useState(0);
   const [techniqueShowcaseIndex, setTechniqueShowcaseIndex] = useState(0);
   const [expandedShowcaseCard, setExpandedShowcaseCard] = useState<ShowcaseCard | null>(null);
-  const [comparisonIndex, setComparisonIndex] = useState(0);
+  const [comparisonIndex, setComparisonIndex] = useState(3);
   const [activeComparisonDimension, setActiveComparisonDimension] = useState<ComparisonDimension>('pattern');
   const [hoveredRelatedId, setHoveredRelatedId] = useState<string | null>(null);
 
@@ -220,33 +219,6 @@ export function GeneDeconstruct() {
   const comparisonCards = useMemo(() => getRelatedComparisonCards(comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish]);
   const comparisonValueLabel = getComparisonValueLabel(comparisonPattern, activeComparisonDimension, currentLang, isEnglish);
   const selectedCode = getCanonicalCode(selected);
-  const selectedClassification = getPatternClassification(selected);
-  const selectedArchiveFields = [
-    {
-      label: isEnglish ? 'Pattern Type' : '\u7eb9\u6837\u5927\u7c7b',
-      value: getCategoryLabel('pattern', selectedClassification.patternCategory, categoryLanguage),
-    },
-    {
-      label: isEnglish ? 'Meaning' : '\u5bd3\u610f\u5927\u7c7b',
-      value: getCategoryLabel('meaning', selectedClassification.meaningCategory, categoryLanguage),
-    },
-    {
-      label: isEnglish ? 'Color Group' : '\u8272\u5f69\u5927\u7c7b',
-      value: getCategoryLabel('color', selectedClassification.colorCategory, categoryLanguage),
-    },
-    {
-      label: isEnglish ? 'Period' : '\u5e74\u4ee3',
-      value: getLocalizedPlainText(selected.era, currentLang, ''),
-    },
-    {
-      label: isEnglish ? 'Carrier' : '\u8f7d\u4f53',
-      value: getLocalizedPlainText(selected.carrier, currentLang, ''),
-    },
-    {
-      label: isEnglish ? 'Region' : '\u5730\u57df',
-      value: getLocalizedPlainText(selected.region, currentLang, ''),
-    },
-  ].filter((item) => item.value);
 
   const handleGalleryIndexChange = useCallback((index: number) => {
     const nextIndex = index % Math.min(10, mockPatterns.length);
@@ -268,7 +240,7 @@ export function GeneDeconstruct() {
             <p className="mt-5 text-base leading-8 text-white/60">{isEnglish ? 'Select a pattern to view archive data, symbolic analysis and technique breakdown in sync.' : '\u9009\u4e2d\u7eb9\u6837\uff0c\u540c\u6b65\u5c55\u793a\u6863\u6848\u3001\u7b26\u53f7\u5206\u6790\u4e0e\u6280\u827a\u62c6\u89e3\u3002'}</p>
           </div>
 
-          <div className="gene-circular-gallery-shell gene-circular-gallery-shell-full">
+          <div className="gene-circular-gallery-shell gene-circular-gallery-shell-full group/gallery relative">
             <CircularGallery
               items={galleryItems}
               bend={2.35}
@@ -278,44 +250,24 @@ export function GeneDeconstruct() {
               scrollEase={0.065}
               font="600 28px Noto Sans SC"
               autoPlay
-              autoPlaySpeed={0.052}
+              autoPlaySpeed={0.0416}
               autoPlayResumeDelay={1200}
               initialIndex={3}
               onActiveIndexChange={handleGalleryIndexChange}
             />
-          </div>
-
-          <section className="gene-selected-record-panel" aria-live="polite">
-            <div className="min-w-0">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-fuchsia-200/55">
-                {isEnglish ? 'Selected Pattern' : '\u5df2\u9009\u7eb9\u6837'}
-              </p>
-              <h2 className="mt-3 truncate text-2xl font-semibold text-white md:text-3xl">{getPatternName(selected, currentLang)}</h2>
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <span className="gene-selected-code">{selectedCode}</span>
-                <span className="text-xs text-white/42">{isEnglish ? 'Archive data synchronized with the selected gallery item.' : '\u6863\u6848\u4fe1\u606f\u4e0e\u5f53\u524d\u9009\u4e2d\u7eb9\u6837\u540c\u6b65\u3002'}</span>
-              </div>
-            </div>
-
-            <dl className="gene-selected-record-grid">
-              {selectedArchiveFields.map((item) => (
-                <div key={item.label} className="min-w-0">
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-
             <Link
               to={'/pattern/' + selectedCode}
-              className="gene-selected-record-link"
+              className="gene-gallery-action-link"
               aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
               title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
             >
-              <Eye className="h-4 w-4" />
-              <span>{isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}</span>
+              <img src={selected.imageUrl} alt="" aria-hidden="true" />
+              <span className="gene-gallery-eye">
+                <Eye className="h-6 w-6" />
+              </span>
             </Link>
-          </section>
+          </div>
+
         </div>
       </section>
 

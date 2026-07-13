@@ -23,6 +23,12 @@ type ClassificationCard = {
   icon: typeof Flower2;
 };
 
+const categoryRepresentativeCodes: Record<string, string> = {
+  N: 'HE-N-B-G13',
+  H: 'HE-H-S-B08',
+  G: 'HE-G-B-B09',
+};
+
 const symbolCategoryMeta = [
   {
     title: '自然纹样',
@@ -57,7 +63,7 @@ function getPatternName(pattern: PatternGene) {
 function getPatternCategoryCards(): ClassificationCard[] {
   return symbolCategoryMeta.map((category) => {
     const relatedPatterns = mockPatterns.filter((pattern) => getPatternClassification(pattern).patternCategory === category.code);
-    const representativePattern = relatedPatterns[0] || mockPatterns[0];
+    const representativePattern = mockPatterns.find((pattern) => pattern.heCode === categoryRepresentativeCodes[category.code]) || relatedPatterns[0] || mockPatterns[0];
 
     return {
       ...category,

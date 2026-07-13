@@ -426,17 +426,16 @@ body::-webkit-scrollbar {
 }
 
 .gene-symbol-showcase-image {
-  left: 50%;
-  top: 42%;
-  width: min(72%, 340px);
-  height: min(46%, 230px);
-  object-fit: contain;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
-  transform: translate(-50%, -50%);
+  transform: scale(1);
 }
 
 .group:hover .gene-symbol-showcase-image {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: scale(1.04);
 }
 
 .hanxiu-symbol-carousel {
@@ -468,14 +467,15 @@ body::-webkit-scrollbar {
 
 .hanxiu-symbol-card-fill {
   object-fit: cover;
+  object-position: center;
   opacity: 0.18;
   filter: blur(18px) saturate(0.9);
   transform: scale(1.12);
 }
 
 .hanxiu-symbol-card-image {
-  object-fit: contain;
-  padding: 24px;
+  object-fit: cover;
+  object-position: center;
   opacity: 0.44;
 }
 
@@ -706,6 +706,7 @@ body::-webkit-scrollbar {
 }
 
 .gene-circular-gallery-shell {
+  position: relative;
   height: min(76vh, 760px);
   border: 1px solid rgba(244, 114, 182, 0.14);
   border-radius: 8px;
@@ -714,6 +715,71 @@ body::-webkit-scrollbar {
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
   box-shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+}
+
+.gene-gallery-action-link {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  z-index: 8;
+  width: clamp(150px, 15vw, 230px);
+  aspect-ratio: 0.76;
+  overflow: hidden;
+  border: 1px solid rgba(244, 114, 182, 0.28);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.62);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.96);
+  transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.gene-circular-gallery-shell:hover .gene-gallery-action-link,
+.gene-gallery-action-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.045);
+}
+
+.gene-gallery-action-link:hover,
+.gene-gallery-action-link:focus-visible {
+  border-color: rgba(244, 114, 182, 0.72);
+  box-shadow: 0 0 34px rgba(217, 70, 239, 0.28);
+  outline: none;
+}
+
+.gene-gallery-action-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  opacity: 0.72;
+  filter: brightness(0.58) saturate(0.94);
+  transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+}
+
+.gene-gallery-action-link:hover img,
+.gene-gallery-action-link:focus-visible img {
+  transform: scale(1.05);
+  opacity: 0.62;
+  filter: brightness(0.48) saturate(0.9);
+}
+
+.gene-gallery-eye {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(244, 114, 182, 0.52);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 24px rgba(217, 70, 239, 0.28);
+  transform: translate(-50%, -50%);
 }
 
 .gene-grid {
