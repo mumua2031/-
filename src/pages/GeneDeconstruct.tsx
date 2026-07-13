@@ -202,6 +202,7 @@ export function GeneDeconstruct() {
   const [comparisonIndex, setComparisonIndex] = useState(3);
   const [activeComparisonDimension, setActiveComparisonDimension] = useState<ComparisonDimension>('pattern');
   const [hoveredRelatedId, setHoveredRelatedId] = useState<string | null>(null);
+  const [isGalleryPatternHovered, setIsGalleryPatternHovered] = useState(false);
 
   const selected = mockPatterns[selectedIndex] || mockPatterns[0];
   const galleryItems = useMemo(
@@ -253,18 +254,24 @@ export function GeneDeconstruct() {
               autoPlaySpeed={0.0416}
               autoPlayResumeDelay={1200}
               initialIndex={3}
+              isPaused={isGalleryPatternHovered}
+              isActiveHovered={isGalleryPatternHovered}
               onActiveIndexChange={handleGalleryIndexChange}
             />
             <Link
               to={'/pattern/' + selectedCode}
               className="gene-gallery-action-link"
+              onMouseEnter={() => setIsGalleryPatternHovered(true)}
+              onMouseLeave={() => setIsGalleryPatternHovered(false)}
+              onFocus={() => setIsGalleryPatternHovered(true)}
+              onBlur={() => setIsGalleryPatternHovered(false)}
               aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
               title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
             >
-              <img src={selected.imageUrl} alt="" aria-hidden="true" />
               <span className="gene-gallery-eye">
                 <Eye className="h-6 w-6" />
               </span>
+              <span className="gene-gallery-action-text">{isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u8d44\u6599'}</span>
             </Link>
           </div>
 

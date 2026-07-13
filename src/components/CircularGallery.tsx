@@ -21,6 +21,8 @@ type CircularGalleryProps = {
   autoPlaySpeed?: number;
   autoPlayResumeDelay?: number;
   initialIndex?: number;
+  isPaused?: boolean;
+  isActiveHovered?: boolean;
   onActiveIndexChange?: (index: number) => void;
 };
 
@@ -238,6 +240,9 @@ class Media {
   speed = 0;
   isBefore = false;
   isAfter = false;
+  baseScaleX = 1;
+  baseScaleY = 1;
+  hoverProgress = 0;
 
   constructor({ geometry, gl, image, index, length, scene, screen, text, viewport, bend, textColor, borderRadius = 0, font }: any) {
     this.geometry = geometry;
@@ -286,6 +291,7 @@ class Media {
         uniform vec2 uPlaneSizes;
         uniform sampler2D tMap;
         uniform float uBorderRadius;
+        uniform float uDim;
         varying vec2 vUv;
 
         float roundedBoxSDF(vec2 p, vec2 b, float r) {
@@ -306,7 +312,8 @@ class Media {
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           float edgeSmooth = 0.002;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
-          gl_FragColor = vec4(color.rgb, alpha);
+          vec3 dimmed = color.rgb * (1.0 - uDim);
+          gl_FragColor = vec4(dimmed, alpha);
         }
       `,
       uniforms: {
@@ -316,6 +323,7 @@ class Media {
         uSpeed: { value: 0 },
         uTime: { value: 100 * Math.random() },
         uBorderRadius: { value: this.borderRadius },
+        uDim: { value: 0 },
       },
       transparent: true,
     });
@@ -343,7 +351,13 @@ class Media {
     });
   }
 
-  update(scroll: { current: number; last: number }, direction: 'left' | 'right') {
+  update(scroll: { current: number; last: number }, direction: 'left' | 'right', isActiveHovered = false) {
+    const hoverTarget = isActiveHovered ? 1 : 0;
+    this.hoverProgress = lerp(this.hoverProgress, hoverTarget, 0.16);
+    const hoverScale = 1 + this.hoverProgress * 0.085;
+    this.plane.scale.x = this.baseScaleX * hoverScale;
+    this.plane.scale.y = this.baseScaleY * hoverScale;
+    this.program.uniforms.uDim.value = this.hoverProgress * 0.34;
     this.plane.position.x = this.x - scroll.current - this.extra;
     const x = this.plane.position.x;
     const span = this.viewport.width / 2;
@@ -383,12 +397,14 @@ class Media {
   onResize({ screen, viewport }: { screen: { width: number; height: number }; viewport: { width: number; height: number } }) {
     this.screen = screen;
     this.viewport = viewport;
-    this.plane.scale.y = this.viewport.height * 0.38;
-    this.plane.scale.x = this.plane.scale.y * 0.76;
-    this.x = this.plane.scale.x * 1.25 * this.index;
-    this.width = this.plane.scale.x * 1.25;
+    this.baseScaleY = this.viewport.height * 0.38;
+    this.baseScaleX = this.baseScaleY * 0.76;
+    this.plane.scale.y = this.baseScaleY;
+    this.plane.scale.x = this.baseScaleX;
+    this.x = this.baseScaleX * 1.25 * this.index;
+    this.width = this.baseScaleX * 1.25;
     this.widthTotal = this.width * this.length;
-    this.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
+    this.program.uniforms.uPlaneSizes.value = [this.baseScaleX, this.baseScaleY];
   }
 }
 
@@ -401,6 +417,8 @@ class App {
   autoPlaySpeed: number;
   autoPlayResumeDelay: number;
   autoPlayResumeAt = 0;
+  externalPaused = false;
+  isActiveHovered = false;
   onActiveIndexChange?: (index: number) => void;
   activeIndex = -1;
   renderer!: Renderer;
@@ -571,8 +589,21 @@ class App {
     this.autoPlayResumeAt = window.performance.now() + this.autoPlayResumeDelay;
   }
 
+  setExternalPaused(isPaused: boolean) {
+    this.externalPaused = isPaused;
+    if (isPaused) {
+      this.pauseAutoPlay();
+    } else {
+      this.autoPlayResumeAt = window.performance.now();
+    }
+  }
+
+  setActiveHovered(isHovered: boolean) {
+    this.isActiveHovered = isHovered;
+  }
+
   applyAutoPlay() {
-    if (!this.autoPlay || this.isDown || window.performance.now() < this.autoPlayResumeAt) return;
+    if (!this.autoPlay || this.isDown || this.externalPaused || window.performance.now() < this.autoPlayResumeAt) return;
     this.scroll.target += this.autoPlaySpeed;
   }
 
@@ -599,10 +630,14 @@ class App {
     this.applyAutoPlay();
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
-    this.medias.forEach((media) => media.update(this.scroll, direction));
+    const width = this.medias[0]?.width || 1;
+    const sourceLength = Math.max(1, this.mediasImages.length / 2);
+    const nearestIndex = ((Math.round(Math.abs(this.scroll.current) / width) % sourceLength) + sourceLength) % sourceLength;
+    this.medias.forEach((media) => {
+      const mediaSourceIndex = media.index % sourceLength;
+      media.update(this.scroll, direction, this.isActiveHovered && mediaSourceIndex === nearestIndex);
+    });
     if (this.medias[0] && this.onActiveIndexChange) {
-      const width = this.medias[0].width || 1;
-      const sourceLength = Math.max(1, this.mediasImages.length / 2);
       const nextIndex = ((Math.round(Math.abs(this.scroll.current) / width) % sourceLength) + sourceLength) % sourceLength;
       if (nextIndex !== this.activeIndex) {
         this.activeIndex = nextIndex;
@@ -665,9 +700,12 @@ export default function CircularGallery({
   autoPlaySpeed = 0.018,
   autoPlayResumeDelay = 1400,
   initialIndex = 0,
+  isPaused = false,
+  isActiveHovered = false,
   onActiveIndexChange,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const appRef = useRef<App | undefined>(undefined);
   useEffect(() => {
     if (!containerRef.current) return;
     let app: App | undefined;
@@ -688,12 +726,24 @@ export default function CircularGallery({
         initialIndex,
         onActiveIndexChange,
       });
+      appRef.current = app;
+      app.setExternalPaused(isPaused);
+      app.setActiveHovered(isActiveHovered);
     });
     return () => {
       isMounted = false;
       app?.destroy();
+      if (appRef.current === app) appRef.current = undefined;
     };
   }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, initialIndex, onActiveIndexChange]);
+
+  useEffect(() => {
+    appRef.current?.setExternalPaused(isPaused);
+  }, [isPaused]);
+
+  useEffect(() => {
+    appRef.current?.setActiveHovered(isActiveHovered);
+  }, [isActiveHovered]);
 
   return (
     <div
