@@ -122,6 +122,7 @@ type HanxiuBookCard = {
   span: string;
   imageUrl: string;
   tone: string;
+  imageMode: 'tall' | 'wide' | 'wide-portrait' | 'square';
 };
 
 const hanxiuBookCards: HanxiuBookCard[] = [
@@ -137,6 +138,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-1 md:row-span-2',
     imageUrl: '/books/hanxiu-tu-an.jpg',
     tone: 'from-fuchsia-500/28 via-black/72 to-black',
+    imageMode: 'tall',
   },
   {
     zh: '荆楚汉绣',
@@ -150,6 +152,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/jingchu-hanxiu.jpg',
     tone: 'from-sky-500/24 via-black/70 to-black',
+    imageMode: 'wide',
   },
   {
     zh: '中国纹样三千年',
@@ -163,6 +166,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/zhongguo-wenyang-3000.jpg',
     tone: 'from-amber-500/24 via-black/70 to-black',
+    imageMode: 'wide-portrait',
   },
   {
     zh: '世界经典纹样大全',
@@ -176,6 +180,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-2 md:row-span-1',
     imageUrl: '/books/va-pattern-ornament.png',
     tone: 'from-emerald-500/22 via-black/72 to-black',
+    imageMode: 'wide',
   },
   {
     zh: '世界经典纹样大全',
@@ -189,6 +194,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/va-pattern-plates.jpg',
     tone: 'from-rose-500/22 via-black/72 to-black',
+    imageMode: 'square',
   },
   {
     zh: '秦汉纹样',
@@ -202,6 +208,7 @@ const hanxiuBookCards: HanxiuBookCard[] = [
     span: 'md:col-span-1 md:row-span-1',
     imageUrl: '/books/qinhan-wenyang.jpg',
     tone: 'from-blue-500/24 via-black/72 to-black',
+    imageMode: 'square',
   },
 ];
 
@@ -361,12 +368,20 @@ export function Home() {
                   aria-label={isEnglish ? card.enTitle : card.title}
                 >
                   {card.imageUrl && (
-                    <img
-                      src={card.imageUrl}
-                      alt=""
-                      aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 h-full w-full object-contain p-10 opacity-[0.18] transition-[opacity,transform] group-hover:opacity-[0.28] duration-500 group-hover:scale-110"
-                    />
+                    <>
+                      <img
+                        src={card.imageUrl}
+                        alt=""
+                        aria-hidden="true"
+                        className="hanxiu-symbol-card-fill pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500 group-hover:opacity-[0.32]"
+                      />
+                      <img
+                        src={card.imageUrl}
+                        alt=""
+                        aria-hidden="true"
+                        className="hanxiu-symbol-card-image pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-500 group-hover:opacity-[0.52]"
+                      />
+                    </>
                   )}
                   <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.78))]" />
                   <span className="relative z-10 flex w-full items-center justify-between gap-4">
@@ -405,7 +420,14 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
-                  className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-[0.78] transition-transform duration-500 group-hover:scale-105"
+                  className="hanxiu-book-card-fill pointer-events-none absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-110"
+                />
+                <img
+                  src={book.imageUrl}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className={'hanxiu-book-card-image hanxiu-book-card-image--' + book.imageMode + ' pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500'}
                 />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />
                 <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.44)_56%,rgba(0,0,0,0.84))]" />
