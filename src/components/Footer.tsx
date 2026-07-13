@@ -19,7 +19,7 @@ const copy = {
     sources: '数据来源',
     coding: '编码规范',
     copyright: '版权与使用',
-    contact: '联系 Zoey',
+    contact: '维权投稿',
     brand: '绣艺境',
     intro: '汉绣纹样数字基因库，面向非遗保护、学术研究、个人学习、文化展示与公共教育。',
     learnMore: '了解项目',
@@ -34,7 +34,7 @@ const copy = {
     updating: '持续更新',
     close: '关闭',
     closeNotice: '关闭说明',
-    copyrightLine: '© 2026 邹牧希（英文名：Zoey）. All Rights Reserved.',
+    copyrightLine: '©2026 邹牧希（Zoey）原创内容保留权利，第三方素材权属归原权利人',
   },
   en: {
     about: 'About XIUYIJING',
@@ -42,7 +42,7 @@ const copy = {
     sources: 'Data Sources',
     coding: 'Coding Standards',
     copyright: 'Copyright and Use',
-    contact: 'Contact Zoey',
+    contact: 'Rights / Submissions',
     brand: 'XIUYIJING',
     intro: 'A digital gene archive for Han embroidery patterns, serving heritage preservation, academic research, personal study, cultural display and public education.',
     learnMore: 'Learn More',
@@ -57,7 +57,7 @@ const copy = {
     updating: 'Updating',
     close: 'Close',
     closeNotice: 'Close notice',
-    copyrightLine: '© 2026 邹牧希 (English name: Zoey). All Rights Reserved.',
+    copyrightLine: '©2026 邹牧希 (Zoey). Original content rights reserved; third-party materials remain with their right holders.',
   },
 };
 
@@ -251,7 +251,7 @@ export function Footer() {
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/38 md:flex-row md:items-center md:justify-between">
           <p>{copy[locale].copyrightLine}</p>
           <a className="transition-colors hover:text-fuchsia-200" href={`mailto:${contactEmail}`}>
-            {contactEmail}
+            {copy[locale].contact}
           </a>
         </div>
       </footer>
