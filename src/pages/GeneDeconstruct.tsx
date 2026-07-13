@@ -215,11 +215,12 @@ export function GeneDeconstruct() {
               textColor="#f7d8ff"
               borderRadius={0.06}
               scrollSpeed={1.8}
-              scrollEase={0.045}
+              scrollEase={0.065}
               font="600 28px Noto Sans SC"
               autoPlay
-              autoPlaySpeed={0.02}
-              autoPlayResumeDelay={1600}
+              autoPlaySpeed={0.052}
+              autoPlayResumeDelay={1200}
+              initialIndex={3}
               onActiveIndexChange={handleGalleryIndexChange}
             />
           </div>

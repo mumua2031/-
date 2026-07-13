@@ -20,6 +20,7 @@ type CircularGalleryProps = {
   autoPlay?: boolean;
   autoPlaySpeed?: number;
   autoPlayResumeDelay?: number;
+  initialIndex?: number;
   onActiveIndexChange?: (index: number) => void;
 };
 
@@ -421,7 +422,7 @@ class App {
   boundOnTouchUp!: () => void;
   boundOnKeyDown!: (event: KeyboardEvent) => void;
 
-  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, autoPlay = false, autoPlaySpeed = 0.018, autoPlayResumeDelay = 1400, onActiveIndexChange }: CircularGalleryProps) {
+  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, autoPlay = false, autoPlaySpeed = 0.018, autoPlayResumeDelay = 1400, initialIndex = 0, onActiveIndexChange }: CircularGalleryProps) {
     autoBind(this);
     this.container = container;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0, position: 0 };
@@ -437,6 +438,7 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
+    this.setInitialPosition(initialIndex);
     this.update();
     this.addEventListeners();
   }
@@ -489,6 +491,17 @@ class App {
         font,
       }),
     );
+  }
+
+  setInitialPosition(initialIndex: number) {
+    if (!this.medias[0]) return;
+    const sourceLength = Math.max(1, this.mediasImages.length / 2);
+    const normalizedIndex = ((Math.round(initialIndex) % sourceLength) + sourceLength) % sourceLength;
+    const initialPosition = this.medias[0].width * normalizedIndex;
+    this.scroll.current = initialPosition;
+    this.scroll.target = initialPosition;
+    this.scroll.last = initialPosition;
+    this.scroll.position = initialPosition;
   }
 
   onTouchDown(e: MouseEvent | TouchEvent) {
@@ -651,6 +664,7 @@ export default function CircularGallery({
   autoPlay = false,
   autoPlaySpeed = 0.018,
   autoPlayResumeDelay = 1400,
+  initialIndex = 0,
   onActiveIndexChange,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -671,6 +685,7 @@ export default function CircularGallery({
         autoPlay,
         autoPlaySpeed,
         autoPlayResumeDelay,
+        initialIndex,
         onActiveIndexChange,
       });
     });
@@ -678,7 +693,7 @@ export default function CircularGallery({
       isMounted = false;
       app?.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, onActiveIndexChange]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, initialIndex, onActiveIndexChange]);
 
   return (
     <div
