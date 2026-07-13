@@ -4,7 +4,7 @@ import { PatternGene } from '../types';
 import { getCategoryLabel, getPatternClassification } from '../lib/classification';
 import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { motion, useReducedMotion } from 'motion/react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type SyntheticEvent } from 'react';
 
 type GeneWallProps = {
   patterns: PatternGene[];
@@ -24,6 +24,16 @@ function getStableTiming(id: string) {
     duration: 3.4 + (hash % 28) / 10,
     delay: -((hash % 50) / 10),
   };
+}
+
+function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallbackUrl?: string) {
+  const image = event.currentTarget;
+  if (fallbackUrl && image.dataset.fallbackApplied !== 'true') {
+    image.dataset.fallbackApplied = 'true';
+    image.src = fallbackUrl;
+    return;
+  }
+  image.style.visibility = 'hidden';
 }
 
 export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, getMetaLabel, showHoverActions = true }: GeneWallProps) {
@@ -93,6 +103,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                     className="gene-wall-orb-image"
                     loading="lazy"
                     decoding="async"
+                    onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
                   />
                 </motion.div>
                 {showHoverInfo && isActive && (

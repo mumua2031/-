@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type SyntheticEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Download, Share2, Star } from 'lucide-react';
@@ -23,6 +23,16 @@ function readFavorites() {
   } catch {
     return [];
   }
+}
+
+function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallbackUrl?: string) {
+  const image = event.currentTarget;
+  if (fallbackUrl && image.dataset.fallbackApplied !== 'true') {
+    image.dataset.fallbackApplied = 'true';
+    image.src = fallbackUrl;
+    return;
+  }
+  image.style.visibility = 'hidden';
 }
 
 function getCanonicalCode(pattern: PatternGene) {
@@ -534,6 +544,7 @@ export function PatternDetail() {
               src={activeImageMode === 'pattern' ? pattern.imageUrl : pattern.imageUrl}
               alt={name}
               onClick={() => setIsZoomed((current) => !current)}
+              onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
               className={`h-full w-full cursor-zoom-in object-contain transition-transform duration-500 ${isZoomed ? 'scale-150' : 'scale-100'}`}
               style={{ transformOrigin }}
             />

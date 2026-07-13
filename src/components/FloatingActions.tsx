@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Star } from 'lucide-react';
@@ -15,6 +15,16 @@ function readFavorites() {
   } catch {
     return [];
   }
+}
+
+function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallbackUrl?: string) {
+  const image = event.currentTarget;
+  if (fallbackUrl && image.dataset.fallbackApplied !== 'true') {
+    image.dataset.fallbackApplied = 'true';
+    image.src = fallbackUrl;
+    return;
+  }
+  image.style.visibility = 'hidden';
 }
 
 export function FloatingActions() {
@@ -81,7 +91,12 @@ export function FloatingActions() {
                     className="flex items-center gap-3 rounded-md border border-white/8 bg-white/5 p-2 transition-colors hover:border-fuchsia-300/35 hover:bg-fuchsia-950/20"
                     onClick={() => setIsFavoritesOpen(false)}
                   >
-                    <img src={pattern.imageUrl} alt={getLocalizedPatternName(pattern, currentLang)} className="h-10 w-10 object-contain" />
+                    <img
+                      src={pattern.imageUrl}
+                      alt={getLocalizedPatternName(pattern, currentLang)}
+                      className="h-10 w-10 object-contain"
+                      onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
+                    />
                     <span className="min-w-0">
                       <span className="block truncate text-xs text-white/78">{getLocalizedPatternName(pattern, currentLang)}</span>
                       <span className="block font-mono text-[10px] text-white/35">{pattern.heCode}</span>
