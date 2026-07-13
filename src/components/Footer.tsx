@@ -5,10 +5,12 @@ import { mockPatterns } from '../data';
 import { getPatternClassification } from '../lib/classification';
 import { stitchTechniques } from '../lib/stitches';
 
-type FooterModalKey = 'research' | 'sources' | 'coding' | 'copyright';
+type FooterModalKey = 'research' | 'sources' | 'coding' | 'copyright' | 'contact';
 type Locale = 'zh' | 'en';
 
 const contactEmail = 'mumua2031@gmail.com';
+const mainlandContactEmail = '1119685541@qq.com';
+const contactDisplay = `${contactEmail} | ${mainlandContactEmail}`;
 const ownerZh = '邹牧希（英文名：Zoey）';
 const ownerEn = '邹牧希 (English name: Zoey)';
 
@@ -67,7 +69,7 @@ const footerLinks = [
   { key: 'sources', modal: 'sources' },
   { key: 'coding', modal: 'coding' },
   { key: 'copyright', modal: 'copyright' },
-  { key: 'contact', href: `mailto:${contactEmail}` },
+  { key: 'contact', modal: 'contact' },
 ] as const;
 
 const modalContent: Record<FooterModalKey, {
@@ -121,12 +123,25 @@ const modalContent: Record<FooterModalKey, {
       zh: [
         `本平台原创内容及具有独创性的选择、编排与视觉表达，其相关权利归${ownerZh}所有；第三方资料及既有作品的相关权利归原作者、出版机构、收藏机构或原权利人所有。`,
         '访问、浏览或查看平台内容，不代表获得复制、下载、传播、改编、商业使用、模型训练、商业数据库建设或文创产品开发等许可。',
-        `权利维权下架申请、纹样信息补正、汉绣实物素材投稿，可通过邮箱 ${contactEmail} 联系。平台将在收到有效材料后视情况核实、补充来源、修正信息、限制展示或删除内容。`,
+        `权利维权下架申请、纹样信息补正、汉绣实物素材投稿，可通过邮箱 ${contactDisplay} 联系。平台将在收到有效材料后视情况核实、补充来源、修正信息、限制展示或删除内容。`,
       ],
       en: [
         `Original platform content and original selection, arrangement and visual expression belong to ${ownerEn}. Third-party materials and existing works remain owned by their original authors, publishers, collection institutions or right holders.`,
         'Accessing, browsing or viewing the platform does not grant permission to copy, download, distribute, adapt, commercially use, train models with, build commercial databases from or develop products from the content.',
-        `Rights takedown requests, motif information corrections and Han embroidery object material submissions may be sent to ${contactEmail}. The platform may verify, supplement sources, correct information, restrict display or remove content after receiving valid materials.`,
+        `Rights takedown requests, motif information corrections and Han embroidery object material submissions may be sent to ${contactDisplay}. The platform may verify, supplement sources, correct information, restrict display or remove content after receiving valid materials.`,
+      ],
+    },
+  },
+  contact: {
+    title: { zh: '维权投稿', en: 'Rights / Submissions' },
+    paragraphs: {
+      zh: [
+        `邮箱地址 1：${contactEmail}（国际）`,
+        `邮箱地址 2：${mainlandContactEmail}（大陆）`,
+      ],
+      en: [
+        `Email 1: ${contactEmail} (International)`,
+        `Email 2: ${mainlandContactEmail} (Mainland China)`,
       ],
     },
   },
@@ -172,6 +187,7 @@ export function Footer() {
   const [activeModal, setActiveModal] = useState<FooterModalKey | null>(null);
   const overviewItems = getOverviewItems(locale);
   const activeContent = activeModal ? modalContent[activeModal] : null;
+  const isContactModal = activeModal === 'contact';
 
   return (
     <>
@@ -231,14 +247,6 @@ export function Footer() {
                 );
               }
 
-              if ('href' in link) {
-                return (
-                  <a key={link.key} className={className} href={link.href}>
-                    {content}
-                  </a>
-                );
-              }
-
               return (
                 <Link key={link.key} className={className} to={link.to}>
                   {content}
@@ -250,9 +258,13 @@ export function Footer() {
 
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/38 md:flex-row md:items-center md:justify-between">
           <p>{copy[locale].copyrightLine}</p>
-          <a className="transition-colors hover:text-fuchsia-200" href={`mailto:${contactEmail}`}>
-            {copy[locale].contact}
-          </a>
+          <button
+            type="button"
+            className="text-left transition-colors hover:text-fuchsia-200 md:text-right"
+            onClick={() => setActiveModal('contact')}
+          >
+            {contactDisplay}
+          </button>
         </div>
       </footer>
 
@@ -264,7 +276,7 @@ export function Footer() {
             onClick={() => setActiveModal(null)}
             aria-label={copy[locale].closeNotice}
           />
-          <section className="relative z-10 max-h-[82vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-fuchsia-200/18 bg-[#08090a] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.58)]">
+          <section className={`relative z-10 max-h-[82vh] w-full overflow-y-auto rounded-lg border border-fuchsia-200/18 bg-[#08090a] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.58)] ${isContactModal ? 'max-w-md' : 'max-w-2xl'}`}>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/55">{activeContent.title[locale]}</p>
             <h3 className="mt-3 text-2xl font-semibold text-white">{activeContent.title[locale]}</h3>
             <div className="mt-5 space-y-4 text-sm leading-8 text-white/68">
