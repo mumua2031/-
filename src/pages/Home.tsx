@@ -433,7 +433,7 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
-                  className={'hanxiu-book-card-image hanxiu-book-card-image--' + book.imageMode + ' pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500'}
+                  className={'hanxiu-book-card-image hanxiu-book-card-image--' + book.imageMode + (index < 3 ? ' hanxiu-book-card-image--full-bleed' : '') + ' pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500'}
                 />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />
                 <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.44)_56%,rgba(0,0,0,0.84))]" />

@@ -520,6 +520,13 @@ body::-webkit-scrollbar {
   transform: scale(1);
 }
 
+.hanxiu-book-card-image--full-bleed {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.72;
+  transform: none;
+}
+
 .hanxiu-symbol-icon {
   display: flex;
   width: 56px;
