@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -39,8 +39,8 @@ const symbolShowcaseCards: ShowcaseCard[] = [
   { titleZh: '\u795e\u517d\u7eb9', titleEn: 'Auspicious Beast Motifs', textZh: '\u51e4\u3001\u9f99\u3001\u745e\u517d\u7b49\u5f62\u8c61\u627f\u8f7d\u7948\u798f\u4e0e\u5b88\u62a4\uff0c\u5728\u7ebf\u811a\u5bc6\u5ea6\u548c\u8272\u5f69\u5c42\u6b21\u4e2d\u5f62\u6210\u7cbe\u795e\u8c61\u5f81\u3002', textEn: 'Phoenix, dragon and auspicious animals carry blessings through dense stitches and layered color.', imageUrl: getPatternImageByCode('HE-NB-R01', '/patterns-transparent/HE-N-B-R01.png') },
   { titleZh: '\u51e0\u4f55\u7eb9', titleEn: 'Geometric Motifs', textZh: '\u4e07\u5b57\u3001\u56de\u7eb9\u3001\u8fde\u73e0\u4e0e\u4e91\u96f7\u7eb9\u6784\u6210\u53ef\u590d\u7528\u7684\u7ed3\u6784\u9aa8\u67b6\uff0c\u4f7f\u4f20\u7edf\u7eb9\u6837\u80fd\u88ab\u7f16\u7801\u4e0e\u68c0\u7d22\u3002', textEn: 'Wan, fret and cloud-thunder motifs form reusable structures for coding and retrieval.', imageUrl: getPatternImageByCode('HE-GB-B09', '/patterns/HE-G-B-B09.jpg') },
   { titleZh: '\u6587\u5b57\u7eb9', titleEn: 'Character Motifs', textZh: '\u798f\u3001\u5bff\u3001\u559c\u7b49\u6587\u5b57\u4e0e\u88c5\u9970\u7ebf\u811a\u7ec4\u5408\uff0c\u5c06\u795d\u613f\u76f4\u63a5\u8f6c\u5316\u4e3a\u53ef\u8bc6\u522b\u7684\u7eb9\u6837\u7b26\u53f7\u3002', textEn: 'Fu, Shou and Xi characters combine with ornamental stitches as readable symbolic motifs.', imageUrl: getPatternImageByCode('HE-HB-A04', '/patterns/HE-H-B-A04.jpg') },
-  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: getPatternImageByCode('HE-NB-R02', '/patterns/HE-N-B-R02.jpg') },
-  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', textZh: '\u82b1\u9e1f\u3001\u6587\u5b57\u3001\u51e0\u4f55\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Floral, character, geometric and auspicious elements form layered Han embroidery narratives.', imageUrl: getPatternImageByCode('HE-NB-M07', '/patterns-transparent/HE-N-B-M07.png') },
+  { titleZh: '\u5668\u7269\u7eb9', titleEn: 'Object Motifs', textZh: '\u4ee5\u74f6\u3001\u76d8\u3001\u5982\u610f\u7b49\u5668\u7269\u4e3a\u7eb9\u6837\u7ebf\u7d22\uff0c\u627f\u8f7d\u5e73\u5b89\u3001\u5706\u6ee1\u4e0e\u793c\u4fd7\u79e9\u5e8f\u3002', textEn: 'Vases, plates and ritual objects carry meanings of peace, completeness and ceremony.', imageUrl: getPatternImageByCode('HE-HL-M11', '/patterns-transparent/HE-H-L-M11.png') },
+  { titleZh: '\u590d\u5408\u7eb9', titleEn: 'Composite Motifs', textZh: '\u51e0\u4f55\u9aa8\u67b6\u3001\u4eba\u7269\u3001\u9f99\u51e4\u4e0e\u745e\u517d\u5143\u7d20\u5171\u6784\uff0c\u5f62\u6210\u591a\u5c42\u7ea7\u7684\u6c49\u7ee3\u7eb9\u6837\u53d9\u4e8b\u3002', textEn: 'Geometric structures, figures, dragon-phoenix forms and auspicious animals form layered Han embroidery narratives.', imageUrl: getPatternImageByCode('HE-HS-M01', '/patterns/HE-H-S-M01.png') },
 ];
 
 const techniqueShowcaseCards: ShowcaseCard[] = stitchTechniques.map((stitch) => ({
@@ -203,6 +203,7 @@ export function GeneDeconstruct() {
   const [activeComparisonDimension, setActiveComparisonDimension] = useState<ComparisonDimension>('pattern');
   const [hoveredRelatedId, setHoveredRelatedId] = useState<string | null>(null);
   const [isGalleryPatternHovered, setIsGalleryPatternHovered] = useState(false);
+  const hasManualComparisonSelectionRef = useRef(false);
 
   const selected = mockPatterns[selectedIndex] || mockPatterns[0];
   const galleryItems = useMemo(
@@ -224,7 +225,7 @@ export function GeneDeconstruct() {
   const handleGalleryIndexChange = useCallback((index: number) => {
     const nextIndex = index % Math.min(10, mockPatterns.length);
     setSelectedIndex(nextIndex);
-    setComparisonIndex(nextIndex);
+    if (!hasManualComparisonSelectionRef.current) setComparisonIndex(nextIndex);
   }, []);
 
   return (
@@ -438,7 +439,10 @@ export function GeneDeconstruct() {
                         key={card.pattern.id}
                         type="button"
                         onClick={() => {
-                          if (nextIndex >= 0) setComparisonIndex(nextIndex);
+                          if (nextIndex >= 0) {
+                            hasManualComparisonSelectionRef.current = true;
+                            setComparisonIndex(nextIndex);
+                          }
                         }}
                         onMouseEnter={() => setHoveredRelatedId(card.pattern.id)}
                         onMouseLeave={() => setHoveredRelatedId(null)}
