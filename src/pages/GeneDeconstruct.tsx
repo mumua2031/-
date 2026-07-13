@@ -10,6 +10,7 @@ import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from
 import type { MultilingualString, PatternGene } from '../types';
 import {
   buildHECode,
+  getCategoryLabel,
   getPatternClassification,
 } from '../lib/classification';
 
@@ -63,6 +64,7 @@ type ComparisonDimension = 'pattern' | 'meaning' | 'color' | 'technique' | 'carr
 type ComparisonCard = {
   pattern: PatternGene;
   reason: string;
+  matchLabel: string;
   differences: string[];
 };
 
@@ -80,6 +82,30 @@ function normalizeField(value: string | undefined) {
 function getComparisonLabel(dimension: ComparisonDimension, isEnglish: boolean) {
   const option = comparisonDimensions.find((item) => item.key === dimension);
   return option ? (isEnglish ? option.en : option.zh) : '';
+}
+
+function getComparisonValueLabel(pattern: PatternGene, dimension: ComparisonDimension, language: keyof MultilingualString, isEnglish: boolean) {
+  const classification = getPatternClassification(pattern);
+  const categoryLanguage = isEnglish ? 'en' : 'zh';
+
+  if (dimension === 'pattern') return getCategoryLabel('pattern', classification.patternCategory, categoryLanguage);
+  if (dimension === 'meaning') return getCategoryLabel('meaning', classification.meaningCategory, categoryLanguage);
+  if (dimension === 'color') return getCategoryLabel('color', classification.colorCategory, categoryLanguage);
+  if (dimension === 'technique') return splitTechniques(pattern, language)[0] || '';
+
+  return getLocalizedPlainText(pattern.carrier, language, '');
+}
+
+function getSharedTechniqueLabel(current: PatternGene, candidate: PatternGene, language: keyof MultilingualString) {
+  const currentTechniques = splitTechniques(current, language);
+  const candidateTechniques = splitTechniques(candidate, language);
+  const candidateNormalized = new Set(candidateTechniques.map(normalizeField));
+  return currentTechniques.find((technique) => candidateNormalized.has(normalizeField(technique))) || currentTechniques[0] || '';
+}
+
+function getComparisonMatchLabel(current: PatternGene, candidate: PatternGene, dimension: ComparisonDimension, language: keyof MultilingualString, isEnglish: boolean) {
+  if (dimension === 'technique') return getSharedTechniqueLabel(current, candidate, language);
+  return getComparisonValueLabel(current, dimension, language, isEnglish);
 }
 
 function hasTechniqueOverlap(current: PatternGene, candidate: PatternGene, language: keyof MultilingualString) {
@@ -127,6 +153,7 @@ function getRelatedComparisonCards(current: PatternGene, dimension: ComparisonDi
     .map((pattern) => ({
       pattern,
       reason: getComparisonLabel(dimension, isEnglish),
+      matchLabel: getComparisonMatchLabel(current, pattern, dimension, language, isEnglish),
       differences: getDifferenceTags(current, pattern, language, isEnglish),
     }))
     .slice(0, 4);
@@ -152,7 +179,7 @@ function getCanonicalCode(pattern: PatternGene) {
 
 function splitTechniques(pattern: PatternGene, language: keyof MultilingualString) {
   return getMLStr(pattern.craft, language, '')
-    .split(/[、,，/|]/)
+    .split(/[、，,;；|/]+/)
     .map((item) => item.trim())
     .filter(Boolean);
 }
@@ -191,6 +218,7 @@ export function GeneDeconstruct() {
   const comparisonPattern = mockPatterns[comparisonIndex] || selected;
   const comparisonCode = getCanonicalCode(comparisonPattern);
   const comparisonCards = useMemo(() => getRelatedComparisonCards(comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish]);
+  const comparisonValueLabel = getComparisonValueLabel(comparisonPattern, activeComparisonDimension, currentLang, isEnglish);
 
   const handleGalleryIndexChange = useCallback((index: number) => {
     const nextIndex = index % Math.min(10, mockPatterns.length);
@@ -337,7 +365,10 @@ export function GeneDeconstruct() {
                 {comparisonDimensions.map((dimension) => (
                   <button
                     key={dimension.key}
-                    onClick={() => setActiveComparisonDimension(dimension.key)}
+                    onClick={() => {
+                      setActiveComparisonDimension(dimension.key);
+                      setHoveredRelatedId(null);
+                    }}
                     className={'shrink-0 rounded-full border px-4 py-2 text-sm transition-colors ' + (activeComparisonDimension === dimension.key ? 'border-fuchsia-400 bg-fuchsia-950/30 text-white shadow-[0_0_18px_rgba(217,70,239,0.16)]' : 'border-white/12 bg-white/[0.03] text-white/48 hover:border-fuchsia-200/35 hover:text-white')}
                   >
                     {isEnglish ? dimension.en : dimension.zh}
@@ -346,6 +377,7 @@ export function GeneDeconstruct() {
               </div>
               <div className="gene-related-meta flex items-center gap-3 text-xs text-white/30">
                 <span>{getComparisonLabel(activeComparisonDimension, isEnglish)}</span>
+                {comparisonValueLabel && <span className="gene-related-current-value">{comparisonValueLabel}</span>}
                 <span>{isEnglish ? comparisonCards.length + ' related' : '\u5173\u8054 ' + comparisonCards.length + ' \u6761'}</span>
               </div>
             </div>
@@ -356,7 +388,14 @@ export function GeneDeconstruct() {
               <div className="gene-related-hero-card">
                 <img src={comparisonPattern.imageUrl} alt={getPatternName(comparisonPattern, currentLang)} />
                 <div className="gene-related-hero-info">
-                  <strong className="min-w-0 truncate text-2xl text-white">{getPatternName(comparisonPattern, currentLang)}</strong>
+                  <div className="min-w-0">
+                    <strong className="block truncate text-2xl text-white">{getPatternName(comparisonPattern, currentLang)}</strong>
+                    {comparisonValueLabel && (
+                      <span className="gene-related-hero-match">
+                        {getComparisonLabel(activeComparisonDimension, isEnglish)}: {comparisonValueLabel}
+                      </span>
+                    )}
+                  </div>
                   <Link
                     to={'/pattern/' + comparisonCode}
                     className="gene-related-record-button inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-950/20 text-fuchsia-100 transition-all hover:border-fuchsia-200/70"
@@ -392,6 +431,7 @@ export function GeneDeconstruct() {
                         <img src={card.pattern.imageUrl} alt={getPatternName(card.pattern, currentLang)} />
                         <span className="gene-related-tile-shade" />
                         <span className="gene-related-tile-info">
+                          <span className="gene-related-tile-match">{card.reason}: {card.matchLabel}</span>
                           <strong>{getPatternName(card.pattern, currentLang)}</strong>
                           <span>{getCanonicalCode(card.pattern)}</span>
                         </span>
