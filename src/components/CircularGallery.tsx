@@ -8,6 +8,13 @@ type GalleryItem = {
   text: string;
 };
 
+type ActiveItemBounds = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
 type CircularGalleryProps = {
   items?: GalleryItem[];
   bend?: number;
@@ -24,6 +31,7 @@ type CircularGalleryProps = {
   isPaused?: boolean;
   isActiveHovered?: boolean;
   onActiveIndexChange?: (index: number) => void;
+  onActiveItemBoundsChange?: (bounds: ActiveItemBounds) => void;
 };
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
@@ -420,7 +428,9 @@ class App {
   externalPaused = false;
   isActiveHovered = false;
   onActiveIndexChange?: (index: number) => void;
+  onActiveItemBoundsChange?: (bounds: ActiveItemBounds) => void;
   activeIndex = -1;
+  lastActiveBoundsKey = '';
   renderer!: Renderer;
   gl!: any;
   camera!: Camera;
@@ -440,7 +450,7 @@ class App {
   boundOnTouchUp!: () => void;
   boundOnKeyDown!: (event: KeyboardEvent) => void;
 
-  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, autoPlay = false, autoPlaySpeed = 0.018, autoPlayResumeDelay = 1400, initialIndex = 0, onActiveIndexChange }: CircularGalleryProps) {
+  constructor(container: HTMLDivElement, { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = DEFAULT_FONT, scrollSpeed = 2, scrollEase = 0.05, autoPlay = false, autoPlaySpeed = 0.018, autoPlayResumeDelay = 1400, initialIndex = 0, onActiveIndexChange, onActiveItemBoundsChange }: CircularGalleryProps) {
     autoBind(this);
     this.container = container;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0, position: 0 };
@@ -450,6 +460,7 @@ class App {
     this.autoPlaySpeed = autoPlaySpeed;
     this.autoPlayResumeDelay = autoPlayResumeDelay;
     this.onActiveIndexChange = onActiveIndexChange;
+    this.onActiveItemBoundsChange = onActiveItemBoundsChange;
     this.createRenderer();
     this.createCamera();
     this.createScene();
@@ -615,6 +626,30 @@ class App {
     this.scroll.target = this.scroll.target < 0 ? -item : item;
   }
 
+  publishActiveItemBounds(nearestIndex: number, sourceLength: number) {
+    if (!this.onActiveItemBoundsChange || !this.medias.length || !this.viewport.width || !this.viewport.height) return;
+    const activeMedia = this.medias
+      .filter((media) => media.index % sourceLength === nearestIndex)
+      .sort((a, b) => Math.abs(a.plane.position.x) - Math.abs(b.plane.position.x))[0];
+    if (!activeMedia) return;
+
+    const bounds = {
+      left: (activeMedia.plane.position.x / this.viewport.width + 0.5) * this.screen.width,
+      top: (0.5 - activeMedia.plane.position.y / this.viewport.height) * this.screen.height,
+      width: (activeMedia.plane.scale.x / this.viewport.width) * this.screen.width,
+      height: (activeMedia.plane.scale.y / this.viewport.height) * this.screen.height,
+    };
+    const key = [
+      Math.round(bounds.left),
+      Math.round(bounds.top),
+      Math.round(bounds.width),
+      Math.round(bounds.height),
+    ].join(':');
+    if (key === this.lastActiveBoundsKey) return;
+    this.lastActiveBoundsKey = key;
+    this.onActiveItemBoundsChange(bounds);
+  }
+
   onResize() {
     this.screen = { width: this.container.clientWidth, height: this.container.clientHeight };
     this.renderer.setSize(this.screen.width, this.screen.height);
@@ -637,6 +672,7 @@ class App {
       const mediaSourceIndex = media.index % sourceLength;
       media.update(this.scroll, direction, this.isActiveHovered && mediaSourceIndex === nearestIndex);
     });
+    this.publishActiveItemBounds(nearestIndex, sourceLength);
     if (this.medias[0] && this.onActiveIndexChange) {
       const nextIndex = ((Math.round(Math.abs(this.scroll.current) / width) % sourceLength) + sourceLength) % sourceLength;
       if (nextIndex !== this.activeIndex) {
@@ -703,6 +739,7 @@ export default function CircularGallery({
   isPaused = false,
   isActiveHovered = false,
   onActiveIndexChange,
+  onActiveItemBoundsChange,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const appRef = useRef<App | undefined>(undefined);
@@ -725,6 +762,7 @@ export default function CircularGallery({
         autoPlayResumeDelay,
         initialIndex,
         onActiveIndexChange,
+        onActiveItemBoundsChange,
       });
       appRef.current = app;
       app.setExternalPaused(isPaused);
@@ -735,7 +773,7 @@ export default function CircularGallery({
       app?.destroy();
       if (appRef.current === app) appRef.current = undefined;
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, initialIndex, onActiveIndexChange]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoPlaySpeed, autoPlayResumeDelay, initialIndex, onActiveIndexChange, onActiveItemBoundsChange]);
 
   useEffect(() => {
     appRef.current?.setExternalPaused(isPaused);

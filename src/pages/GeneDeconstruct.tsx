@@ -68,6 +68,13 @@ type ComparisonCard = {
   differences: string[];
 };
 
+type GalleryActiveBounds = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
 const comparisonDimensions: Array<{ key: ComparisonDimension; zh: string; en: string }> = [
   { key: 'pattern', zh: '\u540c\u7eb9\u6837\u5927\u7c7b', en: 'Same Pattern Type' },
   { key: 'meaning', zh: '\u540c\u5bd3\u610f', en: 'Same Meaning' },
@@ -203,6 +210,7 @@ export function GeneDeconstruct() {
   const [activeComparisonDimension, setActiveComparisonDimension] = useState<ComparisonDimension>('pattern');
   const [hoveredRelatedId, setHoveredRelatedId] = useState<string | null>(null);
   const [isGalleryPatternHovered, setIsGalleryPatternHovered] = useState(false);
+  const [galleryActiveBounds, setGalleryActiveBounds] = useState<GalleryActiveBounds | null>(null);
   const hasManualComparisonSelectionRef = useRef(false);
 
   const selected = mockPatterns[selectedIndex] || mockPatterns[0];
@@ -221,6 +229,14 @@ export function GeneDeconstruct() {
   const comparisonCards = useMemo(() => getRelatedComparisonCards(comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish]);
   const comparisonValueLabel = getComparisonValueLabel(comparisonPattern, activeComparisonDimension, currentLang, isEnglish);
   const selectedCode = getCanonicalCode(selected);
+  const galleryActionStyle: CSSProperties | undefined = galleryActiveBounds
+    ? {
+        left: galleryActiveBounds.left,
+        top: galleryActiveBounds.top,
+        width: galleryActiveBounds.width,
+        height: galleryActiveBounds.height,
+      }
+    : undefined;
 
   const handleGalleryIndexChange = useCallback((index: number) => {
     const nextIndex = index % Math.min(10, mockPatterns.length);
@@ -252,28 +268,32 @@ export function GeneDeconstruct() {
               scrollEase={0.065}
               font="600 28px Noto Sans SC"
               autoPlay
-              autoPlaySpeed={0.0416}
+              autoPlaySpeed={0.02912}
               autoPlayResumeDelay={1200}
               initialIndex={3}
               isPaused={isGalleryPatternHovered}
               isActiveHovered={isGalleryPatternHovered}
               onActiveIndexChange={handleGalleryIndexChange}
+              onActiveItemBoundsChange={setGalleryActiveBounds}
             />
-            <Link
-              to={'/pattern/' + selectedCode}
-              className="gene-gallery-action-link"
-              onMouseEnter={() => setIsGalleryPatternHovered(true)}
-              onMouseLeave={() => setIsGalleryPatternHovered(false)}
-              onFocus={() => setIsGalleryPatternHovered(true)}
-              onBlur={() => setIsGalleryPatternHovered(false)}
-              aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
-              title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
-            >
-              <span className="gene-gallery-eye">
-                <Eye className="h-6 w-6" />
-              </span>
-              <span className="gene-gallery-action-text">{isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u8d44\u6599'}</span>
-            </Link>
+            {galleryActionStyle && (
+              <Link
+                to={'/pattern/' + selectedCode}
+                className="gene-gallery-action-link"
+                style={galleryActionStyle}
+                onMouseEnter={() => setIsGalleryPatternHovered(true)}
+                onMouseLeave={() => setIsGalleryPatternHovered(false)}
+                onFocus={() => setIsGalleryPatternHovered(true)}
+                onBlur={() => setIsGalleryPatternHovered(false)}
+                aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
+                title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
+              >
+                <span className="gene-gallery-eye">
+                  <Eye className="h-6 w-6" />
+                </span>
+                <span className="gene-gallery-action-text">{isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u8d44\u6599'}</span>
+              </Link>
+            )}
           </div>
 
         </div>
