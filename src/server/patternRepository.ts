@@ -20,22 +20,26 @@ function normalizePrivateKey(value?: string) {
 }
 
 function getServiceAccountCredential() {
-  const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
-  if (serviceAccountJson) {
-    const parsed = JSON.parse(serviceAccountJson);
-    return cert({
-      projectId: parsed.project_id || parsed.projectId,
-      clientEmail: parsed.client_email || parsed.clientEmail,
-      privateKey: normalizePrivateKey(parsed.private_key || parsed.privateKey),
-    });
-  }
+  try {
+    const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+    if (serviceAccountJson) {
+      const parsed = JSON.parse(serviceAccountJson);
+      return cert({
+        projectId: parsed.project_id || parsed.projectId,
+        clientEmail: parsed.client_email || parsed.clientEmail,
+        privateKey: normalizePrivateKey(parsed.private_key || parsed.privateKey),
+      });
+    }
 
-  if (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_PROJECT_ID) {
-    return cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
-    });
+    if (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_PROJECT_ID) {
+      return cert({
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
+      });
+    }
+  } catch (error) {
+    console.warn('Firebase service account is invalid. Falling back to local pattern data.', error);
   }
 
   return null;
