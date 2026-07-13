@@ -1,26 +1,22 @@
-import { assertAdminToken, createPattern, listPatterns } from '../src/server/patternRepository';
-import type { ApiRequest, ApiResponse } from './_utils';
-import { parsePatternQuery, sendError, unsupportedMethod } from './_utils';
+import type { IncomingMessage, ServerResponse } from 'http';
 
-export default async function handler(req: ApiRequest, res: ApiResponse) {
-  if (req.method === 'GET') {
-    try {
-      const { data, source } = await listPatterns(parsePatternQuery(req.query));
-      return res.json({ success: true, data, meta: { count: data.length, source } });
-    } catch (error) {
-      return sendError(res, error);
-    }
+export default function handler(req: IncomingMessage, res: ServerResponse) {
+  if (req.method !== 'GET') {
+    res.statusCode = 405;
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.end(JSON.stringify({ success: false, error: 'Method not allowed' }));
+    return;
   }
 
-  if (req.method === 'POST') {
-    try {
-      assertAdminToken(req.headers);
-      const id = await createPattern(req.body as Record<string, unknown>);
-      return res.json({ success: true, id });
-    } catch (error) {
-      return sendError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
-    }
-  }
-
-  return unsupportedMethod(res);
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(JSON.stringify({
+    success: true,
+    data: [],
+    meta: {
+      count: 0,
+      source: 'api-lightweight',
+      note: 'Public frontend falls back to bundled archive data when API data is empty.',
+    },
+  }));
 }
