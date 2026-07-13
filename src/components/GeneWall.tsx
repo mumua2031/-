@@ -51,7 +51,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
   return (
     <div className="w-full mx-auto" style={{ maxWidth: '1600px' }}>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-x-10 gap-y-16 items-end justify-items-center">
-        {patterns.map((pattern) => {
+        {patterns.map((pattern, index) => {
           const timing = timings.get(pattern.id) || getStableTiming(pattern.id);
           const name = getLocalizedPatternName(pattern, currentLang);
           const isActive = activePatternId === pattern.id;
@@ -101,7 +101,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                     src={pattern.imageUrl}
                     alt={name}
                     className="gene-wall-orb-image"
-                    loading="lazy"
+                    loading={index < 24 ? 'eager' : 'lazy'}
                     decoding="async"
                     onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
                   />

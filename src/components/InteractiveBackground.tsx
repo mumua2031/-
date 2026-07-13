@@ -170,6 +170,25 @@ export function InteractiveBackground() {
         color: '#ef8fd0',
       });
 
+      const applySampledPoints = (sampled: import('three').Vector3[]) => {
+        particleState = buildParticleState(THREE, sampled);
+        geometry.setAttribute('position', new THREE.BufferAttribute(particleState.positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(particleState.colors, 3));
+        geometry.computeBoundingSphere();
+
+        if (!pointsMesh) {
+          pointsMesh = new THREE.Points(geometry, material);
+          pointsMesh.rotation.set(-0.18, 0.1, THREE.MathUtils.degToRad(-65));
+          edgeMesh = new THREE.Points(geometry, edgeMaterial);
+          edgeMesh.rotation.copy(pointsMesh.rotation);
+          edgeMesh.scale.set(1.16, 1.012, 1.012);
+          particleAnchor.add(pointsMesh);
+          particleAnchor.add(edgeMesh);
+        }
+      };
+
+      applySampledPoints(normalizePoints(THREE, []));
+
       const loader = new GLTFLoader();
       loader.load(
         modelUrl,
@@ -177,35 +196,12 @@ export function InteractiveBackground() {
           if (disposed) return;
 
           const sampled = normalizePoints(THREE, sampleModelPoints(THREE, gltf.scene, maxParticles));
-          particleState = buildParticleState(THREE, sampled);
-          geometry.setAttribute('position', new THREE.BufferAttribute(particleState.positions, 3));
-          geometry.setAttribute('color', new THREE.BufferAttribute(particleState.colors, 3));
-          geometry.computeBoundingSphere();
-
-          pointsMesh = new THREE.Points(geometry, material);
-          pointsMesh.rotation.set(-0.18, 0.1, THREE.MathUtils.degToRad(-65));
-          edgeMesh = new THREE.Points(geometry, edgeMaterial);
-          edgeMesh.rotation.copy(pointsMesh.rotation);
-          edgeMesh.scale.set(1.16, 1.012, 1.012);
-          particleAnchor.add(pointsMesh);
-          particleAnchor.add(edgeMesh);
+          applySampledPoints(sampled);
         },
         undefined,
         () => {
           if (disposed) return;
-          const sampled = normalizePoints(THREE, []);
-          particleState = buildParticleState(THREE, sampled);
-          geometry.setAttribute('position', new THREE.BufferAttribute(particleState.positions, 3));
-          geometry.setAttribute('color', new THREE.BufferAttribute(particleState.colors, 3));
-          geometry.computeBoundingSphere();
-
-          pointsMesh = new THREE.Points(geometry, material);
-          pointsMesh.rotation.set(-0.18, 0.1, THREE.MathUtils.degToRad(-65));
-          edgeMesh = new THREE.Points(geometry, edgeMaterial);
-          edgeMesh.rotation.copy(pointsMesh.rotation);
-          edgeMesh.scale.set(1.16, 1.012, 1.012);
-          particleAnchor.add(pointsMesh);
-          particleAnchor.add(edgeMesh);
+          applySampledPoints(normalizePoints(THREE, []));
         },
       );
 

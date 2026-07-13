@@ -55,8 +55,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：狮子、绣球，属于自然纹样；寓意判定：按HE寓意分类归为吉祥祈福类；色彩判定：主色比例为蓝色占比73%，黄色占比13%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 874
@@ -115,8 +115,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于吉祥祈福类；色彩判定：主色比例为蓝色占比48%，绿色占比14%，红色占比14%，白色占比7%，灰色占比4%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 948
@@ -175,8 +175,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：莲花、莲叶或水禽，属于人文 / 民俗纹样；寓意判定：象征纯洁高雅，属于精神信仰类；色彩判定：主色比例为蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 985
@@ -235,8 +235,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：蝙蝠、福字或寿字、寿字、花果或人物故事，属于自然纹样；寓意判定：谐音福，寓意纳福与福寿、寓意长寿、安康与福寿双全，属于吉祥祈福类；色彩判定：主色比例为黑色占比59%，蓝色占比17%，红色占比10%，黄色占比5%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1022
@@ -295,8 +295,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：城市地标、吉祥物或民俗图景，属于人文 / 民俗纹样；寓意判定：按HE寓意分类归为精神信仰类；色彩判定：主色比例为蓝色占比73%，灰色占比6%，黄色占比5%，黑色占比4%，白色占比4%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1059
@@ -355,8 +355,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于吉祥祈福类；色彩判定：主色比例为棕色占比39%，金色占比25%，绿色占比8%，橙色占比7%，黑色占比6%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1096
@@ -415,8 +415,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于精神信仰类；色彩判定：主色比例为黑色占比33%，蓝色占比26%，红色占比14%，绿色占比10%，橙色占比7%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1133
@@ -475,8 +475,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：莲花、莲叶或水禽，属于自然纹样；寓意判定：象征纯洁高雅，属于生活志趣类；色彩判定：主色比例为橙色占比51%，红色占比46%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1170
@@ -535,8 +535,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：狮子、绣球，属于自然纹样；寓意判定：按HE寓意分类归为吉祥祈福类；色彩判定：主色比例为红色占比43%，黄色占比18%，粉色占比11%，灰色占比6%，紫色占比6%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1207
@@ -595,8 +595,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：双龙、祥云、寿字、花果或人物故事，属于自然纹样；寓意判定：以龙的祥瑞意象配合祝寿主题、寓意长寿、安康与福寿双全，属于吉祥祈福类；色彩判定：主色比例为蓝色占比76%，灰色占比19%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1244
@@ -655,8 +655,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1281
@@ -715,8 +715,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：黄鹤楼、云鹤或山水、鹤、松或云纹，属于人文 / 民俗纹样；寓意判定：承载武汉地域文化记忆、象征长寿、尊敬与福寿祝愿，属于精神信仰类；色彩判定：主色比例为棕色占比33%，金色占比26%，绿色占比15%，橙色占比12%，红色占比7%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1318
@@ -775,8 +775,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于吉祥祈福类；色彩判定：主色比例为红色占比61%，黄色占比9%，绿色占比8%，橙色占比5%，金色占比4%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1355
@@ -835,8 +835,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：黄鹤楼、云鹤或山水、鹤、松或云纹，属于人文 / 民俗纹样；寓意判定：承载武汉地域文化记忆、象征长寿、尊敬与福寿祝愿，属于精神信仰类；色彩判定：主色比例为灰色占比30%，橙色占比23%，黄色占比18%，黑色占比13%，红色占比7%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1392
@@ -895,8 +895,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：鹤、松或云纹、松、鹤或兰竹，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、松象征长寿，松兰竹组合可寓坚韧与友情长久，属于吉祥祈福类；色彩判定：主色比例为黑色占比26%，橙色占比24%，黄色占比19%，灰色占比11%，红色占比9%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1503
@@ -955,8 +955,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于精神信仰类；色彩判定：主色比例为黑色占比24%，黄色占比22%，蓝色占比18%，绿色占比11%，红色占比11%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1540
@@ -1015,8 +1015,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于生活志趣类；色彩判定：主色比例为灰色占比37%，橙色占比27%，黄色占比22%，白色占比5%，黑色占比5%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1577
@@ -1075,8 +1075,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：鹤、松或云纹，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿，属于吉祥祈福类；色彩判定：主色比例为绿色占比69%，黄色占比17%，蓝色占比5%，归绿色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1614
@@ -1135,8 +1135,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶、蝴蝶，属于自然纹样；寓意判定：象征富贵、象征爱情、婚姻幸福与美满，属于吉祥祈福类；色彩判定：主色比例为湖绿色占比66%，绿色占比12%，红色占比8%，黄色占比4%，归绿色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1688
@@ -1195,8 +1195,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶，属于自然纹样；寓意判定：象征富贵，属于吉祥祈福类；色彩判定：主色比例为蓝色占比49%，灰色占比29%，黑色占比12%，黄色占比8%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1725
@@ -1255,8 +1255,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：莲花、莲叶或水禽、人物、宗教或民俗故事元素，属于人文 / 民俗纹样；寓意判定：象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为灰色占比31%，黑色占比22%，白色占比16%，红色占比14%，蓝色占比6%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1762
@@ -1315,8 +1315,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶，属于自然纹样；寓意判定：象征富贵，属于吉祥祈福类；色彩判定：主色比例为灰色占比25%，橙色占比19%，绿色占比14%，红色占比13%，蓝色占比11%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1799
@@ -1375,8 +1375,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于生活志趣类；色彩判定：主色比例为黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1836
@@ -1435,8 +1435,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：莲花、莲叶或水禽，属于自然纹样；寓意判定：象征纯洁高雅，属于生活志趣类；色彩判定：主色比例为橙色占比60%，红色占比21%，黄色占比12%，棕色占比4%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1947
@@ -1495,8 +1495,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：对称花卉纹样，属于自然纹样；寓意判定：按HE寓意分类归为吉祥祈福类；色彩判定：主色比例为橙色占比54%，棕色占比24%，红色占比9%，黄色占比5%，黑色占比5%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1984
@@ -1555,8 +1555,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2095
@@ -1615,8 +1615,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于人文 / 民俗纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为红色占比83%，橙色占比5%，黄色占比4%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2132
@@ -1675,8 +1675,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：竹、鸟或花草，属于自然纹样；寓意判定：可与松兰组成坚韧和友情长久的植物意象，属于生活志趣类；色彩判定：主色比例为绿色占比41%，红色占比19%，蓝色占比17%，灰色占比12%，黑色占比5%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2206
@@ -1735,8 +1735,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：鹤、松或云纹、莲花、莲叶或水禽，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、象征纯洁高雅，属于生活志趣类；色彩判定：主色比例为黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2280
@@ -1795,8 +1795,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于精神信仰类；色彩判定：主色比例为蓝色占比81%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2317
@@ -1855,8 +1855,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶，属于自然纹样；寓意判定：象征富贵，属于吉祥祈福类；色彩判定：主色比例为黑色占比71%，黄色占比7%，白色占比7%，灰色占比6%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2354
@@ -1915,8 +1915,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：鱼类、花叶或水纹、蝴蝶、花叶，属于人文 / 民俗纹样；寓意判定：寓意吉祥富贵、象征爱情、婚姻幸福与美满，属于吉祥祈福类；色彩判定：主色比例为红色占比60%，橙色占比16%，黄色占比9%，金色占比4%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2428
@@ -1975,8 +1975,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶、蝴蝶，属于自然纹样；寓意判定：象征富贵、象征爱情、婚姻幸福与美满，属于吉祥祈福类；色彩判定：主色比例为红色占比31%，绿色占比26%，金色占比13%，黄色占比10%，橙色占比9%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2465
@@ -2035,8 +2035,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：龙、祥云或火焰纹、人物、宗教或民俗故事元素，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序、承载神话人物、历史典故、戏曲故事或日常生活叙事，属于精神信仰类；色彩判定：主色比例为红色占比59%，橙色占比8%，棕色占比7%，金色占比6%，蓝色占比5%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2502
@@ -2095,8 +2095,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：黄鹤楼、云鹤或山水、鹤、松或云纹，属于人文 / 民俗纹样；寓意判定：承载武汉地域文化记忆、象征长寿、尊敬与福寿祝愿，属于精神信仰类；色彩判定：主色比例为黑色占比52%，黄色占比35%，橙色占比4%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2539
@@ -2155,8 +2155,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：喜鹊、花叶，属于自然纹样；寓意判定：寓意喜事上门，属于吉祥祈福类；色彩判定：主色比例为黑色占比52%，橙色占比15%，棕色占比13%，红色占比10%，金色占比5%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2576
@@ -2215,8 +2215,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：牡丹、花叶，属于自然纹样；寓意判定：象征富贵，属于吉祥祈福类；色彩判定：主色比例为红色占比83%，橙色占比9%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2650
@@ -2275,8 +2275,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：蝴蝶、花叶，属于自然纹样；寓意判定：象征爱情、婚姻幸福与美满，属于吉祥祈福类；色彩判定：主色比例为蓝色占比64%，黑色占比13%，灰色占比8%，黄色占比7%，绿色占比4%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2724
@@ -2335,8 +2335,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：器物、花卉或水果，属于人文 / 民俗纹样；寓意判定：寓意文采高雅、通晓古今、趋吉避凶与富贵吉祥，属于生活志趣类；色彩判定：主色比例为黄色占比35%，黑色占比27%，灰色占比19%，蓝色占比15%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2761
@@ -2395,8 +2395,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：莲花、莲叶或水禽，属于自然纹样；寓意判定：象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为黑色占比78%，绿色占比5%，红色占比4%，黄色占比4%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2798
@@ -2455,8 +2455,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：麒麟、人物或花草，属于人文 / 民俗纹样；寓意判定：象征瑞祥、驱邪祈福与镇宅，属于吉祥祈福类；色彩判定：主色比例为红色占比34%，绿色占比20%，黄色占比14%，黑色占比11%，蓝色占比7%，归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2835
@@ -2515,8 +2515,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：寿字、花果或人物故事、人物、宗教或民俗故事元素，属于人文 / 民俗纹样；寓意判定：寓意长寿、安康与福寿双全，属于吉祥祈福类；色彩判定：主色比例为红色占比43%，黄色占比16%，蓝色占比11%，橙色占比8%，粉色占比7%，归红色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2872
@@ -2575,8 +2575,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：凤凰、花草或云纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于精神信仰类；色彩判定：主色比例为黑色占比28%，橙色占比16%，蓝色占比15%，绿色占比14%，红色占比10%，归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2909
@@ -2635,8 +2635,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：虎、楚式装饰或盘金线迹，属于人文 / 民俗纹样；寓意判定：按HE寓意分类归为生活志趣类；色彩判定：主色比例为黄色占比30%，橙色占比27%，红色占比22%，黑色占比12%，金色占比7%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "无",
-      "en": "无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2946
@@ -2695,8 +2695,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%，归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无",
-      "en": "暂无"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 2983
@@ -2755,8 +2755,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：连续万字回纹边框、瑞兽脸谱、金色流苏，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1576
@@ -2815,8 +2815,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：交叉芦席几何格、四季花卉、卷云海水江崖，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1577
@@ -2875,8 +2875,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：连续万字回纹、对称如意卷云长条边框，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1584
@@ -2935,8 +2935,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：多层三角立水江崖、如意云纹、四季牡丹、八宝飘带，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1587
@@ -2995,8 +2995,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：标准太极阴阳鱼几何圆形构图，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1588
@@ -3055,8 +3055,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：各类花卉拼接组成寿字造型，百花喻百寿、福寿双全，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1578
@@ -3115,8 +3115,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：独立篆书“禧”吉祥文字，无附加辅纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1579
@@ -3175,8 +3175,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：瓶身满绘红龙、四季花卉、几何网格肌理，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1591
@@ -3235,8 +3235,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：关公持青龙偃月刀全身立像，左侧竖排“关公”楷书文字，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1592
@@ -3295,8 +3295,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：怀抱婴孩古代仕女、荷花、山石草木背景，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1593
@@ -3355,8 +3355,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：持梅枝古装书生、冰裂纹衣纹、如意云纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1594
@@ -3415,8 +3415,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：戴帽采花仕女、庭院栏杆、花篮花枝、祥云，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1595
@@ -3475,8 +3475,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：绘龙梅瓶、主次牡丹、兰草、果盘、葡萄摆件，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1596
@@ -3535,8 +3535,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：持剑古装尤三姐、云纹背景，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1597
@@ -3595,8 +3595,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：华表、盘龙、红日、飘红绸、吉祥金字，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1589
@@ -3655,8 +3655,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：樊梨花、薛丁山等全套戏曲人物、缠枝牡丹菊纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1590
@@ -3715,8 +3715,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：全套八仙、寿桃盆栽、荷花、八仙专属法器，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1591
@@ -3775,8 +3775,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：唐代《打金枝》全套戏曲人物、庭院柳树栏杆，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1592
@@ -3835,8 +3835,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：吹笛水乡男子、静坐女子、垂柳渔船芦苇，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1593
@@ -3895,8 +3895,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：新式服装革命青年、地球、祥云彩带、花卉镶边，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1594
@@ -4075,8 +4075,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：持玉如意禄星文官、龙纹官袍、祥云花卉，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1597
@@ -4135,8 +4135,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：持梅花拐杖寿星、寿纹道袍、祥云背景，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1598
@@ -4168,19 +4168,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "人物题材绣品局部，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见人物开脸与服饰局部刺绣特征；具体针法、用线和原件结构待实物或高清资料进一步核验。",
+      "en": "可见人物开脸与服饰局部刺绣特征；具体针法、用线和原件结构待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "禄星属于传统福禄寿人物题材，常与仕禄、福寿祝愿相关；本件仅据题名归入吉祥祈福类，具体故事出处待考。",
+      "en": "禄星属于传统福禄寿人物题材，常与仕禄、福寿祝愿相关；本件仅据题名归入吉祥祈福类，具体故事出处待考。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -4191,12 +4191,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：《福禄图》禄星开脸人物汉绣局部，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系",
-      "en": "纹样判定：《福禄图》禄星开脸人物汉绣局部，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
+      "zh-CN": "纹样判定：《福禄图》禄星开脸人物局部，属于人文 / 民俗纹样；寓意判定：禄星题材通常关联福禄寿祝愿，按HE寓意分类归吉祥祈福类；色彩判定：画面以红色系为主，归红色系。",
+      "en": "纹样判定：《福禄图》禄星开脸人物局部，属于人文 / 民俗纹样；寓意判定：禄星题材通常关联福禄寿祝愿，按HE寓意分类归吉祥祈福类；色彩判定：画面以红色系为主，归红色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1599
@@ -4255,8 +4255,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：两位持如意禄星、盘龙、盘金如意、海水江崖，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1600
@@ -4315,8 +4315,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：持如意状元、鳌鱼、海水江崖、蝙蝠、缠枝莲花牡丹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1601
@@ -4375,8 +4375,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：达摩祖师、芦苇渡江、多层波浪江水、楷书“达摩渡江”，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1602
@@ -4435,8 +4435,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：静坐宾度罗尊者、木杖、佛珠、经书、山石草纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1594
@@ -4495,8 +4495,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：以斜向菱形为骨架，每个单元内排布楚巫长袖舞人、对称龙凤、走兽瑞兽、楚式卷曲云纹，完整还原楚地巫觋通神祭祀场景，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "无（出土古代文物）",
-      "en": "无（出土古代文物）"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1605
@@ -4555,8 +4555,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：连续卷曲蟠螭龙纹、凤鸟、流动云气复合纹样，线条婉转灵动，是典型楚式曲线审美，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "无（出土古代文物）",
-      "en": "无（出土古代文物）"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1606
@@ -4768,19 +4768,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Gold and Silver (A)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "盘金彩绣绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "题名显示含盘金和彩绣特征；可按金银线装饰与彩色丝线绣制方向记录，具体针法待实物核验。",
+      "en": "题名显示含盘金和彩绣特征；可按金银线装饰与彩色丝线绣制方向记录，具体针法待实物核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "凤凰为传统瑞鸟题材，常用于祥瑞、和美与富贵祝愿；本件按题名和HE编码归入吉祥祈福类。",
+      "en": "凤凰为传统瑞鸟题材，常用于祥瑞、和美与富贵祝愿；本件按题名和HE编码归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -4791,12 +4791,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：盘金彩绣凤凰纹汉绣，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系",
-      "en": "纹样判定：盘金彩绣凤凰纹汉绣，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
+      "zh-CN": "纹样判定：凤凰纹，属于自然瑞兽纹样；寓意判定：凤凰题材常承载祥瑞、和美与富贵祝愿，归吉祥祈福类；色彩判定：题名含盘金，视觉归金银色系。",
+      "en": "纹样判定：凤凰纹，属于自然瑞兽纹样；寓意判定：凤凰题材常承载祥瑞、和美与富贵祝愿，归吉祥祈福类；色彩判定：题名含盘金，视觉归金银色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1583
@@ -4855,8 +4855,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：对称双龙戏珠、祥云、海水江崖、华盖八宝，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1585
@@ -4915,8 +4915,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：跃水锦鲤、螺旋祥云、多层海水江崖，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1586
@@ -4975,8 +4975,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：圆形构图双龙戏珠、火焰宝珠、祥云底纹，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归金银色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1587
@@ -5035,8 +5035,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：连体葫芦、莲花、万字纹，复合多子多福吉祥纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "无（清代民间佚名绣女）",
-      "en": "无（清代民间佚名绣女）"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1586
@@ -5068,19 +5068,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue (B)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "青蓝底织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见单色花卉刺绣特征；具体针法待实物或高清资料进一步核验。",
+      "en": "可见单色花卉刺绣特征；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "菊花为传统花卉题材，文献中常见高洁、长寿寓意；本件按题名和HE编码归入吉祥祈福类。",
+      "en": "菊花为传统花卉题材，文献中常见高洁、长寿寓意；本件按题名和HE编码归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5091,12 +5091,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：青蓝单色菊花汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系",
-      "en": "纹样判定：青蓝单色菊花汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
+      "zh-CN": "纹样判定：菊花，属于自然花卉纹样；寓意判定：菊花常见高洁、长寿寓意，归吉祥祈福类；色彩判定：青蓝单色为主，归蓝色系。",
+      "en": "纹样判定：菊花，属于自然花卉纹样；寓意判定：菊花常见高洁、长寿寓意，归吉祥祈福类；色彩判定：青蓝单色为主，归蓝色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1587
@@ -5155,8 +5155,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：成串葡萄、卷曲葡萄藤蔓、蓝绿叶片，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1588
@@ -5215,8 +5215,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：单龙团花、如意云、多层海水江崖、蝴蝶点缀，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1589
@@ -5275,8 +5275,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：锦鸡、主次牡丹、卷草花卉、万字结，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1590
@@ -5335,8 +5335,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：各式彩蝶、蓝瓣小花、连续金缠枝，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归蓝色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1583
@@ -5368,19 +5368,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Green (G)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "绿色系织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见青蛙、水草等自然物象的彩色刺绣表现；具体针法待实物或高清资料进一步核验。",
+      "en": "可见青蛙、水草等自然物象的彩色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归吉祥祈福类。",
+      "en": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5391,12 +5391,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：绿彩青蛙水草汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归绿色系",
-      "en": "纹样判定：绿彩青蛙水草汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归绿色系"
+      "zh-CN": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归吉祥祈福类；色彩判定：绿色占主视觉，归绿色系。",
+      "en": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归吉祥祈福类；色彩判定：绿色占主视觉，归绿色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1588
@@ -5455,8 +5455,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：连体寿桃，蝙蝠、荷花、石榴、灵芝等复合福寿纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "无（清代民间佚名绣女）",
-      "en": "无（清代民间佚名绣女）"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1600
@@ -5548,19 +5548,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "蓝底多色织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见佛手、石榴等果实纹样的多色刺绣表现；具体针法待实物或高清资料进一步核验。",
+      "en": "可见佛手、石榴等果实纹样的多色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "佛手、石榴属传统吉祥果实题材，可与多福、多子等祝愿相关；本件按题名归入吉祥祈福类。",
+      "en": "佛手、石榴属传统吉祥果实题材，可与多福、多子等祝愿相关；本件按题名归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5571,12 +5571,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：蓝底佛手石榴三多纹汉绣，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：蓝底佛手石榴三多纹汉绣，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：佛手、石榴等三多题材，属于自然果实纹样；寓意判定：佛手、石榴常关联多福、多子等吉祥祝愿，归吉祥祈福类；色彩判定：蓝底配多色果实，归多色系。",
+      "en": "纹样判定：佛手、石榴等三多题材，属于自然果实纹样；寓意判定：佛手、石榴常关联多福、多子等吉祥祝愿，归吉祥祈福类；色彩判定：蓝底配多色果实，归多色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1594
@@ -5608,19 +5608,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "紫底多色织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见多色花卉刺绣特征；具体针法待实物或高清资料进一步核验。",
+      "en": "可见多色花卉刺绣特征；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "菊花为传统花卉题材，文献中常见高洁、长寿寓意；本件按题名和HE编码归入吉祥祈福类。",
+      "en": "菊花为传统花卉题材，文献中常见高洁、长寿寓意；本件按题名和HE编码归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5631,12 +5631,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：紫底多色秋菊汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：紫底多色秋菊汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：秋菊，属于自然花卉纹样；寓意判定：菊花常见高洁、长寿寓意，归吉祥祈福类；色彩判定：紫底配多色花卉，归多色系。",
+      "en": "纹样判定：秋菊，属于自然花卉纹样；寓意判定：菊花常见高洁、长寿寓意，归吉祥祈福类；色彩判定：紫底配多色花卉，归多色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1595
@@ -5668,19 +5668,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "多色织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见蝴蝶、牵牛花等动植物纹样的多色刺绣表现；具体针法待实物或高清资料进一步核验。",
+      "en": "可见蝴蝶、牵牛花等动植物纹样的多色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入吉祥祈福类。",
+      "en": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5691,12 +5691,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：紫彩蝴蝶牵牛花汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：紫彩蝴蝶牵牛花汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归吉祥祈福类；色彩判定：紫彩与多色组合，归多色系。",
+      "en": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归吉祥祈福类；色彩判定：紫彩与多色组合，归多色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1596
@@ -5755,8 +5755,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：缠绕荷花藤蔓、锦鲤、蝴蝶、梅花花卉，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1598
@@ -5815,8 +5815,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：黄金麒麟、火焰纹、祥云海浪，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1599
@@ -5875,8 +5875,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：多只彩凤、缠枝牡丹、祥云底纹，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1600
@@ -5935,8 +5935,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：爱心轮廓、各色玫瑰、蓝黄小花镶边，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1601
@@ -5995,8 +5995,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：花朵拼接 LOVE 字母、爱心轮廓、彩色镶边小花，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1602
@@ -6055,8 +6055,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：主次牡丹、墨色枝叶、折枝花卉，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1603
@@ -6115,8 +6115,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：小龙、螃蟹、海水祥云、天地人和文字，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1595
@@ -6175,8 +6175,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：上下双彩凤、分层祥云、书法题款，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1596
@@ -6448,19 +6448,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "红色系织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见梅花枝干与花朵刺绣特征；具体针法待实物或高清资料进一步核验。",
+      "en": "可见梅花枝干与花朵刺绣特征；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "梅花有寒梅报春、梅开五福等传统寓意；本件按题名归入吉祥祈福类。",
+      "en": "梅花有寒梅报春、梅开五福等传统寓意；本件按题名归入吉祥祈福类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -6471,12 +6471,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：红梅花枝汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系",
-      "en": "纹样判定：红梅花枝汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
+      "zh-CN": "纹样判定：梅花枝，属于自然花卉纹样；寓意判定：梅花可寓寒梅报春、梅开五福，归吉祥祈福类；色彩判定：红色花枝为主视觉，归红色系。",
+      "en": "纹样判定：梅花枝，属于自然花卉纹样；寓意判定：梅花可寓寒梅报春、梅开五福，归吉祥祈福类；色彩判定：红色花枝为主视觉，归红色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1607
@@ -6508,19 +6508,19 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "暂无资料",
-    "carrier": "暂无资料",
-    "region": "暂无资料",
+    "era": "当代采集，具体年代待考",
+    "carrier": "红色系织物绣片，具体载体待考",
+    "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "可见成对金鱼纹样的彩色刺绣表现；具体针法待实物或高清资料进一步核验。",
+      "en": "可见成对金鱼纹样的彩色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "金鱼因谐音常与金玉满堂、富足有余等吉祥寓意相关；成对金鱼也可表达和合、美满。",
+      "en": "金鱼因谐音常与金玉满堂、富足有余等吉祥寓意相关；成对金鱼也可表达和合、美满。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -6531,12 +6531,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：红彩成对金鱼汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系",
-      "en": "纹样判定：红彩成对金鱼汉绣纹样，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
+      "zh-CN": "纹样判定：成对金鱼，属于自然动物纹样；寓意判定：金鱼常关联金玉满堂、富足有余等吉祥含义，归吉祥祈福类；色彩判定：红彩为主视觉，归红色系。",
+      "en": "纹样判定：成对金鱼，属于自然动物纹样；寓意判定：金鱼常关联金玉满堂、富足有余等吉祥含义，归吉祥祈福类；色彩判定：红彩为主视觉，归红色系。"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1599
@@ -6595,8 +6595,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：主次牡丹、四季小花、绿叶、金字吉祥文字，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1600
@@ -6655,8 +6655,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：单尾鲤鱼、波浪海水、蓝卷草花卉、金线云纹，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1601
@@ -6715,8 +6715,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：行龙朝日、如意云、边角牡丹花卉，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1602
@@ -6775,8 +6775,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：苍松、双丹顶鹤、楷书 “松鹤延年”，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1606
@@ -6835,8 +6835,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：楚式彩凤、莲花、对称楚式卷草，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1607
@@ -6895,8 +6895,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：缠枝牡丹、四季小花、圆形框“荣华富贵”四字纹，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1608
@@ -6955,8 +6955,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纹样判定：双狮戏绣球、民国五色旗、卷云底纹，归自然纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
-      "zh-CN": "暂无资料",
-      "en": "暂无资料"
+      "zh-CN": "未标注具体传承人",
+      "en": "Specific inheritor not identified."
     },
     "createdAt": "2026-07-12T00:00:00Z",
     "views": 1600
