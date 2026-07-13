@@ -492,9 +492,9 @@ export function GeneDeconstruct() {
         </div>
       </section>
       {expandedShowcaseCard && (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/78 px-5 backdrop-blur-md" onClick={() => setExpandedShowcaseCard(null)}>
-          <div className="grid w-full max-w-6xl overflow-hidden rounded-lg border border-white/12 bg-[#050506] shadow-[0_24px_120px_rgba(0,0,0,0.7)] md:grid-cols-[1.08fr_0.92fr]" onClick={(event) => event.stopPropagation()}>
-            <div className="min-h-[420px] bg-white/[0.02] p-8"><img src={expandedShowcaseCard.imageUrl} alt="" className="h-full max-h-[640px] w-full object-contain" /></div>
+        <div className="hanxiu-modal-backdrop fixed inset-0 z-[80] flex items-center justify-center px-5" onClick={() => setExpandedShowcaseCard(null)}>
+          <div className="hanxiu-modal-card grid w-full max-w-6xl overflow-hidden md:grid-cols-[1.08fr_0.92fr]" onClick={(event) => event.stopPropagation()}>
+            <div className="hanxiu-modal-image-panel min-h-[420px] p-8"><img src={expandedShowcaseCard.imageUrl} alt="" className="h-full max-h-[640px] w-full object-contain" /></div>
             <div className="flex flex-col justify-center p-8 md:p-12">
               {(expandedShowcaseCard.categoryZh || expandedShowcaseCard.categoryEn) && (
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-fuchsia-200/55">
@@ -526,7 +526,7 @@ export function GeneDeconstruct() {
                   ))}
                 </div>
               )}
-              <button type="button" onClick={() => setExpandedShowcaseCard(null)} className="mt-8 w-max rounded-full border border-white/14 px-5 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/50 hover:text-white">{isEnglish ? 'Close' : '\u5173\u95ed'}</button>
+              <button type="button" onClick={() => setExpandedShowcaseCard(null)} className="hanxiu-modal-pill mt-8 w-max rounded-full px-5 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/60 hover:text-white">{isEnglish ? 'Close' : '\u5173\u95ed'}</button>
             </div>
           </div>
         </div>

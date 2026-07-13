@@ -269,14 +269,14 @@ export function Footer() {
       </footer>
 
       {activeContent && (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center px-5">
+        <div className="hanxiu-modal-backdrop fixed inset-0 z-[80] flex items-center justify-center px-5">
           <button
             type="button"
-            className="absolute inset-0 bg-black/72 backdrop-blur-sm"
+            className="absolute inset-0"
             onClick={() => setActiveModal(null)}
             aria-label={copy[locale].closeNotice}
           />
-          <section className={`relative z-10 max-h-[82vh] w-full overflow-y-auto rounded-lg border border-fuchsia-200/18 bg-[#08090a] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.58)] ${isContactModal ? 'max-w-md' : 'max-w-2xl'}`}>
+          <section className={`hanxiu-modal-card relative z-10 max-h-[82vh] w-full overflow-y-auto p-7 ${isContactModal ? 'max-w-md' : 'max-w-2xl'}`}>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/55">{activeContent.title[locale]}</p>
             <h3 className="mt-3 text-2xl font-semibold text-white">{activeContent.title[locale]}</h3>
             <div className="mt-5 space-y-4 text-sm leading-8 text-white/68">
@@ -287,7 +287,7 @@ export function Footer() {
             <div className="mt-7 flex justify-end">
               <button
                 type="button"
-                className="rounded-full border border-fuchsia-300/35 bg-fuchsia-950/20 px-5 py-2 text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-200/70 hover:bg-fuchsia-800/25"
+                className="hanxiu-modal-pill rounded-full px-5 py-2 text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-200/70 hover:bg-fuchsia-800/25"
                 onClick={() => setActiveModal(null)}
               >
                 {copy[locale].close}

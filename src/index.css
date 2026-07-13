@@ -54,6 +54,46 @@ body::-webkit-scrollbar {
     0 0 24px rgba(239, 76, 172, 0.16);
 }
 
+.hanxiu-modal-backdrop {
+  background:
+    radial-gradient(circle at 50% -8%, rgba(236, 72, 153, 0.22), transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(168, 85, 247, 0.16), transparent 28%),
+    radial-gradient(circle at 10% 80%, rgba(217, 70, 239, 0.12), transparent 34%),
+    rgba(2, 0, 5, 0.82);
+  backdrop-filter: blur(18px) saturate(1.18);
+}
+
+.hanxiu-modal-card {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle, rgba(244, 114, 182, 0.11) 1px, transparent 1.4px) padding-box,
+    radial-gradient(circle at 68% 0%, rgba(236, 72, 153, 0.24), transparent 34%) padding-box,
+    radial-gradient(circle at 18% 100%, rgba(168, 85, 247, 0.14), transparent 30%) padding-box,
+    linear-gradient(145deg, rgba(9, 6, 13, 0.92), rgba(18, 7, 24, 0.88) 46%, rgba(7, 5, 10, 0.94)) padding-box,
+    linear-gradient(135deg, rgba(244, 114, 182, 0.42), rgba(168, 85, 247, 0.24), rgba(255, 255, 255, 0.08)) border-box;
+  background-size: 13px 13px, auto, auto, auto, auto;
+  box-shadow:
+    0 34px 120px rgba(0, 0, 0, 0.72),
+    0 0 48px rgba(217, 70, 239, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -36px 80px rgba(126, 34, 206, 0.08);
+}
+
+.hanxiu-modal-image-panel {
+  background:
+    radial-gradient(circle at 68% 10%, rgba(236, 72, 153, 0.14), transparent 34%),
+    linear-gradient(145deg, rgba(0, 0, 0, 0.42), rgba(20, 8, 26, 0.54));
+}
+
+.hanxiu-modal-pill {
+  border: 1px solid rgba(244, 114, 182, 0.34);
+  background: rgba(74, 18, 88, 0.24);
+  box-shadow: 0 0 24px rgba(217, 70, 239, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
 .hanxiu-home {
   color: rgba(255, 255, 255, 0.92);
 }
@@ -369,8 +409,11 @@ body::-webkit-scrollbar {
 .gene-technique-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(12px);
+  background:
+    radial-gradient(circle at 50% -8%, rgba(236, 72, 153, 0.22), transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(168, 85, 247, 0.16), transparent 28%),
+    rgba(2, 0, 5, 0.82);
+  backdrop-filter: blur(18px) saturate(1.18);
 }
 
 .gene-technique-modal-card {
@@ -381,10 +424,18 @@ body::-webkit-scrollbar {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   overflow: hidden;
-  border: 1px solid rgba(244, 114, 182, 0.24);
+  border: 1px solid transparent;
   border-radius: 8px;
-  background: #08090a;
-  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.68);
+  background:
+    radial-gradient(circle, rgba(244, 114, 182, 0.11) 1px, transparent 1.4px) padding-box,
+    radial-gradient(circle at 68% 0%, rgba(236, 72, 153, 0.24), transparent 34%) padding-box,
+    linear-gradient(145deg, rgba(9, 6, 13, 0.92), rgba(18, 7, 24, 0.88) 46%, rgba(7, 5, 10, 0.94)) padding-box,
+    linear-gradient(135deg, rgba(244, 114, 182, 0.42), rgba(168, 85, 247, 0.24), rgba(255, 255, 255, 0.08)) border-box;
+  background-size: 13px 13px, auto, auto, auto;
+  box-shadow:
+    0 34px 120px rgba(0, 0, 0, 0.72),
+    0 0 48px rgba(217, 70, 239, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .gene-technique-modal-card img {
@@ -392,7 +443,9 @@ body::-webkit-scrollbar {
   height: 100%;
   min-height: 520px;
   object-fit: contain;
-  background: #050506;
+  background:
+    radial-gradient(circle at 68% 10%, rgba(236, 72, 153, 0.14), transparent 34%),
+    linear-gradient(145deg, rgba(0, 0, 0, 0.42), rgba(20, 8, 26, 0.54));
 }
 
 .gene-technique-modal-copy {

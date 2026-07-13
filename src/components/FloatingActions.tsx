@@ -76,7 +76,7 @@ export function FloatingActions() {
         <Star className={iconClassName} stroke="url(#hanxiu-floating-icon-gradient)" />
       </button>
       {isFavoritesOpen && (
-        <div className="absolute right-0 bottom-28 w-72 rounded-lg border border-fuchsia-300/20 bg-black/86 p-4 text-white shadow-[0_0_38px_rgba(217,70,239,0.22)] backdrop-blur-xl">
+        <div className="hanxiu-modal-card absolute right-0 bottom-28 w-72 p-4 text-white">
           <div className="mb-3 flex items-center justify-between">
             <strong className="text-sm font-medium">{isEnglish ? 'Saved Patterns' : '收藏纹样'}</strong>
             <span className="text-xs text-white/42">{favoritePatterns.length} {isEnglish ? 'items' : '项'}</span>

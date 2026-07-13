@@ -667,14 +667,14 @@ export function PatternDetail() {
       )}
 
       {isDownloadNoticeOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-5 backdrop-blur-sm">
-          <div className="w-full max-w-md border border-white/12 bg-[#0d0d10] p-6 shadow-2xl shadow-black/40">
+        <div className="hanxiu-modal-backdrop fixed inset-0 z-50 flex items-center justify-center px-5">
+          <div className="hanxiu-modal-card w-full max-w-md p-6">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-fuchsia-200/50">{canonicalCode}</p>
                 <h2 className="mt-2 text-xl font-medium text-white">{isEnglish ? 'Download Research Archive' : '下载研究档案'}</h2>
               </div>
-              <button onClick={() => setIsDownloadNoticeOpen(false)} className="border border-white/10 px-3 py-1 text-sm text-white/50 transition-colors hover:text-white">
+              <button onClick={() => setIsDownloadNoticeOpen(false)} className="hanxiu-modal-pill rounded-full px-3 py-1 text-sm text-white/62 transition-colors hover:text-white">
                 {isEnglish ? 'Close' : '关闭'}
               </button>
             </div>
@@ -683,7 +683,7 @@ export function PatternDetail() {
                 ? 'The archive contains only a watermarked preview, metadata and a copyright notice. It does not include original images, commercial HD assets or vector source files.'
                 : '档案包仅包含带水印预览图、纹样元数据和版权使用须知，不提供无水印原图、商用高清素材或矢量源文件。'}
             </p>
-            <label className="mt-6 flex cursor-pointer items-start gap-3 border border-white/10 bg-white/[0.025] p-4 text-sm leading-6 text-white/72">
+            <label className="mt-6 flex cursor-pointer items-start gap-3 rounded border border-fuchsia-200/14 bg-white/[0.035] p-4 text-sm leading-6 text-white/72">
               <input
                 type="checkbox"
                 checked={downloadConfirmed}
@@ -695,7 +695,7 @@ export function PatternDetail() {
             <button
               onClick={handleDownloadArchive}
               disabled={!downloadConfirmed || isPreparingDownload}
-              className="mt-5 w-full border border-fuchsia-400/50 bg-fuchsia-950/25 px-4 py-3 text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-300 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/[0.025] disabled:text-white/28"
+              className="hanxiu-modal-pill mt-5 w-full rounded-full px-4 py-3 text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-300 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/[0.025] disabled:text-white/28"
             >
               {isPreparingDownload ? (isEnglish ? 'Preparing archive...' : '正在生成档案包...') : (isEnglish ? 'Confirm Download' : '确认下载')}
             </button>
@@ -704,9 +704,9 @@ export function PatternDetail() {
       )}
 
       {isSharePanelOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-5 backdrop-blur-sm">
-          <div className="grid max-h-[92vh] w-full max-w-4xl gap-5 overflow-y-auto border border-white/12 bg-[#0d0d10] p-5 shadow-2xl shadow-black/40 md:grid-cols-[minmax(260px,360px)_1fr]">
-            <div className="border border-white/10 bg-black/30 p-3">
+        <div className="hanxiu-modal-backdrop fixed inset-0 z-50 flex items-center justify-center px-5">
+          <div className="hanxiu-modal-card grid max-h-[92vh] w-full max-w-4xl gap-5 overflow-y-auto p-5 md:grid-cols-[minmax(260px,360px)_1fr]">
+            <div className="hanxiu-modal-image-panel rounded border border-fuchsia-200/14 p-3">
               {shareCardUrl && <img src={shareCardUrl} alt={`${canonicalCode} ${name}`} className="h-auto w-full object-contain" />}
             </div>
             <div className="flex flex-col">
@@ -715,7 +715,7 @@ export function PatternDetail() {
                   <p className="text-xs uppercase tracking-[0.28em] text-fuchsia-200/50">{canonicalCode}</p>
                   <h2 className="mt-2 text-xl font-medium text-white">{isEnglish ? 'Share Card' : '分享图与文案'}</h2>
                 </div>
-                <button onClick={() => setIsSharePanelOpen(false)} className="border border-white/10 px-3 py-1 text-sm text-white/50 transition-colors hover:text-white">
+                <button onClick={() => setIsSharePanelOpen(false)} className="hanxiu-modal-pill rounded-full px-3 py-1 text-sm text-white/62 transition-colors hover:text-white">
                   {isEnglish ? 'Close' : '关闭'}
                 </button>
               </div>
@@ -727,7 +727,7 @@ export function PatternDetail() {
               <textarea
                 readOnly
                 value={shareCopy}
-                className="mt-5 min-h-32 resize-none border border-white/10 bg-black/30 p-4 text-sm leading-7 text-white/72 outline-none"
+                className="mt-5 min-h-32 resize-none rounded border border-fuchsia-200/14 bg-black/30 p-4 text-sm leading-7 text-white/72 outline-none"
               />
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 <button
@@ -740,7 +740,7 @@ export function PatternDetail() {
                     setShareFeedback(true);
                     window.setTimeout(() => setShareFeedback(false), 1200);
                   }}
-                  className="border border-white/20 px-4 py-3 text-sm text-white/76 transition-colors hover:border-white/40 hover:text-white"
+                  className="hanxiu-modal-pill rounded-full px-4 py-3 text-sm text-white/76 transition-colors hover:border-white/40 hover:text-white"
                 >
                   {shareFeedback ? (isEnglish ? 'Copied' : '已复制') : (isEnglish ? 'Copy Text' : '复制文案')}
                 </button>
@@ -748,7 +748,7 @@ export function PatternDetail() {
                   <a
                     href={shareCardUrl}
                     download={`${sanitizeFileName(`${canonicalCode}_${name}_分享图`)}.png`}
-                    className="border border-fuchsia-400/50 bg-fuchsia-950/25 px-4 py-3 text-center text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-300"
+                    className="hanxiu-modal-pill rounded-full px-4 py-3 text-center text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-300"
                   >
                     {isEnglish ? 'Save Share Image' : '保存分享图'}
                   </a>

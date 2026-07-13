@@ -451,9 +451,9 @@ export function Home() {
       </section>
 
       {selectedBook && (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/76 px-5 backdrop-blur-md" onClick={() => setSelectedBook(null)}>
-          <section className="grid max-h-[84vh] w-full max-w-6xl overflow-y-auto rounded-lg border border-white/12 bg-[#050506] shadow-[0_28px_110px_rgba(0,0,0,0.7)] md:grid-cols-[0.92fr_1.08fr]" onClick={(event) => event.stopPropagation()}>
-            <div className="relative min-h-[320px] overflow-hidden bg-black md:min-h-[620px]">
+        <div className="hanxiu-modal-backdrop fixed inset-0 z-[80] flex items-center justify-center px-5" onClick={() => setSelectedBook(null)}>
+          <section className="hanxiu-modal-card grid max-h-[84vh] w-full max-w-6xl overflow-y-auto md:grid-cols-[0.92fr_1.08fr]" onClick={(event) => event.stopPropagation()}>
+            <div className="hanxiu-modal-image-panel relative min-h-[320px] overflow-hidden md:min-h-[620px]">
               <img src={selectedBook.imageUrl} alt={isEnglish ? selectedBook.en : selectedBook.zh} className="absolute inset-0 h-full w-full object-contain opacity-90" />
               <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.38)_54%,rgba(0,0,0,0.86))]" />
               <div className="absolute inset-x-0 bottom-0 p-8">
@@ -469,7 +469,7 @@ export function Home() {
                   <p className="text-xs font-medium uppercase tracking-[0.3em] text-fuchsia-200/55">{isEnglish ? 'Full-Dimension Reference' : '全维度参考说明'}</p>
                   <h4 className="mt-3 text-2xl font-semibold text-white">{isEnglish ? 'Reference Scope' : '基础概况'}</h4>
                 </div>
-                <button type="button" onClick={() => setSelectedBook(null)} className="shrink-0 rounded-full border border-white/14 px-4 py-2 text-sm text-white/58 transition-colors hover:border-fuchsia-300/40 hover:text-white">
+                <button type="button" onClick={() => setSelectedBook(null)} className="hanxiu-modal-pill shrink-0 rounded-full px-4 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/60 hover:text-white">
                   {isEnglish ? 'Close' : '关闭'}
                 </button>
               </div>
