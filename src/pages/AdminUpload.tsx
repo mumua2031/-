@@ -183,7 +183,7 @@ export function AdminUpload() {
                 <option value="R">{t('color.R', 'R(红/Red)')}</option>
                 <option value="G">{t('color.G', 'G(绿/Green)')}</option>
                 <option value="B">{t('color.B', 'B(蓝/Blue)')}</option>
-                <option value="A">{t('color.A', 'A(金/Gold)')}</option>
+                <option value="A">{t('color.A', 'A(金银/Gold and Silver)')}</option>
                 <option value="M">{t('color.M', 'M(多色/Multi)')}</option>
               </select>
             </div>

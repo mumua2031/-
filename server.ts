@@ -92,7 +92,7 @@ async function startServer() {
         text: `Analyze this image (a traditional Chinese Han Embroidery pattern) and classify its features based on the following rules:
 1. Category (大类): N(自然/Nature), H(人文/Humanities), or G(几何/Geometric)
 2. Symbolism (寓意): B(祈福/Blessing), S(信仰/Belief), or L(生活/Life)
-3. Dominant Color (色彩): R(红/Red), G(绿/Green), B(蓝/Blue), A(金/Gold), or M(多色/Multi)
+3. Dominant Color (色彩): R(红/Red), G(绿/Green), B(蓝/Blue), A(金银/Gold and Silver), or M(多色/Multi)
 
 Respond strictly in valid JSON format:
 {

@@ -61,8 +61,8 @@ const heCodeParts = [
   {
     label: 'R / G / B / A / M',
     text: {
-      zh: '色彩大类。R 为红色系，G 为绿色系，B 为蓝色系，A 为金色系，M 为多色系。',
-      en: 'Color category. R means red, G means green, B means blue, A means gold, and M means multicolor.',
+      zh: '色彩大类。R 为红色系，G 为绿色系，B 为蓝色系，A 为金银色系，M 为多色系。',
+      en: 'Color category. R means red, G means green, B means blue, A means gold and silver, and M means multicolor.',
     },
   },
   {

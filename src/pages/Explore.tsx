@@ -35,7 +35,7 @@ const colorSubFilters: SubFilter[] = [
   { label: '\u7ea2\u8272\u7cfb', en: 'Red', code: 'R' },
   { label: '\u84dd\u8272\u7cfb', en: 'Blue', code: 'B' },
   { label: '\u7eff\u8272\u7cfb', en: 'Green', code: 'G' },
-  { label: '\u91d1\u8272\u7cfb', en: 'Gold', code: 'A' },
+  { label: '\u91d1\u94f6\u8272\u7cfb', en: 'Gold and Silver', code: 'A' },
   { label: '\u591a\u8272\u7cfb', en: 'Multicolor', code: 'M' },
 ];
 

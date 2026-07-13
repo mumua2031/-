@@ -43,7 +43,7 @@ export const colorCategories: CategoryOption<ColorCategoryCode>[] = [
   { code: 'R', zh: '\u7ea2\u8272\u7cfb', en: 'Red' },
   { code: 'G', zh: '\u7eff\u8272\u7cfb', en: 'Green' },
   { code: 'B', zh: '\u84dd\u8272\u7cfb', en: 'Blue' },
-  { code: 'A', zh: '\u91d1\u8272\u7cfb', en: 'Gold' },
+  { code: 'A', zh: '\u91d1\u94f6\u8272\u7cfb', en: 'Gold and Silver' },
   { code: 'M', zh: '\u591a\u8272\u7cfb', en: 'Multicolor' },
 ];
 
