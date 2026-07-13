@@ -425,6 +425,20 @@ body::-webkit-scrollbar {
   outline: none;
 }
 
+.gene-symbol-showcase-image {
+  left: 50%;
+  top: 42%;
+  width: min(72%, 340px);
+  height: min(46%, 230px);
+  object-fit: contain;
+  object-position: center;
+  transform: translate(-50%, -50%);
+}
+
+.group:hover .gene-symbol-showcase-image {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
 .hanxiu-symbol-carousel {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
