@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Scan } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
-import { mockPatterns } from '../data';
 import {
   buildHECode,
   getCategoryLabel,
@@ -11,6 +10,7 @@ import {
   meaningCategories,
 } from '../lib/classification';
 import { getLocalizedPatternName } from '../lib/multilingual';
+import { usePatternData } from '../lib/patternData';
 import type { PatternGene } from '../types';
 
 type TopFilterKey = 'all' | 'N' | 'H' | 'G' | 'meaning' | 'color';
@@ -108,6 +108,7 @@ function updateParam(nextParams: URLSearchParams, key: string, value: string) {
 
 export function Explore() {
   const { t, i18n } = useTranslation();
+  const { patterns } = usePatternData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [isScanning, setIsScanning] = useState(false);
@@ -125,7 +126,7 @@ export function Explore() {
   const filteredPatterns = useMemo(() => {
     const normalizedKeyword = normalizeSearchText(keyword);
 
-    return mockPatterns.filter((pattern) => {
+    return patterns.filter((pattern) => {
       const classification = getPatternClassification(pattern);
 
       if (activeTopFilter === 'N' || activeTopFilter === 'H' || activeTopFilter === 'G') {
@@ -146,7 +147,7 @@ export function Explore() {
       const compactCorpus = corpus.replace(/[-\s]/g, '');
       return corpus.includes(normalizedKeyword) || compactCorpus.includes(normalizedKeyword.replace(/[-\s]/g, ''));
     });
-  }, [activeColor, activeMeaning, activeTechnique, activeTopFilter, keyword]);
+  }, [activeColor, activeMeaning, activeTechnique, activeTopFilter, keyword, patterns]);
 
   const setKeyword = (value: string) => {
     const nextParams = new URLSearchParams(searchParams);

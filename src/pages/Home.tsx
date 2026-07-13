@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { ChevronDown, Crown, Flower2, Layers3, Shapes, Sparkles, Wand2 } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
 import { InteractiveBackground } from '../components/InteractiveBackground';
-import { mockPatterns } from '../data';
 import { archiveTopFilters, getCategoryLabel, getPatternClassification, matchesArchiveTopFilter } from '../lib/classification';
+import { usePatternData } from '../lib/patternData';
 import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { stitchTechniques } from '../lib/stitches';
 import type { PatternGene } from '../types';
@@ -60,10 +60,10 @@ function getPatternName(pattern: PatternGene) {
   return getLocalizedPatternName(pattern, 'zh-CN');
 }
 
-function getPatternCategoryCards(): ClassificationCard[] {
+function getPatternCategoryCards(patterns: PatternGene[]): ClassificationCard[] {
   return symbolCategoryMeta.map((category) => {
-    const relatedPatterns = mockPatterns.filter((pattern) => getPatternClassification(pattern).patternCategory === category.code);
-    const representativePattern = mockPatterns.find((pattern) => pattern.heCode === categoryRepresentativeCodes[category.code]) || relatedPatterns[0] || mockPatterns[0];
+    const relatedPatterns = patterns.filter((pattern) => getPatternClassification(pattern).patternCategory === category.code);
+    const representativePattern = patterns.find((pattern) => pattern.heCode === categoryRepresentativeCodes[category.code]) || relatedPatterns[0] || patterns[0];
 
     return {
       ...category,
@@ -82,10 +82,10 @@ function splitTechniqueNames(pattern: PatternGene) {
     .filter(Boolean);
 }
 
-function getTechniqueCards(): ClassificationCard[] {
+function getTechniqueCards(patterns: PatternGene[]): ClassificationCard[] {
   const techniqueMap = new Map<string, { count: number; imageUrl: string; sampleName: string }>();
 
-  mockPatterns.forEach((pattern) => {
+  patterns.forEach((pattern) => {
     splitTechniqueNames(pattern).forEach((technique) => {
       const current = techniqueMap.get(technique);
       if (current) {
@@ -113,8 +113,6 @@ function getTechniqueCards(): ClassificationCard[] {
     icon: [Layers3, Wand2, Sparkles][index] || Sparkles,
   }));
 }
-
-const cardGroups = [getPatternCategoryCards(), getTechniqueCards()];
 
 type HanxiuBookCard = {
   zh: string;
@@ -218,9 +216,9 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   },
 ];
 
-function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
+function countUniqueClassifications(patterns: PatternGene[], type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
-  mockPatterns.forEach((pattern) => {
+  patterns.forEach((pattern) => {
     const classification = getPatternClassification(pattern);
     const code = type === 'pattern'
       ? classification.patternCategory
@@ -240,14 +238,16 @@ function formatOverviewValue(value: number | null, fallback: string) {
   return value && value > 0 ? String(value) : fallback;
 }
 
-const projectOverviewItems = [
-  { zh: '已收录纹样', en: 'Archived Patterns', value: formatOverviewValue(mockPatterns.length, '持续收录') },
-  { zh: '纹样大类', en: 'Pattern Categories', value: formatOverviewValue(countUniqueClassifications('pattern'), '持续整理') },
-  { zh: '寓意分类', en: 'Meaning Categories', value: formatOverviewValue(countUniqueClassifications('meaning'), '持续整理') },
-  { zh: '色彩分类', en: 'Color Categories', value: formatOverviewValue(countUniqueClassifications('color'), '持续整理') },
-  { zh: '针法类型', en: 'Stitch Types', value: formatOverviewValue(countTechniqueTypes(), '持续整理') },
-  { zh: '已完成解析', en: 'Completed Analyses', value: '持续更新' },
-];
+function getProjectOverviewItems(patterns: PatternGene[]) {
+  return [
+    { zh: '已收录纹样', en: 'Archived Patterns', value: formatOverviewValue(patterns.length, '持续收录') },
+    { zh: '纹样大类', en: 'Pattern Categories', value: formatOverviewValue(countUniqueClassifications(patterns, 'pattern'), '持续整理') },
+    { zh: '寓意分类', en: 'Meaning Categories', value: formatOverviewValue(countUniqueClassifications(patterns, 'meaning'), '持续整理') },
+    { zh: '色彩分类', en: 'Color Categories', value: formatOverviewValue(countUniqueClassifications(patterns, 'color'), '持续整理') },
+    { zh: '针法类型', en: 'Stitch Types', value: formatOverviewValue(countTechniqueTypes(), '持续整理') },
+    { zh: '已完成解析', en: 'Completed Analyses', value: '持续更新' },
+  ];
+}
 function getArchiveMetaLabel(pattern: PatternGene, language: 'zh' | 'en') {
   const classification = getPatternClassification(pattern);
   const patternLabel = classification.patternCategory
@@ -262,13 +262,16 @@ function getArchiveMetaLabel(pattern: PatternGene, language: 'zh' | 'en') {
 
 export function Home() {
   const { i18n } = useTranslation();
+  const { patterns } = usePatternData();
   const isEnglish = i18n.language === 'en';
   const categoryLanguage = isEnglish ? 'en' : 'zh';
   const [activeArchiveCategory, setActiveArchiveCategory] = useState('all');
   const [activeCard, setActiveCard] = useState(1);
   const [selectedBook, setSelectedBook] = useState<HanxiuBookCard | null>(null);
+  const cardGroups = useMemo(() => [getPatternCategoryCards(patterns), getTechniqueCards(patterns)], [patterns]);
+  const projectOverviewItems = useMemo(() => getProjectOverviewItems(patterns), [patterns]);
   const currentCards = cardGroups[0];
-  const archivePatterns = useMemo(() => mockPatterns.filter((pattern) => matchesArchiveTopFilter(pattern, activeArchiveCategory)), [activeArchiveCategory]);
+  const archivePatterns = useMemo(() => patterns.filter((pattern) => matchesArchiveTopFilter(pattern, activeArchiveCategory)), [activeArchiveCategory, patterns]);
 
   return (
     <main className="hanxiu-home hanxiu-main-surface min-h-screen">

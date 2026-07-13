@@ -2,8 +2,8 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Star } from 'lucide-react';
-import { mockPatterns } from '../data';
 import { getLocalizedPatternName } from '../lib/multilingual';
+import { usePatternData } from '../lib/patternData';
 import type { MultilingualString } from '../types';
 
 const iconClassName = 'w-5 h-5 drop-shadow-[0_0_8px_rgba(236,72,153,0.65)]';
@@ -29,6 +29,7 @@ function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallba
 
 export function FloatingActions() {
   const { i18n } = useTranslation();
+  const { patterns } = usePatternData();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
@@ -52,7 +53,7 @@ export function FloatingActions() {
   };
 
   const favoritePatterns = favorites
-    .map((heCode) => mockPatterns.find((pattern) => pattern.heCode === heCode))
+    .map((heCode) => patterns.find((pattern) => pattern.heCode === heCode))
     .filter(Boolean);
 
   return (

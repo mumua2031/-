@@ -1,137 +1,146 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
-import admin from 'firebase-admin';
-import { getFirestore, FieldValue } from 'firebase-admin/firestore';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/genai';
+import {
+  assertAdminToken,
+  createPattern,
+  findPatternByCode,
+  listPatterns,
+  updatePattern,
+  type PatternQuery,
+} from './src/server/patternRepository';
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-  httpOptions: {
-    headers: {
-      'User-Agent': 'aistudio-build',
-    }
-  }
-});
+function parsePatternQuery(query: Record<string, unknown>): PatternQuery {
+  return {
+    keyword: typeof query.keyword === 'string' ? query.keyword : undefined,
+    patternCategory: typeof query.patternCategory === 'string' ? query.patternCategory : undefined,
+    meaningCategory: typeof query.meaningCategory === 'string' ? query.meaningCategory : undefined,
+    colorCategory: typeof query.colorCategory === 'string' ? query.colorCategory : undefined,
+    limit: typeof query.limit === 'string' ? Number(query.limit) || undefined : undefined,
+  };
+}
 
-// Initialize Firebase Admin
-admin.initializeApp({
-  projectId: 'gen-lang-client-0446963755'
-});
-
-const firestoreDb = getFirestore();
-firestoreDb.settings({ databaseId: 'ai-studio-c15e0efa-10a9-4c13-960f-65e19b9286a6' });
+function sendApiError(res: express.Response, error: unknown, fallbackStatus = 500) {
+  const statusCode = typeof error === 'object' && error && 'statusCode' in error
+    ? Number((error as { statusCode?: number }).statusCode)
+    : fallbackStatus;
+  const message = error instanceof Error ? error.message : 'Internal server error';
+  res.status(statusCode || fallbackStatus).json({ success: false, error: message });
+}
 
 async function startServer() {
-
   const app = express();
-  const PORT = 3000;
+  const port = Number(process.env.PORT || 3000);
 
   app.use(express.json({ limit: '50mb' }));
 
-  // RESTful APIs
-  
-  // 1. Get Patterns List
+  app.get('/api/health', async (_req, res) => {
+    const { data, source } = await listPatterns({ limit: 1 });
+    res.json({
+      success: true,
+      status: 'ok',
+      patternSource: source,
+      hasPatterns: data.length > 0,
+      databaseConfigured: source === 'firestore',
+    });
+  });
+
   app.get('/api/patterns', async (req, res) => {
     try {
-      const snapshot = await firestoreDb.collection('patterns').orderBy('createdAt', 'desc').get();
-      const patterns = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      res.json({ success: true, data: patterns });
-    } catch (e: any) {
-      res.status(500).json({ success: false, error: e.message });
+      const { data, source } = await listPatterns(parsePatternQuery(req.query));
+      res.json({ success: true, data, meta: { count: data.length, source } });
+    } catch (error) {
+      sendApiError(res, error);
     }
   });
 
-  // 2. Get Pattern Detail by HE Code
   app.get('/api/patterns/:heCode', async (req, res) => {
     try {
-      const snapshot = await firestoreDb.collection('patterns').where('heCode', '==', req.params.heCode).limit(1).get();
-      if (snapshot.empty) {
-        return res.status(404).json({ success: false, error: 'Pattern not found' });
-      }
-      res.json({ success: true, data: { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } });
-    } catch (e: any) {
-      res.status(500).json({ success: false, error: e.message });
+      const { data, source } = await findPatternByCode(req.params.heCode);
+      if (!data) return res.status(404).json({ success: false, error: 'Pattern not found' });
+      return res.json({ success: true, data, meta: { source } });
+    } catch (error) {
+      return sendApiError(res, error);
     }
   });
 
-  // 3. Admin: Add Pattern
-  app.post('/api/patterns', async (req, res) => {
+  app.post('/api/admin/patterns', async (req, res) => {
     try {
-      // In a real scenario, check admin auth token here
-      const docRef = await firestoreDb.collection('patterns').add({
-        ...req.body,
-        createdAt: FieldValue.serverTimestamp()
-      });
-      res.json({ success: true, id: docRef.id });
-    } catch (e: any) {
-      res.status(500).json({ success: false, error: e.message });
+      assertAdminToken(req.headers);
+      const id = await createPattern(req.body);
+      res.json({ success: true, id });
+    } catch (error) {
+      sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
     }
   });
 
-  // 4. Analyze Image with Gemini
+  app.put('/api/admin/patterns/:heCode', async (req, res) => {
+    try {
+      assertAdminToken(req.headers);
+      const id = await updatePattern(req.params.heCode, req.body);
+      res.json({ success: true, id });
+    } catch (error) {
+      sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
+    }
+  });
+
   app.post('/api/analyze-image', async (req, res) => {
     try {
-      const { image, mimeType } = req.body;
-      if (!image) {
-        return res.status(400).json({ success: false, error: 'No image provided' });
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        return res.status(503).json({ success: false, error: 'GEMINI_API_KEY is not configured.' });
       }
 
-      const imagePart = {
-        inlineData: {
-          mimeType: mimeType || 'image/jpeg',
-          data: image,
-        },
-      };
-      
-      const textPart = {
-        text: `Analyze this image (a traditional Chinese Han Embroidery pattern) and classify its features based on the following rules:
-1. Category (大类): N(自然/Nature), H(人文/Humanities), or G(几何/Geometric)
-2. Symbolism (寓意): B(祈福/Blessing), S(信仰/Belief), or L(生活/Life)
-3. Dominant Color (色彩): R(红/Red), G(绿/Green), B(蓝/Blue), A(金银/Gold and Silver), or M(多色/Multi)
+      const { image, mimeType } = req.body;
+      if (!image) {
+        return res.status(400).json({ success: false, error: 'No image provided.' });
+      }
 
-Respond strictly in valid JSON format:
-{
-  "category": "N|H|G",
-  "symbolism": "B|S|L",
-  "color": "R|G|B|A|M",
-  "description": "Brief analysis of why these categories were chosen."
-}`,
-      };
-
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-pro',
-        contents: { parts: [imagePart, textPart] },
-        config: {
-          responseMimeType: "application/json",
-        }
+        contents: {
+          parts: [
+            { inlineData: { mimeType: mimeType || 'image/jpeg', data: image } },
+            {
+              text: [
+                'Analyze this traditional Chinese Han embroidery pattern.',
+                'Return strict JSON with keys category, symbolism, color and description.',
+                'category must be N, H or G.',
+                'symbolism must be B, S or L.',
+                'color must be R, G, B, A or M.',
+                'Do not invent unverifiable historical facts.',
+              ].join('\n'),
+            },
+          ],
+        },
+        config: { responseMimeType: 'application/json' },
       });
 
-      const result = JSON.parse(response.text || '{}');
-      res.json({ success: true, result });
-    } catch (e: any) {
-      console.error(e);
-      res.status(500).json({ success: false, error: e.message });
+      res.json({ success: true, result: JSON.parse(response.text || '{}') });
+    } catch (error) {
+      sendApiError(res, error);
     }
   });
 
-  // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: 'spa',
     });
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*', (req, res) => {
+    app.get('*', (_req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on http://localhost:${port}`);
   });
 }
 

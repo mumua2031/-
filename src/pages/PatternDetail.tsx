@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Download, Share2, Star } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
-import { mockPatterns } from '../data';
 import { patternVisualAnalysis } from '../generated/pattern-visual-analysis';
 import { findStitchesInText } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
+import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
 
@@ -64,11 +64,11 @@ function splitTechniques(pattern: PatternGene, language: keyof MultilingualStrin
     .filter(Boolean);
 }
 
-function getSimilarPatterns(pattern: PatternGene, language: keyof MultilingualString) {
+function getSimilarPatterns(patterns: PatternGene[], pattern: PatternGene, language: keyof MultilingualString) {
   const current = getPatternClassification(pattern);
   const techniques = new Set(splitTechniques(pattern, language));
 
-  return mockPatterns
+  return patterns
     .filter((candidate) => candidate.id !== pattern.id)
     .map((candidate) => {
       const other = getPatternClassification(candidate);
@@ -334,6 +334,7 @@ export function PatternDetail() {
   const { heCode } = useParams();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const { patterns } = usePatternData();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const categoryLanguage = isEnglish ? 'en' : 'zh';
@@ -354,9 +355,9 @@ export function PatternDetail() {
   const [shareCardUrl, setShareCardUrl] = useState<string | null>(null);
   const [shareCopy, setShareCopy] = useState('');
 
-  const pattern = mockPatterns.find((item) => item.heCode === heCode || getCanonicalCode(item) === heCode);
+  const pattern = patterns.find((item) => item.heCode === heCode || getCanonicalCode(item) === heCode);
 
-  const similarPatterns = useMemo(() => (pattern ? getSimilarPatterns(pattern, currentLang) : []), [currentLang, pattern]);
+  const similarPatterns = useMemo(() => (pattern ? getSimilarPatterns(patterns, pattern, currentLang) : []), [currentLang, pattern, patterns]);
   const matchedStitches = useMemo(
     () => (pattern ? findStitchesInText(getLocalizedText(pattern.craft, 'zh-CN', '')) : []),
     [pattern],

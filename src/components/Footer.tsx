@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { mockPatterns } from '../data';
 import { getPatternClassification } from '../lib/classification';
+import { usePatternData } from '../lib/patternData';
 import { stitchTechniques } from '../lib/stitches';
+import type { PatternGene } from '../types';
 
 type FooterModalKey = 'research' | 'sources' | 'coding' | 'copyright' | 'contact';
 type Locale = 'zh' | 'en';
@@ -147,9 +148,9 @@ const modalContent: Record<FooterModalKey, {
   },
 };
 
-function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
+function countUniqueClassifications(patterns: PatternGene[], type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
-  mockPatterns.forEach((pattern) => {
+  patterns.forEach((pattern) => {
     const classification = getPatternClassification(pattern);
     const code = type === 'pattern'
       ? classification.patternCategory
@@ -170,12 +171,12 @@ function formatOverviewValue(value: number | null, locale: Locale) {
   return copy[locale].organizing;
 }
 
-function getOverviewItems(locale: Locale) {
+function getOverviewItems(locale: Locale, patterns: PatternGene[]) {
   return [
-    { label: copy[locale].archivedPatterns, value: formatOverviewValue(mockPatterns.length, locale) },
-    { label: copy[locale].patternCategories, value: formatOverviewValue(countUniqueClassifications('pattern'), locale) },
-    { label: copy[locale].meaningCategories, value: formatOverviewValue(countUniqueClassifications('meaning'), locale) },
-    { label: copy[locale].colorCategories, value: formatOverviewValue(countUniqueClassifications('color'), locale) },
+    { label: copy[locale].archivedPatterns, value: formatOverviewValue(patterns.length, locale) },
+    { label: copy[locale].patternCategories, value: formatOverviewValue(countUniqueClassifications(patterns, 'pattern'), locale) },
+    { label: copy[locale].meaningCategories, value: formatOverviewValue(countUniqueClassifications(patterns, 'meaning'), locale) },
+    { label: copy[locale].colorCategories, value: formatOverviewValue(countUniqueClassifications(patterns, 'color'), locale) },
     { label: copy[locale].stitchTypes, value: formatOverviewValue(countTechniqueTypes(), locale) },
     { label: copy[locale].completedAnalyses, value: copy[locale].updating },
   ];
@@ -183,9 +184,10 @@ function getOverviewItems(locale: Locale) {
 
 export function Footer() {
   const { i18n } = useTranslation();
+  const { patterns } = usePatternData();
   const locale: Locale = i18n.language === 'en' ? 'en' : 'zh';
   const [activeModal, setActiveModal] = useState<FooterModalKey | null>(null);
-  const overviewItems = getOverviewItems(locale);
+  const overviewItems = getOverviewItems(locale, patterns);
   const activeContent = activeModal ? modalContent[activeModal] : null;
   const isContactModal = activeModal === 'contact';
 

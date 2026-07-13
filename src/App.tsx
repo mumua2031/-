@@ -16,6 +16,7 @@ import { PatternDetail } from './pages/PatternDetail';
 import { AdminLayout, AdminDashboard } from './pages/Admin';
 import { AdminUpload } from './pages/AdminUpload';
 import { Login } from './pages/Login';
+import { PatternDataProvider } from './lib/patternData';
 import './lib/i18n'; // Initialize i18n
 
 function ScrollToTop() {
@@ -30,9 +31,10 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
+    <PatternDataProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={
           <>
@@ -80,7 +82,8 @@ export default function App() {
           <Route path="upload" element={<AdminUpload />} />
           <Route path="*" element={<div className="p-4 text-slate-500">Module under construction</div>} />
         </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </PatternDataProvider>
   );
 }

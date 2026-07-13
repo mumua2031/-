@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { mockPatterns } from '../data';
 import { buildHECode, getPatternClassification } from '../lib/classification';
+import { usePatternData } from '../lib/patternData';
 import { Loader2, Sparkles } from 'lucide-react';
 
 export function AdminUpload() {
   const { t } = useTranslation();
+  const { patterns, refresh } = usePatternData();
   const [formData, setFormData] = useState({
     name: '',
     category: 'N',
@@ -18,11 +19,14 @@ export function AdminUpload() {
 
   const [generatedCode, setGeneratedCode] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [aiDescription, setAiDescription] = useState('');
+  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu:admin-token') || '');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const generateCode = (currentData = formData) => {
-    const existingSequences = mockPatterns
+    const existingSequences = patterns
       .map(getPatternClassification)
       .filter((classification) => (
         classification.patternCategory === currentData.category &&
@@ -87,6 +91,61 @@ export function AdminUpload() {
       } finally {
         setIsAnalyzing(false);
       }
+    }
+  };
+
+  const submitPattern = async () => {
+    if (!generatedCode || !formData.name || isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    localStorage.setItem('hanxiu:admin-token', adminToken);
+
+    try {
+      const payload = {
+        id: generatedCode,
+        heCode: generatedCode,
+        patternCategory: formData.category,
+        meaningCategory: formData.symbolism,
+        colorCategory: formData.color,
+        name: { 'zh-CN': formData.name, en: formData.name },
+        imageUrl: '',
+        categoryLabels: [],
+        era: formData.era || '具体年代待考',
+        carrier: '',
+        region: formData.region,
+        copyrightOwner: '权属待确认，仅供非商用研究',
+        format: formData.file?.type || '',
+        resolution: '',
+        craft: { 'zh-CN': '', en: '' },
+        symbolism: { 'zh-CN': aiDescription, en: aiDescription },
+        origin: { 'zh-CN': '民间采集，出处待考', en: 'Folk collection, source pending verification.' },
+        scenario: { 'zh-CN': '', en: '' },
+        literature: { 'zh-CN': '', en: '' },
+        inheritor: { 'zh-CN': '具体传承人不详。', en: 'Specific inheritor unknown.' },
+        createdAt: new Date().toISOString(),
+        views: 0,
+      };
+
+      const response = await fetch('/api/admin/patterns', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}),
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || `Request failed with ${response.status}`);
+      }
+
+      setSubmitMessage('Saved to database. Refreshing archive data...');
+      await refresh();
+    } catch (error) {
+      setSubmitMessage(error instanceof Error ? error.message : 'Failed to submit pattern.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -209,11 +268,27 @@ export function AdminUpload() {
             </div>
             
             <button 
+              onClick={submitPattern}
               disabled={!generatedCode || !formData.name}
               className="bg-fuchsia-600 hover:bg-fuchsia-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-2 rounded text-sm transition-colors"
             >
-              {t('admin.submit', 'Submit to Database')}
+              {isSubmitting ? t('admin.submitting', 'Submitting...') : t('admin.submit', 'Submit to Database')}
             </button>
+          </div>
+
+          <div className="grid gap-3 border-t border-white/10 pt-6">
+            <label className="block text-sm text-white/50">{t('admin.token', 'Admin API Token')}</label>
+            <input
+              type="password"
+              value={adminToken}
+              onChange={(event) => setAdminToken(event.target.value)}
+              placeholder="ADMIN_API_TOKEN"
+              className="w-full bg-white/5 border border-white/20 px-4 py-2 rounded text-white focus:outline-none focus:border-fuchsia-500"
+            />
+            <p className="text-xs leading-6 text-white/42">
+              {t('admin.token_hint', 'Set the same ADMIN_API_TOKEN in Vercel environment variables before enabling database writes.')}
+            </p>
+            {submitMessage && <p className="text-sm leading-6 text-fuchsia-200/80">{submitMessage}</p>}
           </div>
         </div>
       </div>

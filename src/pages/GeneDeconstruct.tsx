@@ -7,6 +7,7 @@ import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
 import { stitchTechniques } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
+import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
 import {
   buildHECode,
@@ -154,8 +155,8 @@ function getDifferenceTags(current: PatternGene, candidate: PatternGene, languag
   return tags.slice(0, 3);
 }
 
-function getRelatedComparisonCards(current: PatternGene, dimension: ComparisonDimension, language: keyof MultilingualString, isEnglish: boolean): ComparisonCard[] {
-  return mockPatterns
+function getRelatedComparisonCards(patterns: PatternGene[], current: PatternGene, dimension: ComparisonDimension, language: keyof MultilingualString, isEnglish: boolean): ComparisonCard[] {
+  return patterns
     .filter((candidate) => candidate.id !== current.id && matchesComparisonDimension(current, candidate, dimension, language))
     .map((pattern) => ({
       pattern,
@@ -199,6 +200,7 @@ function getVisibleShowcaseCards(cards: ShowcaseCard[], startIndex: number) {
 export function GeneDeconstruct() {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
+  const { patterns } = usePatternData();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const fallback = isEnglish ? 'No data available' : '暂无资料';
@@ -213,20 +215,20 @@ export function GeneDeconstruct() {
   const [galleryActiveBounds, setGalleryActiveBounds] = useState<GalleryActiveBounds | null>(null);
   const hasManualComparisonSelectionRef = useRef(false);
 
-  const selected = mockPatterns[selectedIndex] || mockPatterns[0];
+  const selected = patterns[selectedIndex] || patterns[0];
   const galleryItems = useMemo(
     () =>
-      mockPatterns.slice(0, 10).map((pattern) => ({
+      patterns.slice(0, 10).map((pattern) => ({
         image: pattern.imageUrl,
         text: getPatternName(pattern, currentLang),
       })),
-    [currentLang],
+    [currentLang, patterns],
   );
   const visibleSymbolShowcaseCards = useMemo(() => getVisibleShowcaseCards(symbolShowcaseCards, symbolShowcaseIndex), [symbolShowcaseIndex]);
   const visibleTechniqueShowcaseCards = useMemo(() => getVisibleShowcaseCards(techniqueShowcaseCards, techniqueShowcaseIndex), [techniqueShowcaseIndex]);
-  const comparisonPattern = mockPatterns[comparisonIndex] || selected;
+  const comparisonPattern = patterns[comparisonIndex] || selected;
   const comparisonCode = getCanonicalCode(comparisonPattern);
-  const comparisonCards = useMemo(() => getRelatedComparisonCards(comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish]);
+  const comparisonCards = useMemo(() => getRelatedComparisonCards(patterns, comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish, patterns]);
   const comparisonValueLabel = getComparisonValueLabel(comparisonPattern, activeComparisonDimension, currentLang, isEnglish);
   const selectedCode = getCanonicalCode(selected);
   const galleryActionStyle: CSSProperties | undefined = galleryActiveBounds
@@ -239,10 +241,10 @@ export function GeneDeconstruct() {
     : undefined;
 
   const handleGalleryIndexChange = useCallback((index: number) => {
-    const nextIndex = index % Math.min(10, mockPatterns.length);
+    const nextIndex = index % Math.min(10, patterns.length);
     setSelectedIndex(nextIndex);
     if (!hasManualComparisonSelectionRef.current) setComparisonIndex(nextIndex);
-  }, []);
+  }, [patterns.length]);
 
   return (
     <main className="gene-deconstruct-page text-white">
@@ -453,7 +455,7 @@ export function GeneDeconstruct() {
                 <div className="gene-related-grid grid h-full min-h-0 gap-6 md:grid-cols-2">
                   {comparisonCards.map((card, index) => {
                     const isDimmed = Boolean(hoveredRelatedId && hoveredRelatedId !== card.pattern.id);
-                    const nextIndex = mockPatterns.findIndex((pattern) => pattern.id === card.pattern.id);
+                    const nextIndex = patterns.findIndex((pattern) => pattern.id === card.pattern.id);
                     return (
                       <button
                         key={card.pattern.id}
