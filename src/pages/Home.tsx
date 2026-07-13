@@ -205,11 +205,6 @@ const hanxiuBookCards: HanxiuBookCard[] = [
   },
 ];
 
-const bookshelfOverall = {
-  zh: ['传统工艺美术与装饰设计史研究', '传统纹样图像归档与分类资料库搭建', '服装、包装、数字插画与三维文创设计', '非遗展馆、文旅展陈与图文脚本制作', '美术与设计专业传统图案课程教学', '古代服饰、漆器、绣品复刻与修复', '中外传统艺术对比科普与多语言传播'],
-  en: ['Traditional craft and ornament history research', 'Pattern image archiving and taxonomy building', 'Fashion, packaging, digital illustration and 3D cultural-product design', 'Heritage exhibition and tourism display scripting', 'Traditional-pattern teaching for art and design', 'Historical dress, lacquerware and embroidery restoration', 'Cross-cultural art education and multilingual communication'],
-};
-
 function countUniqueClassifications(type: 'pattern' | 'meaning' | 'color') {
   const values = new Set<string>();
   mockPatterns.forEach((pattern) => {
@@ -410,7 +405,7 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
-                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.72] transition-transform duration-500 group-hover:scale-105"
+                  className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-[0.78] transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />
                 <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.44)_56%,rgba(0,0,0,0.84))]" />
@@ -431,7 +426,7 @@ export function Home() {
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/76 px-5 backdrop-blur-md" onClick={() => setSelectedBook(null)}>
           <section className="grid max-h-[84vh] w-full max-w-6xl overflow-y-auto rounded-lg border border-white/12 bg-[#050506] shadow-[0_28px_110px_rgba(0,0,0,0.7)] md:grid-cols-[0.92fr_1.08fr]" onClick={(event) => event.stopPropagation()}>
             <div className="relative min-h-[320px] overflow-hidden bg-black md:min-h-[620px]">
-              <img src={selectedBook.imageUrl} alt={isEnglish ? selectedBook.en : selectedBook.zh} className="absolute inset-0 h-full w-full object-cover opacity-85" />
+              <img src={selectedBook.imageUrl} alt={isEnglish ? selectedBook.en : selectedBook.zh} className="absolute inset-0 h-full w-full object-contain opacity-90" />
               <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.38)_54%,rgba(0,0,0,0.86))]" />
               <div className="absolute inset-x-0 bottom-0 p-8">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-fuchsia-200/64">{isEnglish ? 'Reference Book' : '馆藏典籍资源'}</p>
@@ -456,22 +451,12 @@ export function Home() {
               <div className="mt-9">
                 <h5 className="text-lg font-semibold text-white">{isEnglish ? 'Reference Directions' : '适用参考方向'}</h5>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {(isEnglish ? selectedBook.directionsEn : selectedBook.directionsZh).map((item, index) => (
+                  {(isEnglish ? selectedBook.directionsEn : selectedBook.directionsZh).map((item) => (
                     <div key={item} className="rounded border border-white/10 bg-white/[0.025] px-4 py-3 text-sm leading-6 text-white/68">
-                      <span className="mr-3 font-mono text-xs text-fuchsia-200/70">{String(index + 1).padStart(2, '0')}</span>
                       {item}
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="mt-9 border-t border-white/10 pt-7">
-                <h5 className="text-lg font-semibold text-white">{isEnglish ? 'Overall Use' : '整体资源综合应用方向'}</h5>
-                <ol className="mt-4 grid gap-x-5 gap-y-2 pl-5 text-sm leading-7 text-white/60 sm:grid-cols-2">
-                  {(isEnglish ? bookshelfOverall.en : bookshelfOverall.zh).map((item) => (
-                    <li key={item} className="list-decimal pl-1">{item}</li>
-                  ))}
-                </ol>
               </div>
             </div>
           </section>
