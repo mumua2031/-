@@ -151,7 +151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "黑色底绸缎装饰绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -211,7 +211,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考清代）",
     "carrier": "黑缎圆团绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -571,7 +571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考明清）",
     "carrier": "湖蓝色绸缎面料，服饰帷幔类绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1171,7 +1171,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "浅湖蓝暗纹缎面绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1351,7 +1351,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "黑底局部工艺展示绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1591,7 +1591,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "大红缎面大幅壁挂绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1651,7 +1651,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代",
     "carrier": "白底平面装饰绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1831,7 +1831,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "黑底成对长条绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1951,7 +1951,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代",
     "carrier": "米白缎圆形独立绣片（可配圆框）",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2251,7 +2251,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "深蓝缎圆形框装绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2431,7 +2431,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考明清）",
     "carrier": "圆形绸缎绣片，传统服饰补子类绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2671,7 +2671,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "黑缎大幅壁挂绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2731,7 +2731,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣专用绣片",
     "carrier": "戏服领口局部缎面绣料",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2791,7 +2791,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣绣片",
     "carrier": "戏衣下摆方形装饰绣片",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2851,7 +2851,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣教学小样",
     "carrier": "白底长条装饰绣小样",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2911,7 +2911,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣汉绣",
     "carrier": "米白绸缎戏曲戏衣下摆绣片",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2971,7 +2971,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣针法创新作品",
     "carrier": "圆形独立装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3031,7 +3031,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代湖北民间祝寿汉绣",
     "carrier": "大红绸缎方形祝寿挂屏",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3091,7 +3091,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代婚庆挂屏绣品",
     "carrier": "大红绸缎方形婚庆挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3151,7 +3151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代现代汉绣文创作品",
     "carrier": "梅瓶造型装饰绣片（文创摆件）",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3211,7 +3211,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间民俗供奉绣品",
     "carrier": "黑色绸缎方形供奉挂屏",
     "region": "湖北民间乡村刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3271,7 +3271,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代民间婚嫁绣片",
     "carrier": "米黄底服饰花片绣料",
     "region": "湖北乡村民间",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3331,7 +3331,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间厅堂软装绣片",
     "carrier": "大红绸缎方形挂屏绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3391,7 +3391,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "独立服饰装饰绣片（残件）",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3451,7 +3451,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣厅堂软装作品",
     "carrier": "大红绸缎方形桌帷绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3511,7 +3511,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲题材装饰绣片",
     "carrier": "米黄底独立人物装饰绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3571,7 +3571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代红色主题汉绣文创",
     "carrier": "黑底方形文创挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3631,7 +3631,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传世民间绣品",
     "carrier": "大红缎长幅人物绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3691,7 +3691,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民俗厅堂绣品",
     "carrier": "米灰底长方形装饰绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3751,7 +3751,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代民间婚嫁绣品",
     "carrier": "米黄缎长幅人物绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3811,7 +3811,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代乡土题材汉绣",
     "carrier": "白底长方形装饰绣片",
     "region": "武汉吴氏汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3871,7 +3871,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近代民国传世馆藏绣品",
     "carrier": "红缎桌帷局部绣片",
     "region": "民国湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4051,7 +4051,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代厅堂祝寿堂彩绣片",
     "carrier": "大红绸缎长幅堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4111,7 +4111,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代祝寿堂彩绣片",
     "carrier": "大红绸缎长幅祝寿堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4171,7 +4171,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "人物题材绣品局部，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4231,7 +4231,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传世祝寿堂彩",
     "carrier": "大红缎长幅堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4291,7 +4291,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "传统民俗婚嫁轿衣绣品",
     "carrier": "大红缎轿衣主体绣片",
     "region": "武汉汉绣工坊（任本荣）",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4351,7 +4351,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "传统禅意装饰汉绣",
     "carrier": "大红缎竖幅挂屏",
     "region": "武汉汉绣工坊（任本荣）",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4411,7 +4411,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "宗教祈福小件汉绣",
     "carrier": "大红方形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4771,7 +4771,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "盘金彩绣绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4831,7 +4831,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间厅堂软装",
     "carrier": "大红绸缎厅堂堂彩长幅绣片",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4891,7 +4891,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "黑缎服饰装饰绣片",
     "region": "湖北民间传统刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4951,7 +4951,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣针法教学作品",
     "carrier": "黑底圆形官补绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5071,7 +5071,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "青蓝底织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5131,7 +5131,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代至近现代湖北民间汉绣",
     "carrier": "白底独立花卉绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5191,7 +5191,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传统官补纹样汉绣",
     "carrier": "藏青绸缎圆形补子绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5251,7 +5251,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间婚嫁枕顶",
     "carrier": "藏青黑底方形枕顶绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5311,7 +5311,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代礼服镶边绣小样",
     "carrier": "黑缎方形装饰小样",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5371,7 +5371,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "绿色系织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5551,7 +5551,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "蓝底多色织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5611,7 +5611,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "紫底多色织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5671,7 +5671,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "多色织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5731,7 +5731,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间婚嫁枕顶",
     "carrier": "米白方形枕顶绣片",
     "region": "湖北乡村民间",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5791,7 +5791,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣精品",
     "carrier": "黑缎方形装饰挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5851,7 +5851,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代大型汉绣长卷作品",
     "carrier": "米白缎长幅装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5911,7 +5911,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代婚庆小件汉绣",
     "carrier": "白底心形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5971,7 +5971,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代婚庆小件汉绣",
     "carrier": "白底心形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6031,7 +6031,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传统馆藏汉绣",
     "carrier": "米黄缎中堂主幅绣片",
     "region": "清代湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6091,7 +6091,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代文创汉绣作品",
     "carrier": "红底方形装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6151,7 +6151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代厅堂挂屏精品",
     "carrier": "渐变红黄缎竖幅挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6451,7 +6451,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "红色系织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6511,7 +6511,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代采集，具体年代待考",
     "carrier": "红色系织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6571,7 +6571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间厅堂软装绣品",
     "carrier": "深紫红色绸缎方形挂屏",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6631,7 +6631,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "大红绸缎服饰绣片",
     "region": "湖北民间传统刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6691,7 +6691,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣非遗精品",
     "carrier": "大红绸缎装饰挂屏绣片",
     "region": "武汉汉绣传承工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6751,7 +6751,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间祝寿绣品",
     "carrier": "大红绸缎长方形祝寿挂屏",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6811,7 +6811,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代楚文化主题汉绣",
     "carrier": "大红方形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6871,7 +6871,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代寺院传世门帘绣品",
     "carrier": "大红缎寺院门帘主体绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6931,7 +6931,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "民国初年民俗馆藏桌帷",
     "carrier": "大红缎长幅桌帷绣片",
     "region": "民国湖北民间刺绣作坊",
-    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
+    "copyrightOwner": "权属待确认，仅供非商用研究",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {

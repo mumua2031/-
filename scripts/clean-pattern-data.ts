@@ -3,7 +3,7 @@ import { mockPatterns } from '../src/data';
 
 const pendingSourceZh = '民间采集，出处待考';
 const pendingSourceEn = 'Folk collection; source pending verification.';
-const pendingCopyrightZh = '权属待确认，仅供非商用研究，风险自负';
+const pendingCopyrightZh = '权属待确认，仅供非商用研究';
 const pendingInheritor = { 'zh-CN': '具体传承人不详', en: 'Specific inheritor unknown.' };
 
 const common = {
