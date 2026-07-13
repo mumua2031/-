@@ -219,6 +219,34 @@ export function GeneDeconstruct() {
   const comparisonCode = getCanonicalCode(comparisonPattern);
   const comparisonCards = useMemo(() => getRelatedComparisonCards(comparisonPattern, activeComparisonDimension, currentLang, isEnglish), [activeComparisonDimension, comparisonPattern, currentLang, isEnglish]);
   const comparisonValueLabel = getComparisonValueLabel(comparisonPattern, activeComparisonDimension, currentLang, isEnglish);
+  const selectedCode = getCanonicalCode(selected);
+  const selectedClassification = getPatternClassification(selected);
+  const selectedArchiveFields = [
+    {
+      label: isEnglish ? 'Pattern Type' : '\u7eb9\u6837\u5927\u7c7b',
+      value: getCategoryLabel('pattern', selectedClassification.patternCategory, categoryLanguage),
+    },
+    {
+      label: isEnglish ? 'Meaning' : '\u5bd3\u610f\u5927\u7c7b',
+      value: getCategoryLabel('meaning', selectedClassification.meaningCategory, categoryLanguage),
+    },
+    {
+      label: isEnglish ? 'Color Group' : '\u8272\u5f69\u5927\u7c7b',
+      value: getCategoryLabel('color', selectedClassification.colorCategory, categoryLanguage),
+    },
+    {
+      label: isEnglish ? 'Period' : '\u5e74\u4ee3',
+      value: getLocalizedPlainText(selected.era, currentLang, ''),
+    },
+    {
+      label: isEnglish ? 'Carrier' : '\u8f7d\u4f53',
+      value: getLocalizedPlainText(selected.carrier, currentLang, ''),
+    },
+    {
+      label: isEnglish ? 'Region' : '\u5730\u57df',
+      value: getLocalizedPlainText(selected.region, currentLang, ''),
+    },
+  ].filter((item) => item.value);
 
   const handleGalleryIndexChange = useCallback((index: number) => {
     const nextIndex = index % Math.min(10, mockPatterns.length);
@@ -256,6 +284,38 @@ export function GeneDeconstruct() {
               onActiveIndexChange={handleGalleryIndexChange}
             />
           </div>
+
+          <section className="gene-selected-record-panel" aria-live="polite">
+            <div className="min-w-0">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-fuchsia-200/55">
+                {isEnglish ? 'Selected Pattern' : '\u5df2\u9009\u7eb9\u6837'}
+              </p>
+              <h2 className="mt-3 truncate text-2xl font-semibold text-white md:text-3xl">{getPatternName(selected, currentLang)}</h2>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <span className="gene-selected-code">{selectedCode}</span>
+                <span className="text-xs text-white/42">{isEnglish ? 'Archive data synchronized with the selected gallery item.' : '\u6863\u6848\u4fe1\u606f\u4e0e\u5f53\u524d\u9009\u4e2d\u7eb9\u6837\u540c\u6b65\u3002'}</span>
+              </div>
+            </div>
+
+            <dl className="gene-selected-record-grid">
+              {selectedArchiveFields.map((item) => (
+                <div key={item.label} className="min-w-0">
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <Link
+              to={'/pattern/' + selectedCode}
+              className="gene-selected-record-link"
+              aria-label={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
+              title={isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}
+            >
+              <Eye className="h-4 w-4" />
+              <span>{isEnglish ? 'View Full Record' : '\u67e5\u770b\u5b8c\u6574\u6863\u6848'}</span>
+            </Link>
+          </section>
         </div>
       </section>
 
