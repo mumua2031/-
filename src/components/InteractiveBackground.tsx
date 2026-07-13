@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 const modelUrl = '/hanxiu-magnolia.glb';
 const maxParticles = 12000;
+const particleCycleDuration = 7.2 / 1.2;
 type ThreeModule = typeof import('three');
 
 type ParticleState = {
@@ -247,7 +248,7 @@ export function InteractiveBackground() {
 
         if (pointsMesh && particleState) {
           const { basePositions, positions, velocity, life } = particleState;
-          const cycle = (elapsedTime % 7.2) / 7.2;
+          const cycle = (elapsedTime % particleCycleDuration) / particleCycleDuration;
           const open = cycle < 0.48 ? 0 : Math.min(1, (cycle - 0.48) / 0.13);
           const close = cycle < 0.76 ? 0 : Math.min(1, (cycle - 0.76) / 0.18);
           const automaticSpread = Math.sin(open * Math.PI * 0.5) * (1 - close * close);
