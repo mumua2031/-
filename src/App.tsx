@@ -30,7 +30,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/hanxiu">
+    <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/login" element={<Login />} />

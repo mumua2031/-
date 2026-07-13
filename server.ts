@@ -29,10 +29,6 @@ async function startServer() {
 
   app.use(express.json({ limit: '50mb' }));
 
-  app.get('/', (_req, res) => {
-    res.redirect('/hanxiu');
-  });
-
   // RESTful APIs
   
   // 1. Get Patterns List
