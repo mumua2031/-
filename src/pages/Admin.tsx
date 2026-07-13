@@ -102,7 +102,7 @@ export function AdminDashboard() {
             <span className="text-white/40">10 mins ago</span>
           </div>
           <div className="flex justify-between py-2 border-b border-white/10">
-            <span>Admin approved HE-N-B-R05 to public</span>
+            <span>Admin approved HE-NB-R05 to public</span>
             <span className="text-white/40">1 hour ago</span>
           </div>
           <div className="flex justify-between py-2 border-b border-white/10">

@@ -28,7 +28,7 @@ COLOR_LABELS = {
     "R": ("红色系 (R)", "Red (R)"),
     "G": ("绿色系 (G)", "Green (G)"),
     "B": ("蓝色系 (B)", "Blue (B)"),
-    "A": ("金色系 (A)", "Gold (A)"),
+    "A": ("金银色系 (A)", "Gold and Silver (A)"),
     "M": ("多色系 (M)", "Multicolor (M)"),
 }
 

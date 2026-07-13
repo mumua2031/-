@@ -24,9 +24,9 @@ type ClassificationCard = {
 };
 
 const categoryRepresentativeCodes: Record<string, string> = {
-  N: 'HE-N-B-G13',
-  H: 'HE-H-S-B08',
-  G: 'HE-G-B-B09',
+  N: 'HE-NB-G13',
+  H: 'HE-HS-B08',
+  G: 'HE-GB-B09',
 };
 
 const symbolCategoryMeta = [

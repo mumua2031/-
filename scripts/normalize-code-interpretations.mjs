@@ -44,7 +44,7 @@ const colorCategoryLabels = {
   R: '红色系',
   G: '绿色系',
   B: '蓝色系',
-  A: '金色系',
+  A: '金银色系',
   M: '多色系',
 };
 
