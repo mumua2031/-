@@ -151,7 +151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "黑色底绸缎装饰绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -163,8 +163,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "莲花象征纯洁高雅；鸳鸯与荷花组合构成和合、美满主题。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "鸳鸯象征夫妻恩爱，荷花寓意和和美美，整体为婚嫁祈福类",
@@ -211,7 +211,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考清代）",
     "carrier": "黑缎圆团绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -223,8 +223,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "蝙蝠因蝠与福谐音，常作为吉祥物；五福为长寿、富贵、康宁、好德、善终，寿字共同构成福寿主题。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福 (B)",
@@ -571,7 +571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考明清）",
     "carrier": "湖蓝色绸缎面料，服饰帷幔类绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -583,8 +583,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "龙在传统纹样中为神物，可用于祥瑞喜庆语境；双龙、祥云与寿字组合表达福寿吉祥。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "祈求福寿双全、长辈安康，属于吉祥祈福类",
@@ -1171,7 +1171,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "浅湖蓝暗纹缎面绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1183,8 +1183,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹在汉绣纹样中使用频繁，象征富贵；本件以描金牡丹表现富贵主题。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福 (B)",
@@ -1351,7 +1351,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "黑底局部工艺展示绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1363,8 +1363,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "凤凰象征祥瑞与和谐；盘金绣使用金线并置固定，用于表现外轮廓和金色块面质感。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "文人雅趣类 (L)",
@@ -1591,7 +1591,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "大红缎面大幅壁挂绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1603,8 +1603,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "凤凰象征祥瑞；黄鹤楼与楚纹承载武汉地域文化记忆和荆楚文化象征。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "精神文脉类（S）",
@@ -1651,7 +1651,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代",
     "carrier": "白底平面装饰绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1663,8 +1663,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "竹可与松兰组成坚韧、友情长久的植物意象；本件以翠竹和绶带鸟表现清雅生趣。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "文人雅趣(L)",
@@ -1831,7 +1831,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "黑底成对长条绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1843,8 +1843,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹象征富贵；左右对称构图强化成双与规整的装饰秩序。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福 (B)",
@@ -1951,7 +1951,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代",
     "carrier": "米白缎圆形独立绣片（可配圆框）",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -1963,8 +1963,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹象征富贵，蝴蝶象征爱情、婚姻幸福与美满；二者组合表达富贵与美满。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福 (B)",
@@ -2251,7 +2251,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原",
     "carrier": "深蓝缎圆形框装绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2263,8 +2263,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "蝴蝶象征爱情、婚姻幸福与美满；绣球与花叶共同构成圆满美好主题。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "寓意富贵圆满、四季平安，属于吉祥祈福类",
@@ -2431,7 +2431,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代复原（参考明清）",
     "carrier": "圆形绸缎绣片，传统服饰补子类绣品",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2443,8 +2443,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "麒麟是古代神兽，被认为有瑞祥之气，并有驱邪祈福、镇宅之意；本件题名为麒麟送子，归吉祥祈福类。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "祈求添丁、子孙贤德，属于吉祥祈福类",
@@ -2671,7 +2671,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代",
     "carrier": "黑缎大幅壁挂绣片",
     "region": "湖北武汉",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2683,8 +2683,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "龙在传统纹样中可表示身份与祥瑞；正龙配海水江崖构成庄重吉祥主题。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福类 (B)",
@@ -2731,7 +2731,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣专用绣片",
     "carrier": "戏服领口局部缎面绣料",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2743,8 +2743,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "万字锦寓意万寿绵长，兽面具有镇煞辟邪、威严祥瑞内涵，为武生、神将戏曲戏服标配装饰纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -2791,7 +2791,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣绣片",
     "carrier": "戏衣下摆方形装饰绣片",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2803,8 +2803,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "芦席格寓意岁岁安稳、五谷丰登，搭配花卉象征富贵绵长，多用于文官、小姐戏曲戏衣装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -2851,7 +2851,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣教学小样",
     "carrier": "白底长条装饰绣小样",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2863,8 +2863,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "万字回纹寓意万寿绵长，如意云象征称心顺遂，多用于戏服、礼服镶边装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -2911,7 +2911,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲戏衣汉绣",
     "carrier": "米白绸缎戏曲戏衣下摆绣片",
     "region": "武汉戏曲刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2923,8 +2923,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "海水江崖寓意江山稳固、福寿绵长，是传统戏曲官服、礼服标志性几何底纹，多用于宫廷、文武戏衣。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -2971,7 +2971,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣针法创新作品",
     "carrier": "圆形独立装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -2983,8 +2983,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "太极寓意阴阳调和、平安顺遂，融合传统道家吉祥内涵，为现代文创装饰纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3031,7 +3031,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代湖北民间祝寿汉绣",
     "carrier": "大红绸缎方形祝寿挂屏",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3043,8 +3043,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "以百花拼合寿字，寓意百花献寿、延年安康，是民间祝寿仪式核心陈设绣品，金线工艺华贵庄重。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3091,7 +3091,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代婚庆挂屏绣品",
     "carrier": "大红绸缎方形婚庆挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3103,8 +3103,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "禧代表婚嫁喜事、阖家喜庆，纯金线文字庄重大气，用于婚礼厅堂陈设。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3151,7 +3151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代现代汉绣文创作品",
     "carrier": "梅瓶造型装饰绣片（文创摆件）",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3163,8 +3163,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "融合传统龙纹与现代器物造型，兼具龙纹兴旺吉祥寓意与文创装饰属性，为当代汉绣创新摆件作品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3211,7 +3211,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间民俗供奉绣品",
     "carrier": "黑色绸缎方形供奉挂屏",
     "region": "湖北民间乡村刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3223,8 +3223,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "关公象征忠义、镇宅、招财平安，民间供奉武圣祈福护宅，是湖北民间民俗信仰典型人物绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3271,7 +3271,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代民间婚嫁绣片",
     "carrier": "米黄底服饰花片绣料",
     "region": "湖北乡村民间",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3283,8 +3283,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "仕女抱子寓意多子多福、人丁兴旺，是传统婚嫁寝具、服饰经典祈福人物纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3331,7 +3331,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间厅堂软装绣片",
     "carrier": "大红绸缎方形挂屏绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3343,8 +3343,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "折梅书生寓意寒窗登科、清雅高升，兼具文人志趣与科举祈福双重内涵，多用于书房陈设。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3391,7 +3391,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "独立服饰装饰绣片（残件）",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3403,8 +3403,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "仕女采花寓意春和美满、富贵常伴，属于传统闺阁吉祥人物纹样，多用于女子袄裙、荷包装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3451,7 +3451,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣厅堂软装作品",
     "carrier": "大红绸缎方形桌帷绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3463,8 +3463,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "瓶谐音 “平” 寓意平安，牡丹喻富贵，博古组合象征平安富贵、清雅满堂，用于宴席厅堂陈设。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3511,7 +3511,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代戏曲题材装饰绣片",
     "carrier": "米黄底独立人物装饰绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3523,8 +3523,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "取自《红楼梦》戏曲人物，象征刚烈贞洁，属于古典小说题材陈设绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3571,7 +3571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代红色主题汉绣文创",
     "carrier": "黑底方形文创挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3583,8 +3583,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "融合传统龙纹与现代家国主题，寓意家国兴旺、福泽华夏。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 王燕制《福耀中华》华表龙纹现代汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3631,7 +3631,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传世民间绣品",
     "carrier": "大红缎长幅人物绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3643,8 +3643,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "取材隋唐演义戏曲，寓意夫妻和合、征战得胜，传统婚嫁、堂屋陈设绣品。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 传世红缎《三请樊梨花》戏曲人物汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3691,7 +3691,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民俗厅堂绣品",
     "carrier": "米灰底长方形装饰绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3703,8 +3703,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "八仙齐聚寓意群仙护佑、长寿平安、万事顺遂，传统中堂经典纹样。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 吴寿康制《八仙图》群仙汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3751,7 +3751,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代民间婚嫁绣品",
     "carrier": "米黄缎长幅人物绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3763,8 +3763,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "取材升平公主戏曲，寓意家庭和睦、君臣和顺，婚嫁厅堂陈设常用。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 民间藏传世《打金枝》戏曲人物汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3811,7 +3811,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代乡土题材汉绣",
     "carrier": "白底长方形装饰绣片",
     "region": "武汉吴氏汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3823,8 +3823,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "描绘江南渔乡安逸生活，寓意岁月安稳、相守和美。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 吴氏汉绣《渔歌》水乡情侣人物汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -3871,7 +3871,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近代民国传世馆藏绣品",
     "carrier": "红缎桌帷局部绣片",
     "region": "民国湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -3883,8 +3883,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "纪念武昌起义，寓意家国新生、天下欢庆，红色革命馆藏汉绣。 # 5件新增汉绣藏品标准化档案（统一编码体系，无撞码）"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4051,7 +4051,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代厅堂祝寿堂彩绣片",
     "carrier": "大红绸缎长幅堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4063,8 +4063,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "禄星象征仕途高升、官运亨通，三星图整体寓意福禄寿齐全，是大户厅堂祝寿核心陈设绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4111,7 +4111,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代祝寿堂彩绣片",
     "carrier": "大红绸缎长幅祝寿堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4123,8 +4123,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "寿星代表长寿安康，三星图整套寓意福禄寿齐全，是民间祝寿核心陈设纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4171,7 +4171,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4183,8 +4183,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4231,7 +4231,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传世祝寿堂彩",
     "carrier": "大红缎长幅堂彩局部",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4243,8 +4243,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "双禄星象征双倍官禄、财源广进，是大户祝寿、乔迁核心厅堂堂彩。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 传世红缎大型堂彩《福禄图》双禄星人物汉绣局部"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4291,7 +4291,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "传统民俗婚嫁轿衣绣品",
     "carrier": "大红缎轿衣主体绣片",
     "region": "武汉汉绣工坊（任本荣）",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4303,8 +4303,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "独占鳌头寓意科举及第、金榜题名，蝙蝠代表五福临门，传统婚嫁迎亲轿衣核心纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4351,7 +4351,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "传统禅意装饰汉绣",
     "carrier": "大红缎竖幅挂屏",
     "region": "武汉汉绣工坊（任本荣）",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4363,8 +4363,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "一苇渡江寓意破除万难、平安顺遂，禅意祈福陈设绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4411,7 +4411,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "宗教祈福小件汉绣",
     "carrier": "大红方形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4423,8 +4423,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "十八罗汉之首，寓意消灾平安、静心纳福，佛堂、家居祈福装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4771,7 +4771,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4783,8 +4783,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4831,7 +4831,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间厅堂软装",
     "carrier": "大红绸缎厅堂堂彩长幅绣片",
     "region": "湖北民间大型刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4843,8 +4843,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "双龙戏珠象征阖家兴旺、富贵吉祥，大幅堂彩用于祠堂、大户厅堂节庆陈设，盘金工艺凸显隆重华贵。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4891,7 +4891,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "黑缎服饰装饰绣片",
     "region": "湖北民间传统刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4903,8 +4903,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "鲤鱼寓意年年有余、鱼跃龙门，黑金对比华贵庄重，清代官服、大户礼服常用。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -4951,7 +4951,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣针法教学作品",
     "carrier": "黑底圆形官补绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -4963,8 +4963,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "双龙戏珠寓意阖家兴旺、国泰祥瑞，团龙圆补是传统文武礼服标志性装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5071,7 +5071,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5083,8 +5083,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5131,7 +5131,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代至近现代湖北民间汉绣",
     "carrier": "白底独立花卉绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5143,8 +5143,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "葡萄籽粒繁多，寓意多子多福、家族兴旺；整体以青蓝冷调为主，兼具民间青花审美与吉祥植物纹样特征，是传统婚嫁、祝寿装饰中常见的自然题材绣样。 # 10件汉绣藏品完整标准化编码+单品档案（严格匹配编码规则，全库查重无撞码）"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5191,7 +5191,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传统官补纹样汉绣",
     "carrier": "藏青绸缎圆形补子绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5203,8 +5203,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "团龙寓意权贵吉祥、福寿圆满，藏青底为传统官服、礼服专用底色，多用于传统服饰补子装饰。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5251,7 +5251,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间婚嫁枕顶",
     "carrier": "藏青黑底方形枕顶绣片",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5263,8 +5263,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "锦鸡喻锦绣前程，牡丹象征富贵，黑底蓝调沉稳典雅，是民间婚嫁通用枕顶装饰纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5311,7 +5311,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代礼服镶边绣小样",
     "carrier": "黑缎方形装饰小样",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5323,8 +5323,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "蝶寓意美满、富贵迭至，缠枝连绵象征生生不息，多用于礼服、旗袍镶边。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 王凤燕参与制作黑底《蝶飞翠舞》缠枝蝴蝶汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5371,7 +5371,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5383,8 +5383,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5551,7 +5551,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5563,8 +5563,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5611,7 +5611,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5623,8 +5623,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5671,7 +5671,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5683,8 +5683,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5731,7 +5731,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清末民国民间婚嫁枕顶",
     "carrier": "米白方形枕顶绣片",
     "region": "湖北乡村民间",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5743,8 +5743,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "莲谐音“连”、鱼谐音“余”，寓意连年有余、家资富足，是婚嫁寝具经典吉祥枕顶纹样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5791,7 +5791,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣精品",
     "carrier": "黑缎方形装饰挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5803,8 +5803,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "麒麟象征盛世太平、贤才降临、吉祥纳福，多用于厅堂庆典陈设。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 张先松制黑底《盛世麒麟》瑞兽汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5851,7 +5851,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代大型汉绣长卷作品",
     "carrier": "米白缎长幅装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5863,8 +5863,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "凤为百鸟之王，牡丹喻富贵，百凤齐鸣寓意国泰民安、富贵吉祥。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 张先松《凤鸣吉祥》百凤牡丹长卷汉绣局部"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5911,7 +5911,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代婚庆小件汉绣",
     "carrier": "白底心形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5923,8 +5923,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "玫瑰象征爱情，心形构图代表真挚爱意，用于婚庆伴手礼、枕顶装饰。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 王炜佳心形花卉汉绣《爱》"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -5971,7 +5971,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代婚庆小件汉绣",
     "carrier": "白底心形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -5983,8 +5983,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "花卉组成英文爱字，中西结合，寓意甜蜜爱恋，婚庆文创小件。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 王炜佳心形花卉字母汉绣《LOVE》"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6031,7 +6031,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代传统馆藏汉绣",
     "carrier": "米黄缎中堂主幅绣片",
     "region": "清代湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6043,8 +6043,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹象征富贵满堂，复古素雅配色，传统厅堂中堂经典馆藏花鸟绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6091,7 +6091,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代文创汉绣作品",
     "carrier": "红底方形装饰绣片",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6103,8 +6103,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "蟹谐音 “谐”，龙象征和顺，整体寓意天地调和、阖家和睦。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 李健制红底《天地人和》瑞兽汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6151,7 +6151,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代厅堂挂屏精品",
     "carrier": "渐变红黄缎竖幅挂屏",
     "region": "武汉汉绣工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6163,8 +6163,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "双凤齐飞寓意鸾凤和鸣、盛世吉祥，适合婚庆、厅堂陈设。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 《锦羽祥云》双凤竖幅汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6451,7 +6451,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6463,8 +6463,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6511,7 +6511,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "暂无资料",
     "carrier": "暂无资料",
     "region": "暂无资料",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6523,8 +6523,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "暂无资料"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6571,7 +6571,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间厅堂软装绣品",
     "carrier": "深紫红色绸缎方形挂屏",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6583,8 +6583,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹喻富贵，“玉堂”代指豪门宅邸，寓意家宅兴旺、富贵满堂，是厅堂婚庆、乔迁经典软装绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6631,7 +6631,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代",
     "carrier": "大红绸缎服饰绣片",
     "region": "湖北民间传统刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6643,8 +6643,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "鲤鱼象征年年有余、鱼跃龙门，红底喜庆华贵，是清代婚嫁、贺岁通用吉祥绣样。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6691,7 +6691,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "当代汉绣非遗精品",
     "carrier": "大红绸缎装饰挂屏绣片",
     "region": "武汉汉绣传承工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6703,8 +6703,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "龙象征权势、祥瑞、兴旺，红色底适配婚庆、开业、节庆陈设，是汉绣国家级传承人代表龙纹作品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6751,7 +6751,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "近现代民间祝寿绣品",
     "carrier": "大红绸缎长方形祝寿挂屏",
     "region": "湖北民间刺绣",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6763,8 +6763,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "松代表长青、鹤代表长寿，组合寓意延年益寿，传统祝寿核心花鸟纹样。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 民间藏红底《松鹤延年》双鹤汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6811,7 +6811,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "现代楚文化主题汉绣",
     "carrier": "大红方形装饰绣片",
     "region": "武汉汉绣教学工坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6823,8 +6823,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "楚凤为荆楚文化核心符号，莲花寓意纯洁，整体寓意荆楚兴旺、吉祥美满。 表格 标准名称 完整编码 纹样 寓意 色系 载体 核心题材 创作者 王炜佳制红底《楚凤飞》楚文化凤凰汉绣"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6871,7 +6871,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "清代寺院传世门帘绣品",
     "carrier": "大红缎寺院门帘主体绣片",
     "region": "湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6883,8 +6883,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "牡丹象征富贵满堂，荣华富贵文字直抒祈福，寺院门帘用于礼佛祈福。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
@@ -6931,7 +6931,7 @@ export const mockPatterns: PatternGene[] = [
     "era": "民国初年民俗馆藏桌帷",
     "carrier": "大红缎长幅桌帷绣片",
     "region": "民国湖北民间刺绣作坊",
-    "copyrightOwner": "基础纹样属公共文化符号，整件作品权属待确认；本站仅做数字化归档，不授予商用授权，商业使用风险由使用者自行承担，权利人可通过页脚通道通知下架。",
+    "copyrightOwner": "权属待确认，仅供非商用研究，风险自负",
     "format": "PNG",
     "resolution": "高清数字归档",
     "craft": {
@@ -6943,8 +6943,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "双狮象征太平兴旺，五色旗代表民国时代，兼具祥瑞与近代家国符号，民俗近代馆藏绣品。"
     },
     "origin": {
-      "zh-CN": "民间采集，经勤勉溯源暂无法确认具体出处与原作者。",
-      "en": "Folk collection; despite diligent provenance tracing, the specific source and original author cannot currently be confirmed."
+      "zh-CN": "民间采集，出处待考",
+      "en": "Folk collection; source pending verification."
     },
     "scenario": {
       "zh-CN": "吉祥祈福",
