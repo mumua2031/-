@@ -1,4 +1,5 @@
 import type { MultilingualString, PatternGene } from '../types';
+import { translateZhToEn } from './localTranslation';
 
 const cjkPattern = /[\u3400-\u9fff\uf900-\ufaff]/;
 
@@ -15,7 +16,9 @@ export function getLocalizedText(
 
   if (language === 'en') {
     const englishValue = field.en?.trim();
-    return englishValue && !containsCJK(englishValue) ? englishValue : fallback;
+    if (englishValue && !containsCJK(englishValue)) return englishValue;
+    const sourceValue = field['zh-CN']?.trim() || englishValue;
+    return sourceValue ? translateZhToEn(sourceValue, fallback) : fallback;
   }
 
   return field[language] || field['zh-CN'] || field.en || fallback;
@@ -24,7 +27,7 @@ export function getLocalizedText(
 export function getLocalizedPlainText(value: string | undefined, language: keyof MultilingualString, fallback: string) {
   const cleanValue = value?.trim();
   if (!cleanValue) return fallback;
-  if (language === 'en' && containsCJK(cleanValue)) return fallback;
+  if (language === 'en' && containsCJK(cleanValue)) return translateZhToEn(cleanValue, fallback);
   return cleanValue;
 }
 

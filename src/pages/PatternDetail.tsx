@@ -337,8 +337,8 @@ export function PatternDetail() {
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const categoryLanguage = isEnglish ? 'en' : 'zh';
-  const fallback = isEnglish ? 'No English record available.' : '暂无资料';
-  const plainFallback = isEnglish ? 'English information pending review.' : fallback;
+  const fallback = isEnglish ? 'Information unavailable.' : '暂无资料';
+  const plainFallback = fallback;
   const [activeImageMode] = useState<ImageMode>('pattern');
   const [activeTab, setActiveTab] = useState<DetailTab>('basic');
   const [isZoomed, setIsZoomed] = useState(false);
@@ -372,13 +372,17 @@ export function PatternDetail() {
     if (!pattern) return;
     const code = getCanonicalCode(pattern) || pattern.heCode;
     const patternName = getLocalizedPatternName(pattern, currentLang);
-    const title = `${code} ${patternName}・绣艺境汉绣基因库`;
-    const description = '传统纹样属公共文化符号，整件作品权属待确认，仅供非遗学术研究阅览，商用请自行核查授权。';
+    const title = isEnglish
+      ? `${code} ${patternName} - XIUYIJING Han Embroidery Gene Archive`
+      : `${code} ${patternName}・绣艺境汉绣基因库`;
+    const description = isEnglish
+      ? 'Traditional motifs are public cultural symbols. Archive records are provided for heritage research and learning only; commercial use requires independent rights verification.'
+      : '传统纹样属公共文化符号，整件作品权属待确认，仅供非遗学术研究阅览，商用请自行核查授权。';
     document.title = title;
     updateMetaTag('meta[property="og:title"]', 'property', 'og:title', title);
     updateMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
     updateMetaTag('meta[name="description"]', 'name', 'description', description);
-  }, [currentLang, pattern]);
+  }, [currentLang, isEnglish, pattern]);
 
   useEffect(() => () => {
     if (shareCardUrl) URL.revokeObjectURL(shareCardUrl);
