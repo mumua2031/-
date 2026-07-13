@@ -271,7 +271,7 @@ export function Home() {
   const archivePatterns = useMemo(() => mockPatterns.filter((pattern) => matchesArchiveTopFilter(pattern, activeArchiveCategory)), [activeArchiveCategory]);
 
   return (
-    <main className="hanxiu-home min-h-screen bg-black">
+    <main className="hanxiu-home hanxiu-main-surface min-h-screen">
       <section className="hanxiu-panel hanxiu-hero-stage relative overflow-hidden bg-black" aria-label={isEnglish ? 'XIUYIJING Han embroidery pattern background' : '绣艺境汉绣纹样抽丝烟雾动画'}>
         <InteractiveBackground />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.9),rgba(0,0,0,0.56)_34%,rgba(0,0,0,0.16)_62%,rgba(0,0,0,0.48))]" />
@@ -295,7 +295,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="hanxiu-origin" className="hanxiu-panel bg-[#08090a] px-4 py-24">
+      <section id="hanxiu-origin" className="hanxiu-panel hanxiu-section-surface px-4 py-24">
         <div className="mx-auto mb-10 flex max-w-7xl flex-col gap-8 px-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.36em] text-fuchsia-200/55">{isEnglish ? 'Pattern Gene Archive' : '纹样基因库'}</p>
@@ -340,7 +340,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="hanxiu-panel bg-[#050506] px-5 py-24">
+      <section className="hanxiu-panel hanxiu-section-surface px-5 py-24">
         <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
@@ -400,7 +400,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="hanxiu-panel bg-black px-5 py-24">
+      <section className="hanxiu-panel hanxiu-section-surface px-5 py-24">
         <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.36em] text-fuchsia-200/55">{isEnglish ? 'Han Embroidery Books' : '\u6c49\u7ee3\u4e66\u7c4d\u6587\u732e'}</p>

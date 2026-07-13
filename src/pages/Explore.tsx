@@ -227,7 +227,7 @@ export function Explore() {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-[#08090a]">
+    <div className="hanxiu-main-surface pt-24 min-h-screen">
       <div className="px-10 max-w-[1600px] mx-auto mb-10">
         <div className="flex items-start justify-between gap-6 mb-8">
           <div>

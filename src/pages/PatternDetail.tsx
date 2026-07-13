@@ -515,7 +515,7 @@ export function PatternDetail() {
   ] : [];
 
   return (
-    <div className="min-h-screen bg-[#08090a] pt-16 text-white">
+    <div className="hanxiu-main-surface min-h-screen pt-16 text-white">
       <section className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl grid-cols-1 overflow-hidden px-5 lg:h-[calc(100vh-4rem)] lg:grid-cols-2">
         <div className="flex min-h-[58vh] flex-col justify-center overflow-hidden py-6 pr-0 lg:h-full lg:min-h-0 lg:py-8 lg:pr-8">
           <button onClick={() => navigate(-1)} className="mb-4 flex w-max items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-4 py-2 text-sm text-white/45 transition-colors hover:border-fuchsia-300/35 hover:text-white">

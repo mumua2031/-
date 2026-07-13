@@ -246,7 +246,7 @@ export function AboutProject() {
   const locale: Locale = i18n.language === 'en' ? 'en' : 'zh';
 
   return (
-    <main className="min-h-screen bg-[#050506] px-5 pb-24 pt-28 text-white">
+    <main className="hanxiu-main-surface min-h-screen px-5 pb-24 pt-28 text-white">
       <div className="mx-auto max-w-7xl">
         <Link
           to="/"

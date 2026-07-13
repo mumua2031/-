@@ -245,7 +245,7 @@ export function GeneDeconstruct() {
   }, []);
 
   return (
-    <main className="gene-deconstruct-page bg-black text-white">
+    <main className="gene-deconstruct-page text-white">
       <section className="hanxiu-panel px-5 pb-10 pt-24">
         <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center gap-8">
           <div className="max-w-3xl">
@@ -299,7 +299,7 @@ export function GeneDeconstruct() {
         </div>
       </section>
 
-      <section className="hanxiu-panel bg-black px-5 py-24">
+      <section className="hanxiu-panel hanxiu-section-surface px-5 py-24">
         <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 max-w-3xl">
             <h2 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Pattern Classification' : '\u7b26\u53f7\u5206\u7c7b'}</h2>
@@ -343,7 +343,7 @@ export function GeneDeconstruct() {
         </div>
       </section>
 
-      <section className="hanxiu-panel bg-[#09090b] px-5 py-24">
+      <section className="hanxiu-panel hanxiu-section-surface px-5 py-24">
         <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
           <div className="mb-12 max-w-3xl">
             <h2 className="text-4xl font-semibold text-white md:text-5xl">{isEnglish ? 'Stitch Classification' : '针法分类'}</h2>
