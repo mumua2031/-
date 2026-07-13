@@ -21,7 +21,7 @@ const copy = {
     sources: '数据来源',
     coding: '编码规范',
     copyright: '版权与使用',
-    contact: '维权投稿',
+    contact: '联系合作',
     brand: '绣艺境',
     intro: '汉绣纹样数字基因库，面向非遗保护、学术研究、个人学习、文化展示与公共教育。',
     learnMore: '了解项目',
@@ -133,7 +133,7 @@ const modalContent: Record<FooterModalKey, {
     },
   },
   contact: {
-    title: { zh: '维权投稿', en: 'Rights / Submissions' },
+    title: { zh: '联系合作', en: 'Rights / Submissions' },
     paragraphs: {
       zh: [
         `邮箱地址 1：${contactEmail}（国际）`,
