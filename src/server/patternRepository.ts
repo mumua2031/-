@@ -2,6 +2,7 @@ import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { mockPatterns } from '../data';
 import type { PatternGene } from '../types';
+import { validateHECode } from '../lib/classification';
 
 type PatternRecord = PatternGene & Record<string, unknown>;
 
@@ -141,7 +142,10 @@ export async function listPatterns(query: PatternQuery = {}) {
   try {
     const snapshot = await db.collection('patterns').orderBy('createdAt', 'desc').get();
     const records = snapshot.docs.map((doc) => normalizePattern({ id: doc.id, ...doc.data() } as PatternRecord));
-    const data = records.length > 0 ? records : mockPatterns;
+    // 保留随站点发布的历史图库；数据库中的同编号资料拥有更高优先级，新增记录直接追加。
+    const mergedByCode = new Map(mockPatterns.map((pattern) => [pattern.heCode, pattern]));
+    records.forEach((pattern) => mergedByCode.set(pattern.heCode, pattern));
+    const data = [...mergedByCode.values()];
     return { data: applyQuery(data, query), source: records.length > 0 ? ('firestore' as const) : ('local' as const) };
   } catch (error) {
     console.warn('Failed to read Firestore patterns. Falling back to local data.', error);
@@ -171,8 +175,20 @@ export async function findPatternByCode(heCode: string) {
 export async function createPattern(pattern: Partial<PatternGene>) {
   const db = getFirestoreDb();
   if (!db) throw new Error('Persistent database is not configured.');
-  const docRef = await db.collection('patterns').add({
+  if (!pattern.heCode || !validateHECode(pattern.heCode)) {
+    const error = new Error('HE 编号格式必须为 HE-N-B-R01。');
+    Object.assign(error, { statusCode: 400 });
+    throw error;
+  }
+  if (!pattern.name?.['zh-CN']?.trim() || !pattern.imageUrl) {
+    const error = new Error('纹样名称和图片不能为空。');
+    Object.assign(error, { statusCode: 400 });
+    throw error;
+  }
+  const docRef = db.collection('patterns').doc(pattern.heCode);
+  await docRef.create({
     ...pattern,
+    id: pattern.heCode,
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
   });
@@ -186,6 +202,20 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
   if (snapshot.empty) throw new Error('Pattern not found.');
   await snapshot.docs[0].ref.set({ ...patch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   return snapshot.docs[0].id;
+}
+
+export async function deletePattern(heCode: string) {
+  const db = getFirestoreDb();
+  if (!db) throw new Error('Persistent database is not configured.');
+  const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
+  if (snapshot.empty) {
+    const error = new Error('Pattern not found.');
+    Object.assign(error, { statusCode: 404 });
+    throw error;
+  }
+  const doc = snapshot.docs[0];
+  await doc.ref.delete();
+  return normalizeFirestoreValue({ id: doc.id, ...doc.data() }) as PatternRecord;
 }
 
 export function assertAdminToken(headers: Record<string, string | string[] | undefined>) {

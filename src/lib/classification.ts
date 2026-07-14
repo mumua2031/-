@@ -56,8 +56,8 @@ export const archiveTopFilters = [
   { key: 'color', zh: '\u8272\u5f69\u5927\u7c7b', en: 'Color', categoryType: 'color' },
 ] as const;
 
-const heCodePattern = /^HE-([NHG])([BSL])-([RGBAM])(\d{2,})$/;
-const legacyHeCodePattern = /^HE-([NHG])-([BSL])-([RGBAM])(\d{2,})$/;
+const heCodePattern = /^HE-([NHG])-([BSL])-([RGBAM])(\d{2,})$/;
+const legacyHeCodePattern = /^HE-([NHG])([BSL])-([RGBAM])(\d{2,})$/;
 const classificationCache = new WeakMap<PatternGene, PatternClassification>();
 
 function cleanCode(code: string) {
@@ -154,7 +154,7 @@ export function buildHECode(data: {
     return '';
   }
 
-  return `HE-${patternCategory}${meaningCategory}-${colorCategory}${sequence}`;
+  return `HE-${patternCategory}-${meaningCategory}-${colorCategory}${sequence}`;
 }
 
 export function getPatternClassification(pattern: PatternGene): PatternClassification {

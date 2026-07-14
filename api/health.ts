@@ -16,6 +16,7 @@ export default function handler(req: IncomingMessage, res: ServerResponse) {
     api: 'available',
     firebaseProjectConfigured: Boolean(process.env.FIREBASE_PROJECT_ID),
     firebaseServiceAccountConfigured: Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON || (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY)),
+    firebaseStorageConfigured: Boolean(process.env.FIREBASE_STORAGE_BUCKET),
     adminTokenConfigured: Boolean(process.env.ADMIN_API_TOKEN),
   }));
 }

@@ -6,11 +6,14 @@ import { GoogleGenAI } from '@google/genai';
 import {
   assertAdminToken,
   createPattern,
+  deletePattern,
   findPatternByCode,
   listPatterns,
   updatePattern,
   type PatternQuery,
 } from './src/server/patternRepository';
+import { deletePatternImage, uploadPatternImage } from './src/server/patternStorage';
+import { uploadImageToGithub } from './src/server/githubImageStorage';
 
 function parsePatternQuery(query: Record<string, unknown>): PatternQuery {
   return {
@@ -83,6 +86,29 @@ async function startServer() {
       res.json({ success: true, id });
     } catch (error) {
       sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
+    }
+  });
+
+  app.delete('/api/admin/patterns/:heCode', async (req, res) => {
+    try {
+      assertAdminToken(req.headers);
+      const pattern = await deletePattern(req.params.heCode);
+      await deletePatternImage(pattern.storagePath);
+      res.json({ success: true, id: pattern.id });
+    } catch (error) {
+      sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
+    }
+  });
+
+  app.post('/api/admin/images', async (req, res) => {
+    try {
+      assertAdminToken(req.headers);
+      const image = process.env.GITHUB_UPLOAD_TOKEN
+        ? await uploadImageToGithub(req.body || {})
+        : await uploadPatternImage(req.body || {});
+      res.status(201).json({ success: true, data: image });
+    } catch (error) {
+      sendApiError(res, error, 500);
     }
   });
 

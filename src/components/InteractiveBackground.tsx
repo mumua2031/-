@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const modelUrl = '/hanxiu-magnolia.glb';
+const pointCloudUrl = '/hanxiu-magnolia-points.bin';
 const maxParticles = 12000;
 const particleCycleDuration = 7.2 / 1.2;
 type ThreeModule = typeof import('three');
@@ -14,53 +14,24 @@ type ParticleState = {
   ttl: Float32Array;
 };
 
-function sampleModelPoints(THREE: ThreeModule, scene: import('three').Object3D, limit: number) {
-  const points: import('three').Vector3[] = [];
-  const temp = new THREE.Vector3();
-  const meshes: Array<{ mesh: import('three').Mesh; position: import('three').BufferAttribute | import('three').InterleavedBufferAttribute }> = [];
-  let vertexCount = 0;
-
-  scene.updateWorldMatrix(true, true);
-  scene.traverse((child) => {
-    if (!(child instanceof THREE.Mesh)) return;
-    const geometry = child.geometry;
-    const position = geometry.getAttribute('position');
-    if (!position) return;
-
-    meshes.push({ mesh: child, position });
-    vertexCount += position.count;
-  });
-
-  const step = Math.max(1, Math.floor(vertexCount / limit));
-
-  for (const { mesh, position } of meshes) {
-    for (let index = 0; index < position.count && points.length < limit; index += step) {
-      temp.fromBufferAttribute(position, index);
-      temp.applyMatrix4(mesh.matrixWorld);
-      points.push(temp.clone());
-    }
+function parsePointCloud(THREE: ThreeModule, buffer: ArrayBuffer) {
+  if (buffer.byteLength < 4) throw new Error('Invalid particle model.');
+  const view = new DataView(buffer);
+  const count = view.getUint32(0, true);
+  if (count === 0 || count > maxParticles || buffer.byteLength !== 4 + count * 12) {
+    throw new Error('Invalid particle model size.');
   }
 
+  const points: import('three').Vector3[] = new Array(count);
+  for (let index = 0; index < count; index += 1) {
+    const offset = 4 + index * 12;
+    points[index] = new THREE.Vector3(
+      view.getFloat32(offset, true),
+      view.getFloat32(offset + 4, true),
+      view.getFloat32(offset + 8, true),
+    );
+  }
   return points;
-}
-
-function normalizePoints(THREE: ThreeModule, points: import('three').Vector3[]) {
-  if (points.length === 0) {
-    const fallback: import('three').Vector3[] = [];
-    for (let index = 0; index < 2400; index += 1) {
-      const angle = (index / 2400) * Math.PI * 10;
-      const radius = 0.8 + (index % 7) * 0.04;
-      fallback.push(new THREE.Vector3(Math.cos(angle) * radius, Math.sin(angle * 0.7) * 1.5, Math.sin(angle) * radius * 0.6));
-    }
-    return fallback;
-  }
-
-  const box = new THREE.Box3().setFromPoints(points);
-  const center = box.getCenter(new THREE.Vector3());
-  const size = box.getSize(new THREE.Vector3());
-  const scale = 8.25 / Math.max(size.x, size.y, size.z, 1);
-
-  return points.map((point) => point.clone().sub(center).multiplyScalar(scale));
 }
 
 function buildParticleState(THREE: ThreeModule, points: import('three').Vector3[]) {
@@ -118,8 +89,8 @@ export function InteractiveBackground() {
     let cleanup = () => {};
 
     void (async () => {
+      const pointCloudRequest = fetch(pointCloudUrl, { cache: 'force-cache' });
       const THREE = await import('three');
-      const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
       if (disposed) return;
 
       const scene = new THREE.Scene();
@@ -170,7 +141,6 @@ export function InteractiveBackground() {
         blending: THREE.AdditiveBlending,
         color: '#ef8fd0',
       });
-
       const applySampledPoints = (sampled: import('three').Vector3[]) => {
         particleState = buildParticleState(THREE, sampled);
         geometry.setAttribute('position', new THREE.BufferAttribute(particleState.positions, 3));
@@ -188,23 +158,16 @@ export function InteractiveBackground() {
         }
       };
 
-      applySampledPoints(normalizePoints(THREE, []));
-
-      const loader = new GLTFLoader();
-      loader.load(
-        modelUrl,
-        (gltf) => {
-          if (disposed) return;
-
-          const sampled = normalizePoints(THREE, sampleModelPoints(THREE, gltf.scene, maxParticles));
-          applySampledPoints(sampled);
-        },
-        undefined,
-        () => {
-          if (disposed) return;
-          applySampledPoints(normalizePoints(THREE, []));
-        },
-      );
+      try {
+        const response = await pointCloudRequest;
+        if (!response.ok) throw new Error(`Particle model request failed: ${response.status}`);
+        const sampled = parsePointCloud(THREE, await response.arrayBuffer());
+        if (disposed) return;
+        applySampledPoints(sampled);
+        renderer.domElement.classList.add('is-ready');
+      } catch {
+        // 加载失败时保留静态首屏背景，不展示错误的临时线构模型。
+      }
 
       const clock = new THREE.Clock();
       let elapsedTime = 0;
