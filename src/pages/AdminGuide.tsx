@@ -6,7 +6,7 @@ const steps = [
   { icon: Database, title: '确认免费数据服务', body: '免费模式使用 Firestore 保存资料，不使用 Firebase Storage。请配置 Firestore 服务账号和项目 ID。' },
   { icon: FileImage, title: '配置免费图片发布', body: '在 Vercel 环境变量中设置 GITHUB_UPLOAD_TOKEN、GITHUB_REPOSITORY（例如 mumua2031/-）和 GITHUB_BRANCH（main）。令牌只授予该仓库 Contents 读写权限。' },
   { icon: Upload, title: '网页自动上传图片', body: '在“录入纹样”直接选择 JPG 或 PNG 图片。提交时系统会自动上传至 GitHub 的 public/patterns 目录，并触发 Vercel 部署，无需手动复制或推送文件。' },
-  { icon: CheckCircle2, title: '录入纹样资料', body: '选择分类后提交，系统自动分配 HE 编号、保存资料到 Firestore，并将图片地址关联到该条资料。图片部署通常约需一分钟。' },
+  { icon: CheckCircle2, title: '录入纹样资料', body: '选择分类后提交，系统自动分配 HE 编号、保存资料到 Firestore，并关联 GitHub 的公开图片地址；无需等待 Vercel 完成图片部署即可显示。' },
   { icon: ShieldCheck, title: '维护资料', body: '进入“纹样数据管理”编辑名称、年代、地区和权属说明。删除操作会同步删除数据库记录和 GitHub 中对应图片；删除前请先备份。' },
 ];
 

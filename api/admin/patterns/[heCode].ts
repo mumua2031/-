@@ -1,6 +1,6 @@
-import { assertAdminToken, deletePattern, updatePattern } from '../../../src/server/patternRepository';
+import { assertAdminToken, createPattern, deletePattern, updatePattern } from '../../../src/server/patternRepository';
 import { deletePatternImage } from '../../../src/server/patternStorage';
-import { deleteImageFromGithub } from '../../../src/server/githubImageStorage';
+import { deleteImageFromGithub, isGithubPatternImageUrl } from '../../../src/server/githubImageStorage';
 import type { ApiRequest, ApiResponse } from '../../_utils';
 import { sendError, unsupportedMethod } from '../../_utils';
 
@@ -14,10 +14,15 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
     if (req.method === 'DELETE') {
       const pattern = await deletePattern(heCode);
-      if (process.env.GITHUB_UPLOAD_TOKEN) {
-        await deleteImageFromGithub({ imageUrl: pattern.imageUrl });
-      } else {
-        await deletePatternImage(pattern.storagePath);
+      try {
+        if (isGithubPatternImageUrl(pattern.imageUrl)) {
+          await deleteImageFromGithub({ imageUrl: pattern.imageUrl });
+        } else {
+          await deletePatternImage(pattern.storagePath);
+        }
+      } catch (imageError) {
+        await createPattern(pattern).catch(() => undefined);
+        throw imageError;
       }
       return res.json({ success: true, id: pattern.id });
     }

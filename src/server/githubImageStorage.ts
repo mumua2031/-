@@ -15,7 +15,13 @@ function decodeImage(base64: unknown) {
   return { buffer, base64: buffer.toString('base64') };
 }
 
-function config() {
+type GithubImageStorageConfig = {
+  token: string;
+  repository: string;
+  branch: string;
+};
+
+function getGithubImageStorageConfig(): GithubImageStorageConfig {
   const token = process.env.GITHUB_UPLOAD_TOKEN;
   const repository = process.env.GITHUB_REPOSITORY;
   const branch = process.env.GITHUB_BRANCH || 'main';
@@ -24,18 +30,37 @@ function config() {
   return { token, repository, branch };
 }
 
+function getGithubImageUrl(config: GithubImageStorageConfig, path: string) {
+  return `https://raw.githubusercontent.com/${config.repository}/${config.branch}/${path}`;
+}
+
+function getGithubImagePath(config: GithubImageStorageConfig, imageUrl: unknown) {
+  if (typeof imageUrl !== 'string') return null;
+  const filenamePattern = '(HE-[NHG]-[BSL]-[RGBAM]\\d{2,}\\.(?:jpg|png))';
+  const localMatch = imageUrl.match(new RegExp(`^/patterns/${filenamePattern}$`, 'i'));
+  if (localMatch) return `public/patterns/${localMatch[1]}`;
+
+  const remotePrefix = `https://raw.githubusercontent.com/${config.repository}/${config.branch}/public/patterns/`;
+  if (!imageUrl.startsWith(remotePrefix)) return null;
+  const filename = imageUrl.slice(remotePrefix.length);
+  return new RegExp(`^${filenamePattern}$`, 'i').test(filename) ? `public/patterns/${filename}` : null;
+}
+
 export async function uploadImageToGithub(input: { image?: unknown; mimeType?: unknown; heCode?: unknown }) {
   if (typeof input.mimeType !== 'string' || !allowedMimeTypes.has(input.mimeType)) throw createError('仅支持 PNG、JPG 图片。', 415);
   if (typeof input.heCode !== 'string' || !/^HE-[NHG]-[BSL]-[RGBAM]\d{2,}$/.test(input.heCode)) throw createError('图片编号格式无效。', 400);
   const { base64 } = decodeImage(input.image);
-  const { token, repository, branch } = config();
+  const config = getGithubImageStorageConfig();
+  const { token, repository, branch } = config;
   const extension = input.mimeType === 'image/png' ? 'png' : 'jpg';
   const path = `public/patterns/${input.heCode}.${extension}`;
   const url = `https://api.github.com/repos/${repository}/contents/${path}`;
   const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' };
 
   const existing = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
-  if (existing.ok) throw createError(`图片 ${input.heCode}.${extension} 已存在，请使用新的编号或在数据管理中更新资料。`, 409);
+  if (existing.ok) {
+    return { imageUrl: getGithubImageUrl(config, path), deploymentPending: false, reused: true };
+  }
   if (existing.status !== 404) throw createError('无法检查 GitHub 图片目录，请检查令牌权限和仓库名称。', 502);
 
   const response = await fetch(url, {
@@ -48,16 +73,14 @@ export async function uploadImageToGithub(input: { image?: unknown; mimeType?: u
     throw createError(`GitHub 图片发布失败：${detail?.message || response.status}`, 502);
   }
 
-  return { imageUrl: `/patterns/${input.heCode}.${extension}`, deploymentPending: true };
+  return { imageUrl: getGithubImageUrl(config, path), deploymentPending: true };
 }
 
 export async function deleteImageFromGithub(input: { imageUrl?: unknown }) {
-  if (typeof input.imageUrl !== 'string') return;
-  const match = input.imageUrl.match(/^\/patterns\/(HE-[NHG]-[BSL]-[RGBAM]\d{2,}\.(?:jpg|png))$/i);
-  if (!match) return;
-
-  const { token, repository, branch } = config();
-  const path = `public/patterns/${match[1]}`;
+  const config = getGithubImageStorageConfig();
+  const path = getGithubImagePath(config, input.imageUrl);
+  if (!path) return;
+  const { token, repository, branch } = config;
   const url = `https://api.github.com/repos/${repository}/contents/${path}`;
   const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' };
   const existing = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
@@ -71,10 +94,16 @@ export async function deleteImageFromGithub(input: { imageUrl?: unknown }) {
   const response = await fetch(url, {
     method: 'DELETE',
     headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: `删除纹样图片 ${match[1]}`, sha: content.sha, branch }),
+    body: JSON.stringify({ message: `删除纹样图片 ${path.split('/').at(-1)}`, sha: content.sha, branch }),
   });
   if (!response.ok) {
     const detail = await response.json().catch(() => null) as { message?: string } | null;
     throw createError(`GitHub 图片删除失败：${detail?.message || response.status}`, 502);
   }
+}
+
+export function isGithubPatternImageUrl(imageUrl: unknown) {
+  if (typeof imageUrl !== 'string') return false;
+  return /^\/patterns\/HE-[NHG]-[BSL]-[RGBAM]\d{2,}\.(?:jpg|png)$/i.test(imageUrl)
+    || /^https:\/\/raw\.githubusercontent\.com\/[^/]+\/[^/]+\/[^/]+\/public\/patterns\/HE-[NHG]-[BSL]-[RGBAM]\d{2,}\.(?:jpg|png)$/i.test(imageUrl);
 }

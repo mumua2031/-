@@ -8,6 +8,7 @@ type QueuedImage = {
   file: File;
   previewUrl: string;
   selected: boolean;
+  assignedCode?: string;
 };
 
 const fileNameWithoutExtension = (file: File) => file.name.replace(/\.[^.]+$/, '');
@@ -112,12 +113,15 @@ export function AdminUpload() {
     setIsSubmitting(true);
     setSubmitMessage('');
     localStorage.setItem('hanxiu:admin-token', adminToken);
+    const queuedForSubmission = images.map((image, index) => ({ ...image, assignedCode: image.assignedCode || generatedCodes[index] }));
+    const completedIds = new Set<string>();
+    setImages(queuedForSubmission);
     try {
-      for (let index = 0; index < images.length; index += 1) {
-        const image = images[index];
-        const code = generatedCodes[index];
-        const name = images.length === 1 && formData.name.trim() ? formData.name.trim() : fileNameWithoutExtension(image.file);
-        setSubmitMessage(`正在上传第 ${index + 1}/${images.length} 张图片……`);
+      for (let index = 0; index < queuedForSubmission.length; index += 1) {
+        const image = queuedForSubmission[index];
+        const code = image.assignedCode || generatedCodes[index];
+        const name = queuedForSubmission.length === 1 && formData.name.trim() ? formData.name.trim() : fileNameWithoutExtension(image.file);
+        setSubmitMessage(`正在上传第 ${index + 1}/${queuedForSubmission.length} 张图片……`);
         const imageResponse = await fetch('/api/admin/images', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}) },
@@ -143,12 +147,20 @@ export function AdminUpload() {
         });
         const data = await response.json();
         if (!response.ok || !data.success) throw new Error(`“${name}”提交失败：${data.error || response.status}`);
+        completedIds.add(image.id);
       }
-      setSubmitMessage(`已成功提交 ${images.length} 个纹样，图片正在自动部署，通常约一分钟后显示在公开图库。`);
-      removeImages(new Set(images.map((image) => image.id)));
+      setSubmitMessage(`已成功提交 ${queuedForSubmission.length} 个纹样，图片已可由 GitHub 公开地址加载，Vercel 站点同步部署中。`);
+      removeImages(new Set(queuedForSubmission.map((image) => image.id)));
       await refresh();
     } catch (error) {
-      setSubmitMessage(error instanceof Error ? error.message : '提交失败，请稍后重试。');
+      if (completedIds.size) {
+        removeImages(completedIds);
+        await refresh();
+        const message = error instanceof Error ? error.message : '提交失败，请稍后重试。';
+        setSubmitMessage(`${message} 已完成的 ${completedIds.size} 项已保留；剩余图片可直接再次提交。`);
+      } else {
+        setSubmitMessage(error instanceof Error ? error.message : '提交失败，请稍后重试。');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -171,7 +183,7 @@ export function AdminUpload() {
 
           {images.length > 0 && <div className="rounded border border-white/10 bg-black/20 p-4">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div className="text-sm text-white/70">已导入 {images.length} 张，已选择 {selectedCount} 张</div><div className="flex gap-2"><button onClick={() => setImages((current) => current.map((image) => ({ ...image, selected: !allSelected })))} className="flex items-center gap-2 rounded border border-white/15 px-3 py-1.5 text-xs text-white/70 hover:text-white">{allSelected ? <CheckSquare className="h-4 w-4" /> : <Square className="h-4 w-4" />}{allSelected ? '取消全选' : '全选'}</button><button disabled={!selectedCount} onClick={() => removeImages(new Set(images.filter((image) => image.selected).map((image) => image.id)))} className="flex items-center gap-2 rounded border border-red-400/30 px-3 py-1.5 text-xs text-red-300 disabled:opacity-40"><Trash2 className="h-4 w-4" />批量删除</button><button onClick={() => removeImages(new Set(images.map((image) => image.id)))} className="rounded border border-white/15 px-3 py-1.5 text-xs text-white/60">清空</button></div></div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">{images.map((image, index) => <div key={image.id} onClick={() => setImages((current) => current.map((item) => item.id === image.id ? { ...item, selected: !item.selected } : item))} className={`group relative cursor-pointer overflow-hidden rounded border ${image.selected ? 'border-fuchsia-400 ring-2 ring-fuchsia-500/30' : 'border-white/10'}`}><img src={image.previewUrl} alt={image.file.name} className="h-28 w-full object-cover" /><div className="bg-black/80 p-2"><div className="truncate text-xs text-white/80">{image.file.name}</div><div className="mt-1 font-mono text-[11px] text-fuchsia-300">{generatedCodes[index]}</div></div><button aria-label="删除图片" onClick={(e) => { e.stopPropagation(); removeImages(new Set([image.id])); }} className="absolute right-1 top-1 rounded bg-black/75 p-1 text-white/70 hover:text-white"><X className="h-4 w-4" /></button><div className="absolute left-1 top-1 rounded bg-black/75 p-1">{image.selected ? <CheckSquare className="h-4 w-4 text-fuchsia-300" /> : <Square className="h-4 w-4 text-white/70" />}</div></div>)}</div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">{images.map((image, index) => <div key={image.id} onClick={() => setImages((current) => current.map((item) => item.id === image.id ? { ...item, selected: !item.selected } : item))} className={`group relative cursor-pointer overflow-hidden rounded border ${image.selected ? 'border-fuchsia-400 ring-2 ring-fuchsia-500/30' : 'border-white/10'}`}><img src={image.previewUrl} alt={image.file.name} className="h-28 w-full object-cover" /><div className="bg-black/80 p-2"><div className="truncate text-xs text-white/80">{image.file.name}</div><div className="mt-1 font-mono text-[11px] text-fuchsia-300">{image.assignedCode || generatedCodes[index]}</div></div><button aria-label="删除图片" onClick={(e) => { e.stopPropagation(); removeImages(new Set([image.id])); }} className="absolute right-1 top-1 rounded bg-black/75 p-1 text-white/70 hover:text-white"><X className="h-4 w-4" /></button><div className="absolute left-1 top-1 rounded bg-black/75 p-1">{image.selected ? <CheckSquare className="h-4 w-4 text-fuchsia-300" /> : <Square className="h-4 w-4 text-white/70" />}</div></div>)}</div>
           </div>}
 
           {images.length > 0 && <button onClick={() => void analyzeImage(images[0].file)} disabled={isAnalyzing} className="w-fit rounded border border-blue-400/35 px-3 py-2 text-xs text-blue-200 hover:bg-blue-500/10 disabled:opacity-40"><Sparkles className="mr-1 inline h-3.5 w-3.5" />可选：识别首张图片分类（未配置 AI 时可直接手动选择）</button>}
