@@ -12,6 +12,13 @@ type QueuedImage = {
 
 const fileNameWithoutExtension = (file: File) => file.name.replace(/\.[^.]+$/, '');
 
+const readFileAsDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onload = () => resolve(String(reader.result));
+  reader.onerror = () => reject(reader.error);
+  reader.readAsDataURL(file);
+});
+
 export function AdminUpload() {
   const { patterns, refresh } = usePatternData();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +29,6 @@ export function AdminUpload() {
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [aiDescription, setAiDescription] = useState('');
   const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu:admin-token') || '');
-  const [imageDirectory, setImageDirectory] = useState('/patterns/');
   const [submitMessage, setSubmitMessage] = useState('');
 
   const nextSequence = useMemo(() => {
@@ -47,12 +53,7 @@ export function AdminUpload() {
     setIsAnalyzing(true);
     setShowAnalysis(false);
     try {
-      const dataUrl = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(String(reader.result));
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(file);
-      });
+      const dataUrl = await readFileAsDataUrl(file);
       const response = await fetch('/api/analyze-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -78,16 +79,21 @@ export function AdminUpload() {
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     if (!files.length) return;
-    const queued = files.map((file, index) => ({
+    const acceptedFiles = files.filter((file) => ['image/jpeg', 'image/png'].includes(file.type) && file.size <= 4 * 1024 * 1024);
+    if (acceptedFiles.length !== files.length) setSubmitMessage('仅支持 4 MB 以下的 JPG 或 PNG 图片，未符合条件的文件未导入。');
+    const queued = acceptedFiles.map((file, index) => ({
       id: `${file.name}-${file.lastModified}-${file.size}-${index}`,
       file,
       previewUrl: URL.createObjectURL(file),
       selected: false,
     }));
+    if (!queued.length) {
+      event.target.value = '';
+      return;
+    }
     setImages((current) => [...current, ...queued]);
-    if (!formData.name && files.length === 1) setFormData((current) => ({ ...current, name: fileNameWithoutExtension(files[0]) }));
-    setSubmitMessage('');
-    void analyzeImage(files[0]);
+    if (!formData.name && acceptedFiles.length === 1) setFormData((current) => ({ ...current, name: fileNameWithoutExtension(acceptedFiles[0]) }));
+    if (acceptedFiles.length === files.length) setSubmitMessage('');
     event.target.value = '';
   };
 
@@ -111,13 +117,20 @@ export function AdminUpload() {
         const image = images[index];
         const code = generatedCodes[index];
         const name = images.length === 1 && formData.name.trim() ? formData.name.trim() : fileNameWithoutExtension(image.file);
-        const normalizedDirectory = imageDirectory.trim().replace(/\\/g, '/').replace(/\/+$/, '');
-        if (!normalizedDirectory.startsWith('/')) throw new Error('图片目录必须以 / 开头，例如 /patterns。');
-        const imageUrl = `${normalizedDirectory}/${encodeURIComponent(image.file.name)}`;
+        setSubmitMessage(`正在上传第 ${index + 1}/${images.length} 张图片……`);
+        const imageResponse = await fetch('/api/admin/images', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}) },
+          body: JSON.stringify({ image: await readFileAsDataUrl(image.file), mimeType: image.file.type, heCode: code }),
+        });
+        const uploadedImage = await imageResponse.json();
+        if (!imageResponse.ok || !uploadedImage.success || !uploadedImage.data?.imageUrl) {
+          throw new Error(`“${name}”图片上传失败：${uploadedImage.error || imageResponse.status}`);
+        }
         const payload = {
           id: code, heCode: code, patternCategory: formData.category, meaningCategory: formData.symbolism,
           colorCategory: formData.color, sequence: nextSequence + index, name: { 'zh-CN': name, en: name },
-          imageUrl, categoryLabels: [], era: formData.era || '具体年代待考', carrier: '', region: formData.region,
+          imageUrl: uploadedImage.data.imageUrl, categoryLabels: [], era: formData.era || '具体年代待考', carrier: '', region: formData.region,
           copyrightOwner: '权属待确认，仅供非商业研究', format: image.file.type, resolution: '',
           craft: { 'zh-CN': '', en: '' }, symbolism: { 'zh-CN': aiDescription, en: aiDescription },
           origin: { 'zh-CN': '民间采集，出处待考', en: 'Folk collection, source pending verification.' },
@@ -131,7 +144,7 @@ export function AdminUpload() {
         const data = await response.json();
         if (!response.ok || !data.success) throw new Error(`“${name}”提交失败：${data.error || response.status}`);
       }
-      setSubmitMessage(`已成功提交 ${images.length} 个纹样，编号已自动分配。`);
+      setSubmitMessage(`已成功提交 ${images.length} 个纹样，图片正在自动部署，通常约一分钟后显示在公开图库。`);
       removeImages(new Set(images.map((image) => image.id)));
       await refresh();
     } catch (error) {
@@ -151,10 +164,9 @@ export function AdminUpload() {
             <div><label className="mb-2 block text-sm text-white/60">导入图片（PNG/JPG，可多选）</label><input ref={fileInputRef} type="file" multiple accept=".jpg,.jpeg,.png" onChange={handleFileUpload} className="hidden" /><button onClick={() => fileInputRef.current?.click()} className="flex w-full items-center justify-center gap-2 rounded border border-dashed border-fuchsia-400/50 bg-fuchsia-500/10 px-4 py-2 text-sm text-fuchsia-200 hover:bg-fuchsia-500/20"><ImagePlus className="h-4 w-4" />选择图片或批量导入</button></div>
           </div>
 
-          <div className="rounded border border-amber-300/25 bg-amber-950/15 p-4 text-sm text-amber-100/85">
-            <label className="block font-medium">免费模式图片目录</label>
-            <input value={imageDirectory} onChange={(event) => setImageDirectory(event.target.value)} className="mt-2 w-full rounded border border-white/20 bg-black/20 px-3 py-2 font-mono text-white outline-none focus:border-fuchsia-500" />
-            <p className="mt-2 leading-6">请先把所选图片复制到网站源码的 public 目录中，例如 D:\xiuyijing\public\patterns；提交后系统只保存图片路径，不会把电脑图片上传到 Firebase。推送并部署网站后，图片才会在图库中显示。</p>
+          <div className="rounded border border-emerald-300/25 bg-emerald-950/15 p-4 text-sm text-emerald-100/85">
+            <div className="font-medium">免费自动上传模式</div>
+            <p className="mt-2 leading-6">提交时，图片会自动写入 GitHub 仓库的 public/patterns 目录，并由 Vercel 自动部署；资料同时写入 Firestore。无需 Firebase Storage，也不需要手动复制图片到源码目录。首次使用前请在 Vercel 配置 GITHUB_UPLOAD_TOKEN、GITHUB_REPOSITORY 和 GITHUB_BRANCH。</p>
           </div>
 
           {images.length > 0 && <div className="rounded border border-white/10 bg-black/20 p-4">
@@ -162,7 +174,8 @@ export function AdminUpload() {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">{images.map((image, index) => <div key={image.id} onClick={() => setImages((current) => current.map((item) => item.id === image.id ? { ...item, selected: !item.selected } : item))} className={`group relative cursor-pointer overflow-hidden rounded border ${image.selected ? 'border-fuchsia-400 ring-2 ring-fuchsia-500/30' : 'border-white/10'}`}><img src={image.previewUrl} alt={image.file.name} className="h-28 w-full object-cover" /><div className="bg-black/80 p-2"><div className="truncate text-xs text-white/80">{image.file.name}</div><div className="mt-1 font-mono text-[11px] text-fuchsia-300">{generatedCodes[index]}</div></div><button aria-label="删除图片" onClick={(e) => { e.stopPropagation(); removeImages(new Set([image.id])); }} className="absolute right-1 top-1 rounded bg-black/75 p-1 text-white/70 hover:text-white"><X className="h-4 w-4" /></button><div className="absolute left-1 top-1 rounded bg-black/75 p-1">{image.selected ? <CheckSquare className="h-4 w-4 text-fuchsia-300" /> : <Square className="h-4 w-4 text-white/70" />}</div></div>)}</div>
           </div>}
 
-          {isAnalyzing && <div className="flex items-center gap-3 rounded border border-blue-500/30 bg-blue-900/20 p-4 text-sm text-blue-300"><Loader2 className="h-4 w-4 animate-spin" />正在自动识别首张图片的分类特征……</div>}
+          {images.length > 0 && <button onClick={() => void analyzeImage(images[0].file)} disabled={isAnalyzing} className="w-fit rounded border border-blue-400/35 px-3 py-2 text-xs text-blue-200 hover:bg-blue-500/10 disabled:opacity-40"><Sparkles className="mr-1 inline h-3.5 w-3.5" />可选：识别首张图片分类（未配置 AI 时可直接手动选择）</button>}
+          {isAnalyzing && <div className="flex items-center gap-3 rounded border border-blue-500/30 bg-blue-900/20 p-4 text-sm text-blue-300"><Loader2 className="h-4 w-4 animate-spin" />正在识别首张图片的分类特征……</div>}
           {showAnalysis && <div className="rounded border border-green-500/30 bg-green-900/20 p-4 text-sm"><div className="mb-2 flex items-center gap-2 text-green-300"><Sparkles className="h-4 w-4" />自动识别完成</div><p className="text-white/70">{aiDescription}</p></div>}
 
           <div className="grid gap-6 md:grid-cols-3">

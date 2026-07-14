@@ -1,5 +1,6 @@
 import { assertAdminToken, deletePattern, updatePattern } from '../../../src/server/patternRepository';
 import { deletePatternImage } from '../../../src/server/patternStorage';
+import { deleteImageFromGithub } from '../../../src/server/githubImageStorage';
 import type { ApiRequest, ApiResponse } from '../../_utils';
 import { sendError, unsupportedMethod } from '../../_utils';
 
@@ -13,7 +14,11 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
     if (req.method === 'DELETE') {
       const pattern = await deletePattern(heCode);
-      await deletePatternImage(pattern.storagePath);
+      if (process.env.GITHUB_UPLOAD_TOKEN) {
+        await deleteImageFromGithub({ imageUrl: pattern.imageUrl });
+      } else {
+        await deletePatternImage(pattern.storagePath);
+      }
       return res.json({ success: true, id: pattern.id });
     }
 

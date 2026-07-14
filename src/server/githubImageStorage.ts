@@ -50,3 +50,31 @@ export async function uploadImageToGithub(input: { image?: unknown; mimeType?: u
 
   return { imageUrl: `/patterns/${input.heCode}.${extension}`, deploymentPending: true };
 }
+
+export async function deleteImageFromGithub(input: { imageUrl?: unknown }) {
+  if (typeof input.imageUrl !== 'string') return;
+  const match = input.imageUrl.match(/^\/patterns\/(HE-[NHG]-[BSL]-[RGBAM]\d{2,}\.(?:jpg|png))$/i);
+  if (!match) return;
+
+  const { token, repository, branch } = config();
+  const path = `public/patterns/${match[1]}`;
+  const url = `https://api.github.com/repos/${repository}/contents/${path}`;
+  const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' };
+  const existing = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
+
+  if (existing.status === 404) return;
+  if (!existing.ok) throw createError('无法读取 GitHub 图片，请检查令牌权限和仓库名称。', 502);
+
+  const content = await existing.json() as { sha?: string };
+  if (!content.sha) throw createError('GitHub 图片缺少版本信息，无法删除。', 502);
+
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: { ...headers, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: `删除纹样图片 ${match[1]}`, sha: content.sha, branch }),
+  });
+  if (!response.ok) {
+    const detail = await response.json().catch(() => null) as { message?: string } | null;
+    throw createError(`GitHub 图片删除失败：${detail?.message || response.status}`, 502);
+  }
+}
