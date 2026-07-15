@@ -40,6 +40,39 @@ function normalizePrivateKey(value?: string) {
   return value?.replace(/\\n/g, '\n');
 }
 
+function normalizeFirebaseProjectId(value?: string | null) {
+  const trimmed = value?.trim();
+  if (!trimmed) return undefined;
+
+  try {
+    const parsed = JSON.parse(trimmed) as unknown;
+    if (typeof parsed === 'string') return normalizeFirebaseProjectId(parsed);
+    if (parsed && typeof parsed === 'object') {
+      const record = parsed as Record<string, unknown>;
+      return normalizeFirebaseProjectId(String(record.project_id || record.projectId || ''));
+    }
+  } catch {
+    // The Vercel field may contain a copied line such as `"project_id": "..."`.
+  }
+
+  const projectIdMatch = trimmed.match(/["']?project_?id["']?\s*[:=]\s*["']?([a-z][a-z0-9-]{4,28}[a-z0-9])["']?/i);
+  if (projectIdMatch) return projectIdMatch[1];
+
+  const assignmentMatch = trimmed.match(/^FIREBASE_PROJECT_ID\s*=\s*["']?(.+?)["']?$/i);
+  const cleaned = (assignmentMatch?.[1] || trimmed)
+    .replace(/^["']|["']$/g, '')
+    .replace(/,$/, '')
+    .trim();
+
+  return cleaned || undefined;
+}
+
+function getServiceAccountProjectId() {
+  const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  if (!serviceAccountJson) return undefined;
+  return normalizeFirebaseProjectId(serviceAccountJson);
+}
+
 async function getServiceAccountCredential() {
   try {
     const { cert } = await getFirebaseAdminModules();
@@ -47,15 +80,16 @@ async function getServiceAccountCredential() {
     if (serviceAccountJson) {
       const parsed = JSON.parse(serviceAccountJson);
       return cert({
-        projectId: parsed.project_id || parsed.projectId,
+        projectId: normalizeFirebaseProjectId(parsed.project_id || parsed.projectId || serviceAccountJson),
         clientEmail: parsed.client_email || parsed.clientEmail,
         privateKey: normalizePrivateKey(parsed.private_key || parsed.privateKey),
       });
     }
 
-    if (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_PROJECT_ID) {
+    const envProjectId = normalizeFirebaseProjectId(process.env.FIREBASE_PROJECT_ID);
+    if (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY && envProjectId) {
       return cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
+        projectId: envProjectId,
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
         privateKey: normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
       });
@@ -72,7 +106,7 @@ export async function getFirestoreDb() {
 
   try {
     const credential = await getServiceAccountCredential();
-    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const projectId = normalizeFirebaseProjectId(process.env.FIREBASE_PROJECT_ID) || getServiceAccountProjectId();
 
     if (!credential || !projectId) {
       cachedDb = null;

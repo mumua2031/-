@@ -234,12 +234,6 @@ export function Login() {
             />
           </div>
 
-          <p className="text-xs leading-5 text-white/35">
-            {isEnglish
-              ? 'Use email registration and login for the free, simplest setup. No SMS verification is required.'
-              : '使用邮箱注册与登录，更适合免费、少折腾的管理方式；无需短信验证码。'}
-          </p>
-
           <div className="flex items-center gap-2 pt-2">
             <input
               type="checkbox"
