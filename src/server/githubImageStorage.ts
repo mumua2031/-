@@ -1,4 +1,4 @@
-const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 1.5 * 1024 * 1024;
 const allowedMimeTypes = new Set(['image/jpeg', 'image/png']);
 
 function createError(message: string, statusCode: number) {
@@ -12,7 +12,7 @@ function decodeImage(base64: unknown) {
   const normalized = base64.replace(/^data:[^;]+;base64,/, '').replace(/\s/g, '');
   if (!/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw createError('图片数据格式无效。', 400);
   const buffer = Buffer.from(normalized, 'base64');
-  if (!buffer.length || buffer.length > MAX_IMAGE_BYTES) throw createError('免费自动上传模式仅支持压缩后 3 MB 以下图片。', 413);
+  if (!buffer.length || buffer.length > MAX_IMAGE_BYTES) throw createError('免费自动上传模式仅支持压缩后 1.5 MB 以下图片。', 413);
   return { buffer, base64: buffer.toString('base64') };
 }
 

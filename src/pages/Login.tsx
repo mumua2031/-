@@ -53,11 +53,21 @@ export function Login() {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const [allowCredentialInput, setAllowCredentialInput] = useState(false);
 
   const getRedirectPath = () => {
     const next = searchParams.get('next');
     if (next?.startsWith('/') && !next.startsWith('//')) return next;
     return activeTab === 'developer' ? '/admin' : '/';
+  };
+
+  const switchAudience = (audience: LoginAudience) => {
+    setActiveTab(audience);
+    setEmail('');
+    setPassword('');
+    setDisplayName('');
+    setMessage('');
+    setAllowCredentialInput(false);
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -133,7 +143,7 @@ export function Login() {
         <div className="mb-7 flex rounded-lg border border-white/10 bg-white/5 p-1">
           <button
             type="button"
-            onClick={() => setActiveTab('personal')}
+            onClick={() => switchAudience('personal')}
             className={
               'flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-xs font-medium transition-all ' +
               (activeTab === 'personal' ? 'bg-white/10 text-white shadow-sm' : 'text-white/40 hover:text-white/80')
@@ -144,7 +154,7 @@ export function Login() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveTab('developer')}
+            onClick={() => switchAudience('developer')}
             className={
               'flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-xs font-medium transition-all ' +
               (activeTab === 'developer' ? 'bg-white/10 text-white shadow-sm' : 'text-white/40 hover:text-white/80')
@@ -180,7 +190,7 @@ export function Login() {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5" autoComplete="off">
           <div className="space-y-4">
             {authMode === 'register' && (
               <input
@@ -189,22 +199,37 @@ export function Login() {
                 className="w-full rounded-md border border-white/10 bg-transparent px-4 py-3 text-sm text-white transition-all placeholder:text-white/30 focus:border-fuchsia-600/50 focus:outline-none"
                 value={displayName}
                 onChange={(event) => setDisplayName(event.target.value)}
+                autoComplete="off"
               />
             )}
             <input
+              key={`${activeTab}-${authMode}-email`}
               type="email"
+              name={`${activeTab}-${authMode}-email`}
               placeholder={isEnglish ? 'Email' : '邮箱'}
               className="w-full rounded-md border border-white/10 bg-transparent px-4 py-3 text-sm text-white transition-all placeholder:text-white/30 focus:border-fuchsia-600/50 focus:outline-none"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              autoComplete="off"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly={!allowCredentialInput}
+              onFocus={() => setAllowCredentialInput(true)}
               required
             />
             <input
+              key={`${activeTab}-${authMode}-password`}
               type="password"
+              name={`${activeTab}-${authMode}-password`}
               placeholder={isEnglish ? 'Password' : authMode === 'register' ? '设置密码（至少 6 位）' : '请输入密码'}
               className="w-full rounded-md border border-white/10 bg-transparent px-4 py-3 text-sm text-white transition-all placeholder:text-white/30 focus:border-fuchsia-600/50 focus:outline-none"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+              autoComplete="new-password"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly={!allowCredentialInput}
+              onFocus={() => setAllowCredentialInput(true)}
               required
             />
           </div>

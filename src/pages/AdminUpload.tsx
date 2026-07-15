@@ -20,8 +20,8 @@ type PreparedUploadImage = {
 };
 
 const MAX_INPUT_IMAGE_BYTES = 10 * 1024 * 1024;
-const MAX_UPLOAD_IMAGE_BYTES = 2.8 * 1024 * 1024;
-const MAX_UPLOAD_EDGE = 1800;
+const MAX_UPLOAD_IMAGE_BYTES = 1.2 * 1024 * 1024;
+const MAX_UPLOAD_EDGE = 1400;
 
 const fileNameWithoutExtension = (file: File) => file.name.replace(/\.[^.]+$/, '');
 
@@ -68,7 +68,7 @@ async function prepareImageForUpload(file: File): Promise<PreparedUploadImage> {
   if (!context) throw new Error('浏览器无法压缩图片，请换一张图片重试。');
   context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-  for (const quality of [0.86, 0.78, 0.68, 0.58]) {
+  for (const quality of [0.82, 0.72, 0.62, 0.52, 0.42]) {
     const dataUrl = await canvasToDataUrl(canvas, quality);
     const size = getDataUrlSize(dataUrl);
     if (size <= MAX_UPLOAD_IMAGE_BYTES) return { dataUrl, mimeType: 'image/jpeg', size, compressed: true };

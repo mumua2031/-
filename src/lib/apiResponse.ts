@@ -23,6 +23,24 @@ function cleanPlatformError(text: string) {
   return cleanText;
 }
 
+function formatErrorValue(error: unknown) {
+  if (!error) return '';
+  if (typeof error === 'string') return error;
+  if (error instanceof Error) return error.message;
+  if (typeof error === 'object') {
+    const detail = error as { message?: unknown; error?: unknown; details?: unknown };
+    if (typeof detail.message === 'string') return detail.message;
+    if (typeof detail.error === 'string') return detail.error;
+    if (typeof detail.details === 'string') return detail.details;
+    try {
+      return JSON.stringify(error);
+    } catch {
+      return '接口返回了无法解析的错误对象。';
+    }
+  }
+  return String(error);
+}
+
 export async function readApiPayload<T extends ApiPayload = ApiPayload>(response: Response, action = '请求') {
   const text = await response.text();
   let payload: ApiPayload<T> | null = null;
@@ -36,7 +54,7 @@ export async function readApiPayload<T extends ApiPayload = ApiPayload>(response
   }
 
   if (!response.ok || payload?.success === false) {
-    throw new Error(`${action}失败：${payload?.error || fallbackMessage(response.status)}`);
+    throw new Error(`${action}失败：${formatErrorValue(payload?.error) || fallbackMessage(response.status)}`);
   }
 
   return payload as T;
