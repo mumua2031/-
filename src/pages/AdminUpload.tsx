@@ -2,6 +2,16 @@ import { useMemo, useRef, useState } from 'react';
 import { CheckSquare, ImagePlus, Loader2, Sparkles, Square, Trash2, X } from 'lucide-react';
 import { buildHECode, getPatternClassification } from '../lib/classification';
 import { readApiPayload } from '../lib/apiResponse';
+import {
+  archiveBasicFields,
+  archivePasteExample,
+  archiveTextFields,
+  createEmptyPatternArchiveForm,
+  makeMultilingual,
+  parsePatternArchiveText,
+  type PatternArchiveField,
+  type PatternArchiveFormData,
+} from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
 
 type QueuedImage = {
@@ -19,35 +29,11 @@ type PreparedUploadImage = {
   compressed: boolean;
 };
 
-type PatternFormData = {
-  name: string;
-  category: string;
-  symbolism: string;
-  color: string;
-  era: string;
-  carrier: string;
-  region: string;
-  copyrightOwner: string;
-  format: string;
-  resolution: string;
-  craft: string;
-  symbolismText: string;
-  origin: string;
-  scenario: string;
-  literature: string;
-  inheritor: string;
-};
-
 const MAX_INPUT_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_UPLOAD_IMAGE_BYTES = 1.2 * 1024 * 1024;
 const MAX_UPLOAD_EDGE = 1400;
 
 const fileNameWithoutExtension = (file: File) => file.name.replace(/\.[^.]+$/, '');
-
-const makeMultilingual = (value: string, fallback = '') => {
-  const text = value.trim() || fallback;
-  return { 'zh-CN': text, en: text };
-};
 
 const readFileAsDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
   const reader = new FileReader();
@@ -104,24 +90,8 @@ async function prepareImageForUpload(file: File): Promise<PreparedUploadImage> {
 export function AdminUpload() {
   const { patterns, refresh } = usePatternData();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [formData, setFormData] = useState<PatternFormData>({
-    name: '',
-    category: 'N',
-    symbolism: 'B',
-    color: 'R',
-    era: '',
-    carrier: '',
-    region: '',
-    copyrightOwner: '',
-    format: '',
-    resolution: '',
-    craft: '',
-    symbolismText: '',
-    origin: '',
-    scenario: '',
-    literature: '',
-    inheritor: '',
-  });
+  const [formData, setFormData] = useState<PatternArchiveFormData>(() => createEmptyPatternArchiveForm());
+  const [archivePasteText, setArchivePasteText] = useState('');
   const [images, setImages] = useState<QueuedImage[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -148,27 +118,30 @@ export function AdminUpload() {
     }));
   }, [formData.category, formData.symbolism, formData.color, images.length, nextSequence]);
 
-  const updateFormField = (field: keyof PatternFormData, value: string) => {
+  const updateFormField = (field: PatternArchiveField, value: string) => {
     setFormData((current) => ({ ...current, [field]: value }));
   };
 
-  const archiveBasicFields: Array<{ key: keyof PatternFormData; label: string; placeholder: string }> = [
-    { key: 'era', label: '年代 / 时期', placeholder: '如：清代、民国、当代；不确定可写“待考”' },
-    { key: 'carrier', label: '载体 / 材质', placeholder: '如：真丝软缎、圆补、服饰、帐幔、镜框装饰等' },
-    { key: 'region', label: '地域 / 采集地', placeholder: '如：湖北武汉汉口绣花街、江汉平原等' },
-    { key: 'format', label: '图片格式', placeholder: '如：PNG、JPG；不填则自动识别' },
-    { key: 'resolution', label: '分辨率 / 档案规格', placeholder: '如：高清数字档案、300dpi、2048×2048' },
-    { key: 'copyrightOwner', label: '版权 / 权属说明', placeholder: '如：传承人授权、机构收藏、权属待确认，仅供研究展示' },
-  ];
+  const applyArchiveText = (text: string) => {
+    const patch = parsePatternArchiveText(text);
+    const filledCount = Object.keys(patch).length;
+    if (!filledCount) {
+      setSubmitMessage('没有识别到可填入的资料。请使用“字段名：内容”的格式，例如“年代：当代”。');
+      return;
+    }
+    setFormData((current) => ({ ...current, ...patch }));
+    setSubmitMessage(`已自动填入 ${filledCount} 项纹样资料，可继续手动微调后提交。`);
+  };
 
-  const archiveTextFields: Array<{ key: keyof PatternFormData; label: string; placeholder: string }> = [
-    { key: 'craft', label: '工艺说明', placeholder: '填写针法、盘金、铺绣、破色针、配线、制作特征等。' },
-    { key: 'symbolismText', label: '象征寓意', placeholder: '填写凤凰、牡丹、圆补、色彩和构图所表达的吉祥寓意。' },
-    { key: 'origin', label: '来源出处', placeholder: '填写采集来源、馆藏来源、民间来源、图片出处或待考说明。' },
-    { key: 'scenario', label: '应用场景', placeholder: '如：礼服补子、婚庆服饰、厅堂装饰、仪式用品、现代文创转译等。' },
-    { key: 'literature', label: '文献 / 备注', placeholder: '填写参考文献、访谈记录、图片页码、备注说明等。' },
-    { key: 'inheritor', label: '传承人 / 收藏者', placeholder: '填写传承人、收藏者、采集者或“具体传承人不详”。' },
-  ];
+  const pasteArchiveTextFromClipboard = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setArchivePasteText(text);
+      applyArchiveText(text);
+    } catch {
+      setSubmitMessage('浏览器未允许读取剪贴板。请先手动粘贴到文本框，再点击“解析并填入”。');
+    }
+  };
 
   const analyzeImage = async (file: File) => {
     setIsAnalyzing(true);
@@ -365,6 +338,26 @@ export function AdminUpload() {
             <label className="text-sm text-white/60">寓意大类<select value={formData.symbolism} onChange={(e) => setFormData({ ...formData, symbolism: e.target.value })} className="mt-2 w-full rounded border border-white/20 bg-[#121417] px-4 py-2 text-white"><option value="B">B（吉祥祈福类）</option><option value="S">S（精神信仰类）</option><option value="L">L（生活志趣类）</option></select></label>
             <label className="text-sm text-white/60">色彩大类<select value={formData.color} onChange={(e) => setFormData({ ...formData, color: e.target.value })} className="mt-2 w-full rounded border border-white/20 bg-[#121417] px-4 py-2 text-white"><option value="R">R（红色系）</option><option value="G">G（绿色系）</option><option value="B">B（蓝色系）</option><option value="A">A（金银色系）</option><option value="M">M（多色系）</option></select></label>
           </div>
+
+          <section className="rounded border border-fuchsia-300/20 bg-fuchsia-950/10 p-4">
+            <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 className="text-base font-medium text-white/90">一键粘贴资料自动填入</h3>
+                <p className="mt-1 text-xs leading-5 text-white/45">把 Word、微信、表格里整理好的资料整段粘贴进来，系统会按“字段名：内容”自动填入下方表单。</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <button type="button" onClick={() => void pasteArchiveTextFromClipboard()} className="rounded border border-fuchsia-300/30 px-3 py-1.5 text-xs text-fuchsia-100 hover:bg-fuchsia-500/10">从剪贴板粘贴并填入</button>
+                <button type="button" onClick={() => applyArchiveText(archivePasteText)} className="rounded bg-fuchsia-600 px-3 py-1.5 text-xs text-white hover:bg-fuchsia-700">解析并填入</button>
+              </div>
+            </div>
+            <textarea
+              value={archivePasteText}
+              onChange={(event) => setArchivePasteText(event.target.value)}
+              placeholder={archivePasteExample}
+              rows={8}
+              className="w-full resize-y rounded border border-white/15 bg-black/25 px-3 py-2 text-sm leading-6 text-white outline-none placeholder:text-white/25 focus:border-fuchsia-500"
+            />
+          </section>
 
           <section className="rounded border border-white/10 bg-black/20 p-4">
             <div className="mb-4">
