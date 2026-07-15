@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useEffect, useState, type ReactNode } from 'react';
+import { signOut } from 'firebase/auth';
 import {
   Activity,
   BookOpen,
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 import { colorCategories, meaningCategories, patternCategories } from '../lib/classification';
 import { readApiPayload } from '../lib/apiResponse';
+import { auth } from '../lib/firebase';
 import { usePatternData } from '../lib/patternData';
 
 const navItems = [
@@ -49,6 +51,10 @@ function AdminPanel({ title, description, children }: { title: string; descripti
 
 export function AdminLayout() {
   const navigate = useNavigate();
+  const handleLogout = async () => {
+    await signOut(auth).catch(() => undefined);
+    navigate('/');
+  };
 
   return (
     <div className="flex min-h-screen bg-[#08090a] text-white/90">
@@ -70,9 +76,9 @@ export function AdminLayout() {
         </nav>
 
         <div className="border-t border-white/10 p-4">
-          <button onClick={() => navigate('/')} className="flex w-full items-center gap-2 px-2 py-2 text-sm text-white/40 hover:text-white">
+          <button onClick={() => void handleLogout()} className="flex w-full items-center gap-2 px-2 py-2 text-sm text-white/40 hover:text-white">
             <LogOut className="h-4 w-4" />
-            返回网站首页
+            退出登录
           </button>
         </div>
       </aside>

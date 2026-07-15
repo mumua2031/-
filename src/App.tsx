@@ -3,12 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react';
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 import { Navigation } from './components/Navigation';
 import { FloatingActions } from './components/FloatingActions';
 import { Footer } from './components/Footer';
 import { PatternDataProvider } from './lib/patternData';
+import { auth } from './lib/firebase';
 import './lib/i18n'; // Initialize i18n
 
 const Home = lazy(() => import('./pages/Home').then((module) => ({ default: module.Home })));
@@ -35,6 +37,24 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+function RequireAuth({ children }: { children: ReactNode }) {
+  const location = useLocation();
+  const [user, setUser] = useState<User | null>(auth.currentUser);
+  const [isChecking, setIsChecking] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
+      setUser(nextUser);
+      setIsChecking(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  if (isChecking) return <div className="min-h-screen bg-black" />;
+  if (!user) return <Navigate to={`/login?next=${encodeURIComponent(location.pathname)}`} replace />;
+  return <>{children}</>;
 }
 
 export default function App() {
@@ -85,7 +105,7 @@ export default function App() {
         } />
         
         {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={<RequireAuth><AdminLayout /></RequireAuth>}>
           <Route index element={<AdminDashboard />} />
           <Route path="upload" element={<AdminUpload />} />
           <Route path="patterns" element={<AdminPatterns />} />
