@@ -19,11 +19,35 @@ type PreparedUploadImage = {
   compressed: boolean;
 };
 
+type PatternFormData = {
+  name: string;
+  category: string;
+  symbolism: string;
+  color: string;
+  era: string;
+  carrier: string;
+  region: string;
+  copyrightOwner: string;
+  format: string;
+  resolution: string;
+  craft: string;
+  symbolismText: string;
+  origin: string;
+  scenario: string;
+  literature: string;
+  inheritor: string;
+};
+
 const MAX_INPUT_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_UPLOAD_IMAGE_BYTES = 1.2 * 1024 * 1024;
 const MAX_UPLOAD_EDGE = 1400;
 
 const fileNameWithoutExtension = (file: File) => file.name.replace(/\.[^.]+$/, '');
+
+const makeMultilingual = (value: string, fallback = '') => {
+  const text = value.trim() || fallback;
+  return { 'zh-CN': text, en: text };
+};
 
 const readFileAsDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
   const reader = new FileReader();
@@ -80,7 +104,24 @@ async function prepareImageForUpload(file: File): Promise<PreparedUploadImage> {
 export function AdminUpload() {
   const { patterns, refresh } = usePatternData();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [formData, setFormData] = useState({ name: '', category: 'N', symbolism: 'B', color: 'R', era: '', region: '' });
+  const [formData, setFormData] = useState<PatternFormData>({
+    name: '',
+    category: 'N',
+    symbolism: 'B',
+    color: 'R',
+    era: '',
+    carrier: '',
+    region: '',
+    copyrightOwner: '',
+    format: '',
+    resolution: '',
+    craft: '',
+    symbolismText: '',
+    origin: '',
+    scenario: '',
+    literature: '',
+    inheritor: '',
+  });
   const [images, setImages] = useState<QueuedImage[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,6 +147,28 @@ export function AdminUpload() {
       sequence: nextSequence + index,
     }));
   }, [formData.category, formData.symbolism, formData.color, images.length, nextSequence]);
+
+  const updateFormField = (field: keyof PatternFormData, value: string) => {
+    setFormData((current) => ({ ...current, [field]: value }));
+  };
+
+  const archiveBasicFields: Array<{ key: keyof PatternFormData; label: string; placeholder: string }> = [
+    { key: 'era', label: '年代 / 时期', placeholder: '如：清代、民国、当代；不确定可写“待考”' },
+    { key: 'carrier', label: '载体 / 材质', placeholder: '如：真丝软缎、圆补、服饰、帐幔、镜框装饰等' },
+    { key: 'region', label: '地域 / 采集地', placeholder: '如：湖北武汉汉口绣花街、江汉平原等' },
+    { key: 'format', label: '图片格式', placeholder: '如：PNG、JPG；不填则自动识别' },
+    { key: 'resolution', label: '分辨率 / 档案规格', placeholder: '如：高清数字档案、300dpi、2048×2048' },
+    { key: 'copyrightOwner', label: '版权 / 权属说明', placeholder: '如：传承人授权、机构收藏、权属待确认，仅供研究展示' },
+  ];
+
+  const archiveTextFields: Array<{ key: keyof PatternFormData; label: string; placeholder: string }> = [
+    { key: 'craft', label: '工艺说明', placeholder: '填写针法、盘金、铺绣、破色针、配线、制作特征等。' },
+    { key: 'symbolismText', label: '象征寓意', placeholder: '填写凤凰、牡丹、圆补、色彩和构图所表达的吉祥寓意。' },
+    { key: 'origin', label: '来源出处', placeholder: '填写采集来源、馆藏来源、民间来源、图片出处或待考说明。' },
+    { key: 'scenario', label: '应用场景', placeholder: '如：礼服补子、婚庆服饰、厅堂装饰、仪式用品、现代文创转译等。' },
+    { key: 'literature', label: '文献 / 备注', placeholder: '填写参考文献、访谈记录、图片页码、备注说明等。' },
+    { key: 'inheritor', label: '传承人 / 收藏者', placeholder: '填写传承人、收藏者、采集者或“具体传承人不详”。' },
+  ];
 
   const analyzeImage = async (file: File) => {
     setIsAnalyzing(true);
@@ -192,6 +255,7 @@ export function AdminUpload() {
         if (!uploadedImage.data?.imageUrl) {
           throw new Error(`“${name}”图片上传失败：接口没有返回图片地址。`);
         }
+        const format = formData.format.trim() || (preparedImage.mimeType === 'image/png' ? 'PNG' : 'JPG');
         const payload = {
           id: code,
           heCode: code,
@@ -202,18 +266,18 @@ export function AdminUpload() {
           name: { 'zh-CN': name, en: name },
           imageUrl: uploadedImage.data.imageUrl,
           categoryLabels: [],
-          era: formData.era || '具体年代待考',
-          carrier: '',
-          region: formData.region,
-          copyrightOwner: '权属待确认，仅供非商业研究',
-          format: preparedImage.mimeType,
-          resolution: '',
-          craft: { 'zh-CN': '', en: '' },
-          symbolism: { 'zh-CN': aiDescription, en: aiDescription },
-          origin: { 'zh-CN': '民间采集，出处待考', en: 'Folk collection, source pending verification.' },
-          scenario: { 'zh-CN': '', en: '' },
-          literature: { 'zh-CN': '', en: '' },
-          inheritor: { 'zh-CN': '具体传承人不详', en: 'Specific inheritor unknown.' },
+          era: formData.era.trim() || '具体年代待考',
+          carrier: formData.carrier.trim(),
+          region: formData.region.trim(),
+          copyrightOwner: formData.copyrightOwner.trim() || '权属待确认，仅供非商业研究',
+          format,
+          resolution: formData.resolution.trim(),
+          craft: makeMultilingual(formData.craft),
+          symbolism: makeMultilingual(formData.symbolismText, aiDescription),
+          origin: makeMultilingual(formData.origin, '民间采集，出处待考'),
+          scenario: makeMultilingual(formData.scenario),
+          literature: makeMultilingual(formData.literature),
+          inheritor: makeMultilingual(formData.inheritor, '具体传承人不详'),
           createdAt: new Date().toISOString(),
           views: 0,
         };
@@ -301,6 +365,40 @@ export function AdminUpload() {
             <label className="text-sm text-white/60">寓意大类<select value={formData.symbolism} onChange={(e) => setFormData({ ...formData, symbolism: e.target.value })} className="mt-2 w-full rounded border border-white/20 bg-[#121417] px-4 py-2 text-white"><option value="B">B（吉祥祈福类）</option><option value="S">S（精神信仰类）</option><option value="L">L（生活志趣类）</option></select></label>
             <label className="text-sm text-white/60">色彩大类<select value={formData.color} onChange={(e) => setFormData({ ...formData, color: e.target.value })} className="mt-2 w-full rounded border border-white/20 bg-[#121417] px-4 py-2 text-white"><option value="R">R（红色系）</option><option value="G">G（绿色系）</option><option value="B">B（蓝色系）</option><option value="A">A（金银色系）</option><option value="M">M（多色系）</option></select></label>
           </div>
+
+          <section className="rounded border border-white/10 bg-black/20 p-4">
+            <div className="mb-4">
+              <h3 className="text-base font-medium text-white/90">完整纹样资料</h3>
+              <p className="mt-1 text-xs leading-5 text-white/45">以下资料会随图片一起写入 Firestore。批量导入时，除名称外会统一应用到本批纹样。</p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {archiveBasicFields.map((field) => (
+                <label key={field.key} className="text-sm text-white/60">
+                  {field.label}
+                  <input
+                    value={formData[field.key]}
+                    onChange={(event) => updateFormField(field.key, event.target.value)}
+                    placeholder={field.placeholder}
+                    className="mt-2 w-full rounded border border-white/15 bg-white/5 px-3 py-2 text-sm text-white outline-none placeholder:text-white/25 focus:border-fuchsia-500"
+                  />
+                </label>
+              ))}
+            </div>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              {archiveTextFields.map((field) => (
+                <label key={field.key} className="text-sm text-white/60">
+                  {field.label}
+                  <textarea
+                    value={formData[field.key]}
+                    onChange={(event) => updateFormField(field.key, event.target.value)}
+                    placeholder={field.placeholder}
+                    rows={3}
+                    className="mt-2 w-full resize-y rounded border border-white/15 bg-white/5 px-3 py-2 text-sm leading-6 text-white outline-none placeholder:text-white/25 focus:border-fuchsia-500"
+                  />
+                </label>
+              ))}
+            </div>
+          </section>
 
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
             <div>
