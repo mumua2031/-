@@ -1,5 +1,8 @@
 import type { ApiRequest, ApiResponse } from '../../_utils';
 import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../../_utils';
+import { createPattern, deletePattern, updatePattern } from '../../../src/server/patternRepository';
+import { deleteImageFromGithub, isGithubPatternImageUrl } from '../../../src/server/githubImageStorage';
+import { deletePatternImage } from '../../../src/server/patternStorage';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'PUT' && req.method !== 'PATCH' && req.method !== 'DELETE') return unsupportedMethod(res);
@@ -10,14 +13,11 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     if (!heCode) return sendJson(res, 400, { success: false, error: 'HE code is required' });
 
     if (req.method === 'DELETE') {
-      const { createPattern, deletePattern } = await import('../../../src/server/patternRepository');
       const pattern = await deletePattern(heCode);
       try {
-        const { deleteImageFromGithub, isGithubPatternImageUrl } = await import('../../../src/server/githubImageStorage');
         if (isGithubPatternImageUrl(pattern.imageUrl)) {
           await deleteImageFromGithub({ imageUrl: pattern.imageUrl });
         } else {
-          const { deletePatternImage } = await import('../../../src/server/patternStorage');
           await deletePatternImage(pattern.storagePath);
         }
       } catch (imageError) {
@@ -27,7 +27,6 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       return sendJson(res, 200, { success: true, id: pattern.id });
     }
 
-    const { updatePattern } = await import('../../../src/server/patternRepository');
     const id = await updatePattern(heCode, req.body as Record<string, unknown>);
     return sendJson(res, 200, { success: true, id });
   } catch (error) {

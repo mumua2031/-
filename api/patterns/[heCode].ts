@@ -1,5 +1,6 @@
 import type { ApiRequest, ApiResponse } from '../_utils';
 import { sendError, sendJson, unsupportedMethod } from '../_utils';
+import { findPatternByCode } from '../../src/server/patternRepository';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'GET') return unsupportedMethod(res);
@@ -8,7 +9,6 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     const heCode = Array.isArray(req.query?.heCode) ? req.query?.heCode[0] : req.query?.heCode;
     if (!heCode) return sendJson(res, 400, { success: false, error: 'HE code is required' });
 
-    const { findPatternByCode } = await import('../../src/server/patternRepository');
     const { data, source } = await findPatternByCode(heCode);
     if (!data) return sendJson(res, 404, { success: false, error: 'Pattern not found' });
 
