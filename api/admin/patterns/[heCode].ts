@@ -1,8 +1,8 @@
-import type { ApiRequest, ApiResponse } from '../../_utils';
-import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../../_utils';
-import { createPattern, deletePattern, updatePattern } from '../../../src/server/patternRepository';
-import { deleteImageFromGithub, isGithubPatternImageUrl } from '../../../src/server/githubImageStorage';
-import { deletePatternImage } from '../../../src/server/patternStorage';
+import type { ApiRequest, ApiResponse } from '../../_utils.js';
+import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../../_utils.js';
+import { createPattern, deletePattern, updatePattern } from '../../../src/server/patternRepository.js';
+import { deleteImageFromGithub, isGithubPatternImageUrl } from '../../../src/server/githubImageStorage.js';
+import { deletePatternImage } from '../../../src/server/patternStorage.js';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'PUT' && req.method !== 'PATCH' && req.method !== 'DELETE') return unsupportedMethod(res);

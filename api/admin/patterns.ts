@@ -1,6 +1,6 @@
-import type { ApiRequest, ApiResponse } from '../_utils';
-import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../_utils';
-import { createPattern } from '../../src/server/patternRepository';
+import type { ApiRequest, ApiResponse } from '../_utils.js';
+import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../_utils.js';
+import { createPattern } from '../../src/server/patternRepository.js';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') return unsupportedMethod(res);

@@ -1,7 +1,7 @@
 import type { Firestore } from 'firebase-admin/firestore';
-import { mockPatterns } from '../data';
-import type { PatternGene } from '../types';
-import { validateHECode } from '../lib/classification';
+import { mockPatterns } from '../data.js';
+import type { PatternGene } from '../types.js';
+import { validateHECode } from '../lib/classification.js';
 
 type PatternRecord = PatternGene & Record<string, unknown>;
 

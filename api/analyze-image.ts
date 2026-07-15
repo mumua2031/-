@@ -1,6 +1,6 @@
 import { GoogleGenAI } from '@google/genai';
-import type { ApiRequest, ApiResponse } from './_utils';
-import { sendError, sendJson, unsupportedMethod } from './_utils';
+import type { ApiRequest, ApiResponse } from './_utils.js';
+import { sendError, sendJson, unsupportedMethod } from './_utils.js';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') return unsupportedMethod(res);

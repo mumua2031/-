@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { getFirestoreDb } from './patternRepository';
+import { getFirestoreDb } from './patternRepository.js';
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 const allowedMimeTypes = new Set(['image/jpeg', 'image/png']);
