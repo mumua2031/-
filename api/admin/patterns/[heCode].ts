@@ -1,8 +1,5 @@
-import { assertAdminToken, createPattern, deletePattern, updatePattern } from '../../../src/server/patternRepository';
-import { deletePatternImage } from '../../../src/server/patternStorage';
-import { deleteImageFromGithub, isGithubPatternImageUrl } from '../../../src/server/githubImageStorage';
 import type { ApiRequest, ApiResponse } from '../../_utils';
-import { sendError, unsupportedMethod } from '../../_utils';
+import { assertAdminToken, sendError, sendJson, unsupportedMethod } from '../../_utils';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'PUT' && req.method !== 'PATCH' && req.method !== 'DELETE') return unsupportedMethod(res);
@@ -10,25 +7,29 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   try {
     assertAdminToken(req.headers);
     const heCode = Array.isArray(req.query?.heCode) ? req.query?.heCode[0] : req.query?.heCode;
-    if (!heCode) return res.status(400).json({ success: false, error: 'HE code is required' });
+    if (!heCode) return sendJson(res, 400, { success: false, error: 'HE code is required' });
 
     if (req.method === 'DELETE') {
+      const { createPattern, deletePattern } = await import('../../../src/server/patternRepository');
       const pattern = await deletePattern(heCode);
       try {
+        const { deleteImageFromGithub, isGithubPatternImageUrl } = await import('../../../src/server/githubImageStorage');
         if (isGithubPatternImageUrl(pattern.imageUrl)) {
           await deleteImageFromGithub({ imageUrl: pattern.imageUrl });
         } else {
+          const { deletePatternImage } = await import('../../../src/server/patternStorage');
           await deletePatternImage(pattern.storagePath);
         }
       } catch (imageError) {
         await createPattern(pattern).catch(() => undefined);
         throw imageError;
       }
-      return res.json({ success: true, id: pattern.id });
+      return sendJson(res, 200, { success: true, id: pattern.id });
     }
 
+    const { updatePattern } = await import('../../../src/server/patternRepository');
     const id = await updatePattern(heCode, req.body as Record<string, unknown>);
-    return res.json({ success: true, id });
+    return sendJson(res, 200, { success: true, id });
   } catch (error) {
     return sendError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
   }

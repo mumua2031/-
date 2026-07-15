@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { mockPatterns } from '../data';
+import { readApiPayload } from './apiResponse';
 import type { PatternGene } from '../types';
 
 type PatternDataSource = 'api' | 'local';
@@ -23,13 +24,9 @@ async function fetchPatternsFromApi() {
     headers: { Accept: 'application/json' },
   });
 
-  if (!response.ok) {
-    throw new Error(`Pattern API responded with ${response.status}`);
-  }
-
-  const payload = await response.json();
-  if (!payload?.success || !Array.isArray(payload.data)) {
-    throw new Error('Pattern API returned an invalid response.');
+  const payload = await readApiPayload<{ data?: PatternGene[] }>(response, '读取纹样数据');
+  if (!Array.isArray(payload.data)) {
+    throw new Error('读取纹样数据失败：接口返回格式不正确。');
   }
 
   return payload.data as PatternGene[];

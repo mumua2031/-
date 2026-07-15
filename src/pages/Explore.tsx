@@ -11,6 +11,7 @@ import {
 } from '../lib/classification';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
+import { readApiPayload } from '../lib/apiResponse';
 import type { PatternGene } from '../types';
 
 type TopFilterKey = 'all' | 'N' | 'H' | 'G' | 'meaning' | 'color';
@@ -199,12 +200,12 @@ export function Explore() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ image: base64String, mimeType: file.type }),
         });
-        const data = await response.json();
+        const data = await readApiPayload<{ result?: unknown }>(response, i18n.language === 'en' ? 'Analyze image' : '识别图片');
 
-        if (data.success) {
+        if (data.result) {
           setKeyword(typeof data.result === 'string' ? data.result : JSON.stringify(data.result));
         } else {
-          alert('Failed to analyze image.');
+          alert(i18n.language === 'en' ? 'No analysis result.' : '没有识别结果。');
         }
 
         setIsScanning(false);
@@ -212,6 +213,7 @@ export function Explore() {
       reader.readAsDataURL(file);
     } catch (error) {
       console.error(error);
+      alert(error instanceof Error ? error.message : (i18n.language === 'en' ? 'Failed to analyze image.' : '图片识别失败。'));
       setIsScanning(false);
     }
   };

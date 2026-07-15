@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { CheckSquare, ImagePlus, Loader2, Sparkles, Square, Trash2, X } from 'lucide-react';
 import { buildHECode, getPatternClassification } from '../lib/classification';
+import { readApiPayload } from '../lib/apiResponse';
 import { usePatternData } from '../lib/patternData';
 
 type QueuedImage = {
@@ -60,8 +61,8 @@ export function AdminUpload() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image: dataUrl.split(',')[1], mimeType: file.type }),
       });
-      const data = await response.json();
-      if (!response.ok || !data.success || !data.result) throw new Error(data.error || '图片识别失败');
+      const data = await readApiPayload<{ result?: { category?: string; symbolism?: string; color?: string; description?: string } }>(response, '图片识别');
+      if (!data.result) throw new Error('图片识别失败：接口没有返回分类结果。');
       setFormData((current) => ({
         ...current,
         category: data.result.category || 'N',
@@ -127,9 +128,9 @@ export function AdminUpload() {
           headers: { 'Content-Type': 'application/json', ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}) },
           body: JSON.stringify({ image: await readFileAsDataUrl(image.file), mimeType: image.file.type, heCode: code }),
         });
-        const uploadedImage = await imageResponse.json();
-        if (!imageResponse.ok || !uploadedImage.success || !uploadedImage.data?.imageUrl) {
-          throw new Error(`“${name}”图片上传失败：${uploadedImage.error || imageResponse.status}`);
+        const uploadedImage = await readApiPayload<{ data?: { imageUrl?: string } }>(imageResponse, `“${name}”图片上传`);
+        if (!uploadedImage.data?.imageUrl) {
+          throw new Error(`“${name}”图片上传失败：接口没有返回图片地址。`);
         }
         const payload = {
           id: code, heCode: code, patternCategory: formData.category, meaningCategory: formData.symbolism,
@@ -145,8 +146,7 @@ export function AdminUpload() {
           method: 'POST', headers: { 'Content-Type': 'application/json', ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}) },
           body: JSON.stringify(payload),
         });
-        const data = await response.json();
-        if (!response.ok || !data.success) throw new Error(`“${name}”提交失败：${data.error || response.status}`);
+        await readApiPayload(response, `“${name}”资料提交`);
         completedIds.add(image.id);
       }
       setSubmitMessage(`已成功提交 ${queuedForSubmission.length} 个纹样，图片已可由 GitHub 公开地址加载，Vercel 站点同步部署中。`);

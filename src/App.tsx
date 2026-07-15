@@ -18,6 +18,10 @@ const GeneDeconstruct = lazy(() => import('./pages/GeneDeconstruct').then((modul
 const PatternDetail = lazy(() => import('./pages/PatternDetail').then((module) => ({ default: module.PatternDetail })));
 const AdminLayout = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminLayout })));
 const AdminDashboard = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminDashboard })));
+const AdminTaxonomy = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminTaxonomy })));
+const AdminPermissions = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminPermissions })));
+const AdminApiStatus = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminApiStatus })));
+const AdminSystemSettings = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminSystemSettings })));
 const AdminUpload = lazy(() => import('./pages/AdminUpload').then((module) => ({ default: module.AdminUpload })));
 const AdminPatterns = lazy(() => import('./pages/AdminPatterns').then((module) => ({ default: module.AdminPatterns })));
 const AdminGuide = lazy(() => import('./pages/AdminGuide').then((module) => ({ default: module.AdminGuide })));
@@ -85,6 +89,10 @@ export default function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="upload" element={<AdminUpload />} />
           <Route path="patterns" element={<AdminPatterns />} />
+          <Route path="taxonomy" element={<AdminTaxonomy />} />
+          <Route path="permissions" element={<AdminPermissions />} />
+          <Route path="api" element={<AdminApiStatus />} />
+          <Route path="system" element={<AdminSystemSettings />} />
           <Route path="guide" element={<AdminGuide />} />
           <Route path="*" element={<div className="p-4 text-slate-500">该功能正在建设中</div>} />
         </Route>

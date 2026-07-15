@@ -24,7 +24,7 @@ type GithubImageStorageConfig = {
 function getGithubImageStorageConfig(): GithubImageStorageConfig {
   const token = process.env.GITHUB_UPLOAD_TOKEN;
   const repository = process.env.GITHUB_REPOSITORY;
-  const branch = process.env.GITHUB_BRANCH || 'main';
+  const branch = process.env.GITHUB_BRANCH?.trim() || 'main';
   if (!token || !repository) throw createError('未配置 GitHub 自动发布。请设置 GITHUB_UPLOAD_TOKEN 和 GITHUB_REPOSITORY。', 503);
   if (!/^[\w.-]+\/[\w.-]+$/.test(repository)) throw createError('GITHUB_REPOSITORY 格式应为 用户名/仓库名。', 500);
   return { token, repository, branch };
@@ -32,6 +32,17 @@ function getGithubImageStorageConfig(): GithubImageStorageConfig {
 
 function getGithubImageUrl(config: GithubImageStorageConfig, path: string) {
   return `https://raw.githubusercontent.com/${config.repository}/${config.branch}/${path}`;
+}
+
+async function readGithubError(response: Response) {
+  const text = await response.text().catch(() => '');
+  if (!text) return String(response.status);
+  try {
+    const detail = JSON.parse(text) as { message?: string };
+    return detail.message || String(response.status);
+  } catch {
+    return text.replace(/\s+/g, ' ').trim() || String(response.status);
+  }
 }
 
 function getGithubImagePath(config: GithubImageStorageConfig, imageUrl: unknown) {
@@ -69,8 +80,7 @@ export async function uploadImageToGithub(input: { image?: unknown; mimeType?: u
     body: JSON.stringify({ message: `上传纹样图片 ${input.heCode}`, content: base64, branch }),
   });
   if (!response.ok) {
-    const detail = await response.json().catch(() => null) as { message?: string } | null;
-    throw createError(`GitHub 图片发布失败：${detail?.message || response.status}`, 502);
+    throw createError(`GitHub 图片发布失败：${await readGithubError(response)}`, 502);
   }
 
   return { imageUrl: getGithubImageUrl(config, path), deploymentPending: true };
@@ -97,8 +107,7 @@ export async function deleteImageFromGithub(input: { imageUrl?: unknown }) {
     body: JSON.stringify({ message: `删除纹样图片 ${path.split('/').at(-1)}`, sha: content.sha, branch }),
   });
   if (!response.ok) {
-    const detail = await response.json().catch(() => null) as { message?: string } | null;
-    throw createError(`GitHub 图片删除失败：${detail?.message || response.status}`, 502);
+    throw createError(`GitHub 图片删除失败：${await readGithubError(response)}`, 502);
   }
 }
 

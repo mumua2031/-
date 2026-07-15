@@ -1,16 +1,16 @@
 import { GoogleGenAI } from '@google/genai';
 import type { ApiRequest, ApiResponse } from './_utils';
-import { sendError, unsupportedMethod } from './_utils';
+import { sendError, sendJson, unsupportedMethod } from './_utils';
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') return unsupportedMethod(res);
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return res.status(503).json({ success: false, error: 'GEMINI_API_KEY is not configured.' });
+    if (!apiKey) return sendJson(res, 503, { success: false, error: 'GEMINI_API_KEY is not configured.' });
 
     const body = req.body as { image?: string; mimeType?: string };
-    if (!body?.image) return res.status(400).json({ success: false, error: 'No image provided.' });
+    if (!body?.image) return sendJson(res, 400, { success: false, error: 'No image provided.' });
 
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
@@ -33,7 +33,11 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       config: { responseMimeType: 'application/json' },
     });
 
-    return res.json({ success: true, result: JSON.parse(response.text || '{}') });
+    try {
+      return sendJson(res, 200, { success: true, result: JSON.parse(response.text || '{}') });
+    } catch {
+      return sendJson(res, 502, { success: false, error: 'AI 识别结果格式异常，请先手动选择分类。' });
+    }
   } catch (error) {
     return sendError(res, error);
   }

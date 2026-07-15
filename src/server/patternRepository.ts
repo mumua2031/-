@@ -1,5 +1,4 @@
-import { cert, getApps, initializeApp } from 'firebase-admin/app';
-import { FieldValue, getFirestore, type Firestore } from 'firebase-admin/firestore';
+import type { Firestore } from 'firebase-admin/firestore';
 import { mockPatterns } from '../data';
 import type { PatternGene } from '../types';
 import { validateHECode } from '../lib/classification';
@@ -15,13 +14,35 @@ export type PatternQuery = {
 };
 
 let cachedDb: Firestore | null | undefined;
+let cachedAdminModules: Promise<{
+  cert: typeof import('firebase-admin/app').cert;
+  getApps: typeof import('firebase-admin/app').getApps;
+  initializeApp: typeof import('firebase-admin/app').initializeApp;
+  getFirestore: typeof import('firebase-admin/firestore').getFirestore;
+  FieldValue: typeof import('firebase-admin/firestore').FieldValue;
+}> | null = null;
+
+function getFirebaseAdminModules() {
+  cachedAdminModules ||= Promise.all([
+    import('firebase-admin/app'),
+    import('firebase-admin/firestore'),
+  ]).then(([app, firestore]) => ({
+    cert: app.cert,
+    getApps: app.getApps,
+    initializeApp: app.initializeApp,
+    getFirestore: firestore.getFirestore,
+    FieldValue: firestore.FieldValue,
+  }));
+  return cachedAdminModules;
+}
 
 function normalizePrivateKey(value?: string) {
   return value?.replace(/\\n/g, '\n');
 }
 
-function getServiceAccountCredential() {
+async function getServiceAccountCredential() {
   try {
+    const { cert } = await getFirebaseAdminModules();
     const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
     if (serviceAccountJson) {
       const parsed = JSON.parse(serviceAccountJson);
@@ -46,18 +67,19 @@ function getServiceAccountCredential() {
   return null;
 }
 
-export function getFirestoreDb() {
+export async function getFirestoreDb() {
   if (cachedDb !== undefined) return cachedDb;
 
-  const credential = getServiceAccountCredential();
-  const projectId = process.env.FIREBASE_PROJECT_ID;
-
-  if (!credential || !projectId) {
-    cachedDb = null;
-    return cachedDb;
-  }
-
   try {
+    const credential = await getServiceAccountCredential();
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+
+    if (!credential || !projectId) {
+      cachedDb = null;
+      return cachedDb;
+    }
+
+    const { getApps, initializeApp, getFirestore } = await getFirebaseAdminModules();
     if (!getApps().length) {
       initializeApp({ credential, projectId });
     }
@@ -71,6 +93,12 @@ export function getFirestoreDb() {
     cachedDb = null;
     return cachedDb;
   }
+}
+
+async function getRequiredFirestoreDb() {
+  const db = await getFirestoreDb();
+  if (!db) throw new Error('Persistent database is not configured.');
+  return db;
 }
 
 function normalizeFirestoreValue(value: unknown): unknown {
@@ -133,7 +161,7 @@ function applyQuery(patterns: PatternGene[], query: PatternQuery) {
 }
 
 export async function listPatterns(query: PatternQuery = {}) {
-  const db = getFirestoreDb();
+  const db = await getFirestoreDb();
 
   if (!db) {
     return { data: applyQuery(mockPatterns, query), source: 'local' as const };
@@ -154,7 +182,7 @@ export async function listPatterns(query: PatternQuery = {}) {
 }
 
 export async function findPatternByCode(heCode: string) {
-  const db = getFirestoreDb();
+  const db = await getFirestoreDb();
 
   if (db) {
     try {
@@ -173,8 +201,8 @@ export async function findPatternByCode(heCode: string) {
 }
 
 export async function createPattern(pattern: Partial<PatternGene>) {
-  const db = getFirestoreDb();
-  if (!db) throw new Error('Persistent database is not configured.');
+  const db = await getRequiredFirestoreDb();
+  const { FieldValue } = await getFirebaseAdminModules();
   if (!pattern.heCode || !validateHECode(pattern.heCode)) {
     const error = new Error('HE 编号格式必须为 HE-N-B-R01。');
     Object.assign(error, { statusCode: 400 });
@@ -186,18 +214,27 @@ export async function createPattern(pattern: Partial<PatternGene>) {
     throw error;
   }
   const docRef = db.collection('patterns').doc(pattern.heCode);
-  await docRef.create({
-    ...pattern,
-    id: pattern.heCode,
-    createdAt: FieldValue.serverTimestamp(),
-    updatedAt: FieldValue.serverTimestamp(),
-  });
+  try {
+    await docRef.create({
+      ...pattern,
+      id: pattern.heCode,
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+    });
+  } catch (error) {
+    if (error instanceof Error && /already exists|ALREADY_EXISTS|6/i.test(error.message)) {
+      const duplicateError = new Error(`编号 ${pattern.heCode} 已存在，请刷新数据后重新生成编号。`);
+      Object.assign(duplicateError, { statusCode: 409 });
+      throw duplicateError;
+    }
+    throw error;
+  }
   return docRef.id;
 }
 
 export async function updatePattern(heCode: string, patch: Partial<PatternGene>) {
-  const db = getFirestoreDb();
-  if (!db) throw new Error('Persistent database is not configured.');
+  const db = await getRequiredFirestoreDb();
+  const { FieldValue } = await getFirebaseAdminModules();
   const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
   if (snapshot.empty) throw new Error('Pattern not found.');
   await snapshot.docs[0].ref.set({ ...patch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
@@ -205,8 +242,7 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
 }
 
 export async function deletePattern(heCode: string) {
-  const db = getFirestoreDb();
-  if (!db) throw new Error('Persistent database is not configured.');
+  const db = await getRequiredFirestoreDb();
   const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
   if (snapshot.empty) {
     const error = new Error('Pattern not found.');

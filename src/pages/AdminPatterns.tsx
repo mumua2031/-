@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Loader2, Pencil, RefreshCw, Save, Search, Trash2, X } from 'lucide-react';
+import { readApiPayload } from '../lib/apiResponse';
 import { usePatternData } from '../lib/patternData';
 
 export function AdminPatterns() {
@@ -25,8 +26,7 @@ export function AdminPatterns() {
         method: 'DELETE',
         headers: adminToken ? { Authorization: `Bearer ${adminToken}` } : {},
       });
-      const data = await response.json();
-      if (!response.ok || !data.success) throw new Error(data.error || '删除失败。');
+      await readApiPayload(response, '删除纹样');
       setMessage(`已删除 ${heCode}。`);
       await refresh();
     } catch (nextError) {
@@ -51,8 +51,7 @@ export function AdminPatterns() {
         headers: { 'Content-Type': 'application/json', ...(adminToken ? { Authorization: `Bearer ${adminToken}` } : {}) },
         body: JSON.stringify({ name: { 'zh-CN': editForm.name.trim(), en: editForm.name.trim() }, era: editForm.era.trim(), region: editForm.region.trim(), copyrightOwner: editForm.copyrightOwner.trim() }),
       });
-      const data = await response.json();
-      if (!response.ok || !data.success) throw new Error(data.error || '更新失败。');
+      await readApiPayload(response, '更新纹样');
       setMessage(`已更新 ${editForm.heCode} 的基础资料。`);
       setEditForm({ heCode: '', name: '', era: '', region: '', copyrightOwner: '' });
       await refresh();

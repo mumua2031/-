@@ -1,5 +1,4 @@
 import { randomUUID } from 'node:crypto';
-import { getStorage } from 'firebase-admin/storage';
 import { getFirestoreDb } from './patternRepository';
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
@@ -21,7 +20,7 @@ function decodeImage(base64: unknown) {
 }
 
 export async function uploadPatternImage(input: { image?: unknown; mimeType?: unknown; heCode?: unknown }) {
-  const db = getFirestoreDb();
+  const db = await getFirestoreDb();
   if (!db) throw createError('持久化数据库尚未配置，无法保存图片。', 503);
   if (typeof input.mimeType !== 'string' || !allowedMimeTypes.has(input.mimeType)) throw createError('仅支持 PNG、JPG 图片。', 415);
   if (typeof input.heCode !== 'string' || !/^HE-[NHG]-[BSL]-[RGBAM]\d{2,}$/.test(input.heCode)) throw createError('图片编号格式无效。', 400);
@@ -32,6 +31,7 @@ export async function uploadPatternImage(input: { image?: unknown; mimeType?: un
   const extension = input.mimeType === 'image/png' ? 'png' : 'jpg';
   const storagePath = `patterns/${input.heCode}/${randomUUID()}.${extension}`;
   const token = randomUUID();
+  const { getStorage } = await import('firebase-admin/storage');
   const bucket = getStorage().bucket(bucketName);
   const file = bucket.file(storagePath);
   await file.save(decodeImage(input.image), {
@@ -53,5 +53,6 @@ export async function deletePatternImage(storagePath: unknown) {
   if (typeof storagePath !== 'string' || !storagePath.startsWith('patterns/')) return;
   const bucketName = process.env.FIREBASE_STORAGE_BUCKET;
   if (!bucketName) return;
+  const { getStorage } = await import('firebase-admin/storage');
   await getStorage().bucket(bucketName).file(storagePath).delete({ ignoreNotFound: true });
 }

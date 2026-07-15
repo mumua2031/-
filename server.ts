@@ -4,7 +4,6 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import {
-  assertAdminToken,
   createPattern,
   deletePattern,
   findPatternByCode,
@@ -12,6 +11,7 @@ import {
   updatePattern,
   type PatternQuery,
 } from './src/server/patternRepository';
+import { assertAdminToken } from './src/server/adminAuth';
 import { deletePatternImage, uploadPatternImage } from './src/server/patternStorage';
 import { uploadImageToGithub } from './src/server/githubImageStorage';
 
@@ -29,8 +29,10 @@ function sendApiError(res: express.Response, error: unknown, fallbackStatus = 50
   const statusCode = typeof error === 'object' && error && 'statusCode' in error
     ? Number((error as { statusCode?: number }).statusCode)
     : fallbackStatus;
-  const message = error instanceof Error ? error.message : 'Internal server error';
-  res.status(statusCode || fallbackStatus).json({ success: false, error: message });
+  const rawMessage = error instanceof Error ? error.message : 'Internal server error';
+  const message = rawMessage === 'Unauthorized' ? '管理员接口令牌不正确，请检查 ADMIN_API_TOKEN。' : rawMessage;
+  const safeStatus = statusCode >= 400 && statusCode < 600 ? statusCode : fallbackStatus;
+  res.status(safeStatus).json({ success: false, error: message });
 }
 
 async function startServer() {
@@ -145,7 +147,11 @@ async function startServer() {
         config: { responseMimeType: 'application/json' },
       });
 
-      res.json({ success: true, result: JSON.parse(response.text || '{}') });
+      try {
+        res.json({ success: true, result: JSON.parse(response.text || '{}') });
+      } catch {
+        res.status(502).json({ success: false, error: 'AI 识别结果格式异常，请先手动选择分类。' });
+      }
     } catch (error) {
       sendApiError(res, error);
     }

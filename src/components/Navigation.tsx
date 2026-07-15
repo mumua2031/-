@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Scan, Search, User } from 'lucide-react';
+import { readApiPayload } from '../lib/apiResponse';
 
 export function Navigation() {
   const { t, i18n } = useTranslation();
@@ -24,13 +25,14 @@ export function Navigation() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ image: base64String, mimeType: file.type }),
         });
-        const data = await response.json();
-        alert(data.success ? `Analysis Result: ${JSON.stringify(data.result)}` : 'Failed to analyze image.');
+        const data = await readApiPayload<{ result?: unknown }>(response, i18n.language === 'en' ? 'Analyze image' : '识别图片');
+        alert(data.result ? `Analysis Result: ${JSON.stringify(data.result)}` : (i18n.language === 'en' ? 'No analysis result.' : '没有识别结果。'));
         setIsScanning(false);
       };
       reader.readAsDataURL(file);
     } catch (error) {
       console.error(error);
+      alert(error instanceof Error ? error.message : (i18n.language === 'en' ? 'Failed to analyze image.' : '图片识别失败。'));
       setIsScanning(false);
     }
   };
