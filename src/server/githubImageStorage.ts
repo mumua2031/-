@@ -1,4 +1,4 @@
-const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
 const allowedMimeTypes = new Set(['image/jpeg', 'image/png']);
 
 function createError(message: string, statusCode: number) {
@@ -10,8 +10,9 @@ function createError(message: string, statusCode: number) {
 function decodeImage(base64: unknown) {
   if (typeof base64 !== 'string' || !base64.trim()) throw createError('缺少图片数据。', 400);
   const normalized = base64.replace(/^data:[^;]+;base64,/, '').replace(/\s/g, '');
+  if (!/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw createError('图片数据格式无效。', 400);
   const buffer = Buffer.from(normalized, 'base64');
-  if (!buffer.length || buffer.length > MAX_IMAGE_BYTES) throw createError('免费自动发布模式仅支持 4 MB 以下图片。', 413);
+  if (!buffer.length || buffer.length > MAX_IMAGE_BYTES) throw createError('免费自动上传模式仅支持压缩后 3 MB 以下图片。', 413);
   return { buffer, base64: buffer.toString('base64') };
 }
 
@@ -72,7 +73,7 @@ export async function uploadImageToGithub(input: { image?: unknown; mimeType?: u
   if (existing.ok) {
     return { imageUrl: getGithubImageUrl(config, path), deploymentPending: false, reused: true };
   }
-  if (existing.status !== 404) throw createError('无法检查 GitHub 图片目录，请检查令牌权限和仓库名称。', 502);
+  if (existing.status !== 404) throw createError(`无法检查 GitHub 图片目录：${await readGithubError(existing)}。请检查令牌权限和仓库名称。`, 502);
 
   const response = await fetch(url, {
     method: 'PUT',
@@ -96,7 +97,7 @@ export async function deleteImageFromGithub(input: { imageUrl?: unknown }) {
   const existing = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
 
   if (existing.status === 404) return;
-  if (!existing.ok) throw createError('无法读取 GitHub 图片，请检查令牌权限和仓库名称。', 502);
+  if (!existing.ok) throw createError(`无法读取 GitHub 图片：${await readGithubError(existing)}。请检查令牌权限和仓库名称。`, 502);
 
   const content = await existing.json() as { sha?: string };
   if (!content.sha) throw createError('GitHub 图片缺少版本信息，无法删除。', 502);
