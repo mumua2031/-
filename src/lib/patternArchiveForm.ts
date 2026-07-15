@@ -88,6 +88,34 @@ export function getMultilingualText(value?: MultilingualString | string) {
   return value['zh-CN'] || value.en || value['zh-TW'] || '';
 }
 
+export function normalizeEraForArchive(value?: unknown) {
+  const text = String(value ?? '').trim();
+  if (!text) return '';
+  const compact = text.replace(/\s+/g, '');
+
+  if (/当代/.test(compact)) return '当代';
+  if (/清末.*民国|民国.*清末/.test(compact)) return '清末民国';
+  if (/清代.*近现代|近现代.*清代/.test(compact)) return '清代至近现代';
+  if (/近代.*民国|民国.*近代/.test(compact)) return '近代民国';
+  if (/20世纪50|1950|五十年代|50年代/.test(compact)) return '1950年代';
+  if (/战国/.test(compact)) return '战国';
+  if (/秦汉/.test(compact)) return '秦汉';
+  if (/唐宋/.test(compact)) return '唐宋';
+  if (/宋元/.test(compact)) return '宋元';
+  if (/元明/.test(compact)) return '元明';
+  if (/明清/.test(compact)) return '明清';
+  if (/清代|清朝|清/.test(compact)) return '清代';
+  if (/明代|明朝|明/.test(compact)) return '明代';
+  if (/民国/.test(compact)) return '民国';
+  if (/近现代/.test(compact)) return '近现代';
+  if (/近代/.test(compact)) return '近代';
+  if (/现代/.test(compact)) return '现代';
+  if (/传统/.test(compact)) return '传统';
+  if (/待考|不详|未知/.test(compact)) return '待考';
+
+  return text.split(/[，,。.；;：:（(]/)[0].trim();
+}
+
 const fieldAliases: Record<PatternArchiveField, string[]> = {
   name: ['纹样名称', '名称', '题名', '标题', 'pattern name', 'name'],
   category: ['纹样大类', '纹样分类', '大类', 'category'],
@@ -149,6 +177,7 @@ function mapParsedValue(field: PatternArchiveField, value: string) {
   if (field === 'category') return normalizeCategoryValue(field, value, ['N', 'H', 'G']);
   if (field === 'symbolism') return normalizeCategoryValue(field, value, ['B', 'S', 'L']);
   if (field === 'color') return normalizeCategoryValue(field, value, ['R', 'G', 'B', 'A', 'M']);
+  if (field === 'era') return normalizeEraForArchive(value);
   return value.trim();
 }
 
@@ -164,7 +193,7 @@ export function parsePatternArchiveText(text: string) {
       if (parsed.patternCategory) patch.category = String(parsed.patternCategory);
       if (parsed.meaningCategory) patch.symbolism = String(parsed.meaningCategory);
       if (parsed.colorCategory) patch.color = String(parsed.colorCategory);
-      if (parsed.era) patch.era = String(parsed.era);
+      if (parsed.era) patch.era = normalizeEraForArchive(parsed.era);
       if (parsed.carrier) patch.carrier = String(parsed.carrier);
       if (parsed.region) patch.region = String(parsed.region);
       if (parsed.copyrightOwner) patch.copyrightOwner = String(parsed.copyrightOwner);

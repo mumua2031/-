@@ -7,6 +7,7 @@ import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
 import { stitchTechniques } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
+import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
 import {
@@ -147,8 +148,8 @@ function getDifferenceTags(current: PatternGene, candidate: PatternGene, languag
   if (splitTechniques(current, language).length > 0 && splitTechniques(candidate, language).length > 0 && !hasTechniqueOverlap(current, candidate, language)) add('\u4e0d\u540c\u9488\u6cd5', 'Different technique');
   const currentCarrier = getLocalizedPlainText(current.carrier, language, '');
   const candidateCarrier = getLocalizedPlainText(candidate.carrier, language, '');
-  const currentEra = getLocalizedPlainText(current.era, language, '');
-  const candidateEra = getLocalizedPlainText(candidate.era, language, '');
+  const currentEra = normalizeEraForArchive(getLocalizedPlainText(current.era, language, ''));
+  const candidateEra = normalizeEraForArchive(getLocalizedPlainText(candidate.era, language, ''));
   if (normalizeField(currentCarrier) && normalizeField(candidateCarrier) && normalizeField(currentCarrier) !== normalizeField(candidateCarrier)) add('\u4e0d\u540c\u8f7d\u4f53', 'Different carrier');
   if (normalizeField(currentEra) && normalizeField(candidateEra) && normalizeField(currentEra) !== normalizeField(candidateEra)) add('\u4e0d\u540c\u5e74\u4ee3', 'Different period');
 

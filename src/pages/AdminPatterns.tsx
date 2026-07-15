@@ -8,6 +8,7 @@ import {
   createEmptyPatternArchiveForm,
   getMultilingualText,
   makeMultilingual,
+  normalizeEraForArchive,
   parsePatternArchiveText,
   type PatternArchiveField,
   type PatternArchiveFormData,
@@ -31,7 +32,7 @@ function createEditFormFromPattern(pattern: PatternGene): EditPatternForm {
     category: pattern.patternCategory || 'N',
     symbolism: pattern.meaningCategory || 'B',
     color: pattern.colorCategory || 'R',
-    era: pattern.era || '',
+    era: normalizeEraForArchive(pattern.era) || pattern.era || '',
     carrier: pattern.carrier || '',
     region: pattern.region || '',
     copyrightOwner: pattern.copyrightOwner || '',
@@ -50,7 +51,7 @@ function buildEditPayload(editForm: EditPatternForm) {
   const name = editForm.name.trim();
   return {
     name: { 'zh-CN': name, en: name },
-    era: editForm.era.trim(),
+    era: normalizeEraForArchive(editForm.era) || '具体年代待考',
     carrier: editForm.carrier.trim(),
     region: editForm.region.trim(),
     copyrightOwner: editForm.copyrightOwner.trim(),

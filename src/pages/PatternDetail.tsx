@@ -6,6 +6,7 @@ import { GeneWall } from '../components/GeneWall';
 import { patternVisualAnalysis } from '../generated/pattern-visual-analysis';
 import { findStitchesInText } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
+import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
@@ -419,6 +420,7 @@ export function PatternDetail() {
   const colorCategoryLabel = getCategoryLabel('color', classification.colorCategory, categoryLanguage);
   const categoryLine = [patternCategoryLabel, meaningCategoryLabel, colorCategoryLabel].filter(Boolean).join('・');
   const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const eraText = normalizeEraForArchive(getLocalizedPlainText(pattern.era, currentLang, plainFallback)) || getLocalizedPlainText(pattern.era, currentLang, plainFallback);
 
   const buildMetadataMarkdown = () => [
     `# ${canonicalCode} ${name}`,
@@ -428,7 +430,7 @@ export function PatternDetail() {
     `- 纹样分类：${getCategoryDisplay(pattern, 'pattern', categoryLanguage)}`,
     `- 寓意分类：${getCategoryDisplay(pattern, 'meaning', categoryLanguage)}`,
     `- 色彩分类：${getCategoryDisplay(pattern, 'color', categoryLanguage)}`,
-    `- 年代：${getLocalizedPlainText(pattern.era, currentLang, plainFallback)}`,
+    `- 年代：${eraText}`,
     `- 地域：${getLocalizedPlainText(pattern.region, currentLang, plainFallback)}`,
     `- 载体：${getLocalizedPlainText(pattern.carrier, currentLang, plainFallback)}`,
     `- 工艺 / 针法：${getLocalizedText(pattern.craft, currentLang, fallback)}`,
@@ -510,7 +512,7 @@ export function PatternDetail() {
     [t('pattern.category'), getCategoryDisplay(pattern, 'pattern', categoryLanguage)],
     [t('pattern.meaning_category'), getCategoryDisplay(pattern, 'meaning', categoryLanguage)],
     [t('pattern.color_category'), getCategoryDisplay(pattern, 'color', categoryLanguage)],
-    [t('pattern.era'), getLocalizedPlainText(pattern.era, currentLang, plainFallback)],
+    [t('pattern.era'), eraText],
     [t('pattern.region'), getLocalizedPlainText(pattern.region, currentLang, plainFallback)],
     [t('pattern.carrier'), getLocalizedPlainText(pattern.carrier, currentLang, plainFallback)],
     [t('pattern.craft'), getLocalizedText(pattern.craft, currentLang, fallback)],

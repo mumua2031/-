@@ -10,6 +10,7 @@ import {
   meaningCategories,
 } from '../lib/classification';
 import { getLocalizedPatternName } from '../lib/multilingual';
+import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
 import { readApiPayload } from '../lib/apiResponse';
 import type { PatternGene } from '../types';
@@ -67,6 +68,7 @@ function getSearchCorpus(pattern: PatternGene) {
     canonicalCode.replaceAll('-', ''),
     getMultilingualValues(pattern.name),
     pattern.era,
+    normalizeEraForArchive(pattern.era),
     pattern.carrier,
     pattern.region,
     getMultilingualValues(pattern.craft),

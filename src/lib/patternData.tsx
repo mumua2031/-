@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { mockPatterns } from '../data';
 import { readApiPayload } from './apiResponse';
+import { normalizeEraForArchive } from './patternArchiveForm';
 import type { PatternGene } from '../types';
 
 type PatternDataSource = 'api' | 'local';
@@ -32,8 +33,17 @@ async function fetchPatternsFromApi() {
   return payload.data as PatternGene[];
 }
 
+function normalizePatternEra(patterns: PatternGene[]) {
+  return patterns.map((pattern) => ({
+    ...pattern,
+    era: normalizeEraForArchive(pattern.era) || pattern.era,
+  }));
+}
+
+const normalizedMockPatterns = normalizePatternEra(mockPatterns);
+
 export function PatternDataProvider({ children }: { children: ReactNode }) {
-  const [patterns, setPatterns] = useState<PatternGene[]>(mockPatterns);
+  const [patterns, setPatterns] = useState<PatternGene[]>(normalizedMockPatterns);
   const [source, setSource] = useState<PatternDataSource>('local');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,14 +55,14 @@ export function PatternDataProvider({ children }: { children: ReactNode }) {
     try {
       const remotePatterns = await fetchPatternsFromApi();
       if (remotePatterns.length > 0) {
-        setPatterns(remotePatterns);
+        setPatterns(normalizePatternEra(remotePatterns));
         setSource('api');
       } else {
-        setPatterns(mockPatterns);
+        setPatterns(normalizedMockPatterns);
         setSource('local');
       }
     } catch (nextError) {
-      setPatterns(mockPatterns);
+      setPatterns(normalizedMockPatterns);
       setSource('local');
       setError(nextError instanceof Error ? nextError.message : 'Pattern API is unavailable.');
     } finally {

@@ -106,8 +106,37 @@ function normalizeFirestoreValue(value) {
   }
   return value;
 }
+function normalizeEraForArchive(value) {
+  const text = String(value ?? "").trim();
+  if (!text) return "";
+  const compact = text.replace(/\s+/g, "");
+  if (/当代/.test(compact)) return "\u5F53\u4EE3";
+  if (/清末.*民国|民国.*清末/.test(compact)) return "\u6E05\u672B\u6C11\u56FD";
+  if (/清代.*近现代|近现代.*清代/.test(compact)) return "\u6E05\u4EE3\u81F3\u8FD1\u73B0\u4EE3";
+  if (/近代.*民国|民国.*近代/.test(compact)) return "\u8FD1\u4EE3\u6C11\u56FD";
+  if (/20世纪50|1950|五十年代|50年代/.test(compact)) return "1950\u5E74\u4EE3";
+  if (/战国/.test(compact)) return "\u6218\u56FD";
+  if (/秦汉/.test(compact)) return "\u79E6\u6C49";
+  if (/唐宋/.test(compact)) return "\u5510\u5B8B";
+  if (/宋元/.test(compact)) return "\u5B8B\u5143";
+  if (/元明/.test(compact)) return "\u5143\u660E";
+  if (/明清/.test(compact)) return "\u660E\u6E05";
+  if (/清代|清朝|清/.test(compact)) return "\u6E05\u4EE3";
+  if (/明代|明朝|明/.test(compact)) return "\u660E\u4EE3";
+  if (/民国/.test(compact)) return "\u6C11\u56FD";
+  if (/近现代/.test(compact)) return "\u8FD1\u73B0\u4EE3";
+  if (/近代/.test(compact)) return "\u8FD1\u4EE3";
+  if (/现代/.test(compact)) return "\u73B0\u4EE3";
+  if (/传统/.test(compact)) return "\u4F20\u7EDF";
+  if (/待考|不详|未知/.test(compact)) return "\u5F85\u8003";
+  return text.split(/[，,。.；;：:（(]/)[0].trim();
+}
 function normalizePattern(record) {
-  return normalizeFirestoreValue(record);
+  const pattern = normalizeFirestoreValue(record);
+  return {
+    ...pattern,
+    era: normalizeEraForArchive(pattern.era) || pattern.era
+  };
 }
 function buildSearchText(pattern) {
   return [
@@ -144,18 +173,21 @@ function applyQuery(patterns, query) {
 async function listPatterns(query = {}) {
   const db = await getFirestoreDb();
   if (!db) {
-    return { data: applyQuery(mockPatterns, query), source: "local" };
+    return { data: applyQuery(mockPatterns.map((pattern) => normalizePattern(pattern)), query), source: "local" };
   }
   try {
     const snapshot = await db.collection("patterns").orderBy("createdAt", "desc").get();
     const records = snapshot.docs.map((doc) => normalizePattern({ id: doc.id, ...doc.data() }));
-    const mergedByCode = new Map(mockPatterns.map((pattern) => [pattern.heCode, pattern]));
+    const mergedByCode = new Map(mockPatterns.map((pattern) => {
+      const normalizedPattern = normalizePattern(pattern);
+      return [normalizedPattern.heCode, normalizedPattern];
+    }));
     records.forEach((pattern) => mergedByCode.set(pattern.heCode, pattern));
     const data = [...mergedByCode.values()];
     return { data: applyQuery(data, query), source: records.length > 0 ? "firestore" : "local" };
   } catch (error) {
     console.warn("Failed to read Firestore patterns. Falling back to local data.", error);
-    return { data: applyQuery(mockPatterns, query), source: "local" };
+    return { data: applyQuery(mockPatterns.map((pattern) => normalizePattern(pattern)), query), source: "local" };
   }
 }
 async function findPatternByCode(heCode) {
@@ -171,8 +203,9 @@ async function findPatternByCode(heCode) {
       console.warn("Failed to read Firestore pattern detail. Falling back to local data.", error);
     }
   }
-  const data = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode) || null;
-  return { data, source: "local" };
+  const data = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
+  if (data) return { data: normalizePattern(data), source: "local" };
+  return { data: null, source: "local" };
 }
 async function createPattern(pattern) {
   const db = await getRequiredFirestoreDb();
@@ -188,9 +221,13 @@ async function createPattern(pattern) {
     throw error;
   }
   const docRef = db.collection("patterns").doc(pattern.heCode);
+  const normalizedPattern = {
+    ...pattern,
+    era: normalizeEraForArchive(pattern.era) || "\u5177\u4F53\u5E74\u4EE3\u5F85\u8003"
+  };
   try {
     await docRef.create({
-      ...pattern,
+      ...normalizedPattern,
       id: pattern.heCode,
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp()
@@ -210,7 +247,11 @@ async function updatePattern(heCode, patch) {
   const { FieldValue } = await getFirebaseAdminModules();
   const snapshot = await db.collection("patterns").where("heCode", "==", heCode).limit(1).get();
   if (snapshot.empty) throw new Error("Pattern not found.");
-  await snapshot.docs[0].ref.set({ ...patch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+  const normalizedPatch = {
+    ...patch,
+    ...Object.prototype.hasOwnProperty.call(patch, "era") ? { era: normalizeEraForArchive(patch.era) || "\u5177\u4F53\u5E74\u4EE3\u5F85\u8003" } : {}
+  };
+  await snapshot.docs[0].ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   return snapshot.docs[0].id;
 }
 async function deletePattern(heCode) {
