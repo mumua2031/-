@@ -2,6 +2,7 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Star } from 'lucide-react';
+import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString } from '../types';
@@ -93,10 +94,13 @@ export function FloatingActions() {
                     onClick={() => setIsFavoritesOpen(false)}
                   >
                     <img
-                      src={pattern.imageUrl}
+                      src={getPatternThumbnailUrl(pattern.imageUrl)}
                       alt={getLocalizedPatternName(pattern, currentLang)}
                       className="h-10 w-10 object-contain"
-                      onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      onError={(event) => fallbackToOriginalImage(event, pattern.imageUrl || pattern.originalImageUrl)}
                     />
                     <span className="min-w-0">
                       <span className="block truncate text-xs text-white/78">{getLocalizedPatternName(pattern, currentLang)}</span>

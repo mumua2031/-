@@ -6,6 +6,7 @@ import { ChevronDown, Crown, Flower2, Layers3, Shapes, Sparkles, Wand2 } from 'l
 import { GeneWall } from '../components/GeneWall';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import { archiveTopFilters, getCategoryLabel, getPatternClassification, matchesArchiveTopFilter } from '../lib/classification';
+import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { usePatternData } from '../lib/patternData';
 import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { stitchTechniques } from '../lib/stitches';
@@ -379,15 +380,21 @@ export function Home() {
                   {card.imageUrl && (
                     <>
                       <img
-                        src={card.imageUrl}
+                        src={getPatternThumbnailUrl(card.imageUrl)}
                         alt=""
                         aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
                         className="hanxiu-symbol-card-fill pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500 group-hover:opacity-[0.32]"
                       />
                       <img
-                        src={card.imageUrl}
+                        src={getPatternThumbnailUrl(card.imageUrl)}
                         alt=""
                         aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
                         className="hanxiu-symbol-card-image pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-500 group-hover:opacity-[0.52]"
                       />
                     </>
@@ -429,6 +436,8 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                   className="hanxiu-book-card-fill pointer-events-none absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-110"
                 />
                 <img
@@ -436,6 +445,8 @@ export function Home() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                   className={'hanxiu-book-card-image hanxiu-book-card-image--' + book.imageMode + (index < 3 ? ' hanxiu-book-card-image--full-bleed' : '') + ' pointer-events-none absolute inset-0 h-full w-full transition-[opacity,transform] duration-500'}
                 />
                 <span className={'pointer-events-none absolute inset-0 bg-gradient-to-br ' + book.tone} />

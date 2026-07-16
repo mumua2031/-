@@ -6,6 +6,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import { mockPatterns } from '../data';
 import { stitchTechniques } from '../lib/stitches';
+import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
 import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
@@ -220,7 +221,7 @@ export function GeneDeconstruct() {
   const galleryItems = useMemo(
     () =>
       patterns.slice(0, 10).map((pattern) => ({
-        image: pattern.imageUrl,
+        image: getPatternThumbnailUrl(pattern.imageUrl),
         text: getPatternName(pattern, currentLang),
       })),
     [currentLang, patterns],
@@ -323,7 +324,7 @@ export function GeneDeconstruct() {
               {visibleSymbolShowcaseCards.map((card, index) => {
                 return (
                   <button key={card.titleZh} type="button" onClick={() => setExpandedShowcaseCard(card)} className="group relative min-h-[410px] overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] p-8 text-left opacity-0 transition-all duration-300 animate-[gene-origin-card-in_420ms_ease_both] hover:-translate-y-1 hover:border-fuchsia-300/45" style={{ animationDelay: String(index * 90) + 'ms' }}>
-                    <img src={card.imageUrl} alt="" aria-hidden="true" className="gene-symbol-showcase-image pointer-events-none absolute opacity-[0.3] transition-[opacity,transform] duration-500 group-hover:scale-[1.04] group-hover:opacity-[0.38]" />
+                    <img src={getPatternThumbnailUrl(card.imageUrl)} alt="" aria-hidden="true" className="gene-symbol-showcase-image pointer-events-none absolute opacity-[0.3] transition-[opacity,transform] duration-500 group-hover:scale-[1.04] group-hover:opacity-[0.38]" loading="lazy" decoding="async" fetchPriority="low" />
                     <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(236,72,153,0.22),rgba(0,0,0,0.46)_42%,rgba(0,0,0,0.9))]" />
                     <div className="relative z-10 flex h-full flex-col justify-end gap-5">
                       <strong className="text-4xl font-semibold text-white">{isEnglish ? card.titleEn : card.titleZh}</strong>
@@ -367,7 +368,7 @@ export function GeneDeconstruct() {
               {visibleTechniqueShowcaseCards.map((card, index) => {
                 return (
                   <button key={card.titleZh} type="button" onClick={() => setExpandedShowcaseCard(card)} className="group relative min-h-[410px] overflow-hidden rounded-lg border border-white/10 bg-white/[0.025] p-8 text-left opacity-0 transition-all duration-300 animate-[gene-origin-card-in_420ms_ease_both] hover:-translate-y-1 hover:border-fuchsia-300/45" style={{ animationDelay: String(index * 90) + 'ms' }}>
-                    <img src={card.imageUrl} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-contain p-12 opacity-[0.28] transition-transform duration-500 group-hover:scale-110" />
+                    <img src={getPatternThumbnailUrl(card.imageUrl)} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-contain p-12 opacity-[0.28] transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" fetchPriority="low" />
                     <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(236,72,153,0.22),rgba(0,0,0,0.46)_42%,rgba(0,0,0,0.9))]" />
                     <div className="relative z-10 flex h-full flex-col justify-end gap-5">
                       <strong className="text-4xl font-semibold text-white">{isEnglish ? card.titleEn : card.titleZh}</strong>
@@ -429,7 +430,7 @@ export function GeneDeconstruct() {
           <div className="gene-related-layout grid min-h-0 flex-1 gap-8 lg:grid-cols-[0.88fr_1.42fr]">
             <section className="gene-related-primary min-h-0">
               <div className="gene-related-hero-card">
-                <img src={comparisonPattern.imageUrl} alt={getPatternName(comparisonPattern, currentLang)} />
+                <img src={getPatternThumbnailUrl(comparisonPattern.imageUrl)} alt={getPatternName(comparisonPattern, currentLang)} loading="lazy" decoding="async" fetchPriority="low" />
                 <div className="gene-related-hero-info">
                   <div className="min-w-0">
                     <strong className="block truncate text-2xl text-white">{getPatternName(comparisonPattern, currentLang)}</strong>
@@ -474,7 +475,7 @@ export function GeneDeconstruct() {
                         className={'group gene-related-tile animate-[gene-origin-card-in_360ms_ease_both] ' + (isDimmed ? 'opacity-35' : 'opacity-100')}
                         style={{ animationDelay: String(index * 70) + 'ms' }}
                       >
-                        <img src={card.pattern.imageUrl} alt={getPatternName(card.pattern, currentLang)} />
+                        <img src={getPatternThumbnailUrl(card.pattern.imageUrl)} alt={getPatternName(card.pattern, currentLang)} loading="lazy" decoding="async" fetchPriority="low" />
                         <span className="gene-related-tile-shade" />
                         <span className="gene-related-tile-info">
                           <span className="gene-related-tile-match">{card.reason}: {card.matchLabel}</span>
@@ -497,7 +498,7 @@ export function GeneDeconstruct() {
       {expandedShowcaseCard && (
         <div className="hanxiu-modal-backdrop fixed inset-0 z-[80] flex items-center justify-center px-5" onClick={() => setExpandedShowcaseCard(null)}>
           <div className="hanxiu-modal-card grid w-full max-w-6xl overflow-hidden md:grid-cols-[1.08fr_0.92fr]" onClick={(event) => event.stopPropagation()}>
-            <div className="hanxiu-modal-image-panel min-h-[420px] p-8"><img src={expandedShowcaseCard.imageUrl} alt="" className="h-full max-h-[640px] w-full object-contain" /></div>
+            <div className="hanxiu-modal-image-panel min-h-[420px] p-8"><img src={getPatternThumbnailUrl(expandedShowcaseCard.imageUrl)} alt="" className="h-full max-h-[640px] w-full object-contain" decoding="async" /></div>
             <div className="flex flex-col justify-center p-8 md:p-12">
               {(expandedShowcaseCard.categoryZh || expandedShowcaseCard.categoryEn) && (
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-fuchsia-200/55">

@@ -128,6 +128,12 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   transform-origin: center;
+  contain: layout paint;
+}
+
+.gene-wall-item {
+  content-visibility: auto;
+  contain-intrinsic-size: 9rem 12rem;
 }
 
 .gene-wall-orb-image {
@@ -529,6 +535,8 @@ body::-webkit-scrollbar {
   transform: translateY(calc(var(--lift) * 12px)) rotateY(calc(var(--offset) * -8deg));
   transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
   transform-style: preserve-3d;
+  content-visibility: auto;
+  contain-intrinsic-size: 390px 360px;
 }
 
 .hanxiu-symbol-card-fill {
@@ -1305,6 +1313,8 @@ body::-webkit-scrollbar {
   background: rgba(255, 255, 255, 0.012);
   text-align: left;
   transition: opacity 240ms ease, transform 240ms ease, background-color 240ms ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 260px 220px;
 }
 
 .gene-related-tile:hover,

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PatternGene } from '../types';
 import { getCategoryLabel, getPatternClassification } from '../lib/classification';
+import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { motion, useReducedMotion } from 'motion/react';
 import { useMemo, useState, type SyntheticEvent } from 'react';
@@ -59,6 +60,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
           const classification = getPatternClassification(pattern);
           const categoryLabel = classification.patternCategory ? getCategoryLabel('pattern', classification.patternCategory, categoryLanguage) : '';
           const metaLabel = getMetaLabel?.(pattern) || categoryLabel || getLocalizedText(pattern.symbolism, currentLang, '');
+          const shouldPrioritizeImage = index < 8;
 
           return (
             <motion.div
@@ -67,7 +69,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: isDimmed ? 0.34 : 1, y: 0 }}
               transition={{ duration: 0.32, ease: 'easeOut' }}
-              className="relative"
+              className="gene-wall-item relative"
             >
               <Link
                 to={`/pattern/${pattern.heCode}`}
@@ -98,12 +100,13 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                   }}
                 >
                   <img
-                    src={pattern.imageUrl}
+                    src={getPatternThumbnailUrl(pattern.imageUrl)}
                     alt={name}
                     className="gene-wall-orb-image"
-                    loading={index < 24 ? 'eager' : 'lazy'}
+                    loading={shouldPrioritizeImage ? 'eager' : 'lazy'}
                     decoding="async"
-                    onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
+                    fetchPriority={shouldPrioritizeImage ? 'high' : 'low'}
+                    onError={(event) => fallbackToOriginalImage(event, pattern.imageUrl || pattern.originalImageUrl)}
                   />
                 </motion.div>
                 {showHoverInfo && isActive && (

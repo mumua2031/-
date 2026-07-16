@@ -550,6 +550,9 @@ export function PatternDetail() {
             <img
               src={activeImageMode === 'pattern' ? pattern.imageUrl : pattern.imageUrl}
               alt={name}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               onClick={() => setIsZoomed((current) => !current)}
               onError={(event) => fallbackToOriginalImage(event, pattern.originalImageUrl)}
               className={`h-full w-full cursor-zoom-in object-contain transition-transform duration-500 ${isZoomed ? 'scale-150' : 'scale-100'}`}
@@ -625,7 +628,7 @@ export function PatternDetail() {
                     return (
                       <article key={stitch.name} className="overflow-hidden rounded-lg border border-white/10 bg-black/20">
                         <div className="aspect-[4/3] bg-white">
-                          <img src={stitch.imageUrl} alt={stitchTitle} className="h-full w-full object-contain" loading="lazy" />
+                          <img src={stitch.imageUrl} alt={stitchTitle} className="h-full w-full object-contain" loading="lazy" decoding="async" fetchPriority="low" />
                         </div>
                         <div className="p-4">
                           <h3 className="text-base font-medium text-white">{stitchTitle}</h3>

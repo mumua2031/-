@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx server.ts",
     "generate:hero-points": "node scripts/generate-hero-point-cloud.mjs",
-    "prebuild": "npm run generate:hero-points",
+    "generate:pattern-thumbs": "node scripts/generate-pattern-thumbnails.mjs",
+    "prebuild": "npm run generate:hero-points && npm run generate:pattern-thumbs",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "lint": "tsc --noEmit"
@@ -37,6 +38,7 @@
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",

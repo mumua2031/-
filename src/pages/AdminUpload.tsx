@@ -319,7 +319,7 @@ export function AdminUpload() {
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {images.map((image, index) => <div key={image.id} onClick={() => setImages((current) => current.map((item) => item.id === image.id ? { ...item, selected: !item.selected } : item))} className={`group relative cursor-pointer overflow-hidden rounded border ${image.selected ? 'border-fuchsia-400 ring-2 ring-fuchsia-500/30' : 'border-white/10'}`}>
-                <img src={image.previewUrl} alt={image.file.name} className="h-28 w-full object-cover" />
+                <img src={image.previewUrl} alt={image.file.name} className="h-28 w-full object-cover" decoding="async" />
                 <div className="bg-black/80 p-2">
                   <div className="truncate text-xs text-white/80">{image.file.name}</div>
                   <div className="mt-1 font-mono text-[11px] text-fuchsia-300">{image.assignedCode || generatedCodes[index]}</div>
