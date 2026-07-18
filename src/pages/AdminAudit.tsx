@@ -280,6 +280,7 @@ export function AdminAudit() {
         ...(patches.get(suggestion.heCode) || {}),
         heCode: nextHeCode,
         id: nextHeCode,
+        previousHeCode: suggestion.heCode,
         patternCategory,
         meaningCategory,
         colorCategory,

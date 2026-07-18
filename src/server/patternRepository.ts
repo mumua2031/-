@@ -156,6 +156,13 @@ function normalizeEraForArchive(value?: unknown) {
   if (!text) return '';
   const compact = text.replace(/\s+/g, '');
 
+  const contemporaryReference = compact.match(/^当代(?:复原)?[（(]参考(.+?)[）)]$/);
+  if (contemporaryReference?.[1]) return `当代（参考${contemporaryReference[1]}）`;
+  if (compact === '当代复原') return '当代';
+  if (compact === '当代采集，具体年代待考') return '具体年代待考';
+  if (/^近现代.*戏衣/.test(compact)) return '近现代';
+  if (compact === '清代民间婚嫁绣片') return '清代';
+
   if (/当代/.test(compact)) return '当代';
   if (/清末.*民国|民国.*清末/.test(compact)) return '清末民国';
   if (/清代.*近现代|近现代.*清代/.test(compact)) return '清代至近现代';
@@ -241,7 +248,12 @@ export async function listPatterns(query: PatternQuery = {}) {
       const normalizedPattern = normalizePattern(pattern as PatternRecord);
       return [normalizedPattern.heCode, normalizedPattern] as const;
     }));
-    records.forEach((pattern) => mergedByCode.set(pattern.heCode, pattern));
+    records.forEach((pattern) => {
+      const record = pattern as PatternGene & { previousHeCode?: unknown };
+      const previousHeCode = typeof record.previousHeCode === 'string' ? record.previousHeCode : '';
+      if (previousHeCode && previousHeCode !== pattern.heCode) mergedByCode.delete(previousHeCode);
+      mergedByCode.set(pattern.heCode, pattern);
+    });
     const data = [...mergedByCode.values()];
     return { data: applyQuery(data, query), source: records.length > 0 ? ('firestore' as const) : ('local' as const) };
   } catch (error) {
@@ -310,11 +322,32 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
   const db = await getRequiredFirestoreDb();
   const { FieldValue } = await getFirebaseAdminModules();
   const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
-  if (snapshot.empty) throw new Error('Pattern not found.');
   const normalizedPatch = {
     ...patch,
     ...(Object.prototype.hasOwnProperty.call(patch, 'era') ? { era: normalizeEraForArchive(patch.era) || '具体年代待考' } : {}),
-  };
+  } as PatternRecord;
+
+  if (snapshot.empty) {
+    const localPattern = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
+    if (!localPattern) throw new Error('Pattern not found.');
+
+    const mergedPattern = {
+      ...normalizePattern(localPattern as PatternRecord),
+      ...normalizedPatch,
+    } as PatternRecord;
+    const nextHeCode = typeof mergedPattern.heCode === 'string' && mergedPattern.heCode ? mergedPattern.heCode : heCode;
+    const docRef = db.collection('patterns').doc(nextHeCode);
+    await docRef.set({
+      ...mergedPattern,
+      id: nextHeCode,
+      heCode: nextHeCode,
+      previousHeCode: heCode,
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    return docRef.id;
+  }
+
   await snapshot.docs[0].ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   return snapshot.docs[0].id;
 }

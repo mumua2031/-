@@ -110,6 +110,12 @@ function normalizeEraForArchive(value) {
   const text = String(value ?? "").trim();
   if (!text) return "";
   const compact = text.replace(/\s+/g, "");
+  const contemporaryReference = compact.match(/^当代(?:复原)?[（(]参考(.+?)[）)]$/);
+  if (contemporaryReference?.[1]) return `\u5F53\u4EE3\uFF08\u53C2\u8003${contemporaryReference[1]}\uFF09`;
+  if (compact === "\u5F53\u4EE3\u590D\u539F") return "\u5F53\u4EE3";
+  if (compact === "\u5F53\u4EE3\u91C7\u96C6\uFF0C\u5177\u4F53\u5E74\u4EE3\u5F85\u8003") return "\u5177\u4F53\u5E74\u4EE3\u5F85\u8003";
+  if (/^近现代.*戏衣/.test(compact)) return "\u8FD1\u73B0\u4EE3";
+  if (compact === "\u6E05\u4EE3\u6C11\u95F4\u5A5A\u5AC1\u7EE3\u7247") return "\u6E05\u4EE3";
   if (/当代/.test(compact)) return "\u5F53\u4EE3";
   if (/清末.*民国|民国.*清末/.test(compact)) return "\u6E05\u672B\u6C11\u56FD";
   if (/清代.*近现代|近现代.*清代/.test(compact)) return "\u6E05\u4EE3\u81F3\u8FD1\u73B0\u4EE3";
@@ -182,7 +188,12 @@ async function listPatterns(query = {}) {
       const normalizedPattern = normalizePattern(pattern);
       return [normalizedPattern.heCode, normalizedPattern];
     }));
-    records.forEach((pattern) => mergedByCode.set(pattern.heCode, pattern));
+    records.forEach((pattern) => {
+      const record = pattern;
+      const previousHeCode = typeof record.previousHeCode === "string" ? record.previousHeCode : "";
+      if (previousHeCode && previousHeCode !== pattern.heCode) mergedByCode.delete(previousHeCode);
+      mergedByCode.set(pattern.heCode, pattern);
+    });
     const data = [...mergedByCode.values()];
     return { data: applyQuery(data, query), source: records.length > 0 ? "firestore" : "local" };
   } catch (error) {
@@ -246,11 +257,29 @@ async function updatePattern(heCode, patch) {
   const db = await getRequiredFirestoreDb();
   const { FieldValue } = await getFirebaseAdminModules();
   const snapshot = await db.collection("patterns").where("heCode", "==", heCode).limit(1).get();
-  if (snapshot.empty) throw new Error("Pattern not found.");
   const normalizedPatch = {
     ...patch,
     ...Object.prototype.hasOwnProperty.call(patch, "era") ? { era: normalizeEraForArchive(patch.era) || "\u5177\u4F53\u5E74\u4EE3\u5F85\u8003" } : {}
   };
+  if (snapshot.empty) {
+    const localPattern = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
+    if (!localPattern) throw new Error("Pattern not found.");
+    const mergedPattern = {
+      ...normalizePattern(localPattern),
+      ...normalizedPatch
+    };
+    const nextHeCode = typeof mergedPattern.heCode === "string" && mergedPattern.heCode ? mergedPattern.heCode : heCode;
+    const docRef = db.collection("patterns").doc(nextHeCode);
+    await docRef.set({
+      ...mergedPattern,
+      id: nextHeCode,
+      heCode: nextHeCode,
+      previousHeCode: heCode,
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp()
+    }, { merge: true });
+    return docRef.id;
+  }
   await snapshot.docs[0].ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   return snapshot.docs[0].id;
 }
