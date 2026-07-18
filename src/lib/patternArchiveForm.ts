@@ -93,6 +93,13 @@ export function normalizeEraForArchive(value?: unknown) {
   if (!text) return '';
   const compact = text.replace(/\s+/g, '');
 
+  const contemporaryReference = compact.match(/^当代(?:复原)?[（(]参考(.+?)[）)]$/);
+  if (contemporaryReference?.[1]) return `当代（参考${contemporaryReference[1]}）`;
+  if (compact === '当代复原') return '当代';
+  if (compact === '当代采集，具体年代待考') return '具体年代待考';
+  if (/^近现代.*戏衣/.test(compact)) return '近现代';
+  if (compact === '清代民间婚嫁绣片') return '清代';
+
   if (/当代/.test(compact)) return '当代';
   if (/清末.*民国|民国.*清末/.test(compact)) return '清末民国';
   if (/清代.*近现代|近现代.*清代/.test(compact)) return '清代至近现代';

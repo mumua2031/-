@@ -4,6 +4,7 @@ import { signOut } from 'firebase/auth';
 import {
   Activity,
   BookOpen,
+  CheckSquare,
   Database,
   Image as ImageIcon,
   KeyRound,
@@ -23,6 +24,7 @@ const navItems = [
   { to: '/admin', label: '仪表盘', icon: LayoutDashboard, end: true },
   { to: '/admin/upload', label: '录入纹样', icon: ImageIcon },
   { to: '/admin/patterns', label: '纹样管理', icon: ImageIcon },
+  { to: '/admin/audit', label: '资料审核', icon: CheckSquare },
   { to: '/admin/taxonomy', label: '分类与编号', icon: Tags },
   { to: '/admin/permissions', label: '权限管理', icon: Shield },
   { to: '/admin/api', label: '接口管理', icon: Activity },

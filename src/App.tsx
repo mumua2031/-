@@ -26,6 +26,7 @@ const AdminApiStatus = lazy(() => import('./pages/Admin').then((module) => ({ de
 const AdminSystemSettings = lazy(() => import('./pages/Admin').then((module) => ({ default: module.AdminSystemSettings })));
 const AdminUpload = lazy(() => import('./pages/AdminUpload').then((module) => ({ default: module.AdminUpload })));
 const AdminPatterns = lazy(() => import('./pages/AdminPatterns').then((module) => ({ default: module.AdminPatterns })));
+const AdminAudit = lazy(() => import('./pages/AdminAudit').then((module) => ({ default: module.AdminAudit })));
 const AdminGuide = lazy(() => import('./pages/AdminGuide').then((module) => ({ default: module.AdminGuide })));
 const Login = lazy(() => import('./pages/Login').then((module) => ({ default: module.Login })));
 
@@ -109,6 +110,7 @@ export default function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="upload" element={<AdminUpload />} />
           <Route path="patterns" element={<AdminPatterns />} />
+          <Route path="audit" element={<AdminAudit />} />
           <Route path="taxonomy" element={<AdminTaxonomy />} />
           <Route path="permissions" element={<AdminPermissions />} />
           <Route path="api" element={<AdminApiStatus />} />
