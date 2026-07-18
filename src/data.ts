@@ -124,8 +124,8 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-HS-M12",
     "heCode": "HE-HS-M12",
-    "patternCategory": "H",
-    "meaningCategory": "S",
+    "patternCategory": "N",
+    "meaningCategory": "B",
     "colorCategory": "M",
     "sequence": 12,
     "name": {
@@ -136,12 +136,12 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-M12.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样 (H)",
-        "en": "Humanities Pattern (H)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神信仰类 (S)",
-        "en": "Spiritual Belief (S)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
@@ -604,7 +604,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-NS-M04",
     "heCode": "HE-NS-M04",
-    "patternCategory": "N",
+    "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
     "sequence": 4,
@@ -616,8 +616,8 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-N-S-M04.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "自然纹样 (N)",
-        "en": "Nature Pattern (N)"
+        "zh-CN": "人文 / 民俗纹样 (H)",
+        "en": "Humanities Pattern (H)"
       },
       {
         "zh-CN": "精神信仰类 (S)",
@@ -1325,7 +1325,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-NL-A13",
     "heCode": "HE-NL-A13",
     "patternCategory": "N",
-    "meaningCategory": "L",
+    "meaningCategory": "B",
     "colorCategory": "A",
     "sequence": 13,
     "name": {
@@ -1340,8 +1340,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "生活志趣类 (L)",
-        "en": "Lifestyle (L)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "金银色系 (A)",
@@ -1504,7 +1504,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-HB-R09",
     "heCode": "HE-HB-R09",
-    "patternCategory": "H",
+    "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
     "sequence": 9,
@@ -1516,8 +1516,8 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-R09.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样 (H)",
-        "en": "Humanities Pattern (H)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
         "zh-CN": "吉祥祈福类 (B)",
@@ -1685,7 +1685,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-NL-M01",
     "heCode": "HE-NL-M01",
     "patternCategory": "N",
-    "meaningCategory": "L",
+    "meaningCategory": "B",
     "colorCategory": "M",
     "sequence": 1,
     "name": {
@@ -1700,8 +1700,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "生活志趣类 (L)",
-        "en": "Lifestyle (L)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "多色系 (M)",
@@ -1745,7 +1745,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-NS-B04",
     "heCode": "HE-NS-B04",
     "patternCategory": "N",
-    "meaningCategory": "S",
+    "meaningCategory": "B",
     "colorCategory": "B",
     "sequence": 4,
     "name": {
@@ -1760,8 +1760,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "精神信仰类 (S)",
-        "en": "Spiritual Belief (S)"
+        "zh-CN": "吉祥祈福类 (B)",
+        "en": "Blessing (B)"
       },
       {
         "zh-CN": "蓝色系 (B)",
@@ -2644,7 +2644,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-HB-A12",
     "heCode": "HE-HB-A12",
-    "patternCategory": "H",
+    "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
     "sequence": 12,
@@ -2656,8 +2656,8 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-B-A12.png",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样 (H)",
-        "en": "Humanities Pattern (H)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
         "zh-CN": "吉祥祈福类 (B)",
@@ -2945,7 +2945,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-GB-M02",
     "heCode": "HE-GB-M02",
     "patternCategory": "G",
-    "meaningCategory": "B",
+    "meaningCategory": "S",
     "colorCategory": "M",
     "sequence": 2,
     "name": {
@@ -2960,8 +2960,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Geometry Pattern (G)"
       },
       {
-        "zh-CN": "吉祥祈福类 (B)",
-        "en": "Blessing (B)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "多色系 (M)",
@@ -4325,7 +4325,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-HB-R19",
     "heCode": "HE-HB-R19",
     "patternCategory": "H",
-    "meaningCategory": "B",
+    "meaningCategory": "S",
     "colorCategory": "R",
     "sequence": 19,
     "name": {
@@ -4340,8 +4340,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福类 (B)",
-        "en": "Blessing (B)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "红色系 (R)",
@@ -4385,7 +4385,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-HB-R20",
     "heCode": "HE-HB-R20",
     "patternCategory": "H",
-    "meaningCategory": "B",
+    "meaningCategory": "S",
     "colorCategory": "R",
     "sequence": 20,
     "name": {
@@ -4400,8 +4400,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "吉祥祈福类 (B)",
-        "en": "Blessing (B)"
+        "zh-CN": "精神信仰类 (S)",
+        "en": "Spiritual Belief (S)"
       },
       {
         "zh-CN": "红色系 (R)",
@@ -4504,7 +4504,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-HS-M02",
     "heCode": "HE-HS-M02",
-    "patternCategory": "H",
+    "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
     "sequence": 2,
@@ -4516,8 +4516,8 @@ export const mockPatterns: PatternGene[] = [
     "originalImageUrl": "/patterns/HE-H-S-M02.jpg",
     "categoryLabels": [
       {
-        "zh-CN": "人文 / 民俗纹样 (H)",
-        "en": "Humanities Pattern (H)"
+        "zh-CN": "自然纹样 (N)",
+        "en": "Nature Pattern (N)"
       },
       {
         "zh-CN": "精神信仰类 (S)",
@@ -4625,7 +4625,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-HS-M04",
     "heCode": "HE-HS-M04",
     "patternCategory": "H",
-    "meaningCategory": "S",
+    "meaningCategory": "L",
     "colorCategory": "M",
     "sequence": 4,
     "name": {
@@ -4640,8 +4640,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Humanities Pattern (H)"
       },
       {
-        "zh-CN": "精神信仰类 (S)",
-        "en": "Spiritual Belief (S)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
         "zh-CN": "多色系 (M)",
@@ -5345,7 +5345,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-NB-G01",
     "heCode": "HE-NB-G01",
     "patternCategory": "N",
-    "meaningCategory": "B",
+    "meaningCategory": "L",
     "colorCategory": "G",
     "sequence": 1,
     "name": {
@@ -5360,8 +5360,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类 (B)",
-        "en": "Blessing (B)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
         "zh-CN": "绿色系 (G)",
@@ -5645,7 +5645,7 @@ export const mockPatterns: PatternGene[] = [
     "id": "HE-NB-M12",
     "heCode": "HE-NB-M12",
     "patternCategory": "N",
-    "meaningCategory": "B",
+    "meaningCategory": "L",
     "colorCategory": "M",
     "sequence": 12,
     "name": {
@@ -5660,8 +5660,8 @@ export const mockPatterns: PatternGene[] = [
         "en": "Nature Pattern (N)"
       },
       {
-        "zh-CN": "吉祥祈福类 (B)",
-        "en": "Blessing (B)"
+        "zh-CN": "生活志趣类 (L)",
+        "en": "Lifestyle (L)"
       },
       {
         "zh-CN": "多色系 (M)",
