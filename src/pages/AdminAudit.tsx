@@ -261,12 +261,20 @@ export function AdminAudit() {
     if (!canApply) return;
     setIsApplying(true);
     setMessage('');
-    const patches = new Map<string, Record<string, unknown>>();
+    const patches = new Map<string, { patch: Record<string, unknown>; selectedIds: string[] }>();
+
+    const addPatch = (heCode: string, selectedId: string, patch: Record<string, unknown>) => {
+      const current = patches.get(heCode);
+      patches.set(heCode, {
+        patch: { ...(current?.patch || {}), ...patch },
+        selectedIds: [...(current?.selectedIds || []), selectedId],
+      });
+    };
 
     selectedEraIds.forEach((id) => {
       const suggestion = eraSuggestions.find((item) => item.id === id);
       if (!suggestion) return;
-      patches.set(suggestion.heCode, { ...(patches.get(suggestion.heCode) || {}), era: suggestion.target });
+      addPatch(suggestion.heCode, id, { era: suggestion.target });
     });
 
     selectedCategoryIds.forEach((id) => {
@@ -276,8 +284,7 @@ export function AdminAudit() {
       const [patternCategory, meaningCategory, colorCategory] = suggestion.target;
       const sequence = getPatternClassification(pattern).sequence ?? pattern.sequence;
       const nextHeCode = buildHECode({ patternCategory, meaningCategory, colorCategory, sequence }) || pattern.heCode;
-      patches.set(suggestion.heCode, {
-        ...(patches.get(suggestion.heCode) || {}),
+      addPatch(suggestion.heCode, id, {
         heCode: nextHeCode,
         id: nextHeCode,
         previousHeCode: suggestion.heCode,
@@ -289,19 +296,31 @@ export function AdminAudit() {
       });
     });
 
+    const successfulIds = new Set<string>();
+    const failures: string[] = [];
+
     try {
-      for (const [heCode, patch] of patches) {
+      for (const [heCode, entry] of patches) {
         const response = await fetch(`/api/admin/patterns/${encodeURIComponent(heCode)}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
-          body: JSON.stringify(patch),
+          body: JSON.stringify(entry.patch),
         });
-        await readApiPayload(response, `应用 ${heCode} 审核修改`);
+        try {
+          await readApiPayload(response, `应用 ${heCode} 审核修改`);
+          entry.selectedIds.forEach((id) => successfulIds.add(id));
+        } catch (nextError) {
+          failures.push(`${heCode}：${nextError instanceof Error ? nextError.message : '应用失败'}`);
+        }
       }
-      setMessage(`已应用 ${patches.size} 条纹样审核修改。`);
-      setSelectedEraIds(new Set());
-      setSelectedCategoryIds(new Set());
-      await refresh();
+      setMessage([
+        `已尝试 ${patches.size} 条纹样审核修改。`,
+        `成功 ${successfulIds.size} 个勾选项，失败 ${failures.length} 条纹样。`,
+        failures.length ? `失败清单：\n${failures.map((failure) => `- ${failure}`).join('\n')}` : '全部勾选项已应用。',
+      ].join('\n'));
+      setSelectedEraIds(new Set([...selectedEraIds].filter((id) => !successfulIds.has(id))));
+      setSelectedCategoryIds(new Set([...selectedCategoryIds].filter((id) => !successfulIds.has(id))));
+      if (successfulIds.size > 0) await refresh();
     } catch (nextError) {
       setMessage(nextError instanceof Error ? nextError.message : '应用审核修改失败。');
     } finally {

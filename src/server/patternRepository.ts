@@ -322,12 +322,14 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
   const db = await getRequiredFirestoreDb();
   const { FieldValue } = await getFirebaseAdminModules();
   const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
+  const previousSnapshot = snapshot.empty ? await db.collection('patterns').where('previousHeCode', '==', heCode).limit(1).get() : null;
+  const existingDoc = !snapshot.empty ? snapshot.docs[0] : previousSnapshot && !previousSnapshot.empty ? previousSnapshot.docs[0] : null;
   const normalizedPatch = {
     ...patch,
     ...(Object.prototype.hasOwnProperty.call(patch, 'era') ? { era: normalizeEraForArchive(patch.era) || '具体年代待考' } : {}),
   } as PatternRecord;
 
-  if (snapshot.empty) {
+  if (!existingDoc) {
     const localPattern = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
     if (!localPattern) throw new Error('Pattern not found.');
 
@@ -348,8 +350,8 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
     return docRef.id;
   }
 
-  await snapshot.docs[0].ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
-  return snapshot.docs[0].id;
+  await existingDoc.ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+  return existingDoc.id;
 }
 
 export async function deletePattern(heCode: string) {
