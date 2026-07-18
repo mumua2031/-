@@ -201,6 +201,14 @@ function makeCategoryLabels(patternCategory: string, meaningCategory: string, co
   ];
 }
 
+function formatCategoryTriplet([patternCategory, meaningCategory, colorCategory]: readonly string[]) {
+  return [
+    `${patternCategory} · ${getCategoryLabel('pattern', patternCategory, 'zh')}`,
+    `${meaningCategory} · ${getCategoryLabel('meaning', meaningCategory, 'zh')}`,
+    `${colorCategory} · ${getCategoryLabel('color', colorCategory, 'zh')}`,
+  ].join(' / ');
+}
+
 function findPattern(patterns: PatternGene[], heCode: string) {
   return patterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
 }
@@ -394,7 +402,7 @@ export function AdminAudit() {
                   <div className="font-mono text-xs text-fuchsia-200">{suggestion.heCode}</div>
                   <div className="mt-1 text-white/90">{suggestion.title}</div>
                   <div className="mt-2 font-mono text-xs text-white/50">
-                    {suggestion.current.join('/')} <span className="mx-2 text-white/30">→</span> <span className="text-green-200">{suggestion.target.join('/')}</span>
+                    {formatCategoryTriplet(suggestion.current)} <span className="mx-2 text-white/30">→</span> <span className="text-green-200">{formatCategoryTriplet(suggestion.target)}</span>
                   </div>
                   <p className="mt-2 leading-6 text-white/55">{suggestion.reason}</p>
                 </div>
