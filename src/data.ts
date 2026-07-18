@@ -148,7 +148,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代复原",
+    "era": "当代",
     "carrier": "黑色底绸缎装饰绣片",
     "region": "湖北武汉",
     "copyrightOwner": "权属待确认，仅供非商用研究",
@@ -1528,7 +1528,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Red (R)"
       }
     ],
-    "era": "当代复原",
+    "era": "当代",
     "carrier": "大红缎面圆形独立装饰绣片，可配实木圆台屏",
     "region": "湖北武汉",
     "copyrightOwner": "龙、祥云卷草为传统公有古纹样；红底团龙圆形对称构图、青绿撞色龙身配色为当代原创，商用需取得授权",
@@ -1708,7 +1708,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代复原",
+    "era": "当代",
     "carrier": "浅灰底方形装饰绸缎绣片",
     "region": "湖北武汉",
     "copyrightOwner": "仙鹤、荷花荷叶为传统公有古典纹样；荷塘栖鹤构图、柔和配色方案为当代原创，商用需取得制作方授权",
@@ -1768,7 +1768,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Blue (B)"
       }
     ],
-    "era": "当代复原",
+    "era": "当代",
     "carrier": "藏蓝色竖幅绸缎展陈绣品",
     "region": "湖北武汉",
     "copyrightOwner": "金凤、牡丹纹样为传统公有古典纹样；展陈文字排版、蓝底暗纹构图为当代原创，商用需取得制作方授权",
@@ -5368,7 +5368,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Green (G)"
       }
     ],
-    "era": "当代采集，具体年代待考",
+    "era": "具体年代待考",
     "carrier": "绿色系织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究",
@@ -5668,7 +5668,7 @@ export const mockPatterns: PatternGene[] = [
         "en": "Multicolor (M)"
       }
     ],
-    "era": "当代采集，具体年代待考",
+    "era": "具体年代待考",
     "carrier": "多色织物绣片，具体载体待考",
     "region": "湖北武汉汉绣流布地区，具体采集地点待考",
     "copyrightOwner": "权属待确认，仅供非商用研究",
