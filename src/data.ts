@@ -124,7 +124,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-M12",
     "heCode": "HE-N-B-M12",
-    "previousHeCode": "HE-HS-M12",
+    "previousHeCode": "HE-H-S-M12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -605,7 +605,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-H-S-M04",
     "heCode": "HE-H-S-M04",
-    "previousHeCode": "HE-NS-M04",
+    "previousHeCode": "HE-N-S-M04",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -1026,7 +1026,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-G14",
     "heCode": "HE-N-B-G14",
-    "previousHeCode": "HE-NB-B14",
+    "previousHeCode": "HE-N-B-B14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1087,7 +1087,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-G13",
     "heCode": "HE-N-B-G13",
-    "previousHeCode": "HE-NB-B13",
+    "previousHeCode": "HE-N-B-B13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1328,7 +1328,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-A13",
     "heCode": "HE-N-B-A13",
-    "previousHeCode": "HE-NL-A13",
+    "previousHeCode": "HE-N-L-A13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -1389,7 +1389,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-L-R01",
     "heCode": "HE-N-L-R01",
-    "previousHeCode": "HE-NL-B01",
+    "previousHeCode": "HE-N-L-B01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "R",
@@ -1510,7 +1510,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-R21",
     "heCode": "HE-N-B-R21",
-    "previousHeCode": "HE-HB-R09",
+    "previousHeCode": "HE-H-B-R09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -1691,7 +1691,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-M22",
     "heCode": "HE-N-B-M22",
-    "previousHeCode": "HE-NL-M01",
+    "previousHeCode": "HE-N-L-M01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1752,7 +1752,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-B12",
     "heCode": "HE-N-B-B12",
-    "previousHeCode": "HE-NS-B04",
+    "previousHeCode": "HE-N-S-B04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -2593,7 +2593,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-A14",
     "heCode": "HE-N-B-A14",
-    "previousHeCode": "HE-HL-A14",
+    "previousHeCode": "HE-H-L-A14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2654,7 +2654,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-B-A12",
     "heCode": "HE-N-B-A12",
-    "previousHeCode": "HE-HB-A12",
+    "previousHeCode": "HE-H-B-A12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2955,7 +2955,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-G-S-M02",
     "heCode": "HE-G-S-M02",
-    "previousHeCode": "HE-GB-M02",
+    "previousHeCode": "HE-G-B-M02",
     "patternCategory": "G",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4336,7 +4336,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-H-S-R19",
     "heCode": "HE-H-S-R19",
-    "previousHeCode": "HE-HB-R19",
+    "previousHeCode": "HE-H-B-R19",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4397,7 +4397,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-H-S-R20",
     "heCode": "HE-H-S-R20",
-    "previousHeCode": "HE-HB-R20",
+    "previousHeCode": "HE-H-B-R20",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4518,7 +4518,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-S-M02",
     "heCode": "HE-N-S-M02",
-    "previousHeCode": "HE-HS-M02",
+    "previousHeCode": "HE-H-S-M02",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4639,7 +4639,6 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-H-L-M04",
     "heCode": "HE-H-L-M04",
-    "previousHeCode": "HE-HS-M04",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -5360,7 +5359,7 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-L-G01",
     "heCode": "HE-N-L-G01",
-    "previousHeCode": "HE-NB-G01",
+    "previousHeCode": "HE-N-B-G01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "G",
@@ -5661,7 +5660,6 @@ export const mockPatterns: PatternGene[] = [
   {
     "id": "HE-N-L-M12",
     "heCode": "HE-N-L-M12",
-    "previousHeCode": "HE-NB-M12",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "M",

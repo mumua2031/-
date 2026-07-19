@@ -1,33 +1,23 @@
 import { useEffect, useMemo, useState, type SyntheticEvent } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 import { ArrowLeft, Download, Share2, Star } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
+import { auth } from '../lib/firebase';
 import { patternVisualAnalysis } from '../generated/pattern-visual-analysis';
 import { findStitchesInText } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
 import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
+import { loadUserFavorites, readLocalFavorites, saveUserFavorites } from '../lib/userAccount';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, formatHECodeForDisplay, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
-
-const favoriteStorageKey = 'hanxiu:favorites';
 
 type DetailTab = 'basic' | 'meaning' | 'craft' | 'analysis' | 'copyright';
 type ImageMode = 'pattern';
 
 const detailTabs: DetailTab[] = ['basic', 'meaning', 'craft', 'analysis', 'copyright'];
-
-function readFavorites() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as unknown;
-    return Array.isArray(stored)
-      ? [...new Set(stored.filter((code): code is string => typeof code === 'string').map(formatHECodeForDisplay))]
-      : [];
-  } catch {
-    return [];
-  }
-}
 
 function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallbackUrl?: string) {
   const image = event.currentTarget;
@@ -337,6 +327,7 @@ function updateMetaTag(selector: string, attribute: 'name' | 'property', key: st
 export function PatternDetail() {
   const { heCode } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { t, i18n } = useTranslation();
   const { patterns } = usePatternData();
   const currentLang = i18n.language as keyof MultilingualString;
@@ -348,7 +339,8 @@ export function PatternDetail() {
   const [activeTab, setActiveTab] = useState<DetailTab>('basic');
   const [isZoomed, setIsZoomed] = useState(false);
   const [transformOrigin, setTransformOrigin] = useState('50% 50%');
-  const [favoriteCodes, setFavoriteCodes] = useState<string[]>(() => readFavorites());
+  const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
+  const [favoriteCodes, setFavoriteCodes] = useState<string[]>(() => readLocalFavorites(auth.currentUser));
   const [shareFeedback, setShareFeedback] = useState(false);
   const [isDownloadNoticeOpen, setIsDownloadNoticeOpen] = useState(false);
   const [downloadConfirmed, setDownloadConfirmed] = useState(false);
@@ -373,6 +365,15 @@ export function PatternDetail() {
     setIsZoomed(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [heCode]);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
+      setCurrentUser(nextUser);
+      setFavoriteCodes(readLocalFavorites(nextUser));
+      void loadUserFavorites(nextUser).then(setFavoriteCodes);
+    });
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     if (!pattern) return;
@@ -402,18 +403,22 @@ export function PatternDetail() {
   const parsedCode = parseHECode(canonicalCode);
   const name = getLocalizedPatternName(pattern, currentLang);
   const englishName = getLocalizedText(pattern.name, 'en', canonicalCode);
-  const isFavorite = favoriteCodes.includes(pattern.heCode);
+  const isFavorite = favoriteCodes.includes(canonicalCode);
   const copyrightText = getLocalizedPlainText(pattern.copyrightOwner, currentLang, plainFallback);
   const sourceText = getLocalizedText(pattern.origin, currentLang, fallback);
   const visualAnalysis = pattern.visualAnalysis || patternVisualAnalysis[pattern.heCode] || patternVisualAnalysis[canonicalCode];
 
   const toggleFavorite = () => {
+    if (!currentUser) {
+      navigate(`/login?next=${encodeURIComponent(location.pathname)}`);
+      return;
+    }
+
     setFavoriteCodes((current) => {
-      const next = current.includes(pattern.heCode)
-        ? current.filter((code) => code !== pattern.heCode)
-        : [...current, pattern.heCode];
-      localStorage.setItem(favoriteStorageKey, JSON.stringify(next));
-      window.dispatchEvent(new CustomEvent('hanxiu:favorites-updated'));
+      const next = current.includes(canonicalCode)
+        ? current.filter((code) => code !== canonicalCode)
+        : [...current, canonicalCode];
+      void saveUserFavorites(currentUser, next);
       return next;
     });
   };
@@ -446,7 +451,7 @@ export function PatternDetail() {
     `- 页面链接：${pageUrl}`,
     '',
     '## 使用提示',
-    '本档案包仅导出带水印预览图 PNG、完整纹样档案 TXT 与版权使用须知 TXT，不包含 Markdown、无水印原图、高清商用素材、第三方摄影原片或矢量源文件。',
+    '本档案包仅导出带水印预览图 PNG、完整纹样档案 TXT 与版权使用须知 TXT。',
   ]
     .map((line) => line.replace(/^#{1,6}\s*/, '').replace(/^-\s*/, ''))
     .join('\n') + [
@@ -720,8 +725,8 @@ export function PatternDetail() {
             </div>
             <p className="mt-5 text-sm leading-7 text-white/58">
               {isEnglish
-                ? 'The archive contains only a watermarked PNG preview, a complete UTF-8 TXT record and a TXT copyright notice. It does not include original images, commercial HD assets, Markdown or vector source files.'
-                : '档案包仅包含带水印预览图 PNG、完整纹样档案 TXT 和版权使用须知 TXT，不包含 Markdown、无水印原图、商用高清素材或矢量源文件。'}
+                ? 'The archive contains only a watermarked PNG preview, a complete UTF-8 TXT record and a TXT copyright notice.'
+                : '档案包仅包含带水印预览图 PNG、完整纹样档案 TXT 和版权使用须知 TXT。'}
             </p>
             <label className="mt-6 flex cursor-pointer items-start gap-3 rounded border border-fuchsia-200/14 bg-white/[0.035] p-4 text-sm leading-6 text-white/72">
               <input

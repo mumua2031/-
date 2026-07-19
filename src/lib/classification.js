@@ -27,40 +27,22 @@ const heCodePattern = /^HE-([NHG])-([BSL])-([RGBAM])(\d{2,})$/;
 const legacyHeCodePattern = /^HE-([NHG])([BSL])-([RGBAM])(\d{2,})$/;
 const classificationCache = /* @__PURE__ */ new WeakMap();
 const reviewedLegacyHECodeAliases = {
-  "HE-NB-B14": "HE-N-B-G14",
   "HE-N-B-B14": "HE-N-B-G14",
-  "HE-NB-B13": "HE-N-B-G13",
   "HE-N-B-B13": "HE-N-B-G13",
-  "HE-NL-B01": "HE-N-L-R01",
   "HE-N-L-B01": "HE-N-L-R01",
-  "HE-HS-M12": "HE-N-B-M12",
   "HE-H-S-M12": "HE-N-B-M12",
-  "HE-NS-M04": "HE-H-S-M04",
   "HE-N-S-M04": "HE-H-S-M04",
-  "HE-NL-A13": "HE-N-B-A13",
   "HE-N-L-A13": "HE-N-B-A13",
-  "HE-HB-R09": "HE-N-B-R21",
   "HE-H-B-R09": "HE-N-B-R21",
-  "HE-NL-M01": "HE-N-B-M22",
   "HE-N-L-M01": "HE-N-B-M22",
-  "HE-NS-B04": "HE-N-B-B12",
   "HE-N-S-B04": "HE-N-B-B12",
-  "HE-HL-A14": "HE-N-B-A14",
   "HE-H-L-A14": "HE-N-B-A14",
-  "HE-HB-A12": "HE-N-B-A12",
   "HE-H-B-A12": "HE-N-B-A12",
-  "HE-GB-M02": "HE-G-S-M02",
   "HE-G-B-M02": "HE-G-S-M02",
-  "HE-HB-R19": "HE-H-S-R19",
   "HE-H-B-R19": "HE-H-S-R19",
-  "HE-HB-R20": "HE-H-S-R20",
   "HE-H-B-R20": "HE-H-S-R20",
-  "HE-HS-M02": "HE-N-S-M02",
   "HE-H-S-M02": "HE-N-S-M02",
-  "HE-HS-M04": "HE-H-L-M04",
-  "HE-NB-G01": "HE-N-L-G01",
-  "HE-N-B-G01": "HE-N-L-G01",
-  "HE-NB-M12": "HE-N-L-M12"
+  "HE-N-B-G01": "HE-N-L-G01"
 };
 const classificationTextLabels = {
   pattern: {

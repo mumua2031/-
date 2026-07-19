@@ -14,6 +14,7 @@ import {
 import { assertAdminToken } from './src/server/adminAuth';
 import { deletePatternImage, uploadPatternImage } from './src/server/patternStorage';
 import { uploadImageToGithub } from './src/server/githubImageStorage';
+import { getCurrentUserProfile, listUserProfiles, upsertCurrentUserProfile } from './src/server/userRepository';
 
 function parsePatternQuery(query: Record<string, unknown>): PatternQuery {
   return {
@@ -111,6 +112,44 @@ async function startServer() {
       res.status(201).json({ success: true, data: image });
     } catch (error) {
       sendApiError(res, error, 500);
+    }
+  });
+
+  app.get('/api/users/me', async (req, res) => {
+    try {
+      const data = await getCurrentUserProfile(req.headers);
+      res.json({ success: true, data });
+    } catch (error) {
+      sendApiError(res, error);
+    }
+  });
+
+  app.put('/api/users/me', async (req, res) => {
+    try {
+      const data = await upsertCurrentUserProfile(req.headers, req.body || {});
+      res.json({ success: true, data });
+    } catch (error) {
+      sendApiError(res, error);
+    }
+  });
+
+  app.post('/api/users/me', async (req, res) => {
+    try {
+      const data = await upsertCurrentUserProfile(req.headers, req.body || {});
+      res.json({ success: true, data });
+    } catch (error) {
+      sendApiError(res, error);
+    }
+  });
+
+  app.get('/api/admin/users', async (req, res) => {
+    try {
+      assertAdminToken(req.headers);
+      const limit = typeof req.query.limit === 'string' ? Number(req.query.limit) || 100 : 100;
+      const data = await listUserProfiles(limit);
+      res.json({ success: true, data });
+    } catch (error) {
+      sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);
     }
   });
 

@@ -1,26 +1,17 @@
 import { useEffect, useState, type SyntheticEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 import { ArrowUp, Star } from 'lucide-react';
-import { formatHECodeForDisplay, getCanonicalHECode } from '../lib/classification';
+import { getCanonicalHECode } from '../lib/classification';
+import { auth } from '../lib/firebase';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
+import { favoritesUpdatedEvent, loadUserFavorites, readLocalFavorites } from '../lib/userAccount';
 import type { MultilingualString } from '../types';
 
 const iconClassName = 'w-5 h-5 drop-shadow-[0_0_8px_rgba(236,72,153,0.65)]';
-const favoriteStorageKey = 'hanxiu:favorites';
-
-function readFavorites() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as unknown;
-    return Array.isArray(stored)
-      ? [...new Set(stored.filter((code): code is string => typeof code === 'string').map(formatHECodeForDisplay))]
-      : [];
-  } catch {
-    return [];
-  }
-}
 
 function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallbackUrl?: string) {
   const image = event.currentTarget;
@@ -35,31 +26,51 @@ function fallbackToOriginalImage(event: SyntheticEvent<HTMLImageElement>, fallba
 export function FloatingActions() {
   const { i18n } = useTranslation();
   const { patterns } = usePatternData();
+  const navigate = useNavigate();
+  const location = useLocation();
   const currentLang = i18n.language as keyof MultilingualString;
   const isEnglish = i18n.language === 'en';
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
-    setFavorites(readFavorites());
+    const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
+      setCurrentUser(nextUser);
+      setFavorites(readLocalFavorites(nextUser));
+      void loadUserFavorites(nextUser).then(setFavorites);
+    });
+    return unsubscribe;
+  }, []);
 
-    const syncFavorites = () => setFavorites(readFavorites());
+  useEffect(() => {
+    setFavorites(readLocalFavorites(currentUser));
+
+    const syncFavorites = () => setFavorites(readLocalFavorites(currentUser));
     window.addEventListener('storage', syncFavorites);
-    window.addEventListener('hanxiu:favorites-updated', syncFavorites);
+    window.addEventListener(favoritesUpdatedEvent, syncFavorites);
 
     return () => {
       window.removeEventListener('storage', syncFavorites);
-      window.removeEventListener('hanxiu:favorites-updated', syncFavorites);
+      window.removeEventListener(favoritesUpdatedEvent, syncFavorites);
     };
-  }, []);
+  }, [currentUser]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const favoritePatterns = favorites
-    .map((heCode) => patterns.find((pattern) => pattern.heCode === heCode || pattern.previousHeCode === heCode))
+    .map((heCode) => patterns.find((pattern) => getCanonicalHECode(pattern) === heCode || pattern.heCode === heCode || pattern.previousHeCode === heCode))
     .filter(Boolean);
+
+  const openFavorites = () => {
+    if (!currentUser) {
+      navigate(`/login?next=${encodeURIComponent(location.pathname)}`);
+      return;
+    }
+    setIsFavoritesOpen((current) => !current);
+  };
 
   return (
     <div className="fixed right-6 bottom-12 z-50 flex flex-col gap-4">
@@ -74,10 +85,10 @@ export function FloatingActions() {
       </svg>
 
       <button
-        onClick={() => setIsFavoritesOpen((current) => !current)}
+        onClick={openFavorites}
         className="flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
-        title={isEnglish ? 'Saved patterns' : '收藏纹样'}
-        aria-label={isEnglish ? 'Saved patterns' : '收藏纹样'}
+        title={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
+        aria-label={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
       >
         <Star className={iconClassName} stroke="url(#hanxiu-floating-icon-gradient)" />
       </button>

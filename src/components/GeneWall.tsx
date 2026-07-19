@@ -70,11 +70,11 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: isDimmed ? 0.34 : 1, y: 0 }}
               transition={{ duration: 0.32, ease: 'easeOut' }}
-              className="gene-wall-item relative"
+              className="gene-wall-item relative z-0 hover:z-40 focus-within:z-40"
             >
               <Link
                 to={`/pattern/${canonicalCode}`}
-                className="relative flex flex-col items-center group no-underline outline-none"
+                className="relative flex min-h-[154px] w-full flex-col items-center group no-underline outline-none"
                 onMouseEnter={() => setActivePatternId(pattern.id)}
                 onMouseLeave={() => setActivePatternId(null)}
                 onFocus={() => setActivePatternId(pattern.id)}
@@ -114,7 +114,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                   <motion.div
                     initial={{ opacity: 0, y: 8, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="hanxiu-modal-card pointer-events-none absolute left-1/2 top-[86px] z-20 w-44 -translate-x-1/2 px-3 py-2 text-center"
+                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[7.25rem] z-50 w-56 -translate-x-1/2 px-3 py-2 text-center"
                   >
                     <div className="truncate text-xs text-white/88">{name}</div>
                     <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-fuchsia-200/78">{canonicalCode}</div>

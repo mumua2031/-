@@ -11,6 +11,7 @@ import { FloatingActions } from './components/FloatingActions';
 import { Footer } from './components/Footer';
 import { PatternDataProvider } from './lib/patternData';
 import { auth } from './lib/firebase';
+import { recordUserPageView } from './lib/userAccount';
 import './lib/i18n'; // Initialize i18n
 
 const Home = lazy(() => import('./pages/Home').then((module) => ({ default: module.Home })));
@@ -58,11 +59,29 @@ function RequireAuth({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
+function UserActivityTracker() {
+  const location = useLocation();
+  const [user, setUser] = useState<User | null>(auth.currentUser);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, setUser);
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const patternMatch = location.pathname.match(/^\/pattern\/([^/]+)/);
+    void recordUserPageView(user, `${location.pathname}${location.search}`, patternMatch?.[1]);
+  }, [location.pathname, location.search, user]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <PatternDataProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <UserActivityTracker />
         <Suspense fallback={<div className="min-h-screen bg-black" />}><Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={

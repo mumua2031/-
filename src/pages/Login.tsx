@@ -9,6 +9,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { syncUserProfile } from '../lib/userAccount';
 
 type LoginAudience = 'personal' | 'developer';
 type AuthMode = 'login' | 'register';
@@ -84,12 +85,16 @@ export function Login() {
     setIsSubmitting(true);
     setMessage('');
     try {
+      let signedInUser = auth.currentUser;
       if (authMode === 'register') {
         const result = await createUserWithEmailAndPassword(auth, email.trim(), password);
         if (displayName.trim()) await updateProfile(result.user, { displayName: displayName.trim() });
+        signedInUser = result.user;
       } else {
-        await signInWithEmailAndPassword(auth, email.trim(), password);
+        const result = await signInWithEmailAndPassword(auth, email.trim(), password);
+        signedInUser = result.user;
       }
+      if (signedInUser) await syncUserProfile(signedInUser).catch(() => undefined);
       navigate(getRedirectPath(), { replace: true });
     } catch (error) {
       setMessage(getAuthErrorMessage(error, isEnglish));

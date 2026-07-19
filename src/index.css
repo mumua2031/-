@@ -115,6 +115,7 @@ body::-webkit-scrollbar {
 
 .hanxiu-home-gene-wall {
   overflow: visible;
+  isolation: isolate;
 }
 
 .gene-wall-orb {
@@ -128,12 +129,17 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   transform-origin: center;
-  contain: layout paint;
+  contain: layout;
 }
 
 .gene-wall-item {
-  content-visibility: auto;
-  contain-intrinsic-size: 9rem 12rem;
+  min-height: 11rem;
+  overflow: visible;
+}
+
+.gene-wall-info-card {
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42), 0 0 24px rgba(217, 70, 239, 0.2);
+  backdrop-filter: blur(18px);
 }
 
 .gene-wall-orb-image {
@@ -643,6 +649,8 @@ body::-webkit-scrollbar {
 .hanxiu-gene-results-module {
   border-top: 1px solid rgba(244, 114, 182, 0.12);
   padding-top: 36px;
+  overflow: visible;
+  isolation: isolate;
 }
 
 @keyframes hanxiu-cue-flow {
