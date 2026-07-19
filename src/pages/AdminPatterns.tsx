@@ -178,7 +178,7 @@ export function AdminPatterns() {
     try {
       const response = await fetch('/api/admin/patterns/sync', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${adminToken}` },
+        headers: { Authorization: `Bearer ${adminToken.trim()}` },
       });
       const payload = await readApiPayload(response, '同步全部规范档案') as {
         total?: number;
@@ -204,7 +204,7 @@ export function AdminPatterns() {
             <p className="mt-2 text-sm text-white/50">配置 Firestore 与免费 GitHub 图片发布后，可编辑或删除已入库数据。</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button disabled={isSyncingAll || source !== 'api'} onClick={() => void syncAllCanonicalPatterns()} className="flex items-center gap-2 rounded border border-fuchsia-400/35 px-3 py-2 text-sm text-fuchsia-100 hover:border-fuchsia-300 disabled:cursor-not-allowed disabled:opacity-40">
+            <button disabled={isSyncingAll} onClick={() => void syncAllCanonicalPatterns()} className="flex items-center gap-2 rounded border border-fuchsia-400/35 px-3 py-2 text-sm text-fuchsia-100 hover:border-fuchsia-300 disabled:cursor-not-allowed disabled:opacity-40">
               {isSyncingAll ? <Loader2 className="h-4 w-4 animate-spin" /> : <DatabaseZap className="h-4 w-4" />}
               {isSyncingAll ? '正在同步全部档案' : '一键同步全部规范档案'}
             </button>
