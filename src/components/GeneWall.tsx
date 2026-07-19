@@ -114,7 +114,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                   <motion.div
                     initial={{ opacity: 0, y: 5, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[6.35rem] z-50 w-44 -translate-x-1/2 px-2.5 py-1.5 text-center"
+                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[6.12rem] z-50 w-40 -translate-x-1/2 px-2.5 py-1.5 text-center"
                   >
                     <div className="truncate text-[11px] leading-4 text-white/88">{name}</div>
                     <div className="mt-0.5 font-mono text-[9px] uppercase leading-3 tracking-wider text-fuchsia-200/78">{canonicalCode}</div>
@@ -129,7 +129,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                   </motion.div>
                 )}
                 {showLabels && (
-                  <div className="text-center">
+                  <div className={`gene-wall-label text-center transition-opacity duration-150 ${showHoverInfo && isActive ? 'opacity-0' : 'opacity-100'}`} aria-hidden={showHoverInfo && isActive}>
                     <div className="font-mono text-[10px] tracking-wider text-white/30 mb-1 uppercase">
                       {canonicalCode}
                     </div>
