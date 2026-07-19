@@ -17,6 +17,8 @@ export default function handler(req: IncomingMessage, res: ServerResponse) {
     firebaseProjectConfigured: Boolean(process.env.FIREBASE_PROJECT_ID),
     firebaseServiceAccountConfigured: Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON || (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY)),
     firebaseStorageConfigured: Boolean(process.env.FIREBASE_STORAGE_BUCKET),
+    firebaseAuthConfigured: Boolean(process.env.FIREBASE_PROJECT_ID && (process.env.FIREBASE_SERVICE_ACCOUNT_JSON || (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY))),
+    userProfileApiConfigured: Boolean(process.env.FIREBASE_PROJECT_ID && (process.env.FIREBASE_SERVICE_ACCOUNT_JSON || (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY))),
     adminTokenConfigured: Boolean(process.env.ADMIN_API_TOKEN),
     githubUploadConfigured: Boolean(process.env.GITHUB_UPLOAD_TOKEN && process.env.GITHUB_REPOSITORY),
     githubBranch: process.env.GITHUB_BRANCH?.trim() || 'main',

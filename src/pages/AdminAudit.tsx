@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { CheckSquare, Loader2, RefreshCw, RotateCcw } from 'lucide-react';
 import { readApiPayload } from '../lib/apiResponse';
+import { readStoredAdminToken, storeAdminToken } from '../lib/adminToken';
 import { buildHECode, formatHECodeForDisplay, getCategoryLabel, getPatternClassification } from '../lib/classification';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
@@ -222,7 +223,7 @@ function toggleSet(setter: (next: Set<string>) => void, current: Set<string>, id
 
 export function AdminAudit() {
   const { patterns, source, error, isLoading, refresh } = usePatternData();
-  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu:admin-token') || '');
+  const [adminToken, setAdminToken] = useState(() => readStoredAdminToken());
   const [selectedEraIds, setSelectedEraIds] = useState<Set<string>>(() => new Set());
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<Set<string>>(() => new Set());
   const [message, setMessage] = useState('');
@@ -355,7 +356,7 @@ export function AdminAudit() {
             value={adminToken}
             onChange={(event) => {
               setAdminToken(event.target.value);
-              localStorage.setItem('hanxiu:admin-token', event.target.value);
+              storeAdminToken(event.target.value, true);
             }}
             placeholder="管理员接口令牌"
             className="rounded border border-white/20 bg-black/20 px-4 py-2 text-sm text-white outline-none focus:border-fuchsia-500"

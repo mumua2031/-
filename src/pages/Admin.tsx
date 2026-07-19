@@ -5,7 +5,6 @@ import {
   Activity,
   BookOpen,
   CheckSquare,
-  Database,
   Image as ImageIcon,
   KeyRound,
   LayoutDashboard,
@@ -18,6 +17,7 @@ import {
 } from 'lucide-react';
 import { colorCategories, meaningCategories, patternCategories } from '../lib/classification';
 import { readApiPayload } from '../lib/apiResponse';
+import { clearAdminToken, readStoredAdminToken, storeAdminToken } from '../lib/adminToken';
 import { auth } from '../lib/firebase';
 import { usePatternData } from '../lib/patternData';
 
@@ -70,12 +70,16 @@ type AdminUsersPayload = {
     totalUsers?: number;
     totalFavorites?: number;
     totalVisits?: number;
+    page?: number;
+    limit?: number;
+    totalPages?: number;
   };
 };
 
 export function AdminLayout() {
   const navigate = useNavigate();
   const handleLogout = async () => {
+    clearAdminToken();
     await signOut(auth).catch(() => undefined);
     navigate('/');
   };
@@ -123,17 +127,25 @@ export function AdminLayout() {
 export function AdminDashboard() {
   const { patterns, source, isLoading, error, refresh } = usePatternData();
   const duplicateCount = new Set(patterns.map((pattern) => pattern.heCode)).size !== patterns.length;
-  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu-admin-token') || '');
+  const [adminToken, setAdminToken] = useState(() => readStoredAdminToken());
   const [userStats, setUserStats] = useState<AdminUsersPayload | null>(null);
   const [userStatsError, setUserStatsError] = useState('');
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [userKeyword, setUserKeyword] = useState('');
+  const [userPage, setUserPage] = useState(1);
+  const [userLimit, setUserLimit] = useState(20);
 
-  const fetchUserStats = async () => {
+  const fetchUserStats = async (page = userPage) => {
     setIsLoadingUsers(true);
     setUserStatsError('');
     try {
-      localStorage.setItem('hanxiu-admin-token', adminToken.trim());
-      const response = await fetch('/api/admin/users?limit=80', {
+      storeAdminToken(adminToken.trim(), true);
+      const params = new URLSearchParams({
+        limit: String(userLimit),
+        page: String(page),
+        keyword: userKeyword.trim(),
+      });
+      const response = await fetch(`/api/admin/users?${params.toString()}`, {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${adminToken.trim()}`,
@@ -141,6 +153,7 @@ export function AdminDashboard() {
       });
       const payload = await readApiPayload<{ data?: AdminUsersPayload }>(response, '读取用户访问数据失败');
       setUserStats(payload.data || null);
+      setUserPage(payload.data?.meta?.page || page);
     } catch (nextError) {
       setUserStats(null);
       setUserStatsError(nextError instanceof Error ? nextError.message : '读取用户访问数据失败');
@@ -189,7 +202,7 @@ export function AdminDashboard() {
       </AdminPanel>
 
       <AdminPanel title="用户访问与收藏" description="公开访问后，普通用户通过邮箱注册/登录；每个邮箱账号由 Firebase UID 唯一标识，收藏和访问记录彼此隔离。">
-        <div className="mb-5 grid gap-3 md:grid-cols-[1fr_auto]">
+        <div className="mb-4 grid gap-3 md:grid-cols-[1fr_auto]">
           <input
             value={adminToken}
             onChange={(event) => setAdminToken(event.target.value)}
@@ -198,12 +211,43 @@ export function AdminDashboard() {
             type="password"
           />
           <button
-            onClick={() => void fetchUserStats()}
+            onClick={() => void fetchUserStats(1)}
             disabled={!adminToken.trim() || isLoadingUsers}
             className="inline-flex items-center justify-center gap-2 rounded border border-white/15 px-4 py-2 text-sm text-white/75 hover:border-fuchsia-300/50 hover:text-white disabled:cursor-not-allowed disabled:opacity-45"
           >
             <Users className="h-4 w-4" />
             {isLoadingUsers ? '读取中' : '刷新用户数据'}
+          </button>
+        </div>
+        <div className="mb-5 grid gap-3 md:grid-cols-[1fr_auto_auto]">
+          <input
+            value={userKeyword}
+            onChange={(event) => setUserKeyword(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') void fetchUserStats(1);
+            }}
+            className="rounded border border-white/15 bg-black/25 px-3 py-2 text-sm text-white outline-none focus:border-fuchsia-300/60"
+            placeholder="按邮箱、访问页面或纹样编号搜索"
+          />
+          <select
+            value={userLimit}
+            onChange={(event) => {
+              setUserLimit(Number(event.target.value));
+              setUserPage(1);
+            }}
+            className="rounded border border-white/15 bg-black/25 px-3 py-2 text-sm text-white outline-none focus:border-fuchsia-300/60"
+          >
+            <option value={10}>每页 10 条</option>
+            <option value={20}>每页 20 条</option>
+            <option value={50}>每页 50 条</option>
+          </select>
+          <button
+            type="button"
+            onClick={() => void fetchUserStats(1)}
+            disabled={!adminToken.trim() || isLoadingUsers}
+            className="rounded border border-white/15 px-4 py-2 text-sm text-white/70 hover:border-fuchsia-300/50 hover:text-white disabled:cursor-not-allowed disabled:opacity-45"
+          >
+            搜索
           </button>
         </div>
         {userStatsError && <p className="mb-4 rounded border border-amber-300/20 bg-amber-950/20 p-3 text-sm text-amber-100/85">{userStatsError}</p>}
@@ -255,6 +299,29 @@ export function AdminDashboard() {
             </tbody>
           </table>
         </div>
+        {userStats && (
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-white/45">
+            <span>第 {userStats.meta?.page || userPage} / {userStats.meta?.totalPages || 1} 页</span>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                disabled={isLoadingUsers || (userStats.meta?.page || userPage) <= 1}
+                onClick={() => void fetchUserStats(Math.max(1, (userStats.meta?.page || userPage) - 1))}
+                className="rounded border border-white/12 px-3 py-1.5 hover:border-white/30 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                上一页
+              </button>
+              <button
+                type="button"
+                disabled={isLoadingUsers || (userStats.meta?.page || userPage) >= (userStats.meta?.totalPages || 1)}
+                onClick={() => void fetchUserStats((userStats.meta?.page || userPage) + 1)}
+                className="rounded border border-white/12 px-3 py-1.5 hover:border-white/30 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                下一页
+              </button>
+            </div>
+          </div>
+        )}
       </AdminPanel>
     </div>
   );
@@ -312,7 +379,7 @@ export function AdminPermissions() {
 
 export function AdminApiStatus() {
   const { source, error, refresh } = usePatternData();
-  const endpoints = ['/api/health', '/api/patterns', '/api/admin/images', '/api/admin/patterns'];
+  const endpoints = ['/api/health', '/api/patterns', '/api/users/me', '/api/admin/session', '/api/admin/images', '/api/admin/patterns'];
   const [health, setHealth] = useState<Record<string, unknown> | null>(null);
   const [healthError, setHealthError] = useState('');
   const [isCheckingHealth, setIsCheckingHealth] = useState(false);
@@ -340,6 +407,8 @@ export function AdminApiStatus() {
     { label: '管理员令牌 ADMIN_API_TOKEN', value: Boolean(health?.adminTokenConfigured), required: true },
     { label: 'Firestore 项目 FIREBASE_PROJECT_ID', value: Boolean(health?.firebaseProjectConfigured), required: true },
     { label: 'Firestore 服务账号', value: Boolean(health?.firebaseServiceAccountConfigured), required: true },
+    { label: '邮箱登录身份校验 Firebase Auth', value: Boolean(health?.firebaseAuthConfigured), required: true },
+    { label: '用户收藏/访问接口', value: Boolean(health?.userProfileApiConfigured), required: true },
     { label: 'GitHub 图片发布配置', value: Boolean(health?.githubUploadConfigured), required: true },
     { label: `GitHub 分支 ${health?.githubBranch || 'main'}`, value: true, required: false },
   ];

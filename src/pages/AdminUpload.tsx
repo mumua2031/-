@@ -13,6 +13,7 @@ import {
   type PatternArchiveField,
   type PatternArchiveFormData,
 } from '../lib/patternArchiveForm';
+import { readStoredAdminToken, storeAdminToken } from '../lib/adminToken';
 import { usePatternData } from '../lib/patternData';
 
 type QueuedImage = {
@@ -98,7 +99,7 @@ export function AdminUpload() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [aiDescription, setAiDescription] = useState('');
-  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu:admin-token') || '');
+  const [adminToken, setAdminToken] = useState(() => readStoredAdminToken());
   const [submitMessage, setSubmitMessage] = useState('');
 
   const nextSequence = useMemo(() => {
@@ -206,7 +207,7 @@ export function AdminUpload() {
     if (!images.length || isSubmitting) return;
     setIsSubmitting(true);
     setSubmitMessage('');
-    localStorage.setItem('hanxiu:admin-token', adminToken);
+    storeAdminToken(adminToken, true);
     const queuedForSubmission = images.map((image, index) => ({ ...image, assignedCode: image.assignedCode || generatedCodes[index] }));
     const completedIds = new Set<string>();
     setImages(queuedForSubmission);

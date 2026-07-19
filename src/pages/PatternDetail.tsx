@@ -342,6 +342,7 @@ export function PatternDetail() {
   const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
   const [favoriteCodes, setFavoriteCodes] = useState<string[]>(() => readLocalFavorites(auth.currentUser));
   const [shareFeedback, setShareFeedback] = useState(false);
+  const [favoriteSyncMessage, setFavoriteSyncMessage] = useState('');
   const [isDownloadNoticeOpen, setIsDownloadNoticeOpen] = useState(false);
   const [downloadConfirmed, setDownloadConfirmed] = useState(false);
   const [isPreparingDownload, setIsPreparingDownload] = useState(false);
@@ -418,7 +419,10 @@ export function PatternDetail() {
       const next = current.includes(canonicalCode)
         ? current.filter((code) => code !== canonicalCode)
         : [...current, canonicalCode];
-      void saveUserFavorites(currentUser, next);
+      setFavoriteSyncMessage('');
+      void saveUserFavorites(currentUser, next).catch(() => {
+        setFavoriteSyncMessage(isEnglish ? 'Cloud sync failed. This change is temporarily saved on this device.' : '云端同步失败，本次收藏已暂存在本机。');
+      });
       return next;
     });
   };
@@ -632,6 +636,7 @@ export function PatternDetail() {
                 {downloadFeedback ? (isEnglish ? 'Downloaded' : '已生成') : t('common.download_record')}
               </button>
             </div>
+            {favoriteSyncMessage && <p className="mt-3 rounded border border-amber-300/20 bg-amber-950/20 px-3 py-2 text-xs leading-5 text-amber-100/85">{favoriteSyncMessage}</p>}
           </div>
         </aside>
       </section>

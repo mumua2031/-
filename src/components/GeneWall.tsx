@@ -112,15 +112,15 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                 </motion.div>
                 {showHoverInfo && isActive && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    initial={{ opacity: 0, y: 5, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[7.25rem] z-50 w-56 -translate-x-1/2 px-3 py-2 text-center"
+                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[6.35rem] z-50 w-44 -translate-x-1/2 px-2.5 py-1.5 text-center"
                   >
-                    <div className="truncate text-xs text-white/88">{name}</div>
-                    <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-fuchsia-200/78">{canonicalCode}</div>
-                    <div className="mt-1 truncate text-[10px] text-white/48">{metaLabel}</div>
+                    <div className="truncate text-[11px] leading-4 text-white/88">{name}</div>
+                    <div className="mt-0.5 font-mono text-[9px] uppercase leading-3 tracking-wider text-fuchsia-200/78">{canonicalCode}</div>
+                    <div className="mt-0.5 truncate text-[9px] leading-3 text-white/48">{metaLabel}</div>
                     {showHoverActions && (
-                      <div className="mt-2 flex items-center justify-center gap-2 text-[10px] text-fuchsia-100/80">
+                      <div className="mt-1.5 flex items-center justify-center gap-1.5 text-[9px] leading-3 text-fuchsia-100/80">
                         <span>{isEnglish ? 'View Record' : '\u67e5\u770b\u6863\u6848'}</span>
                         <span className="text-white/25">/</span>
                         <span>{isEnglish ? 'View Analysis' : '\u67e5\u770b\u89e3\u6790'}</span>

@@ -146,7 +146,9 @@ async function startServer() {
     try {
       assertAdminToken(req.headers);
       const limit = typeof req.query.limit === 'string' ? Number(req.query.limit) || 100 : 100;
-      const data = await listUserProfiles(limit);
+      const page = typeof req.query.page === 'string' ? Number(req.query.page) || 1 : 1;
+      const keyword = typeof req.query.keyword === 'string' ? req.query.keyword : '';
+      const data = await listUserProfiles({ limit, page, keyword });
       res.json({ success: true, data });
     } catch (error) {
       sendApiError(res, error, error instanceof Error && error.message.includes('Persistent database') ? 503 : 500);

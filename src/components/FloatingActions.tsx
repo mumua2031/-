@@ -8,7 +8,7 @@ import { auth } from '../lib/firebase';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
-import { favoritesUpdatedEvent, loadUserFavorites, readLocalFavorites } from '../lib/userAccount';
+import { favoritesUpdatedEvent, loadUserFavorites, openFavoritesEvent, readLocalFavorites } from '../lib/userAccount';
 import type { MultilingualString } from '../types';
 
 const iconClassName = 'w-5 h-5 drop-shadow-[0_0_8px_rgba(236,72,153,0.65)]';
@@ -49,12 +49,18 @@ export function FloatingActions() {
     const syncFavorites = () => setFavorites(readLocalFavorites(currentUser));
     window.addEventListener('storage', syncFavorites);
     window.addEventListener(favoritesUpdatedEvent, syncFavorites);
+    const openFavoritesPanel = () => {
+      if (currentUser) setIsFavoritesOpen(true);
+      else navigate(`/login?next=${encodeURIComponent(location.pathname)}`);
+    };
+    window.addEventListener(openFavoritesEvent, openFavoritesPanel);
 
     return () => {
       window.removeEventListener('storage', syncFavorites);
       window.removeEventListener(favoritesUpdatedEvent, syncFavorites);
+      window.removeEventListener(openFavoritesEvent, openFavoritesPanel);
     };
-  }, [currentUser]);
+  }, [currentUser, location.pathname, navigate]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

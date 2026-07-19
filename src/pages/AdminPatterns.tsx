@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { DatabaseZap, Loader2, Pencil, RefreshCw, Save, Search, Trash2, X } from 'lucide-react';
 import { readApiPayload } from '../lib/apiResponse';
+import { readStoredAdminToken, storeAdminToken } from '../lib/adminToken';
 import { formatHECodeForDisplay, getCanonicalHECode } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import {
@@ -71,7 +72,7 @@ function buildEditPayload(editForm: EditPatternForm) {
 export function AdminPatterns() {
   const { patterns, isLoading, source, error, refresh } = usePatternData();
   const [keyword, setKeyword] = useState('');
-  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('hanxiu:admin-token') || '');
+  const [adminToken, setAdminToken] = useState(() => readStoredAdminToken());
   const [deletingCode, setDeletingCode] = useState('');
   const [editingCode, setEditingCode] = useState('');
   const [editForm, setEditForm] = useState<EditPatternForm>(() => createEmptyEditForm());
@@ -217,7 +218,7 @@ export function AdminPatterns() {
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
             <input value={keyword} onChange={(event) => setKeyword(event.target.value)} placeholder="按编号或纹样名称检索" className="w-full rounded border border-white/20 bg-black/20 py-2 pl-10 pr-4 text-sm text-white outline-none focus:border-fuchsia-500" />
           </label>
-          <input type="password" value={adminToken} onChange={(event) => { setAdminToken(event.target.value); localStorage.setItem('hanxiu:admin-token', event.target.value); }} placeholder="管理员接口令牌" className="rounded border border-white/20 bg-black/20 px-4 py-2 text-sm text-white outline-none focus:border-fuchsia-500" />
+          <input type="password" value={adminToken} onChange={(event) => { setAdminToken(event.target.value); storeAdminToken(event.target.value, true); }} placeholder="管理员接口令牌" className="rounded border border-white/20 bg-black/20 px-4 py-2 text-sm text-white outline-none focus:border-fuchsia-500" />
         </div>
 
         <div className="mb-4 text-xs text-white/45">当前来源：{source === 'api' ? '在线数据接口' : '本地演示档案'} · 共 {filteredPatterns.length} 条</div>

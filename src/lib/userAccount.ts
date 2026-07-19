@@ -2,6 +2,7 @@ import type { User } from 'firebase/auth';
 import { formatHECodeForDisplay, validateHECode } from './classification';
 
 export const favoritesUpdatedEvent = 'hanxiu:favorites-updated';
+export const openFavoritesEvent = 'hanxiu:open-favorites';
 
 type UserProfile = {
   favoriteCodes?: unknown;
@@ -109,6 +110,16 @@ export async function syncUserProfile(user: User) {
 
 export async function recordUserPageView(user: User | null, path: string, patternCode?: string) {
   if (!user) return;
+  const throttleKey = `hanxiu:page-view:${user.uid}:${path}`;
+  const now = Date.now();
+  try {
+    const lastRecordedAt = Number(sessionStorage.getItem(throttleKey) || 0);
+    if (now - lastRecordedAt < 5 * 60 * 1000) return;
+    sessionStorage.setItem(throttleKey, String(now));
+  } catch {
+    // sessionStorage 不可用时仍允许记录一次，不影响浏览。
+  }
+
   try {
     const response = await fetch('/api/users/me', {
       method: 'POST',

@@ -3,45 +3,35 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { formatHECodeForDisplay, validateHECode } from '../lib/classification.js';
 import { getFirestoreDb } from './patternRepository.js';
 
-type RequestHeaders = Record<string, string | string[] | undefined>;
-
-type UserProfilePatch = {
-  displayName?: unknown;
-  favoriteCodes?: unknown;
-  event?: unknown;
-  path?: unknown;
-  patternCode?: unknown;
-};
-
-function getBearerToken(headers: RequestHeaders) {
+function getBearerToken(headers) {
   const authHeader = Array.isArray(headers.authorization) ? headers.authorization[0] : headers.authorization;
   return authHeader?.replace(/^Bearer\s+/i, '').trim() || '';
 }
 
-function normalizeTimestamp(value: unknown): unknown {
-  if (value && typeof value === 'object' && 'toDate' in value && typeof (value as { toDate?: unknown }).toDate === 'function') {
-    return (value as { toDate: () => Date }).toDate().toISOString();
+function normalizeTimestamp(value) {
+  if (value && typeof value === 'object' && 'toDate' in value && typeof value.toDate === 'function') {
+    return value.toDate().toISOString();
   }
   return value;
 }
 
-function normalizeProfileRecord(record: Record<string, unknown>) {
+function normalizeProfileRecord(record) {
   return Object.fromEntries(Object.entries(record).map(([key, value]) => [key, normalizeTimestamp(value)]));
 }
 
-function normalizeFavoriteCodes(value: unknown) {
+function normalizeFavoriteCodes(value) {
   if (!Array.isArray(value)) return undefined;
   return [...new Set(value
-    .filter((item): item is string => typeof item === 'string')
+    .filter((item) => typeof item === 'string')
     .map(formatHECodeForDisplay)
     .filter(validateHECode))];
 }
 
-function getCleanString(value: unknown, maxLength = 280) {
+function getCleanString(value, maxLength = 280) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
-export async function verifyFirebaseUser(headers: RequestHeaders) {
+export async function verifyFirebaseUser(headers) {
   const token = getBearerToken(headers);
   if (!token) {
     const error = new Error('请先登录邮箱账号。');
@@ -59,7 +49,7 @@ export async function verifyFirebaseUser(headers: RequestHeaders) {
   }
 }
 
-export async function getCurrentUserProfile(headers: RequestHeaders) {
+export async function getCurrentUserProfile(headers) {
   const db = await getFirestoreDb();
   if (!db) throw new Error('Persistent database is not configured.');
 
@@ -83,7 +73,7 @@ export async function getCurrentUserProfile(headers: RequestHeaders) {
   };
 }
 
-export async function upsertCurrentUserProfile(headers: RequestHeaders, patch: UserProfilePatch = {}) {
+export async function upsertCurrentUserProfile(headers, patch = {}) {
   const db = await getFirestoreDb();
   if (!db) throw new Error('Persistent database is not configured.');
 
@@ -113,13 +103,7 @@ export async function upsertCurrentUserProfile(headers: RequestHeaders, patch: U
   return getCurrentUserProfile(headers);
 }
 
-type ListUserProfilesOptions = {
-  limit?: number;
-  page?: number;
-  keyword?: string;
-};
-
-export async function listUserProfiles(options: ListUserProfilesOptions = {}) {
+export async function listUserProfiles(options = {}) {
   const db = await getFirestoreDb();
   if (!db) throw new Error('Persistent database is not configured.');
 

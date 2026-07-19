@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Code, User } from 'lucide-react';
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signOut,
+  type User as FirebaseUser,
   updateProfile,
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
@@ -55,6 +58,12 @@ export function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [allowCredentialInput, setAllowCredentialInput] = useState(false);
+  const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(auth.currentUser);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, setCurrentUser);
+    return unsubscribe;
+  }, []);
 
   const getRedirectPath = () => {
     const next = searchParams.get('next');
@@ -144,6 +153,34 @@ export function Login() {
             {isEnglish ? 'Han Embroidery Archive' : '非遗汉绣'}
           </p>
         </div>
+
+        {currentUser && (
+          <div className="mb-6 rounded-lg border border-fuchsia-300/18 bg-fuchsia-950/16 p-4 text-sm text-white/72">
+            <p className="text-white/90">{isEnglish ? 'You are signed in.' : '当前已登录'}</p>
+            <p className="mt-1 truncate text-xs text-white/52">{currentUser.email || currentUser.displayName || (isEnglish ? 'Email account' : '邮箱账号')}</p>
+            <div className="mt-4 grid gap-2 sm:grid-cols-3">
+              <button type="button" onClick={() => navigate('/')} className="rounded border border-white/12 px-3 py-2 text-xs hover:border-fuchsia-300/45 hover:text-white">
+                {isEnglish ? 'Home' : '进入首页'}
+              </button>
+              <button type="button" onClick={() => navigate('/admin')} className="rounded border border-white/12 px-3 py-2 text-xs hover:border-fuchsia-300/45 hover:text-white">
+                {isEnglish ? 'Admin' : '管理后台'}
+              </button>
+              <button
+                type="button"
+                onClick={async () => {
+                  await signOut(auth).catch(() => undefined);
+                  setEmail('');
+                  setPassword('');
+                  setDisplayName('');
+                  setMessage('');
+                }}
+                className="rounded border border-white/12 px-3 py-2 text-xs text-white/50 hover:border-white/30 hover:text-white"
+              >
+                {isEnglish ? 'Sign out' : '退出登录'}
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="mb-7 flex rounded-lg border border-white/10 bg-white/5 p-1">
           <button
@@ -252,6 +289,11 @@ export function Login() {
               <span className="text-fuchsia-500 hover:text-fuchsia-400">{isEnglish ? 'Copyright & Privacy Notice' : '《版权声明及隐私声明》'}</span>
             </label>
           </div>
+          <p className="text-[11px] leading-5 text-white/35">
+            {isEnglish
+              ? 'After sign-in, saved patterns and basic visit records are stored only under your account for personal use and site maintenance.'
+              : '登录后，收藏纹样与基础访问记录仅保存到当前账号，用于个人收藏和站点维护。'}
+          </p>
 
           {message && <p className="rounded border border-fuchsia-500/20 bg-fuchsia-950/20 px-3 py-2 text-xs leading-5 text-fuchsia-100/85">{message}</p>}
 
