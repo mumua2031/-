@@ -15,6 +15,39 @@ type GeneWallProps = {
   showHoverActions?: boolean;
 };
 
+function normalizeIdentityPart(value?: string) {
+  return (value || '').trim().replace(/\\/g, '/').replace(/\?.*$/, '').toLowerCase();
+}
+
+function getPatternIdentityKeys(pattern: PatternGene) {
+  const canonicalCode = getCanonicalHECode(pattern);
+  const imageUrl = normalizeIdentityPart(pattern.imageUrl);
+  const originalImageUrl = normalizeIdentityPart(pattern.originalImageUrl);
+  const thumbnailUrl = normalizeIdentityPart(getPatternThumbnailUrl(pattern.imageUrl));
+
+  return [
+    canonicalCode ? `code:${canonicalCode}` : '',
+    imageUrl ? `image:${imageUrl}` : '',
+    originalImageUrl ? `image:${originalImageUrl}` : '',
+    thumbnailUrl ? `image:${thumbnailUrl}` : '',
+  ].filter(Boolean);
+}
+
+function getStablePatternKey(pattern: PatternGene) {
+  return getPatternIdentityKeys(pattern)[0] || `id:${pattern.id}`;
+}
+
+function getUniquePatterns(patterns: PatternGene[]) {
+  const seen = new Set<string>();
+  return patterns.filter((pattern) => {
+    const keys = getPatternIdentityKeys(pattern);
+    const hasDuplicate = keys.some((key) => seen.has(key));
+    if (hasDuplicate) return false;
+    keys.forEach((key) => seen.add(key));
+    return true;
+  });
+}
+
 function getStableTiming(id: string) {
   let hash = 0;
   for (let index = 0; index < id.length; index += 1) {
@@ -43,20 +76,22 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
   const isEnglish = i18n.language === 'en';
   const categoryLanguage = isEnglish ? 'en' : 'zh';
   const prefersReducedMotion = useReducedMotion();
-  const [activePatternId, setActivePatternId] = useState<string | null>(null);
+  const [activePatternKey, setActivePatternKey] = useState<string | null>(null);
+  const visiblePatterns = useMemo(() => getUniquePatterns(patterns), [patterns]);
   const timings = useMemo(
-    () => new Map(patterns.map((pattern) => [pattern.id, getStableTiming(pattern.id)])),
-    [patterns],
+    () => new Map(visiblePatterns.map((pattern) => [getStablePatternKey(pattern), getStableTiming(getStablePatternKey(pattern))])),
+    [visiblePatterns],
   );
 
   return (
     <div className="w-full mx-auto" style={{ maxWidth: '1600px' }}>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-x-10 gap-y-16 items-end justify-items-center">
-        {patterns.map((pattern, index) => {
-          const timing = timings.get(pattern.id) || getStableTiming(pattern.id);
+        {visiblePatterns.map((pattern, index) => {
+          const patternKey = getStablePatternKey(pattern);
+          const timing = timings.get(patternKey) || getStableTiming(patternKey);
           const name = getLocalizedPatternName(pattern, currentLang);
-          const isActive = activePatternId === pattern.id;
-          const isDimmed = Boolean(activePatternId && !isActive);
+          const isActive = activePatternKey === patternKey;
+          const isDimmed = Boolean(activePatternKey && !isActive);
           const classification = getPatternClassification(pattern);
           const categoryLabel = classification.patternCategory ? getCategoryLabel('pattern', classification.patternCategory, categoryLanguage) : '';
           const metaLabel = getMetaLabel?.(pattern) || categoryLabel || getLocalizedText(pattern.symbolism, currentLang, '');
@@ -65,20 +100,20 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
 
           return (
             <motion.div
-              key={pattern.id}
+              key={patternKey}
               layout
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: isDimmed ? 0.34 : 1, y: 0 }}
               transition={{ duration: 0.32, ease: 'easeOut' }}
-              className="gene-wall-item relative z-0 hover:z-40 focus-within:z-40"
+              className="gene-wall-item relative z-0 hover:z-[80] focus-within:z-[80]"
             >
               <Link
                 to={`/pattern/${canonicalCode}`}
                 className="relative flex min-h-[154px] w-full flex-col items-center group no-underline outline-none"
-                onMouseEnter={() => setActivePatternId(pattern.id)}
-                onMouseLeave={() => setActivePatternId(null)}
-                onFocus={() => setActivePatternId(pattern.id)}
-                onBlur={() => setActivePatternId(null)}
+                onMouseEnter={() => setActivePatternKey(patternKey)}
+                onMouseLeave={() => setActivePatternKey(null)}
+                onFocus={() => setActivePatternKey(patternKey)}
+                onBlur={() => setActivePatternKey(null)}
               >
                 <motion.div
                   className="gene-wall-orb mb-4"
@@ -114,7 +149,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                   <motion.div
                     initial={{ opacity: 0, y: 5, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="hanxiu-modal-card gene-wall-info-card absolute left-1/2 top-[6.12rem] z-50 w-40 -translate-x-1/2 px-2.5 py-1.5 text-center"
+                    className="hanxiu-modal-card gene-wall-info-card pointer-events-none left-1/2 z-50 w-40 -translate-x-1/2 px-2.5 py-1.5 text-center"
                   >
                     <div className="truncate text-[11px] leading-4 text-white/88">{name}</div>
                     <div className="mt-0.5 font-mono text-[9px] uppercase leading-3 tracking-wider text-fuchsia-200/78">{canonicalCode}</div>

@@ -138,6 +138,8 @@ body::-webkit-scrollbar {
 }
 
 .gene-wall-info-card {
+  position: absolute;
+  top: 105px;
   max-width: min(11rem, calc(100vw - 2rem));
   border-radius: 10px;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.46), 0 0 18px rgba(217, 70, 239, 0.2);
