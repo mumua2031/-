@@ -425,27 +425,57 @@ export function PatternDetail() {
   const categoryLine = [patternCategoryLabel, meaningCategoryLabel, colorCategoryLabel].filter(Boolean).join('・');
   const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
   const eraText = normalizeEraForArchive(getLocalizedPlainText(pattern.era, currentLang, plainFallback)) || getLocalizedPlainText(pattern.era, currentLang, plainFallback);
+  const archiveNameZh = getLocalizedText(pattern.name, 'zh-CN', canonicalCode);
+  const archiveEraZh = normalizeEraForArchive(getLocalizedPlainText(pattern.era, 'zh-CN', '暂无资料')) || '暂无资料';
 
-  const buildMetadataMarkdown = () => [
-    `# ${canonicalCode} ${name}`,
+  const buildMetadataText = () => [
+    `# ${canonicalCode} ${archiveNameZh}`,
     '',
     `- HE 编码：${canonicalCode}`,
-    `- 名称：${name}`,
-    `- 纹样分类：${getCategoryDisplay(pattern, 'pattern', categoryLanguage)}`,
-    `- 寓意分类：${getCategoryDisplay(pattern, 'meaning', categoryLanguage)}`,
-    `- 色彩分类：${getCategoryDisplay(pattern, 'color', categoryLanguage)}`,
-    `- 年代：${eraText}`,
-    `- 地域：${getLocalizedPlainText(pattern.region, currentLang, plainFallback)}`,
-    `- 载体：${getLocalizedPlainText(pattern.carrier, currentLang, plainFallback)}`,
-    `- 工艺 / 针法：${getLocalizedText(pattern.craft, currentLang, fallback)}`,
-    `- 寓意说明：${getLocalizedText(pattern.symbolism, currentLang, fallback)}`,
-    `- 数据来源：${sourceText}`,
+    `- 名称：${archiveNameZh}`,
+    `- 纹样分类：${getCategoryDisplay(pattern, 'pattern', 'zh')}`,
+    `- 寓意分类：${getCategoryDisplay(pattern, 'meaning', 'zh')}`,
+    `- 色彩分类：${getCategoryDisplay(pattern, 'color', 'zh')}`,
+    `- 年代：${archiveEraZh}`,
+    `- 地域：${getLocalizedPlainText(pattern.region, 'zh-CN', '暂无资料')}`,
+    `- 载体：${getLocalizedPlainText(pattern.carrier, 'zh-CN', '暂无资料')}`,
+    `- 工艺 / 针法：${getLocalizedText(pattern.craft, 'zh-CN', '暂无资料')}`,
+    `- 寓意说明：${getLocalizedText(pattern.symbolism, 'zh-CN', '暂无资料')}`,
+    `- 数据来源：${getLocalizedText(pattern.origin, 'zh-CN', '暂无资料')}`,
     `- 版权状态：${copyrightText}`,
     `- 页面链接：${pageUrl}`,
     '',
     '## 使用提示',
-    '本档案包仅导出带水印预览图、结构化元数据与版权使用须知，不包含无水印原图、高清商用素材、第三方摄影原片或矢量源文件。',
-  ].join('\n');
+    '本档案包仅导出带水印预览图 PNG、完整纹样档案 TXT 与版权使用须知 TXT，不包含 Markdown、无水印原图、高清商用素材、第三方摄影原片或矢量源文件。',
+  ]
+    .map((line) => line.replace(/^#{1,6}\s*/, '').replace(/^-\s*/, ''))
+    .join('\n') + [
+      '',
+      '【完整档案补充信息】',
+      `原编号：${pattern.previousHeCode || '无'}`,
+      `中文标准名称：${getLocalizedText(pattern.name, 'zh-CN', canonicalCode)}`,
+      `英文名称：${englishName || '暂无资料'}`,
+      `应用场景：${getLocalizedText(pattern.scenario, 'zh-CN', '暂无资料')}`,
+      `文献 / 备注：${getLocalizedText(pattern.literature, 'zh-CN', '暂无资料')}`,
+      `传承人 / 收藏者：${getLocalizedText(pattern.inheritor, 'zh-CN', '暂无资料')}`,
+      `图片格式：${pattern.format || '暂无资料'}`,
+      `分辨率 / 档案规格：${pattern.resolution || '暂无资料'}`,
+      `档案图片路径：${pattern.imageUrl || '暂无资料'}`,
+      `建档时间：${pattern.createdAt || '暂无资料'}`,
+      `浏览次数：${Number.isFinite(pattern.views) ? pattern.views : 0}`,
+      '',
+      '【纹样视觉解析】',
+      `原始图案：${visualAnalysis ? getLocalizedText(visualAnalysis.originalPattern, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `轮廓提取：${visualAnalysis ? getLocalizedText(visualAnalysis.outlineExtraction, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `主色比例：${visualAnalysis ? getLocalizedText(visualAnalysis.mainColorRatio, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `纹样单元：${visualAnalysis ? getLocalizedText(visualAnalysis.patternUnit, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `对称关系：${visualAnalysis ? getLocalizedText(visualAnalysis.symmetry, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `重复规律：${visualAnalysis ? getLocalizedText(visualAnalysis.repetition, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `构图中心：${visualAnalysis ? getLocalizedText(visualAnalysis.compositionCenter, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      `结构说明：${visualAnalysis ? getLocalizedText(visualAnalysis.structureDescription, 'zh-CN', '暂无资料') : '暂无资料'}`,
+      '',
+      `档案导出时间：${new Date().toLocaleString('zh-CN', { hour12: false })}`,
+    ].join('\n');
 
   const buildCopyrightNotice = () => [
     '绣艺境数字档案版权使用须知',
@@ -466,8 +496,8 @@ export function PatternDetail() {
       const safeBaseName = sanitizeFileName(`${canonicalCode}_${name}_研究档案`);
       const zip = await createZip([
         { name: `${canonicalCode}_带水印预览图.png`, content: preview },
-        { name: `${canonicalCode}_纹样元数据.md`, content: buildMetadataMarkdown() },
-        { name: `${canonicalCode}_版权使用须知.txt`, content: buildCopyrightNotice() },
+        { name: `${canonicalCode}_完整纹样档案.txt`, content: `\uFEFF${buildMetadataText()}` },
+        { name: `${canonicalCode}_版权使用须知.txt`, content: `\uFEFF${buildCopyrightNotice()}` },
       ]);
       downloadBlob(zip, `${safeBaseName}.zip`);
       setIsDownloadNoticeOpen(false);
@@ -690,8 +720,8 @@ export function PatternDetail() {
             </div>
             <p className="mt-5 text-sm leading-7 text-white/58">
               {isEnglish
-                ? 'The archive contains only a watermarked preview, metadata and a copyright notice. It does not include original images, commercial HD assets or vector source files.'
-                : '档案包仅包含带水印预览图、纹样元数据和版权使用须知，不提供无水印原图、商用高清素材或矢量源文件。'}
+                ? 'The archive contains only a watermarked PNG preview, a complete UTF-8 TXT record and a TXT copyright notice. It does not include original images, commercial HD assets, Markdown or vector source files.'
+                : '档案包仅包含带水印预览图 PNG、完整纹样档案 TXT 和版权使用须知 TXT，不包含 Markdown、无水印原图、商用高清素材或矢量源文件。'}
             </p>
             <label className="mt-6 flex cursor-pointer items-start gap-3 rounded border border-fuchsia-200/14 bg-white/[0.035] p-4 text-sm leading-6 text-white/72">
               <input
