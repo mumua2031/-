@@ -2,8 +2,8 @@ import { PatternGene } from './types';
 
 export const mockPatterns: PatternGene[] = [
   {
-    "id": "HE-NB-M01",
-    "heCode": "HE-NB-M01",
+    "id": "HE-N-B-M01",
+    "heCode": "HE-N-B-M01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -62,8 +62,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 874
   },
   {
-    "id": "HE-NB-B03",
-    "heCode": "HE-NB-B03",
+    "id": "HE-N-B-B03",
+    "heCode": "HE-N-B-B03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -122,8 +122,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 948
   },
   {
-    "id": "HE-HS-M12",
-    "heCode": "HE-HS-M12",
+    "id": "HE-N-B-M12",
+    "heCode": "HE-N-B-M12",
+    "previousHeCode": "HE-HS-M12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -171,8 +172,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "鸳鸯象征夫妻恩爱，荷花寓意和和美美，整体为婚嫁祈福类"
     },
     "literature": {
-      "zh-CN": "纹样判定：莲花、莲叶或水禽，属于人文 / 民俗纹样；寓意判定：象征纯洁高雅，属于精神信仰类；色彩判定：主色比例为蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%，归多色系",
-      "en": "纹样判定：莲花、莲叶或水禽，属于人文 / 民俗纹样；寓意判定：象征纯洁高雅，属于精神信仰类；色彩判定：主色比例为蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%，归多色系"
+      "zh-CN": "纹样判定：莲花、莲叶或水禽，属于自然纹样；寓意判定：象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%，归多色系",
+      "en": "纹样判定：莲花、莲叶或水禽，属于自然纹样；寓意判定：象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为蓝色占比41%，灰色占比14%，黄色占比9%，绿色占比7%，橙色占比6%，归多色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -182,8 +183,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 985
   },
   {
-    "id": "HE-NB-B09",
-    "heCode": "HE-NB-B09",
+    "id": "HE-N-B-B09",
+    "heCode": "HE-N-B-B09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -242,8 +243,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1022
   },
   {
-    "id": "HE-HS-B08",
-    "heCode": "HE-HS-B08",
+    "id": "HE-H-S-B08",
+    "heCode": "HE-H-S-B08",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "B",
@@ -302,8 +303,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1059
   },
   {
-    "id": "HE-NB-R03",
-    "heCode": "HE-NB-R03",
+    "id": "HE-N-B-R03",
+    "heCode": "HE-N-B-R03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -362,8 +363,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1096
   },
   {
-    "id": "HE-NS-M01",
-    "heCode": "HE-NS-M01",
+    "id": "HE-N-S-M01",
+    "heCode": "HE-N-S-M01",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -422,8 +423,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1133
   },
   {
-    "id": "HE-NL-R02",
-    "heCode": "HE-NL-R02",
+    "id": "HE-N-L-R02",
+    "heCode": "HE-N-L-R02",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "R",
@@ -482,8 +483,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1170
   },
   {
-    "id": "HE-NB-R01",
-    "heCode": "HE-NB-R01",
+    "id": "HE-N-B-R01",
+    "heCode": "HE-N-B-R01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -542,8 +543,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1207
   },
   {
-    "id": "HE-NB-B01",
-    "heCode": "HE-NB-B01",
+    "id": "HE-N-B-B01",
+    "heCode": "HE-N-B-B01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -602,8 +603,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1244
   },
   {
-    "id": "HE-NS-M04",
-    "heCode": "HE-NS-M04",
+    "id": "HE-H-S-M04",
+    "heCode": "HE-H-S-M04",
+    "previousHeCode": "HE-NS-M04",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -651,8 +653,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "精神文脉 (S)"
     },
     "literature": {
-      "zh-CN": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%，归多色系",
-      "en": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%，归多色系"
+      "zh-CN": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于人文 / 民俗纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%，归多色系",
+      "en": "纹样判定：凤凰、花草或云纹、黄鹤楼、云鹤或山水，属于人文 / 民俗纹样；寓意判定：象征祥瑞、和谐与荣华富贵、承载武汉地域文化记忆，属于精神信仰类；色彩判定：主色比例为金色占比40%，黄色占比16%，绿色占比15%，橙色占比14%，红色占比8%，归多色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -662,8 +664,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1281
   },
   {
-    "id": "HE-HS-R02",
-    "heCode": "HE-HS-R02",
+    "id": "HE-H-S-R02",
+    "heCode": "HE-H-S-R02",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -722,8 +724,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1318
   },
   {
-    "id": "HE-NB-M03",
-    "heCode": "HE-NB-M03",
+    "id": "HE-N-B-M03",
+    "heCode": "HE-N-B-M03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -782,8 +784,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1355
   },
   {
-    "id": "HE-HS-A02",
-    "heCode": "HE-HS-A02",
+    "id": "HE-H-S-A02",
+    "heCode": "HE-H-S-A02",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -842,8 +844,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1392
   },
   {
-    "id": "HE-NB-M05",
-    "heCode": "HE-NB-M05",
+    "id": "HE-N-B-M05",
+    "heCode": "HE-N-B-M05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -902,8 +904,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1503
   },
   {
-    "id": "HE-NS-A01",
-    "heCode": "HE-NS-A01",
+    "id": "HE-N-S-A01",
+    "heCode": "HE-N-S-A01",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -962,8 +964,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1540
   },
   {
-    "id": "HE-HL-M10",
-    "heCode": "HE-HL-M10",
+    "id": "HE-H-L-M10",
+    "heCode": "HE-H-L-M10",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -1022,8 +1024,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1577
   },
   {
-    "id": "HE-NB-G14",
-    "heCode": "HE-NB-G14",
+    "id": "HE-N-B-G14",
+    "heCode": "HE-N-B-G14",
+    "previousHeCode": "HE-NB-B14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1082,8 +1085,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1614
   },
   {
-    "id": "HE-NB-G13",
-    "heCode": "HE-NB-G13",
+    "id": "HE-N-B-G13",
+    "heCode": "HE-N-B-G13",
+    "previousHeCode": "HE-NB-B13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1142,8 +1146,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1688
   },
   {
-    "id": "HE-NB-B11",
-    "heCode": "HE-NB-B11",
+    "id": "HE-N-B-B11",
+    "heCode": "HE-N-B-B11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -1202,8 +1206,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1725
   },
   {
-    "id": "HE-HB-M02",
-    "heCode": "HE-HB-M02",
+    "id": "HE-H-B-M02",
+    "heCode": "HE-H-B-M02",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1262,8 +1266,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1762
   },
   {
-    "id": "HE-NB-M06",
-    "heCode": "HE-NB-M06",
+    "id": "HE-N-B-M06",
+    "heCode": "HE-N-B-M06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1322,8 +1326,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1799
   },
   {
-    "id": "HE-NL-A13",
-    "heCode": "HE-NL-A13",
+    "id": "HE-N-B-A13",
+    "heCode": "HE-N-B-A13",
+    "previousHeCode": "HE-NL-A13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -1371,8 +1376,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "文人雅趣类 (L)"
     },
     "literature": {
-      "zh-CN": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于生活志趣类；色彩判定：主色比例为黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%，归金银色系",
-      "en": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于生活志趣类；色彩判定：主色比例为黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%，归金银色系"
+      "zh-CN": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于吉祥祈福类；色彩判定：主色比例为黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%，归金银色系",
+      "en": "纹样判定：凤凰、花草或云纹，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵，属于吉祥祈福类；色彩判定：主色比例为黄色占比62%，黑色占比12%，金色占比9%，棕色占比7%，橙色占比6%，归金银色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -1382,8 +1387,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1836
   },
   {
-    "id": "HE-NL-R01",
-    "heCode": "HE-NL-R01",
+    "id": "HE-N-L-R01",
+    "heCode": "HE-N-L-R01",
+    "previousHeCode": "HE-NL-B01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "R",
@@ -1442,8 +1448,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1947
   },
   {
-    "id": "HE-NB-M02",
-    "heCode": "HE-NB-M02",
+    "id": "HE-N-B-M02",
+    "heCode": "HE-N-B-M02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1502,12 +1508,13 @@ export const mockPatterns: PatternGene[] = [
     "views": 1984
   },
   {
-    "id": "HE-HB-R09",
-    "heCode": "HE-HB-R09",
+    "id": "HE-N-B-R21",
+    "heCode": "HE-N-B-R21",
+    "previousHeCode": "HE-HB-R09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
-    "sequence": 9,
+    "sequence": 21,
     "name": {
       "zh-CN": "红底金线青绿五爪龙圆团绣片",
       "en": "红底金线青绿五爪龙圆团绣片"
@@ -1551,8 +1558,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福类（B）"
     },
     "literature": {
-      "zh-CN": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%，归红色系",
-      "en": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%，归红色系"
+      "zh-CN": "纹样判定：龙、祥云或火焰纹，属于自然纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%，归红色系",
+      "en": "纹样判定：龙、祥云或火焰纹，属于自然纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为红色占比45%，黄色占比14%，蓝色占比12%，绿色占比11%，金色占比5%，归红色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -1562,8 +1569,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2095
   },
   {
-    "id": "HE-HS-R08",
-    "heCode": "HE-HS-R08",
+    "id": "HE-H-S-R08",
+    "heCode": "HE-H-S-R08",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -1622,8 +1629,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2132
   },
   {
-    "id": "HE-NL-M08",
-    "heCode": "HE-NL-M08",
+    "id": "HE-N-L-M08",
+    "heCode": "HE-N-L-M08",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -1682,12 +1689,13 @@ export const mockPatterns: PatternGene[] = [
     "views": 2206
   },
   {
-    "id": "HE-NL-M01",
-    "heCode": "HE-NL-M01",
+    "id": "HE-N-B-M22",
+    "heCode": "HE-N-B-M22",
+    "previousHeCode": "HE-NL-M01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
-    "sequence": 1,
+    "sequence": 22,
     "name": {
       "zh-CN": "荷塘双鹤汉绣",
       "en": "荷塘双鹤汉绣"
@@ -1731,8 +1739,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "文人雅趣类（L）"
     },
     "literature": {
-      "zh-CN": "纹样判定：鹤、松或云纹、莲花、莲叶或水禽，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、象征纯洁高雅，属于生活志趣类；色彩判定：主色比例为黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%，归多色系",
-      "en": "纹样判定：鹤、松或云纹、莲花、莲叶或水禽，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、象征纯洁高雅，属于生活志趣类；色彩判定：主色比例为黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%，归多色系"
+      "zh-CN": "纹样判定：鹤、松或云纹、莲花、莲叶或水禽，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%，归多色系",
+      "en": "纹样判定：鹤、松或云纹、莲花、莲叶或水禽，属于自然纹样；寓意判定：象征长寿、尊敬与福寿祝愿、象征纯洁高雅，属于吉祥祈福类；色彩判定：主色比例为黄色占比47%，绿色占比19%，橙色占比9%，黑色占比8%，金色占比6%，归多色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -1742,12 +1750,13 @@ export const mockPatterns: PatternGene[] = [
     "views": 2280
   },
   {
-    "id": "HE-NS-B04",
-    "heCode": "HE-NS-B04",
+    "id": "HE-N-B-B12",
+    "heCode": "HE-N-B-B12",
+    "previousHeCode": "HE-NS-B04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
-    "sequence": 4,
+    "sequence": 12,
     "name": {
       "zh-CN": "蓝底金凤牡丹展陈汉绣",
       "en": "蓝底金凤牡丹展陈汉绣"
@@ -1787,12 +1796,12 @@ export const mockPatterns: PatternGene[] = [
       "en": "汉绣非遗成果展配套主题绣品"
     },
     "scenario": {
-      "zh-CN": "精神信仰类（S）",
-      "en": "精神信仰类（S）"
+      "zh-CN": "吉祥祈福类（B）",
+      "en": "吉祥祈福类（B）"
     },
     "literature": {
-      "zh-CN": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于精神信仰类；色彩判定：主色比例为蓝色占比81%，归蓝色系",
-      "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于精神信仰类；色彩判定：主色比例为蓝色占比81%，归蓝色系"
+      "zh-CN": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于吉祥祈福类；色彩判定：主色比例为蓝色占比81%，归蓝色系",
+      "en": "纹样判定：凤凰、花草或云纹、牡丹、花叶，属于自然纹样；寓意判定：象征祥瑞、和谐与荣华富贵、象征富贵，属于吉祥祈福类；色彩判定：主色比例为蓝色占比81%，归蓝色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -1802,8 +1811,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2317
   },
   {
-    "id": "HE-NB-M13",
-    "heCode": "HE-NB-M13",
+    "id": "HE-N-B-M13",
+    "heCode": "HE-N-B-M13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1862,8 +1871,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2354
   },
   {
-    "id": "HE-HB-R03",
-    "heCode": "HE-HB-R03",
+    "id": "HE-H-B-R03",
+    "heCode": "HE-H-B-R03",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -1922,8 +1931,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2428
   },
   {
-    "id": "HE-NB-M09",
-    "heCode": "HE-NB-M09",
+    "id": "HE-N-B-M09",
+    "heCode": "HE-N-B-M09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1982,8 +1991,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2465
   },
   {
-    "id": "HE-HS-R01",
-    "heCode": "HE-HS-R01",
+    "id": "HE-H-S-R01",
+    "heCode": "HE-H-S-R01",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -2042,8 +2051,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2502
   },
   {
-    "id": "HE-HS-A03",
-    "heCode": "HE-HS-A03",
+    "id": "HE-H-S-A03",
+    "heCode": "HE-H-S-A03",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -2102,8 +2111,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2539
   },
   {
-    "id": "HE-NB-R06",
-    "heCode": "HE-NB-R06",
+    "id": "HE-N-B-R06",
+    "heCode": "HE-N-B-R06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2162,8 +2171,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2576
   },
   {
-    "id": "HE-NB-R05",
-    "heCode": "HE-NB-R05",
+    "id": "HE-N-B-R05",
+    "heCode": "HE-N-B-R05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2222,8 +2231,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2650
   },
   {
-    "id": "HE-NB-B02",
-    "heCode": "HE-NB-B02",
+    "id": "HE-N-B-B02",
+    "heCode": "HE-N-B-B02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -2282,8 +2291,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2724
   },
   {
-    "id": "HE-HL-M11",
-    "heCode": "HE-HL-M11",
+    "id": "HE-H-L-M11",
+    "heCode": "HE-H-L-M11",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -2342,8 +2351,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2761
   },
   {
-    "id": "HE-NB-M04",
-    "heCode": "HE-NB-M04",
+    "id": "HE-N-B-M04",
+    "heCode": "HE-N-B-M04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2402,8 +2411,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2798
   },
   {
-    "id": "HE-HB-M01",
-    "heCode": "HE-HB-M01",
+    "id": "HE-H-B-M01",
+    "heCode": "HE-H-B-M01",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2462,8 +2471,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2835
   },
   {
-    "id": "HE-HB-R02",
-    "heCode": "HE-HB-R02",
+    "id": "HE-H-B-R02",
+    "heCode": "HE-H-B-R02",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2522,8 +2531,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2872
   },
   {
-    "id": "HE-HS-B15",
-    "heCode": "HE-HS-B15",
+    "id": "HE-H-S-B15",
+    "heCode": "HE-H-S-B15",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "B",
@@ -2582,8 +2591,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 2909
   },
   {
-    "id": "HE-HL-A14",
-    "heCode": "HE-HL-A14",
+    "id": "HE-N-B-A14",
+    "heCode": "HE-N-B-A14",
+    "previousHeCode": "HE-HL-A14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2642,8 +2652,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 2946
   },
   {
-    "id": "HE-HB-A12",
-    "heCode": "HE-HB-A12",
+    "id": "HE-N-B-A12",
+    "heCode": "HE-N-B-A12",
+    "previousHeCode": "HE-HB-A12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2691,8 +2702,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福类 (B)"
     },
     "literature": {
-      "zh-CN": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%，归金银色系",
-      "en": "纹样判定：龙、祥云或火焰纹，属于人文 / 民俗纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%，归金银色系"
+      "zh-CN": "纹样判定：龙、祥云或火焰纹，属于自然纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%，归金银色系",
+      "en": "纹样判定：龙、祥云或火焰纹，属于自然纹样；寓意判定：象征祥瑞、喜庆丰收与身份秩序，属于吉祥祈福类；色彩判定：主色比例为橙色占比57%，黑色占比31%，黄色占比6%，红色占比5%，归金银色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -2702,8 +2713,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 2983
   },
   {
-    "id": "HE-GB-A02",
-    "heCode": "HE-GB-A02",
+    "id": "HE-G-B-A02",
+    "heCode": "HE-G-B-A02",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2762,8 +2773,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1576
   },
   {
-    "id": "HE-GB-A03",
-    "heCode": "HE-GB-A03",
+    "id": "HE-G-B-A03",
+    "heCode": "HE-G-B-A03",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2822,8 +2833,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1577
   },
   {
-    "id": "HE-GB-B09",
-    "heCode": "HE-GB-B09",
+    "id": "HE-G-B-B09",
+    "heCode": "HE-G-B-B09",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -2882,8 +2893,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1584
   },
   {
-    "id": "HE-GB-M01",
-    "heCode": "HE-GB-M01",
+    "id": "HE-G-B-M01",
+    "heCode": "HE-G-B-M01",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2942,8 +2953,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1587
   },
   {
-    "id": "HE-GB-M02",
-    "heCode": "HE-GB-M02",
+    "id": "HE-G-S-M02",
+    "heCode": "HE-G-S-M02",
+    "previousHeCode": "HE-GB-M02",
     "patternCategory": "G",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -2991,8 +3003,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：标准太极阴阳鱼几何圆形构图，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：标准太极阴阳鱼几何圆形构图，归几何 / 抽象纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：标准太极阴阳鱼几何圆形构图，归几何 / 抽象纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系",
+      "en": "纹样判定：标准太极阴阳鱼几何圆形构图，归几何 / 抽象纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -3002,8 +3014,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1588
   },
   {
-    "id": "HE-HB-A03",
-    "heCode": "HE-HB-A03",
+    "id": "HE-H-B-A03",
+    "heCode": "HE-H-B-A03",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -3062,8 +3074,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1578
   },
   {
-    "id": "HE-HB-A04",
-    "heCode": "HE-HB-A04",
+    "id": "HE-H-B-A04",
+    "heCode": "HE-H-B-A04",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -3122,8 +3134,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1579
   },
   {
-    "id": "HE-HB-M13",
-    "heCode": "HE-HB-M13",
+    "id": "HE-H-B-M13",
+    "heCode": "HE-H-B-M13",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3182,8 +3194,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1591
   },
   {
-    "id": "HE-HB-M14",
-    "heCode": "HE-HB-M14",
+    "id": "HE-H-B-M14",
+    "heCode": "HE-H-B-M14",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3242,8 +3254,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1592
   },
   {
-    "id": "HE-HB-M15",
-    "heCode": "HE-HB-M15",
+    "id": "HE-H-B-M15",
+    "heCode": "HE-H-B-M15",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3302,8 +3314,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1593
   },
   {
-    "id": "HE-HB-M16",
-    "heCode": "HE-HB-M16",
+    "id": "HE-H-B-M16",
+    "heCode": "HE-H-B-M16",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3362,8 +3374,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1594
   },
   {
-    "id": "HE-HB-M17",
-    "heCode": "HE-HB-M17",
+    "id": "HE-H-B-M17",
+    "heCode": "HE-H-B-M17",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3422,8 +3434,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1595
   },
   {
-    "id": "HE-HB-M18",
-    "heCode": "HE-HB-M18",
+    "id": "HE-H-B-M18",
+    "heCode": "HE-H-B-M18",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3482,8 +3494,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1596
   },
   {
-    "id": "HE-HB-M19",
-    "heCode": "HE-HB-M19",
+    "id": "HE-H-B-M19",
+    "heCode": "HE-H-B-M19",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3542,8 +3554,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1597
   },
   {
-    "id": "HE-HB-M20",
-    "heCode": "HE-HB-M20",
+    "id": "HE-H-B-M20",
+    "heCode": "HE-H-B-M20",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3602,8 +3614,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1589
   },
   {
-    "id": "HE-HB-M21",
-    "heCode": "HE-HB-M21",
+    "id": "HE-H-B-M21",
+    "heCode": "HE-H-B-M21",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3662,8 +3674,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1590
   },
   {
-    "id": "HE-HB-M22",
-    "heCode": "HE-HB-M22",
+    "id": "HE-H-B-M22",
+    "heCode": "HE-H-B-M22",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3722,8 +3734,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1591
   },
   {
-    "id": "HE-HB-M23",
-    "heCode": "HE-HB-M23",
+    "id": "HE-H-B-M23",
+    "heCode": "HE-H-B-M23",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3782,8 +3794,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1592
   },
   {
-    "id": "HE-HB-M24",
-    "heCode": "HE-HB-M24",
+    "id": "HE-H-B-M24",
+    "heCode": "HE-H-B-M24",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3842,8 +3854,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1593
   },
   {
-    "id": "HE-HB-M25",
-    "heCode": "HE-HB-M25",
+    "id": "HE-H-B-M25",
+    "heCode": "HE-H-B-M25",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3902,8 +3914,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1594
   },
   {
-    "id": "HE-HB-R05",
-    "heCode": "HE-HB-R05",
+    "id": "HE-H-B-R05",
+    "heCode": "HE-H-B-R05",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -3962,8 +3974,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1597
   },
   {
-    "id": "HE-HB-R06",
-    "heCode": "HE-HB-R06",
+    "id": "HE-H-B-R06",
+    "heCode": "HE-H-B-R06",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4022,8 +4034,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1598
   },
   {
-    "id": "HE-HB-R14",
-    "heCode": "HE-HB-R14",
+    "id": "HE-H-B-R14",
+    "heCode": "HE-H-B-R14",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4082,8 +4094,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1597
   },
   {
-    "id": "HE-HB-R15",
-    "heCode": "HE-HB-R15",
+    "id": "HE-H-B-R15",
+    "heCode": "HE-H-B-R15",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4142,8 +4154,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1598
   },
   {
-    "id": "HE-HB-R16",
-    "heCode": "HE-HB-R16",
+    "id": "HE-H-B-R16",
+    "heCode": "HE-H-B-R16",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4202,8 +4214,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1599
   },
   {
-    "id": "HE-HB-R17",
-    "heCode": "HE-HB-R17",
+    "id": "HE-H-B-R17",
+    "heCode": "HE-H-B-R17",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4262,8 +4274,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1600
   },
   {
-    "id": "HE-HB-R18",
-    "heCode": "HE-HB-R18",
+    "id": "HE-H-B-R18",
+    "heCode": "HE-H-B-R18",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4322,8 +4334,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1601
   },
   {
-    "id": "HE-HB-R19",
-    "heCode": "HE-HB-R19",
+    "id": "HE-H-S-R19",
+    "heCode": "HE-H-S-R19",
+    "previousHeCode": "HE-HB-R19",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4371,8 +4384,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：达摩祖师、芦苇渡江、多层波浪江水、楷书“达摩渡江”，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系",
-      "en": "纹样判定：达摩祖师、芦苇渡江、多层波浪江水、楷书“达摩渡江”，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
+      "zh-CN": "纹样判定：达摩祖师、芦苇渡江、多层波浪江水、楷书“达摩渡江”，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归红色系",
+      "en": "纹样判定：达摩祖师、芦苇渡江、多层波浪江水、楷书“达摩渡江”，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -4382,8 +4395,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1602
   },
   {
-    "id": "HE-HB-R20",
-    "heCode": "HE-HB-R20",
+    "id": "HE-H-S-R20",
+    "heCode": "HE-H-S-R20",
+    "previousHeCode": "HE-HB-R20",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4431,8 +4445,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：静坐宾度罗尊者、木杖、佛珠、经书、山石草纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系",
-      "en": "纹样判定：静坐宾度罗尊者、木杖、佛珠、经书、山石草纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归吉祥祈福类；色彩判定：按HE色彩分类归红色系"
+      "zh-CN": "纹样判定：静坐宾度罗尊者、木杖、佛珠、经书、山石草纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归红色系",
+      "en": "纹样判定：静坐宾度罗尊者、木杖、佛珠、经书、山石草纹，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归红色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -4442,8 +4456,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1594
   },
   {
-    "id": "HE-HS-M01",
-    "heCode": "HE-HS-M01",
+    "id": "HE-H-S-M01",
+    "heCode": "HE-H-S-M01",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4502,8 +4516,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1605
   },
   {
-    "id": "HE-HS-M02",
-    "heCode": "HE-HS-M02",
+    "id": "HE-N-S-M02",
+    "heCode": "HE-N-S-M02",
+    "previousHeCode": "HE-HS-M02",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4551,8 +4566,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "精神信仰"
     },
     "literature": {
-      "zh-CN": "纹样判定：连续卷曲蟠螭龙纹、凤鸟、流动云气复合纹样，线条婉转灵动，是典型楚式曲线审美，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：连续卷曲蟠螭龙纹、凤鸟、流动云气复合纹样，线条婉转灵动，是典型楚式曲线审美，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：连续卷曲蟠螭龙纹、凤鸟、流动云气复合纹样，线条婉转灵动，是典型楚式曲线审美，归自然纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系",
+      "en": "纹样判定：连续卷曲蟠螭龙纹、凤鸟、流动云气复合纹样，线条婉转灵动，是典型楚式曲线审美，归自然纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -4562,8 +4577,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1606
   },
   {
-    "id": "HE-HS-M03",
-    "heCode": "HE-HS-M03",
+    "id": "HE-H-S-M03",
+    "heCode": "HE-H-S-M03",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4622,8 +4637,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1607
   },
   {
-    "id": "HE-HS-M04",
-    "heCode": "HE-HS-M04",
+    "id": "HE-H-L-M04",
+    "heCode": "HE-H-L-M04",
+    "previousHeCode": "HE-HS-M04",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -4671,8 +4687,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "精神信仰"
     },
     "literature": {
-      "zh-CN": "纹样判定：西厢记红娘人物，搭配庭院楼阁、竹、牡丹花卉，满月形构图，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系",
-      "en": "纹样判定：西厢记红娘人物，搭配庭院楼阁、竹、牡丹花卉，满月形构图，归人文 / 民俗纹样；寓意判定：按HE寓意分类归精神信仰类；色彩判定：按HE色彩分类归多色系"
+      "zh-CN": "纹样判定：西厢记红娘人物，搭配庭院楼阁、竹、牡丹花卉，满月形构图，归人文 / 民俗纹样；寓意判定：按HE寓意分类归生活志趣类；色彩判定：按HE色彩分类归多色系",
+      "en": "纹样判定：西厢记红娘人物，搭配庭院楼阁、竹、牡丹花卉，满月形构图，归人文 / 民俗纹样；寓意判定：按HE寓意分类归生活志趣类；色彩判定：按HE色彩分类归多色系"
     },
     "inheritor": {
       "zh-CN": "民间佚名汉绣老绣工",
@@ -4682,8 +4698,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1608
   },
   {
-    "id": "HE-NB-A01",
-    "heCode": "HE-NB-A01",
+    "id": "HE-N-B-A01",
+    "heCode": "HE-N-B-A01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4742,8 +4758,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1582
   },
   {
-    "id": "HE-NB-A02",
-    "heCode": "HE-NB-A02",
+    "id": "HE-N-B-A02",
+    "heCode": "HE-N-B-A02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4802,8 +4818,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1583
   },
   {
-    "id": "HE-NB-A04",
-    "heCode": "HE-NB-A04",
+    "id": "HE-N-B-A04",
+    "heCode": "HE-N-B-A04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4862,8 +4878,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1585
   },
   {
-    "id": "HE-NB-A05",
-    "heCode": "HE-NB-A05",
+    "id": "HE-N-B-A05",
+    "heCode": "HE-N-B-A05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4922,8 +4938,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1586
   },
   {
-    "id": "HE-NB-A06",
-    "heCode": "HE-NB-A06",
+    "id": "HE-N-B-A06",
+    "heCode": "HE-N-B-A06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4982,8 +4998,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1587
   },
   {
-    "id": "HE-NB-B04",
-    "heCode": "HE-NB-B04",
+    "id": "HE-N-B-B04",
+    "heCode": "HE-N-B-B04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5042,8 +5058,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1586
   },
   {
-    "id": "HE-NB-B05",
-    "heCode": "HE-NB-B05",
+    "id": "HE-N-B-B05",
+    "heCode": "HE-N-B-B05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5102,8 +5118,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1587
   },
   {
-    "id": "HE-NB-B06",
-    "heCode": "HE-NB-B06",
+    "id": "HE-N-B-B06",
+    "heCode": "HE-N-B-B06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5162,8 +5178,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1588
   },
   {
-    "id": "HE-NB-B07",
-    "heCode": "HE-NB-B07",
+    "id": "HE-N-B-B07",
+    "heCode": "HE-N-B-B07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5222,8 +5238,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1589
   },
   {
-    "id": "HE-NB-B08",
-    "heCode": "HE-NB-B08",
+    "id": "HE-N-B-B08",
+    "heCode": "HE-N-B-B08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5282,8 +5298,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1590
   },
   {
-    "id": "HE-NB-B10",
-    "heCode": "HE-NB-B10",
+    "id": "HE-N-B-B10",
+    "heCode": "HE-N-B-B10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5342,8 +5358,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1583
   },
   {
-    "id": "HE-NB-G01",
-    "heCode": "HE-NB-G01",
+    "id": "HE-N-L-G01",
+    "heCode": "HE-N-L-G01",
+    "previousHeCode": "HE-NB-G01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "G",
@@ -5379,8 +5396,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "可见青蛙、水草等自然物象的彩色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归吉祥祈福类。",
-      "en": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归吉祥祈福类。"
+      "zh-CN": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归生活志趣类。",
+      "en": "青蛙与水草构成自然生态题材；未见可确认的具体民俗释义，按项目HE编码暂归生活志趣类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5391,8 +5408,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归吉祥祈福类；色彩判定：绿色占主视觉，归绿色系。",
-      "en": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归吉祥祈福类；色彩判定：绿色占主视觉，归绿色系。"
+      "zh-CN": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归生活志趣类；色彩判定：绿色占主视觉，归绿色系。",
+      "en": "纹样判定：青蛙、水草，属于自然纹样；寓意判定：具体民俗释义待考，按HE寓意分类归生活志趣类；色彩判定：绿色占主视觉，归绿色系。"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -5402,8 +5419,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1588
   },
   {
-    "id": "HE-NB-M07",
-    "heCode": "HE-NB-M07",
+    "id": "HE-N-B-M07",
+    "heCode": "HE-N-B-M07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5462,8 +5479,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1600
   },
   {
-    "id": "HE-NB-M08",
-    "heCode": "HE-NB-M08",
+    "id": "HE-N-B-M08",
+    "heCode": "HE-N-B-M08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5522,8 +5539,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1601
   },
   {
-    "id": "HE-NB-M10",
-    "heCode": "HE-NB-M10",
+    "id": "HE-N-B-M10",
+    "heCode": "HE-N-B-M10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5582,8 +5599,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1594
   },
   {
-    "id": "HE-NB-M11",
-    "heCode": "HE-NB-M11",
+    "id": "HE-N-B-M11",
+    "heCode": "HE-N-B-M11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5642,8 +5659,9 @@ export const mockPatterns: PatternGene[] = [
     "views": 1595
   },
   {
-    "id": "HE-NB-M12",
-    "heCode": "HE-NB-M12",
+    "id": "HE-N-L-M12",
+    "heCode": "HE-N-L-M12",
+    "previousHeCode": "HE-NB-M12",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -5679,8 +5697,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "可见蝴蝶、牵牛花等动植物纹样的多色刺绣表现；具体针法待实物或高清资料进一步核验。"
     },
     "symbolism": {
-      "zh-CN": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入吉祥祈福类。",
-      "en": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入吉祥祈福类。"
+      "zh-CN": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入生活志趣类。",
+      "en": "蝴蝶在传统纹样中可作爱情、婚姻幸福、美满等象征；牵牛花具体寓意待考，本件按项目HE编码归入生活志趣类。"
     },
     "origin": {
       "zh-CN": "民间采集，出处待考",
@@ -5691,8 +5709,8 @@ export const mockPatterns: PatternGene[] = [
       "en": "吉祥祈福"
     },
     "literature": {
-      "zh-CN": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归吉祥祈福类；色彩判定：紫彩与多色组合，归多色系。",
-      "en": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归吉祥祈福类；色彩判定：紫彩与多色组合，归多色系。"
+      "zh-CN": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归生活志趣类；色彩判定：紫彩与多色组合，归多色系。",
+      "en": "纹样判定：蝴蝶、牵牛花，属于自然动植物纹样；寓意判定：蝴蝶常关联美满、婚姻幸福等含义，牵牛花具体释义待考，按HE寓意分类归生活志趣类；色彩判定：紫彩与多色组合，归多色系。"
     },
     "inheritor": {
       "zh-CN": "具体传承人不详",
@@ -5702,8 +5720,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1596
   },
   {
-    "id": "HE-NB-M14",
-    "heCode": "HE-NB-M14",
+    "id": "HE-N-B-M14",
+    "heCode": "HE-N-B-M14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5762,8 +5780,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1598
   },
   {
-    "id": "HE-NB-M15",
-    "heCode": "HE-NB-M15",
+    "id": "HE-N-B-M15",
+    "heCode": "HE-N-B-M15",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5822,8 +5840,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1599
   },
   {
-    "id": "HE-NB-M16",
-    "heCode": "HE-NB-M16",
+    "id": "HE-N-B-M16",
+    "heCode": "HE-N-B-M16",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5882,8 +5900,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1600
   },
   {
-    "id": "HE-NB-M17",
-    "heCode": "HE-NB-M17",
+    "id": "HE-N-B-M17",
+    "heCode": "HE-N-B-M17",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5942,8 +5960,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1601
   },
   {
-    "id": "HE-NB-M18",
-    "heCode": "HE-NB-M18",
+    "id": "HE-N-B-M18",
+    "heCode": "HE-N-B-M18",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6002,8 +6020,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1602
   },
   {
-    "id": "HE-NB-M19",
-    "heCode": "HE-NB-M19",
+    "id": "HE-N-B-M19",
+    "heCode": "HE-N-B-M19",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6062,8 +6080,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1603
   },
   {
-    "id": "HE-NB-M20",
-    "heCode": "HE-NB-M20",
+    "id": "HE-N-B-M20",
+    "heCode": "HE-N-B-M20",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6122,8 +6140,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1595
   },
   {
-    "id": "HE-NB-M21",
-    "heCode": "HE-NB-M21",
+    "id": "HE-N-B-M21",
+    "heCode": "HE-N-B-M21",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6182,8 +6200,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1596
   },
   {
-    "id": "HE-NB-R02",
-    "heCode": "HE-NB-R02",
+    "id": "HE-N-B-R02",
+    "heCode": "HE-N-B-R02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6242,8 +6260,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1600
   },
   {
-    "id": "HE-NB-R04",
-    "heCode": "HE-NB-R04",
+    "id": "HE-N-B-R04",
+    "heCode": "HE-N-B-R04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6302,8 +6320,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1602
   },
   {
-    "id": "HE-NB-R07",
-    "heCode": "HE-NB-R07",
+    "id": "HE-N-B-R07",
+    "heCode": "HE-N-B-R07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6362,8 +6380,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1605
   },
   {
-    "id": "HE-NB-R08",
-    "heCode": "HE-NB-R08",
+    "id": "HE-N-B-R08",
+    "heCode": "HE-N-B-R08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6422,8 +6440,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1606
   },
   {
-    "id": "HE-NB-R09",
-    "heCode": "HE-NB-R09",
+    "id": "HE-N-B-R09",
+    "heCode": "HE-N-B-R09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6482,8 +6500,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1607
   },
   {
-    "id": "HE-NB-R10",
-    "heCode": "HE-NB-R10",
+    "id": "HE-N-B-R10",
+    "heCode": "HE-N-B-R10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6542,8 +6560,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1599
   },
   {
-    "id": "HE-NB-R11",
-    "heCode": "HE-NB-R11",
+    "id": "HE-N-B-R11",
+    "heCode": "HE-N-B-R11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6602,8 +6620,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1600
   },
   {
-    "id": "HE-NB-R12",
-    "heCode": "HE-NB-R12",
+    "id": "HE-N-B-R12",
+    "heCode": "HE-N-B-R12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6662,8 +6680,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1601
   },
   {
-    "id": "HE-NB-R13",
-    "heCode": "HE-NB-R13",
+    "id": "HE-N-B-R13",
+    "heCode": "HE-N-B-R13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6722,8 +6740,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1602
   },
   {
-    "id": "HE-NB-R17",
-    "heCode": "HE-NB-R17",
+    "id": "HE-N-B-R17",
+    "heCode": "HE-N-B-R17",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6782,8 +6800,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1606
   },
   {
-    "id": "HE-NB-R18",
-    "heCode": "HE-NB-R18",
+    "id": "HE-N-B-R18",
+    "heCode": "HE-N-B-R18",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6842,8 +6860,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1607
   },
   {
-    "id": "HE-NB-R19",
-    "heCode": "HE-NB-R19",
+    "id": "HE-N-B-R19",
+    "heCode": "HE-N-B-R19",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6902,8 +6920,8 @@ export const mockPatterns: PatternGene[] = [
     "views": 1608
   },
   {
-    "id": "HE-NB-R20",
-    "heCode": "HE-NB-R20",
+    "id": "HE-N-B-R20",
+    "heCode": "HE-N-B-R20",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",

@@ -1,7 +1,15 @@
 import type { Firestore } from 'firebase-admin/firestore';
 import { mockPatterns } from '../data.js';
 import type { PatternGene } from '../types.js';
-import { validateHECode } from '../lib/classification.js';
+import {
+  formatHECodeForDisplay,
+  getCategoryLabel,
+  getLegacyHECodeAliases,
+  normalizePatternClassificationText,
+  parseHECode,
+  resolvePatternHECode,
+  validateHECode,
+} from '../lib/classification.js';
 
 type PatternRecord = PatternGene & Record<string, unknown>;
 
@@ -188,10 +196,53 @@ function normalizeEraForArchive(value?: unknown) {
 
 function normalizePattern(record: PatternRecord) {
   const pattern = normalizeFirestoreValue(record) as PatternGene;
-  return {
+  const storedCode = pattern.heCode;
+  const canonicalCode = resolvePatternHECode(storedCode, pattern.previousHeCode);
+  const parsedCode = parseHECode(canonicalCode);
+  const categoryLabels = parsedCode.isValid
+    ? [
+        { 'zh-CN': `${getCategoryLabel('pattern', parsedCode.patternCategory, 'zh')} (${parsedCode.patternCategory})`, en: `${getCategoryLabel('pattern', parsedCode.patternCategory, 'en')} (${parsedCode.patternCategory})` },
+        { 'zh-CN': `${getCategoryLabel('meaning', parsedCode.meaningCategory, 'zh')} (${parsedCode.meaningCategory})`, en: `${getCategoryLabel('meaning', parsedCode.meaningCategory, 'en')} (${parsedCode.meaningCategory})` },
+        { 'zh-CN': `${getCategoryLabel('color', parsedCode.colorCategory, 'zh')} (${parsedCode.colorCategory})`, en: `${getCategoryLabel('color', parsedCode.colorCategory, 'en')} (${parsedCode.colorCategory})` },
+      ]
+    : pattern.categoryLabels;
+
+  return normalizePatternClassificationText({
     ...pattern,
+    id: canonicalCode || pattern.id,
+    heCode: canonicalCode || pattern.heCode,
+    ...(storedCode !== canonicalCode
+      ? { previousHeCode: pattern.previousHeCode || storedCode }
+      : pattern.previousHeCode
+        ? { previousHeCode: pattern.previousHeCode }
+        : {}),
+    ...(parsedCode.isValid
+      ? {
+          patternCategory: parsedCode.patternCategory,
+          meaningCategory: parsedCode.meaningCategory,
+          colorCategory: parsedCode.colorCategory,
+          sequence: parsedCode.sequence ?? pattern.sequence,
+          categoryLabels,
+        }
+      : {}),
     era: normalizeEraForArchive(pattern.era) || pattern.era,
-  };
+  });
+}
+
+async function findFirestorePatternDocument(db: Firestore, heCode: string) {
+  const aliases = getLegacyHECodeAliases(heCode);
+
+  for (const alias of aliases) {
+    const snapshot = await db.collection('patterns').where('heCode', '==', alias).limit(1).get();
+    if (!snapshot.empty) return snapshot.docs[0];
+  }
+
+  for (const alias of aliases) {
+    const snapshot = await db.collection('patterns').where('previousHeCode', '==', alias).limit(1).get();
+    if (!snapshot.empty) return snapshot.docs[0];
+  }
+
+  return null;
 }
 
 function buildSearchText(pattern: PatternGene) {
@@ -248,7 +299,10 @@ export async function listPatterns(query: PatternQuery = {}) {
       const normalizedPattern = normalizePattern(pattern as PatternRecord);
       return [normalizedPattern.heCode, normalizedPattern] as const;
     }));
+    const seenFirestoreCodes = new Set<string>();
     records.forEach((pattern) => {
+      if (seenFirestoreCodes.has(pattern.heCode)) return;
+      seenFirestoreCodes.add(pattern.heCode);
       const record = pattern as PatternGene & { previousHeCode?: unknown };
       const previousHeCode = typeof record.previousHeCode === 'string' ? record.previousHeCode : '';
       if (previousHeCode && previousHeCode !== pattern.heCode) mergedByCode.delete(previousHeCode);
@@ -264,12 +318,12 @@ export async function listPatterns(query: PatternQuery = {}) {
 
 export async function findPatternByCode(heCode: string) {
   const db = await getFirestoreDb();
+  const canonicalCode = formatHECodeForDisplay(heCode);
 
   if (db) {
     try {
-      const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
-      if (!snapshot.empty) {
-        const doc = snapshot.docs[0];
+      const doc = await findFirestorePatternDocument(db, canonicalCode);
+      if (doc) {
         return { data: normalizePattern({ id: doc.id, ...doc.data() } as PatternRecord), source: 'firestore' as const };
       }
     } catch (error) {
@@ -277,7 +331,8 @@ export async function findPatternByCode(heCode: string) {
     }
   }
 
-  const data = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
+  const aliases = new Set(getLegacyHECodeAliases(canonicalCode));
+  const data = mockPatterns.find((pattern) => aliases.has(pattern.heCode) || aliases.has(pattern.id));
   if (data) return { data: normalizePattern(data as PatternRecord), source: 'local' as const };
   return { data: null, source: 'local' as const };
 }
@@ -285,7 +340,8 @@ export async function findPatternByCode(heCode: string) {
 export async function createPattern(pattern: Partial<PatternGene>) {
   const db = await getRequiredFirestoreDb();
   const { FieldValue } = await getFirebaseAdminModules();
-  if (!pattern.heCode || !validateHECode(pattern.heCode)) {
+  const canonicalCode = pattern.heCode ? formatHECodeForDisplay(pattern.heCode) : '';
+  if (!canonicalCode || !validateHECode(canonicalCode)) {
     const error = new Error('HE 编号格式必须为 HE-N-B-R01。');
     Object.assign(error, { statusCode: 400 });
     throw error;
@@ -295,21 +351,31 @@ export async function createPattern(pattern: Partial<PatternGene>) {
     Object.assign(error, { statusCode: 400 });
     throw error;
   }
-  const docRef = db.collection('patterns').doc(pattern.heCode);
-  const normalizedPattern = {
+  const existingDoc = await findFirestorePatternDocument(db, canonicalCode);
+  if (existingDoc) {
+    const duplicateError = new Error(`编号 ${canonicalCode} 已存在，请刷新数据后重新生成编号。`);
+    Object.assign(duplicateError, { statusCode: 409 });
+    throw duplicateError;
+  }
+  const docRef = db.collection('patterns').doc(canonicalCode);
+  const normalizedPattern = normalizePattern({
     ...pattern,
+    id: canonicalCode,
+    heCode: canonicalCode,
+    ...(pattern.heCode !== canonicalCode ? { previousHeCode: pattern.heCode } : {}),
     era: normalizeEraForArchive(pattern.era) || '具体年代待考',
-  };
+  } as PatternRecord);
   try {
     await docRef.create({
       ...normalizedPattern,
-      id: pattern.heCode,
+      id: canonicalCode,
+      heCode: canonicalCode,
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
     });
   } catch (error) {
     if (error instanceof Error && /already exists|ALREADY_EXISTS|6/i.test(error.message)) {
-      const duplicateError = new Error(`编号 ${pattern.heCode} 已存在，请刷新数据后重新生成编号。`);
+      const duplicateError = new Error(`编号 ${canonicalCode} 已存在，请刷新数据后重新生成编号。`);
       Object.assign(duplicateError, { statusCode: 409 });
       throw duplicateError;
     }
@@ -321,28 +387,30 @@ export async function createPattern(pattern: Partial<PatternGene>) {
 export async function updatePattern(heCode: string, patch: Partial<PatternGene>) {
   const db = await getRequiredFirestoreDb();
   const { FieldValue } = await getFirebaseAdminModules();
-  const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
-  const previousSnapshot = snapshot.empty ? await db.collection('patterns').where('previousHeCode', '==', heCode).limit(1).get() : null;
-  const existingDoc = !snapshot.empty ? snapshot.docs[0] : previousSnapshot && !previousSnapshot.empty ? previousSnapshot.docs[0] : null;
+  const canonicalCode = formatHECodeForDisplay(heCode);
+  const existingDoc = await findFirestorePatternDocument(db, canonicalCode);
+  const nextHeCode = patch.heCode ? formatHECodeForDisplay(patch.heCode) : canonicalCode;
   const normalizedPatch = {
     ...patch,
+    ...(nextHeCode ? { heCode: nextHeCode, id: nextHeCode } : {}),
     ...(Object.prototype.hasOwnProperty.call(patch, 'era') ? { era: normalizeEraForArchive(patch.era) || '具体年代待考' } : {}),
   } as PatternRecord;
 
   if (!existingDoc) {
-    const localPattern = mockPatterns.find((pattern) => pattern.heCode === heCode || pattern.id === heCode);
+    const aliases = new Set(getLegacyHECodeAliases(canonicalCode));
+    const localPattern = mockPatterns.find((pattern) => aliases.has(pattern.heCode) || aliases.has(pattern.id));
     if (!localPattern) throw new Error('Pattern not found.');
 
     const mergedPattern = {
       ...normalizePattern(localPattern as PatternRecord),
       ...normalizedPatch,
     } as PatternRecord;
-    const nextHeCode = typeof mergedPattern.heCode === 'string' && mergedPattern.heCode ? mergedPattern.heCode : heCode;
-    const docRef = db.collection('patterns').doc(nextHeCode);
+    const mergedHeCode = typeof mergedPattern.heCode === 'string' && mergedPattern.heCode ? formatHECodeForDisplay(mergedPattern.heCode) : canonicalCode;
+    const docRef = db.collection('patterns').doc(mergedHeCode);
     await docRef.set({
       ...mergedPattern,
-      id: nextHeCode,
-      heCode: nextHeCode,
+      id: mergedHeCode,
+      heCode: mergedHeCode,
       previousHeCode: heCode,
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
@@ -350,19 +418,136 @@ export async function updatePattern(heCode: string, patch: Partial<PatternGene>)
     return docRef.id;
   }
 
-  await existingDoc.ref.set({ ...normalizedPatch, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
-  return existingDoc.id;
+  const storedData = existingDoc.data() as PatternRecord;
+  const storedCode = String(storedData.heCode || '');
+  const targetRef = db.collection('patterns').doc(nextHeCode);
+  const migratedRecord = normalizePatternClassificationText({
+    ...storedData,
+    ...normalizedPatch,
+    id: nextHeCode,
+    heCode: nextHeCode,
+    ...(storedCode && storedCode !== nextHeCode
+      ? { previousHeCode: storedData.previousHeCode || storedCode }
+      : storedData.previousHeCode
+        ? { previousHeCode: storedData.previousHeCode }
+        : {}),
+    updatedAt: FieldValue.serverTimestamp(),
+  } as PatternGene) as PatternRecord;
+
+  if (existingDoc.ref.path === targetRef.path) {
+    await targetRef.set(migratedRecord, { merge: true });
+  } else {
+    const batch = db.batch();
+    batch.create(targetRef, migratedRecord);
+    batch.delete(existingDoc.ref);
+    try {
+      await batch.commit();
+    } catch (error) {
+      if (error instanceof Error && /already exists|ALREADY_EXISTS|6/i.test(error.message)) {
+        const duplicateError = new Error(`编号 ${nextHeCode} 已被另一条纹样使用，已取消改号以避免覆盖。`);
+        Object.assign(duplicateError, { statusCode: 409 });
+        throw duplicateError;
+      }
+      throw error;
+    }
+  }
+
+  return targetRef.id;
+}
+
+export async function syncLocalPatternsToFirestore() {
+  const db = await getRequiredFirestoreDb();
+  const { FieldValue } = await getFirebaseAdminModules();
+  const collection = db.collection('patterns');
+  const snapshot = await collection.get();
+  const documents = snapshot.docs.map((doc) => ({
+    doc,
+    id: doc.id,
+    heCode: String(doc.data().heCode || ''),
+    previousHeCode: String(doc.data().previousHeCode || ''),
+  }));
+
+  let batch = db.batch();
+  let operationCount = 0;
+  const commitBatchIfNeeded = async (force = false) => {
+    if (!operationCount || (!force && operationCount < 400)) return;
+    await batch.commit();
+    batch = db.batch();
+    operationCount = 0;
+  };
+
+  let created = 0;
+  let updated = 0;
+  let migrated = 0;
+  const migratedDocumentPaths = new Set<string>();
+  const canonicalCodes = new Set(mockPatterns.map((pattern) => formatHECodeForDisplay(pattern.heCode)));
+
+  for (const localPattern of mockPatterns) {
+    const canonicalCode = formatHECodeForDisplay(localPattern.heCode);
+    const safeLegacyAliases = new Set(
+      getLegacyHECodeAliases(canonicalCode).filter((alias) => alias !== canonicalCode && !canonicalCodes.has(alias)),
+    );
+    if (localPattern.previousHeCode) safeLegacyAliases.add(localPattern.previousHeCode);
+
+    const canonicalDocument = documents.find(({ id }) => id === canonicalCode);
+    if (
+      canonicalDocument?.heCode
+      && resolvePatternHECode(canonicalDocument.heCode, canonicalDocument.previousHeCode) !== canonicalCode
+    ) {
+      const conflictError = new Error(`编号 ${canonicalCode} 的 Firestore 文档属于其他纹样，已停止同步以避免覆盖。`);
+      Object.assign(conflictError, { statusCode: 409 });
+      throw conflictError;
+    }
+    const legacyDocuments = documents.filter(({ doc, id, heCode, previousHeCode }) =>
+      doc.ref.path !== canonicalDocument?.doc.ref.path
+      && (heCode === canonicalCode || safeLegacyAliases.has(id) || safeLegacyAliases.has(heCode) || safeLegacyAliases.has(previousHeCode)),
+    );
+    const sourceDocument = canonicalDocument || legacyDocuments[0];
+    const normalizedPattern = JSON.parse(JSON.stringify(normalizePattern(localPattern as PatternRecord))) as PatternRecord;
+    const targetRef = collection.doc(canonicalCode);
+
+    batch.set(targetRef, {
+      ...(sourceDocument?.doc.data() || {}),
+      ...normalizedPattern,
+      id: canonicalCode,
+      heCode: canonicalCode,
+      ...(localPattern.previousHeCode ? { previousHeCode: localPattern.previousHeCode } : {}),
+      createdAt: sourceDocument?.doc.data().createdAt || FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    operationCount += 1;
+    if (canonicalDocument) updated += 1;
+    else created += 1;
+
+    for (const legacyDocument of legacyDocuments) {
+      if (migratedDocumentPaths.has(legacyDocument.doc.ref.path)) continue;
+      batch.delete(legacyDocument.doc.ref);
+      migratedDocumentPaths.add(legacyDocument.doc.ref.path);
+      migrated += 1;
+      operationCount += 1;
+    }
+
+    await commitBatchIfNeeded();
+  }
+
+  await commitBatchIfNeeded(true);
+  return {
+    total: mockPatterns.length,
+    created,
+    updated,
+    migrated,
+    canonicalCodes: mockPatterns.map((pattern) => pattern.heCode),
+  };
 }
 
 export async function deletePattern(heCode: string) {
   const db = await getRequiredFirestoreDb();
-  const snapshot = await db.collection('patterns').where('heCode', '==', heCode).limit(1).get();
-  if (snapshot.empty) {
+  const doc = await findFirestorePatternDocument(db, formatHECodeForDisplay(heCode));
+  if (!doc) {
     const error = new Error('Pattern not found.');
     Object.assign(error, { statusCode: 404 });
     throw error;
   }
-  const doc = snapshot.docs[0];
   await doc.ref.delete();
   return normalizeFirestoreValue({ id: doc.id, ...doc.data() }) as PatternRecord;
 }

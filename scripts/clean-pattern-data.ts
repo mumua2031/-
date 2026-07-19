@@ -1,6 +1,10 @@
 import { writeFileSync } from 'node:fs';
 import { mockPatterns } from '../src/data';
 
+if (process.env.ALLOW_LEGACY_ARCHIVE_REWRITE !== '1') {
+  throw new Error('该脚本是旧编号时期的一次性历史脚本，已禁止直接重写主数据。请以 final-import-patterns.json 和 src/data.ts 为当前权威档案。');
+}
+
 const pendingSourceZh = '民间采集，出处待考';
 const pendingSourceEn = 'Folk collection; source pending verification.';
 const pendingCopyrightZh = '权属待确认，仅供非商用研究';

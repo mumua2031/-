@@ -2,7 +2,7 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Star } from 'lucide-react';
-import { getCanonicalHECode } from '../lib/classification';
+import { formatHECodeForDisplay, getCanonicalHECode } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
@@ -13,7 +13,10 @@ const favoriteStorageKey = 'hanxiu:favorites';
 
 function readFavorites() {
   try {
-    return JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as string[];
+    const stored = JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as unknown;
+    return Array.isArray(stored)
+      ? [...new Set(stored.filter((code): code is string => typeof code === 'string').map(formatHECodeForDisplay))]
+      : [];
   } catch {
     return [];
   }
@@ -55,7 +58,7 @@ export function FloatingActions() {
   };
 
   const favoritePatterns = favorites
-    .map((heCode) => patterns.find((pattern) => pattern.heCode === heCode))
+    .map((heCode) => patterns.find((pattern) => pattern.heCode === heCode || pattern.previousHeCode === heCode))
     .filter(Boolean);
 
   return (
@@ -90,7 +93,7 @@ export function FloatingActions() {
                 pattern && (
                   <Link
                     key={pattern.id}
-                    to={`/pattern/${pattern.heCode}`}
+                    to={`/pattern/${getCanonicalHECode(pattern)}`}
                     className="flex items-center gap-3 rounded-md border border-white/8 bg-white/5 p-2 transition-colors hover:border-fuchsia-300/35 hover:bg-fuchsia-950/20"
                     onClick={() => setIsFavoritesOpen(false)}
                   >

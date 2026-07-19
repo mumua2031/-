@@ -9,7 +9,7 @@ import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from
 import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
-import { buildHECode, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
+import { buildHECode, formatHECodeForDisplay, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
 
 const favoriteStorageKey = 'hanxiu:favorites';
 
@@ -20,7 +20,10 @@ const detailTabs: DetailTab[] = ['basic', 'meaning', 'craft', 'analysis', 'copyr
 
 function readFavorites() {
   try {
-    return JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as string[];
+    const stored = JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]') as unknown;
+    return Array.isArray(stored)
+      ? [...new Set(stored.filter((code): code is string => typeof code === 'string').map(formatHECodeForDisplay))]
+      : [];
   } catch {
     return [];
   }
@@ -356,7 +359,8 @@ export function PatternDetail() {
   const [shareCardUrl, setShareCardUrl] = useState<string | null>(null);
   const [shareCopy, setShareCopy] = useState('');
 
-  const pattern = patterns.find((item) => item.heCode === heCode || getCanonicalCode(item) === heCode);
+  const routeCode = formatHECodeForDisplay(heCode || '');
+  const pattern = patterns.find((item) => item.heCode === routeCode || item.previousHeCode === heCode || getCanonicalCode(item) === routeCode);
 
   const similarPatterns = useMemo(() => (pattern ? getSimilarPatterns(patterns, pattern, currentLang) : []), [currentLang, pattern, patterns]);
   const matchedStitches = useMemo(

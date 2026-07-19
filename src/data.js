@@ -1,7 +1,7 @@
 const mockPatterns = [
   {
-    "id": "HE-NB-M01",
-    "heCode": "HE-NB-M01",
+    "id": "HE-N-B-M01",
+    "heCode": "HE-N-B-M01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -60,8 +60,8 @@ const mockPatterns = [
     "views": 874
   },
   {
-    "id": "HE-NB-B03",
-    "heCode": "HE-NB-B03",
+    "id": "HE-N-B-B03",
+    "heCode": "HE-N-B-B03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -120,8 +120,9 @@ const mockPatterns = [
     "views": 948
   },
   {
-    "id": "HE-HS-M12",
-    "heCode": "HE-HS-M12",
+    "id": "HE-N-B-M12",
+    "heCode": "HE-N-B-M12",
+    "previousHeCode": "HE-HS-M12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -169,8 +170,8 @@ const mockPatterns = [
       "en": "\u9E33\u9E2F\u8C61\u5F81\u592B\u59BB\u6069\u7231\uFF0C\u8377\u82B1\u5BD3\u610F\u548C\u548C\u7F8E\u7F8E\uFF0C\u6574\u4F53\u4E3A\u5A5A\u5AC1\u7948\u798F\u7C7B"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD441%\uFF0C\u7070\u8272\u5360\u6BD414%\uFF0C\u9EC4\u8272\u5360\u6BD49%\uFF0C\u7EFF\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD441%\uFF0C\u7070\u8272\u5360\u6BD414%\uFF0C\u9EC4\u8272\u5360\u6BD49%\uFF0C\u7EFF\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD441%\uFF0C\u7070\u8272\u5360\u6BD414%\uFF0C\u9EC4\u8272\u5360\u6BD49%\uFF0C\u7EFF\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD441%\uFF0C\u7070\u8272\u5360\u6BD414%\uFF0C\u9EC4\u8272\u5360\u6BD49%\uFF0C\u7EFF\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -180,8 +181,8 @@ const mockPatterns = [
     "views": 985
   },
   {
-    "id": "HE-NB-B09",
-    "heCode": "HE-NB-B09",
+    "id": "HE-N-B-B09",
+    "heCode": "HE-N-B-B09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -240,8 +241,8 @@ const mockPatterns = [
     "views": 1022
   },
   {
-    "id": "HE-HS-B08",
-    "heCode": "HE-HS-B08",
+    "id": "HE-H-S-B08",
+    "heCode": "HE-H-S-B08",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "B",
@@ -300,8 +301,8 @@ const mockPatterns = [
     "views": 1059
   },
   {
-    "id": "HE-NB-R03",
-    "heCode": "HE-NB-R03",
+    "id": "HE-N-B-R03",
+    "heCode": "HE-N-B-R03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -360,8 +361,8 @@ const mockPatterns = [
     "views": 1096
   },
   {
-    "id": "HE-NS-M01",
-    "heCode": "HE-NS-M01",
+    "id": "HE-N-S-M01",
+    "heCode": "HE-N-S-M01",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -420,8 +421,8 @@ const mockPatterns = [
     "views": 1133
   },
   {
-    "id": "HE-NL-R02",
-    "heCode": "HE-NL-R02",
+    "id": "HE-N-L-R02",
+    "heCode": "HE-N-L-R02",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "R",
@@ -480,8 +481,8 @@ const mockPatterns = [
     "views": 1170
   },
   {
-    "id": "HE-NB-R01",
-    "heCode": "HE-NB-R01",
+    "id": "HE-N-B-R01",
+    "heCode": "HE-N-B-R01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -540,8 +541,8 @@ const mockPatterns = [
     "views": 1207
   },
   {
-    "id": "HE-NB-B01",
-    "heCode": "HE-NB-B01",
+    "id": "HE-N-B-B01",
+    "heCode": "HE-N-B-B01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -600,8 +601,9 @@ const mockPatterns = [
     "views": 1244
   },
   {
-    "id": "HE-NS-M04",
-    "heCode": "HE-NS-M04",
+    "id": "HE-H-S-M04",
+    "heCode": "HE-H-S-M04",
+    "previousHeCode": "HE-NS-M04",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -649,8 +651,8 @@ const mockPatterns = [
       "en": "\u7CBE\u795E\u6587\u8109 (S)"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u9EC4\u9E64\u697C\u3001\u4E91\u9E64\u6216\u5C71\u6C34\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u627F\u8F7D\u6B66\u6C49\u5730\u57DF\u6587\u5316\u8BB0\u5FC6\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u91D1\u8272\u5360\u6BD440%\uFF0C\u9EC4\u8272\u5360\u6BD416%\uFF0C\u7EFF\u8272\u5360\u6BD415%\uFF0C\u6A59\u8272\u5360\u6BD414%\uFF0C\u7EA2\u8272\u5360\u6BD48%\uFF0C\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u9EC4\u9E64\u697C\u3001\u4E91\u9E64\u6216\u5C71\u6C34\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u627F\u8F7D\u6B66\u6C49\u5730\u57DF\u6587\u5316\u8BB0\u5FC6\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u91D1\u8272\u5360\u6BD440%\uFF0C\u9EC4\u8272\u5360\u6BD416%\uFF0C\u7EFF\u8272\u5360\u6BD415%\uFF0C\u6A59\u8272\u5360\u6BD414%\uFF0C\u7EA2\u8272\u5360\u6BD48%\uFF0C\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u9EC4\u9E64\u697C\u3001\u4E91\u9E64\u6216\u5C71\u6C34\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u627F\u8F7D\u6B66\u6C49\u5730\u57DF\u6587\u5316\u8BB0\u5FC6\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u91D1\u8272\u5360\u6BD440%\uFF0C\u9EC4\u8272\u5360\u6BD416%\uFF0C\u7EFF\u8272\u5360\u6BD415%\uFF0C\u6A59\u8272\u5360\u6BD414%\uFF0C\u7EA2\u8272\u5360\u6BD48%\uFF0C\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u9EC4\u9E64\u697C\u3001\u4E91\u9E64\u6216\u5C71\u6C34\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u627F\u8F7D\u6B66\u6C49\u5730\u57DF\u6587\u5316\u8BB0\u5FC6\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u91D1\u8272\u5360\u6BD440%\uFF0C\u9EC4\u8272\u5360\u6BD416%\uFF0C\u7EFF\u8272\u5360\u6BD415%\uFF0C\u6A59\u8272\u5360\u6BD414%\uFF0C\u7EA2\u8272\u5360\u6BD48%\uFF0C\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -660,8 +662,8 @@ const mockPatterns = [
     "views": 1281
   },
   {
-    "id": "HE-HS-R02",
-    "heCode": "HE-HS-R02",
+    "id": "HE-H-S-R02",
+    "heCode": "HE-H-S-R02",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -720,8 +722,8 @@ const mockPatterns = [
     "views": 1318
   },
   {
-    "id": "HE-NB-M03",
-    "heCode": "HE-NB-M03",
+    "id": "HE-N-B-M03",
+    "heCode": "HE-N-B-M03",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -780,8 +782,8 @@ const mockPatterns = [
     "views": 1355
   },
   {
-    "id": "HE-HS-A02",
-    "heCode": "HE-HS-A02",
+    "id": "HE-H-S-A02",
+    "heCode": "HE-H-S-A02",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -840,8 +842,8 @@ const mockPatterns = [
     "views": 1392
   },
   {
-    "id": "HE-NB-M05",
-    "heCode": "HE-NB-M05",
+    "id": "HE-N-B-M05",
+    "heCode": "HE-N-B-M05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -900,8 +902,8 @@ const mockPatterns = [
     "views": 1503
   },
   {
-    "id": "HE-NS-A01",
-    "heCode": "HE-NS-A01",
+    "id": "HE-N-S-A01",
+    "heCode": "HE-N-S-A01",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -960,8 +962,8 @@ const mockPatterns = [
     "views": 1540
   },
   {
-    "id": "HE-HL-M10",
-    "heCode": "HE-HL-M10",
+    "id": "HE-H-L-M10",
+    "heCode": "HE-H-L-M10",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -1020,8 +1022,9 @@ const mockPatterns = [
     "views": 1577
   },
   {
-    "id": "HE-NB-G14",
-    "heCode": "HE-NB-G14",
+    "id": "HE-N-B-G14",
+    "heCode": "HE-N-B-G14",
+    "previousHeCode": "HE-NB-B14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1080,8 +1083,9 @@ const mockPatterns = [
     "views": 1614
   },
   {
-    "id": "HE-NB-G13",
-    "heCode": "HE-NB-G13",
+    "id": "HE-N-B-G13",
+    "heCode": "HE-N-B-G13",
+    "previousHeCode": "HE-NB-B13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "G",
@@ -1140,8 +1144,8 @@ const mockPatterns = [
     "views": 1688
   },
   {
-    "id": "HE-NB-B11",
-    "heCode": "HE-NB-B11",
+    "id": "HE-N-B-B11",
+    "heCode": "HE-N-B-B11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -1200,8 +1204,8 @@ const mockPatterns = [
     "views": 1725
   },
   {
-    "id": "HE-HB-M02",
-    "heCode": "HE-HB-M02",
+    "id": "HE-H-B-M02",
+    "heCode": "HE-H-B-M02",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1260,8 +1264,8 @@ const mockPatterns = [
     "views": 1762
   },
   {
-    "id": "HE-NB-M06",
-    "heCode": "HE-NB-M06",
+    "id": "HE-N-B-M06",
+    "heCode": "HE-N-B-M06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1320,8 +1324,9 @@ const mockPatterns = [
     "views": 1799
   },
   {
-    "id": "HE-NL-A13",
-    "heCode": "HE-NL-A13",
+    "id": "HE-N-B-A13",
+    "heCode": "HE-N-B-A13",
+    "previousHeCode": "HE-NL-A13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -1369,8 +1374,8 @@ const mockPatterns = [
       "en": "\u6587\u4EBA\u96C5\u8DA3\u7C7B (L)"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD462%\uFF0C\u9ED1\u8272\u5360\u6BD412%\uFF0C\u91D1\u8272\u5360\u6BD49%\uFF0C\u68D5\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD462%\uFF0C\u9ED1\u8272\u5360\u6BD412%\uFF0C\u91D1\u8272\u5360\u6BD49%\uFF0C\u68D5\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD462%\uFF0C\u9ED1\u8272\u5360\u6BD412%\uFF0C\u91D1\u8272\u5360\u6BD49%\uFF0C\u68D5\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD462%\uFF0C\u9ED1\u8272\u5360\u6BD412%\uFF0C\u91D1\u8272\u5360\u6BD49%\uFF0C\u68D5\u8272\u5360\u6BD47%\uFF0C\u6A59\u8272\u5360\u6BD46%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -1380,8 +1385,9 @@ const mockPatterns = [
     "views": 1836
   },
   {
-    "id": "HE-NL-R01",
-    "heCode": "HE-NL-R01",
+    "id": "HE-N-L-R01",
+    "heCode": "HE-N-L-R01",
+    "previousHeCode": "HE-NL-B01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "R",
@@ -1440,8 +1446,8 @@ const mockPatterns = [
     "views": 1947
   },
   {
-    "id": "HE-NB-M02",
-    "heCode": "HE-NB-M02",
+    "id": "HE-N-B-M02",
+    "heCode": "HE-N-B-M02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1500,12 +1506,13 @@ const mockPatterns = [
     "views": 1984
   },
   {
-    "id": "HE-HB-R09",
-    "heCode": "HE-HB-R09",
+    "id": "HE-N-B-R21",
+    "heCode": "HE-N-B-R21",
+    "previousHeCode": "HE-HB-R09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
-    "sequence": 9,
+    "sequence": 21,
     "name": {
       "zh-CN": "\u7EA2\u5E95\u91D1\u7EBF\u9752\u7EFF\u4E94\u722A\u9F99\u5706\u56E2\u7EE3\u7247",
       "en": "\u7EA2\u5E95\u91D1\u7EBF\u9752\u7EFF\u4E94\u722A\u9F99\u5706\u56E2\u7EE3\u7247"
@@ -1549,8 +1556,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F\u7C7B\uFF08B\uFF09"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u7EA2\u8272\u5360\u6BD445%\uFF0C\u9EC4\u8272\u5360\u6BD414%\uFF0C\u84DD\u8272\u5360\u6BD412%\uFF0C\u7EFF\u8272\u5360\u6BD411%\uFF0C\u91D1\u8272\u5360\u6BD45%\uFF0C\u5F52\u7EA2\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u7EA2\u8272\u5360\u6BD445%\uFF0C\u9EC4\u8272\u5360\u6BD414%\uFF0C\u84DD\u8272\u5360\u6BD412%\uFF0C\u7EFF\u8272\u5360\u6BD411%\uFF0C\u91D1\u8272\u5360\u6BD45%\uFF0C\u5F52\u7EA2\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u7EA2\u8272\u5360\u6BD445%\uFF0C\u9EC4\u8272\u5360\u6BD414%\uFF0C\u84DD\u8272\u5360\u6BD412%\uFF0C\u7EFF\u8272\u5360\u6BD411%\uFF0C\u91D1\u8272\u5360\u6BD45%\uFF0C\u5F52\u7EA2\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u7EA2\u8272\u5360\u6BD445%\uFF0C\u9EC4\u8272\u5360\u6BD414%\uFF0C\u84DD\u8272\u5360\u6BD412%\uFF0C\u7EFF\u8272\u5360\u6BD411%\uFF0C\u91D1\u8272\u5360\u6BD45%\uFF0C\u5F52\u7EA2\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -1560,8 +1567,8 @@ const mockPatterns = [
     "views": 2095
   },
   {
-    "id": "HE-HS-R08",
-    "heCode": "HE-HS-R08",
+    "id": "HE-H-S-R08",
+    "heCode": "HE-H-S-R08",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -1620,8 +1627,8 @@ const mockPatterns = [
     "views": 2132
   },
   {
-    "id": "HE-NL-M08",
-    "heCode": "HE-NL-M08",
+    "id": "HE-N-L-M08",
+    "heCode": "HE-N-L-M08",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -1680,12 +1687,13 @@ const mockPatterns = [
     "views": 2206
   },
   {
-    "id": "HE-NL-M01",
-    "heCode": "HE-NL-M01",
+    "id": "HE-N-B-M22",
+    "heCode": "HE-N-B-M22",
+    "previousHeCode": "HE-NL-M01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
-    "sequence": 1,
+    "sequence": 22,
     "name": {
       "zh-CN": "\u8377\u5858\u53CC\u9E64\u6C49\u7EE3",
       "en": "\u8377\u5858\u53CC\u9E64\u6C49\u7EE3"
@@ -1729,8 +1737,8 @@ const mockPatterns = [
       "en": "\u6587\u4EBA\u96C5\u8DA3\u7C7B\uFF08L\uFF09"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9E64\u3001\u677E\u6216\u4E91\u7EB9\u3001\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u957F\u5BFF\u3001\u5C0A\u656C\u4E0E\u798F\u5BFF\u795D\u613F\u3001\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD447%\uFF0C\u7EFF\u8272\u5360\u6BD419%\uFF0C\u6A59\u8272\u5360\u6BD49%\uFF0C\u9ED1\u8272\u5360\u6BD48%\uFF0C\u91D1\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9E64\u3001\u677E\u6216\u4E91\u7EB9\u3001\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u957F\u5BFF\u3001\u5C0A\u656C\u4E0E\u798F\u5BFF\u795D\u613F\u3001\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD447%\uFF0C\u7EFF\u8272\u5360\u6BD419%\uFF0C\u6A59\u8272\u5360\u6BD49%\uFF0C\u9ED1\u8272\u5360\u6BD48%\uFF0C\u91D1\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9E64\u3001\u677E\u6216\u4E91\u7EB9\u3001\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u957F\u5BFF\u3001\u5C0A\u656C\u4E0E\u798F\u5BFF\u795D\u613F\u3001\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD447%\uFF0C\u7EFF\u8272\u5360\u6BD419%\uFF0C\u6A59\u8272\u5360\u6BD49%\uFF0C\u9ED1\u8272\u5360\u6BD48%\uFF0C\u91D1\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9E64\u3001\u677E\u6216\u4E91\u7EB9\u3001\u83B2\u82B1\u3001\u83B2\u53F6\u6216\u6C34\u79BD\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u957F\u5BFF\u3001\u5C0A\u656C\u4E0E\u798F\u5BFF\u795D\u613F\u3001\u8C61\u5F81\u7EAF\u6D01\u9AD8\u96C5\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u9EC4\u8272\u5360\u6BD447%\uFF0C\u7EFF\u8272\u5360\u6BD419%\uFF0C\u6A59\u8272\u5360\u6BD49%\uFF0C\u9ED1\u8272\u5360\u6BD48%\uFF0C\u91D1\u8272\u5360\u6BD46%\uFF0C\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -1740,12 +1748,13 @@ const mockPatterns = [
     "views": 2280
   },
   {
-    "id": "HE-NS-B04",
-    "heCode": "HE-NS-B04",
+    "id": "HE-N-B-B12",
+    "heCode": "HE-N-B-B12",
+    "previousHeCode": "HE-NS-B04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
-    "sequence": 4,
+    "sequence": 12,
     "name": {
       "zh-CN": "\u84DD\u5E95\u91D1\u51E4\u7261\u4E39\u5C55\u9648\u6C49\u7EE3",
       "en": "\u84DD\u5E95\u91D1\u51E4\u7261\u4E39\u5C55\u9648\u6C49\u7EE3"
@@ -1785,12 +1794,12 @@ const mockPatterns = [
       "en": "\u6C49\u7EE3\u975E\u9057\u6210\u679C\u5C55\u914D\u5957\u4E3B\u9898\u7EE3\u54C1"
     },
     "scenario": {
-      "zh-CN": "\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF08S\uFF09",
-      "en": "\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF08S\uFF09"
+      "zh-CN": "\u5409\u7965\u7948\u798F\u7C7B\uFF08B\uFF09",
+      "en": "\u5409\u7965\u7948\u798F\u7C7B\uFF08B\uFF09"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u7261\u4E39\u3001\u82B1\u53F6\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u8C61\u5F81\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD481%\uFF0C\u5F52\u84DD\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u7261\u4E39\u3001\u82B1\u53F6\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u8C61\u5F81\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD481%\uFF0C\u5F52\u84DD\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u7261\u4E39\u3001\u82B1\u53F6\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u8C61\u5F81\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD481%\uFF0C\u5F52\u84DD\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u51E4\u51F0\u3001\u82B1\u8349\u6216\u4E91\u7EB9\u3001\u7261\u4E39\u3001\u82B1\u53F6\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u548C\u8C10\u4E0E\u8363\u534E\u5BCC\u8D35\u3001\u8C61\u5F81\u5BCC\u8D35\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u84DD\u8272\u5360\u6BD481%\uFF0C\u5F52\u84DD\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -1800,8 +1809,8 @@ const mockPatterns = [
     "views": 2317
   },
   {
-    "id": "HE-NB-M13",
-    "heCode": "HE-NB-M13",
+    "id": "HE-N-B-M13",
+    "heCode": "HE-N-B-M13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1860,8 +1869,8 @@ const mockPatterns = [
     "views": 2354
   },
   {
-    "id": "HE-HB-R03",
-    "heCode": "HE-HB-R03",
+    "id": "HE-H-B-R03",
+    "heCode": "HE-H-B-R03",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -1920,8 +1929,8 @@ const mockPatterns = [
     "views": 2428
   },
   {
-    "id": "HE-NB-M09",
-    "heCode": "HE-NB-M09",
+    "id": "HE-N-B-M09",
+    "heCode": "HE-N-B-M09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -1980,8 +1989,8 @@ const mockPatterns = [
     "views": 2465
   },
   {
-    "id": "HE-HS-R01",
-    "heCode": "HE-HS-R01",
+    "id": "HE-H-S-R01",
+    "heCode": "HE-H-S-R01",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -2040,8 +2049,8 @@ const mockPatterns = [
     "views": 2502
   },
   {
-    "id": "HE-HS-A03",
-    "heCode": "HE-HS-A03",
+    "id": "HE-H-S-A03",
+    "heCode": "HE-H-S-A03",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "A",
@@ -2100,8 +2109,8 @@ const mockPatterns = [
     "views": 2539
   },
   {
-    "id": "HE-NB-R06",
-    "heCode": "HE-NB-R06",
+    "id": "HE-N-B-R06",
+    "heCode": "HE-N-B-R06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2160,8 +2169,8 @@ const mockPatterns = [
     "views": 2576
   },
   {
-    "id": "HE-NB-R05",
-    "heCode": "HE-NB-R05",
+    "id": "HE-N-B-R05",
+    "heCode": "HE-N-B-R05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2220,8 +2229,8 @@ const mockPatterns = [
     "views": 2650
   },
   {
-    "id": "HE-NB-B02",
-    "heCode": "HE-NB-B02",
+    "id": "HE-N-B-B02",
+    "heCode": "HE-N-B-B02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -2280,8 +2289,8 @@ const mockPatterns = [
     "views": 2724
   },
   {
-    "id": "HE-HL-M11",
-    "heCode": "HE-HL-M11",
+    "id": "HE-H-L-M11",
+    "heCode": "HE-H-L-M11",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -2340,8 +2349,8 @@ const mockPatterns = [
     "views": 2761
   },
   {
-    "id": "HE-NB-M04",
-    "heCode": "HE-NB-M04",
+    "id": "HE-N-B-M04",
+    "heCode": "HE-N-B-M04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2400,8 +2409,8 @@ const mockPatterns = [
     "views": 2798
   },
   {
-    "id": "HE-HB-M01",
-    "heCode": "HE-HB-M01",
+    "id": "HE-H-B-M01",
+    "heCode": "HE-H-B-M01",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2460,8 +2469,8 @@ const mockPatterns = [
     "views": 2835
   },
   {
-    "id": "HE-HB-R02",
-    "heCode": "HE-HB-R02",
+    "id": "HE-H-B-R02",
+    "heCode": "HE-H-B-R02",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -2520,8 +2529,8 @@ const mockPatterns = [
     "views": 2872
   },
   {
-    "id": "HE-HS-B15",
-    "heCode": "HE-HS-B15",
+    "id": "HE-H-S-B15",
+    "heCode": "HE-H-S-B15",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "B",
@@ -2580,8 +2589,9 @@ const mockPatterns = [
     "views": 2909
   },
   {
-    "id": "HE-HL-A14",
-    "heCode": "HE-HL-A14",
+    "id": "HE-N-B-A14",
+    "heCode": "HE-N-B-A14",
+    "previousHeCode": "HE-HL-A14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2640,8 +2650,9 @@ const mockPatterns = [
     "views": 2946
   },
   {
-    "id": "HE-HB-A12",
-    "heCode": "HE-HB-A12",
+    "id": "HE-N-B-A12",
+    "heCode": "HE-N-B-A12",
+    "previousHeCode": "HE-HB-A12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2689,8 +2700,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F\u7C7B (B)"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u6A59\u8272\u5360\u6BD457%\uFF0C\u9ED1\u8272\u5360\u6BD431%\uFF0C\u9EC4\u8272\u5360\u6BD46%\uFF0C\u7EA2\u8272\u5360\u6BD45%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u6A59\u8272\u5360\u6BD457%\uFF0C\u9ED1\u8272\u5360\u6BD431%\uFF0C\u9EC4\u8272\u5360\u6BD46%\uFF0C\u7EA2\u8272\u5360\u6BD45%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u6A59\u8272\u5360\u6BD457%\uFF0C\u9ED1\u8272\u5360\u6BD431%\uFF0C\u9EC4\u8272\u5360\u6BD46%\uFF0C\u7EA2\u8272\u5360\u6BD45%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9F99\u3001\u7965\u4E91\u6216\u706B\u7130\u7EB9\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8C61\u5F81\u7965\u745E\u3001\u559C\u5E86\u4E30\u6536\u4E0E\u8EAB\u4EFD\u79E9\u5E8F\uFF0C\u5C5E\u4E8E\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u4E3B\u8272\u6BD4\u4F8B\u4E3A\u6A59\u8272\u5360\u6BD457%\uFF0C\u9ED1\u8272\u5360\u6BD431%\uFF0C\u9EC4\u8272\u5360\u6BD46%\uFF0C\u7EA2\u8272\u5360\u6BD45%\uFF0C\u5F52\u91D1\u94F6\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -2700,8 +2711,8 @@ const mockPatterns = [
     "views": 2983
   },
   {
-    "id": "HE-GB-A02",
-    "heCode": "HE-GB-A02",
+    "id": "HE-G-B-A02",
+    "heCode": "HE-G-B-A02",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2760,8 +2771,8 @@ const mockPatterns = [
     "views": 1576
   },
   {
-    "id": "HE-GB-A03",
-    "heCode": "HE-GB-A03",
+    "id": "HE-G-B-A03",
+    "heCode": "HE-G-B-A03",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -2820,8 +2831,8 @@ const mockPatterns = [
     "views": 1577
   },
   {
-    "id": "HE-GB-B09",
-    "heCode": "HE-GB-B09",
+    "id": "HE-G-B-B09",
+    "heCode": "HE-G-B-B09",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -2880,8 +2891,8 @@ const mockPatterns = [
     "views": 1584
   },
   {
-    "id": "HE-GB-M01",
-    "heCode": "HE-GB-M01",
+    "id": "HE-G-B-M01",
+    "heCode": "HE-G-B-M01",
     "patternCategory": "G",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -2940,8 +2951,9 @@ const mockPatterns = [
     "views": 1587
   },
   {
-    "id": "HE-GB-M02",
-    "heCode": "HE-GB-M02",
+    "id": "HE-G-S-M02",
+    "heCode": "HE-G-S-M02",
+    "previousHeCode": "HE-GB-M02",
     "patternCategory": "G",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -2989,8 +3001,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u6807\u51C6\u592A\u6781\u9634\u9633\u9C7C\u51E0\u4F55\u5706\u5F62\u6784\u56FE\uFF0C\u5F52\u51E0\u4F55 / \u62BD\u8C61\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u6807\u51C6\u592A\u6781\u9634\u9633\u9C7C\u51E0\u4F55\u5706\u5F62\u6784\u56FE\uFF0C\u5F52\u51E0\u4F55 / \u62BD\u8C61\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u6807\u51C6\u592A\u6781\u9634\u9633\u9C7C\u51E0\u4F55\u5706\u5F62\u6784\u56FE\uFF0C\u5F52\u51E0\u4F55 / \u62BD\u8C61\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u6807\u51C6\u592A\u6781\u9634\u9633\u9C7C\u51E0\u4F55\u5706\u5F62\u6784\u56FE\uFF0C\u5F52\u51E0\u4F55 / \u62BD\u8C61\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -3000,8 +3012,8 @@ const mockPatterns = [
     "views": 1588
   },
   {
-    "id": "HE-HB-A03",
-    "heCode": "HE-HB-A03",
+    "id": "HE-H-B-A03",
+    "heCode": "HE-H-B-A03",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -3060,8 +3072,8 @@ const mockPatterns = [
     "views": 1578
   },
   {
-    "id": "HE-HB-A04",
-    "heCode": "HE-HB-A04",
+    "id": "HE-H-B-A04",
+    "heCode": "HE-H-B-A04",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -3120,8 +3132,8 @@ const mockPatterns = [
     "views": 1579
   },
   {
-    "id": "HE-HB-M13",
-    "heCode": "HE-HB-M13",
+    "id": "HE-H-B-M13",
+    "heCode": "HE-H-B-M13",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3180,8 +3192,8 @@ const mockPatterns = [
     "views": 1591
   },
   {
-    "id": "HE-HB-M14",
-    "heCode": "HE-HB-M14",
+    "id": "HE-H-B-M14",
+    "heCode": "HE-H-B-M14",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3240,8 +3252,8 @@ const mockPatterns = [
     "views": 1592
   },
   {
-    "id": "HE-HB-M15",
-    "heCode": "HE-HB-M15",
+    "id": "HE-H-B-M15",
+    "heCode": "HE-H-B-M15",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3300,8 +3312,8 @@ const mockPatterns = [
     "views": 1593
   },
   {
-    "id": "HE-HB-M16",
-    "heCode": "HE-HB-M16",
+    "id": "HE-H-B-M16",
+    "heCode": "HE-H-B-M16",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3360,8 +3372,8 @@ const mockPatterns = [
     "views": 1594
   },
   {
-    "id": "HE-HB-M17",
-    "heCode": "HE-HB-M17",
+    "id": "HE-H-B-M17",
+    "heCode": "HE-H-B-M17",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3420,8 +3432,8 @@ const mockPatterns = [
     "views": 1595
   },
   {
-    "id": "HE-HB-M18",
-    "heCode": "HE-HB-M18",
+    "id": "HE-H-B-M18",
+    "heCode": "HE-H-B-M18",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3480,8 +3492,8 @@ const mockPatterns = [
     "views": 1596
   },
   {
-    "id": "HE-HB-M19",
-    "heCode": "HE-HB-M19",
+    "id": "HE-H-B-M19",
+    "heCode": "HE-H-B-M19",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3540,8 +3552,8 @@ const mockPatterns = [
     "views": 1597
   },
   {
-    "id": "HE-HB-M20",
-    "heCode": "HE-HB-M20",
+    "id": "HE-H-B-M20",
+    "heCode": "HE-H-B-M20",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3600,8 +3612,8 @@ const mockPatterns = [
     "views": 1589
   },
   {
-    "id": "HE-HB-M21",
-    "heCode": "HE-HB-M21",
+    "id": "HE-H-B-M21",
+    "heCode": "HE-H-B-M21",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3660,8 +3672,8 @@ const mockPatterns = [
     "views": 1590
   },
   {
-    "id": "HE-HB-M22",
-    "heCode": "HE-HB-M22",
+    "id": "HE-H-B-M22",
+    "heCode": "HE-H-B-M22",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3720,8 +3732,8 @@ const mockPatterns = [
     "views": 1591
   },
   {
-    "id": "HE-HB-M23",
-    "heCode": "HE-HB-M23",
+    "id": "HE-H-B-M23",
+    "heCode": "HE-H-B-M23",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3780,8 +3792,8 @@ const mockPatterns = [
     "views": 1592
   },
   {
-    "id": "HE-HB-M24",
-    "heCode": "HE-HB-M24",
+    "id": "HE-H-B-M24",
+    "heCode": "HE-H-B-M24",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3840,8 +3852,8 @@ const mockPatterns = [
     "views": 1593
   },
   {
-    "id": "HE-HB-M25",
-    "heCode": "HE-HB-M25",
+    "id": "HE-H-B-M25",
+    "heCode": "HE-H-B-M25",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -3900,8 +3912,8 @@ const mockPatterns = [
     "views": 1594
   },
   {
-    "id": "HE-HB-R05",
-    "heCode": "HE-HB-R05",
+    "id": "HE-H-B-R05",
+    "heCode": "HE-H-B-R05",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -3960,8 +3972,8 @@ const mockPatterns = [
     "views": 1597
   },
   {
-    "id": "HE-HB-R06",
-    "heCode": "HE-HB-R06",
+    "id": "HE-H-B-R06",
+    "heCode": "HE-H-B-R06",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4020,8 +4032,8 @@ const mockPatterns = [
     "views": 1598
   },
   {
-    "id": "HE-HB-R14",
-    "heCode": "HE-HB-R14",
+    "id": "HE-H-B-R14",
+    "heCode": "HE-H-B-R14",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4080,8 +4092,8 @@ const mockPatterns = [
     "views": 1597
   },
   {
-    "id": "HE-HB-R15",
-    "heCode": "HE-HB-R15",
+    "id": "HE-H-B-R15",
+    "heCode": "HE-H-B-R15",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4140,8 +4152,8 @@ const mockPatterns = [
     "views": 1598
   },
   {
-    "id": "HE-HB-R16",
-    "heCode": "HE-HB-R16",
+    "id": "HE-H-B-R16",
+    "heCode": "HE-H-B-R16",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4200,8 +4212,8 @@ const mockPatterns = [
     "views": 1599
   },
   {
-    "id": "HE-HB-R17",
-    "heCode": "HE-HB-R17",
+    "id": "HE-H-B-R17",
+    "heCode": "HE-H-B-R17",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4260,8 +4272,8 @@ const mockPatterns = [
     "views": 1600
   },
   {
-    "id": "HE-HB-R18",
-    "heCode": "HE-HB-R18",
+    "id": "HE-H-B-R18",
+    "heCode": "HE-H-B-R18",
     "patternCategory": "H",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -4320,8 +4332,9 @@ const mockPatterns = [
     "views": 1601
   },
   {
-    "id": "HE-HB-R19",
-    "heCode": "HE-HB-R19",
+    "id": "HE-H-S-R19",
+    "heCode": "HE-H-S-R19",
+    "previousHeCode": "HE-HB-R19",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4369,8 +4382,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FBE\u6469\u7956\u5E08\u3001\u82A6\u82C7\u6E21\u6C5F\u3001\u591A\u5C42\u6CE2\u6D6A\u6C5F\u6C34\u3001\u6977\u4E66\u201C\u8FBE\u6469\u6E21\u6C5F\u201D\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FBE\u6469\u7956\u5E08\u3001\u82A6\u82C7\u6E21\u6C5F\u3001\u591A\u5C42\u6CE2\u6D6A\u6C5F\u6C34\u3001\u6977\u4E66\u201C\u8FBE\u6469\u6E21\u6C5F\u201D\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FBE\u6469\u7956\u5E08\u3001\u82A6\u82C7\u6E21\u6C5F\u3001\u591A\u5C42\u6CE2\u6D6A\u6C5F\u6C34\u3001\u6977\u4E66\u201C\u8FBE\u6469\u6E21\u6C5F\u201D\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FBE\u6469\u7956\u5E08\u3001\u82A6\u82C7\u6E21\u6C5F\u3001\u591A\u5C42\u6CE2\u6D6A\u6C5F\u6C34\u3001\u6977\u4E66\u201C\u8FBE\u6469\u6E21\u6C5F\u201D\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -4380,8 +4393,9 @@ const mockPatterns = [
     "views": 1602
   },
   {
-    "id": "HE-HB-R20",
-    "heCode": "HE-HB-R20",
+    "id": "HE-H-S-R20",
+    "heCode": "HE-H-S-R20",
+    "previousHeCode": "HE-HB-R20",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "R",
@@ -4429,8 +4443,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9759\u5750\u5BBE\u5EA6\u7F57\u5C0A\u8005\u3001\u6728\u6756\u3001\u4F5B\u73E0\u3001\u7ECF\u4E66\u3001\u5C71\u77F3\u8349\u7EB9\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9759\u5750\u5BBE\u5EA6\u7F57\u5C0A\u8005\u3001\u6728\u6756\u3001\u4F5B\u73E0\u3001\u7ECF\u4E66\u3001\u5C71\u77F3\u8349\u7EB9\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9759\u5750\u5BBE\u5EA6\u7F57\u5C0A\u8005\u3001\u6728\u6756\u3001\u4F5B\u73E0\u3001\u7ECF\u4E66\u3001\u5C71\u77F3\u8349\u7EB9\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9759\u5750\u5BBE\u5EA6\u7F57\u5C0A\u8005\u3001\u6728\u6756\u3001\u4F5B\u73E0\u3001\u7ECF\u4E66\u3001\u5C71\u77F3\u8349\u7EB9\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u7EA2\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -4440,8 +4454,8 @@ const mockPatterns = [
     "views": 1594
   },
   {
-    "id": "HE-HS-M01",
-    "heCode": "HE-HS-M01",
+    "id": "HE-H-S-M01",
+    "heCode": "HE-H-S-M01",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4500,8 +4514,9 @@ const mockPatterns = [
     "views": 1605
   },
   {
-    "id": "HE-HS-M02",
-    "heCode": "HE-HS-M02",
+    "id": "HE-N-S-M02",
+    "heCode": "HE-N-S-M02",
+    "previousHeCode": "HE-HS-M02",
     "patternCategory": "N",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4549,8 +4564,8 @@ const mockPatterns = [
       "en": "\u7CBE\u795E\u4FE1\u4EF0"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FDE\u7EED\u5377\u66F2\u87E0\u87AD\u9F99\u7EB9\u3001\u51E4\u9E1F\u3001\u6D41\u52A8\u4E91\u6C14\u590D\u5408\u7EB9\u6837\uFF0C\u7EBF\u6761\u5A49\u8F6C\u7075\u52A8\uFF0C\u662F\u5178\u578B\u695A\u5F0F\u66F2\u7EBF\u5BA1\u7F8E\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FDE\u7EED\u5377\u66F2\u87E0\u87AD\u9F99\u7EB9\u3001\u51E4\u9E1F\u3001\u6D41\u52A8\u4E91\u6C14\u590D\u5408\u7EB9\u6837\uFF0C\u7EBF\u6761\u5A49\u8F6C\u7075\u52A8\uFF0C\u662F\u5178\u578B\u695A\u5F0F\u66F2\u7EBF\u5BA1\u7F8E\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FDE\u7EED\u5377\u66F2\u87E0\u87AD\u9F99\u7EB9\u3001\u51E4\u9E1F\u3001\u6D41\u52A8\u4E91\u6C14\u590D\u5408\u7EB9\u6837\uFF0C\u7EBF\u6761\u5A49\u8F6C\u7075\u52A8\uFF0C\u662F\u5178\u578B\u695A\u5F0F\u66F2\u7EBF\u5BA1\u7F8E\uFF0C\u5F52\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8FDE\u7EED\u5377\u66F2\u87E0\u87AD\u9F99\u7EB9\u3001\u51E4\u9E1F\u3001\u6D41\u52A8\u4E91\u6C14\u590D\u5408\u7EB9\u6837\uFF0C\u7EBF\u6761\u5A49\u8F6C\u7075\u52A8\uFF0C\u662F\u5178\u578B\u695A\u5F0F\u66F2\u7EBF\u5BA1\u7F8E\uFF0C\u5F52\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -4560,8 +4575,8 @@ const mockPatterns = [
     "views": 1606
   },
   {
-    "id": "HE-HS-M03",
-    "heCode": "HE-HS-M03",
+    "id": "HE-H-S-M03",
+    "heCode": "HE-H-S-M03",
     "patternCategory": "H",
     "meaningCategory": "S",
     "colorCategory": "M",
@@ -4620,8 +4635,9 @@ const mockPatterns = [
     "views": 1607
   },
   {
-    "id": "HE-HS-M04",
-    "heCode": "HE-HS-M04",
+    "id": "HE-H-L-M04",
+    "heCode": "HE-H-L-M04",
+    "previousHeCode": "HE-HS-M04",
     "patternCategory": "H",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -4669,8 +4685,8 @@ const mockPatterns = [
       "en": "\u7CBE\u795E\u4FE1\u4EF0"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u897F\u53A2\u8BB0\u7EA2\u5A18\u4EBA\u7269\uFF0C\u642D\u914D\u5EAD\u9662\u697C\u9601\u3001\u7AF9\u3001\u7261\u4E39\u82B1\u5349\uFF0C\u6EE1\u6708\u5F62\u6784\u56FE\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u897F\u53A2\u8BB0\u7EA2\u5A18\u4EBA\u7269\uFF0C\u642D\u914D\u5EAD\u9662\u697C\u9601\u3001\u7AF9\u3001\u7261\u4E39\u82B1\u5349\uFF0C\u6EE1\u6708\u5F62\u6784\u56FE\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u7CBE\u795E\u4FE1\u4EF0\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u897F\u53A2\u8BB0\u7EA2\u5A18\u4EBA\u7269\uFF0C\u642D\u914D\u5EAD\u9662\u697C\u9601\u3001\u7AF9\u3001\u7261\u4E39\u82B1\u5349\uFF0C\u6EE1\u6708\u5F62\u6784\u56FE\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u897F\u53A2\u8BB0\u7EA2\u5A18\u4EBA\u7269\uFF0C\u642D\u914D\u5EAD\u9662\u697C\u9601\u3001\u7AF9\u3001\u7261\u4E39\u82B1\u5349\uFF0C\u6EE1\u6708\u5F62\u6784\u56FE\uFF0C\u5F52\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u6309HE\u8272\u5F69\u5206\u7C7B\u5F52\u591A\u8272\u7CFB"
     },
     "inheritor": {
       "zh-CN": "\u6C11\u95F4\u4F5A\u540D\u6C49\u7EE3\u8001\u7EE3\u5DE5",
@@ -4680,8 +4696,8 @@ const mockPatterns = [
     "views": 1608
   },
   {
-    "id": "HE-NB-A01",
-    "heCode": "HE-NB-A01",
+    "id": "HE-N-B-A01",
+    "heCode": "HE-N-B-A01",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4740,8 +4756,8 @@ const mockPatterns = [
     "views": 1582
   },
   {
-    "id": "HE-NB-A02",
-    "heCode": "HE-NB-A02",
+    "id": "HE-N-B-A02",
+    "heCode": "HE-N-B-A02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4800,8 +4816,8 @@ const mockPatterns = [
     "views": 1583
   },
   {
-    "id": "HE-NB-A04",
-    "heCode": "HE-NB-A04",
+    "id": "HE-N-B-A04",
+    "heCode": "HE-N-B-A04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4860,8 +4876,8 @@ const mockPatterns = [
     "views": 1585
   },
   {
-    "id": "HE-NB-A05",
-    "heCode": "HE-NB-A05",
+    "id": "HE-N-B-A05",
+    "heCode": "HE-N-B-A05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4920,8 +4936,8 @@ const mockPatterns = [
     "views": 1586
   },
   {
-    "id": "HE-NB-A06",
-    "heCode": "HE-NB-A06",
+    "id": "HE-N-B-A06",
+    "heCode": "HE-N-B-A06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "A",
@@ -4980,8 +4996,8 @@ const mockPatterns = [
     "views": 1587
   },
   {
-    "id": "HE-NB-B04",
-    "heCode": "HE-NB-B04",
+    "id": "HE-N-B-B04",
+    "heCode": "HE-N-B-B04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5040,8 +5056,8 @@ const mockPatterns = [
     "views": 1586
   },
   {
-    "id": "HE-NB-B05",
-    "heCode": "HE-NB-B05",
+    "id": "HE-N-B-B05",
+    "heCode": "HE-N-B-B05",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5100,8 +5116,8 @@ const mockPatterns = [
     "views": 1587
   },
   {
-    "id": "HE-NB-B06",
-    "heCode": "HE-NB-B06",
+    "id": "HE-N-B-B06",
+    "heCode": "HE-N-B-B06",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5160,8 +5176,8 @@ const mockPatterns = [
     "views": 1588
   },
   {
-    "id": "HE-NB-B07",
-    "heCode": "HE-NB-B07",
+    "id": "HE-N-B-B07",
+    "heCode": "HE-N-B-B07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5220,8 +5236,8 @@ const mockPatterns = [
     "views": 1589
   },
   {
-    "id": "HE-NB-B08",
-    "heCode": "HE-NB-B08",
+    "id": "HE-N-B-B08",
+    "heCode": "HE-N-B-B08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5280,8 +5296,8 @@ const mockPatterns = [
     "views": 1590
   },
   {
-    "id": "HE-NB-B10",
-    "heCode": "HE-NB-B10",
+    "id": "HE-N-B-B10",
+    "heCode": "HE-N-B-B10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "B",
@@ -5340,8 +5356,9 @@ const mockPatterns = [
     "views": 1583
   },
   {
-    "id": "HE-NB-G01",
-    "heCode": "HE-NB-G01",
+    "id": "HE-N-L-G01",
+    "heCode": "HE-N-L-G01",
+    "previousHeCode": "HE-NB-G01",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "G",
@@ -5377,8 +5394,8 @@ const mockPatterns = [
       "en": "\u53EF\u89C1\u9752\u86D9\u3001\u6C34\u8349\u7B49\u81EA\u7136\u7269\u8C61\u7684\u5F69\u8272\u523A\u7EE3\u8868\u73B0\uFF1B\u5177\u4F53\u9488\u6CD5\u5F85\u5B9E\u7269\u6216\u9AD8\u6E05\u8D44\u6599\u8FDB\u4E00\u6B65\u6838\u9A8C\u3002"
     },
     "symbolism": {
-      "zh-CN": "\u9752\u86D9\u4E0E\u6C34\u8349\u6784\u6210\u81EA\u7136\u751F\u6001\u9898\u6750\uFF1B\u672A\u89C1\u53EF\u786E\u8BA4\u7684\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\uFF0C\u6309\u9879\u76EEHE\u7F16\u7801\u6682\u5F52\u5409\u7965\u7948\u798F\u7C7B\u3002",
-      "en": "\u9752\u86D9\u4E0E\u6C34\u8349\u6784\u6210\u81EA\u7136\u751F\u6001\u9898\u6750\uFF1B\u672A\u89C1\u53EF\u786E\u8BA4\u7684\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\uFF0C\u6309\u9879\u76EEHE\u7F16\u7801\u6682\u5F52\u5409\u7965\u7948\u798F\u7C7B\u3002"
+      "zh-CN": "\u9752\u86D9\u4E0E\u6C34\u8349\u6784\u6210\u81EA\u7136\u751F\u6001\u9898\u6750\uFF1B\u672A\u89C1\u53EF\u786E\u8BA4\u7684\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\uFF0C\u6309\u9879\u76EEHE\u7F16\u7801\u6682\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\u3002",
+      "en": "\u9752\u86D9\u4E0E\u6C34\u8349\u6784\u6210\u81EA\u7136\u751F\u6001\u9898\u6750\uFF1B\u672A\u89C1\u53EF\u786E\u8BA4\u7684\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\uFF0C\u6309\u9879\u76EEHE\u7F16\u7801\u6682\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\u3002"
     },
     "origin": {
       "zh-CN": "\u6C11\u95F4\u91C7\u96C6\uFF0C\u51FA\u5904\u5F85\u8003",
@@ -5389,8 +5406,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9752\u86D9\u3001\u6C34\u8349\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7EFF\u8272\u5360\u4E3B\u89C6\u89C9\uFF0C\u5F52\u7EFF\u8272\u7CFB\u3002",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9752\u86D9\u3001\u6C34\u8349\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7EFF\u8272\u5360\u4E3B\u89C6\u89C9\uFF0C\u5F52\u7EFF\u8272\u7CFB\u3002"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9752\u86D9\u3001\u6C34\u8349\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7EFF\u8272\u5360\u4E3B\u89C6\u89C9\uFF0C\u5F52\u7EFF\u8272\u7CFB\u3002",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u9752\u86D9\u3001\u6C34\u8349\uFF0C\u5C5E\u4E8E\u81EA\u7136\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u5177\u4F53\u6C11\u4FD7\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7EFF\u8272\u5360\u4E3B\u89C6\u89C9\uFF0C\u5F52\u7EFF\u8272\u7CFB\u3002"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -5400,8 +5417,8 @@ const mockPatterns = [
     "views": 1588
   },
   {
-    "id": "HE-NB-M07",
-    "heCode": "HE-NB-M07",
+    "id": "HE-N-B-M07",
+    "heCode": "HE-N-B-M07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5460,8 +5477,8 @@ const mockPatterns = [
     "views": 1600
   },
   {
-    "id": "HE-NB-M08",
-    "heCode": "HE-NB-M08",
+    "id": "HE-N-B-M08",
+    "heCode": "HE-N-B-M08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5520,8 +5537,8 @@ const mockPatterns = [
     "views": 1601
   },
   {
-    "id": "HE-NB-M10",
-    "heCode": "HE-NB-M10",
+    "id": "HE-N-B-M10",
+    "heCode": "HE-N-B-M10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5580,8 +5597,8 @@ const mockPatterns = [
     "views": 1594
   },
   {
-    "id": "HE-NB-M11",
-    "heCode": "HE-NB-M11",
+    "id": "HE-N-B-M11",
+    "heCode": "HE-N-B-M11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5640,8 +5657,9 @@ const mockPatterns = [
     "views": 1595
   },
   {
-    "id": "HE-NB-M12",
-    "heCode": "HE-NB-M12",
+    "id": "HE-N-L-M12",
+    "heCode": "HE-N-L-M12",
+    "previousHeCode": "HE-NB-M12",
     "patternCategory": "N",
     "meaningCategory": "L",
     "colorCategory": "M",
@@ -5677,8 +5695,8 @@ const mockPatterns = [
       "en": "\u53EF\u89C1\u8774\u8776\u3001\u7275\u725B\u82B1\u7B49\u52A8\u690D\u7269\u7EB9\u6837\u7684\u591A\u8272\u523A\u7EE3\u8868\u73B0\uFF1B\u5177\u4F53\u9488\u6CD5\u5F85\u5B9E\u7269\u6216\u9AD8\u6E05\u8D44\u6599\u8FDB\u4E00\u6B65\u6838\u9A8C\u3002"
     },
     "symbolism": {
-      "zh-CN": "\u8774\u8776\u5728\u4F20\u7EDF\u7EB9\u6837\u4E2D\u53EF\u4F5C\u7231\u60C5\u3001\u5A5A\u59FB\u5E78\u798F\u3001\u7F8E\u6EE1\u7B49\u8C61\u5F81\uFF1B\u7275\u725B\u82B1\u5177\u4F53\u5BD3\u610F\u5F85\u8003\uFF0C\u672C\u4EF6\u6309\u9879\u76EEHE\u7F16\u7801\u5F52\u5165\u5409\u7965\u7948\u798F\u7C7B\u3002",
-      "en": "\u8774\u8776\u5728\u4F20\u7EDF\u7EB9\u6837\u4E2D\u53EF\u4F5C\u7231\u60C5\u3001\u5A5A\u59FB\u5E78\u798F\u3001\u7F8E\u6EE1\u7B49\u8C61\u5F81\uFF1B\u7275\u725B\u82B1\u5177\u4F53\u5BD3\u610F\u5F85\u8003\uFF0C\u672C\u4EF6\u6309\u9879\u76EEHE\u7F16\u7801\u5F52\u5165\u5409\u7965\u7948\u798F\u7C7B\u3002"
+      "zh-CN": "\u8774\u8776\u5728\u4F20\u7EDF\u7EB9\u6837\u4E2D\u53EF\u4F5C\u7231\u60C5\u3001\u5A5A\u59FB\u5E78\u798F\u3001\u7F8E\u6EE1\u7B49\u8C61\u5F81\uFF1B\u7275\u725B\u82B1\u5177\u4F53\u5BD3\u610F\u5F85\u8003\uFF0C\u672C\u4EF6\u6309\u9879\u76EEHE\u7F16\u7801\u5F52\u5165\u751F\u6D3B\u5FD7\u8DA3\u7C7B\u3002",
+      "en": "\u8774\u8776\u5728\u4F20\u7EDF\u7EB9\u6837\u4E2D\u53EF\u4F5C\u7231\u60C5\u3001\u5A5A\u59FB\u5E78\u798F\u3001\u7F8E\u6EE1\u7B49\u8C61\u5F81\uFF1B\u7275\u725B\u82B1\u5177\u4F53\u5BD3\u610F\u5F85\u8003\uFF0C\u672C\u4EF6\u6309\u9879\u76EEHE\u7F16\u7801\u5F52\u5165\u751F\u6D3B\u5FD7\u8DA3\u7C7B\u3002"
     },
     "origin": {
       "zh-CN": "\u6C11\u95F4\u91C7\u96C6\uFF0C\u51FA\u5904\u5F85\u8003",
@@ -5689,8 +5707,8 @@ const mockPatterns = [
       "en": "\u5409\u7965\u7948\u798F"
     },
     "literature": {
-      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8774\u8776\u3001\u7275\u725B\u82B1\uFF0C\u5C5E\u4E8E\u81EA\u7136\u52A8\u690D\u7269\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8774\u8776\u5E38\u5173\u8054\u7F8E\u6EE1\u3001\u5A5A\u59FB\u5E78\u798F\u7B49\u542B\u4E49\uFF0C\u7275\u725B\u82B1\u5177\u4F53\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7D2B\u5F69\u4E0E\u591A\u8272\u7EC4\u5408\uFF0C\u5F52\u591A\u8272\u7CFB\u3002",
-      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8774\u8776\u3001\u7275\u725B\u82B1\uFF0C\u5C5E\u4E8E\u81EA\u7136\u52A8\u690D\u7269\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8774\u8776\u5E38\u5173\u8054\u7F8E\u6EE1\u3001\u5A5A\u59FB\u5E78\u798F\u7B49\u542B\u4E49\uFF0C\u7275\u725B\u82B1\u5177\u4F53\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u5409\u7965\u7948\u798F\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7D2B\u5F69\u4E0E\u591A\u8272\u7EC4\u5408\uFF0C\u5F52\u591A\u8272\u7CFB\u3002"
+      "zh-CN": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8774\u8776\u3001\u7275\u725B\u82B1\uFF0C\u5C5E\u4E8E\u81EA\u7136\u52A8\u690D\u7269\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8774\u8776\u5E38\u5173\u8054\u7F8E\u6EE1\u3001\u5A5A\u59FB\u5E78\u798F\u7B49\u542B\u4E49\uFF0C\u7275\u725B\u82B1\u5177\u4F53\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7D2B\u5F69\u4E0E\u591A\u8272\u7EC4\u5408\uFF0C\u5F52\u591A\u8272\u7CFB\u3002",
+      "en": "\u7EB9\u6837\u5224\u5B9A\uFF1A\u8774\u8776\u3001\u7275\u725B\u82B1\uFF0C\u5C5E\u4E8E\u81EA\u7136\u52A8\u690D\u7269\u7EB9\u6837\uFF1B\u5BD3\u610F\u5224\u5B9A\uFF1A\u8774\u8776\u5E38\u5173\u8054\u7F8E\u6EE1\u3001\u5A5A\u59FB\u5E78\u798F\u7B49\u542B\u4E49\uFF0C\u7275\u725B\u82B1\u5177\u4F53\u91CA\u4E49\u5F85\u8003\uFF0C\u6309HE\u5BD3\u610F\u5206\u7C7B\u5F52\u751F\u6D3B\u5FD7\u8DA3\u7C7B\uFF1B\u8272\u5F69\u5224\u5B9A\uFF1A\u7D2B\u5F69\u4E0E\u591A\u8272\u7EC4\u5408\uFF0C\u5F52\u591A\u8272\u7CFB\u3002"
     },
     "inheritor": {
       "zh-CN": "\u5177\u4F53\u4F20\u627F\u4EBA\u4E0D\u8BE6",
@@ -5700,8 +5718,8 @@ const mockPatterns = [
     "views": 1596
   },
   {
-    "id": "HE-NB-M14",
-    "heCode": "HE-NB-M14",
+    "id": "HE-N-B-M14",
+    "heCode": "HE-N-B-M14",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5760,8 +5778,8 @@ const mockPatterns = [
     "views": 1598
   },
   {
-    "id": "HE-NB-M15",
-    "heCode": "HE-NB-M15",
+    "id": "HE-N-B-M15",
+    "heCode": "HE-N-B-M15",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5820,8 +5838,8 @@ const mockPatterns = [
     "views": 1599
   },
   {
-    "id": "HE-NB-M16",
-    "heCode": "HE-NB-M16",
+    "id": "HE-N-B-M16",
+    "heCode": "HE-N-B-M16",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5880,8 +5898,8 @@ const mockPatterns = [
     "views": 1600
   },
   {
-    "id": "HE-NB-M17",
-    "heCode": "HE-NB-M17",
+    "id": "HE-N-B-M17",
+    "heCode": "HE-N-B-M17",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -5940,8 +5958,8 @@ const mockPatterns = [
     "views": 1601
   },
   {
-    "id": "HE-NB-M18",
-    "heCode": "HE-NB-M18",
+    "id": "HE-N-B-M18",
+    "heCode": "HE-N-B-M18",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6000,8 +6018,8 @@ const mockPatterns = [
     "views": 1602
   },
   {
-    "id": "HE-NB-M19",
-    "heCode": "HE-NB-M19",
+    "id": "HE-N-B-M19",
+    "heCode": "HE-N-B-M19",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6060,8 +6078,8 @@ const mockPatterns = [
     "views": 1603
   },
   {
-    "id": "HE-NB-M20",
-    "heCode": "HE-NB-M20",
+    "id": "HE-N-B-M20",
+    "heCode": "HE-N-B-M20",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6120,8 +6138,8 @@ const mockPatterns = [
     "views": 1595
   },
   {
-    "id": "HE-NB-M21",
-    "heCode": "HE-NB-M21",
+    "id": "HE-N-B-M21",
+    "heCode": "HE-N-B-M21",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "M",
@@ -6180,8 +6198,8 @@ const mockPatterns = [
     "views": 1596
   },
   {
-    "id": "HE-NB-R02",
-    "heCode": "HE-NB-R02",
+    "id": "HE-N-B-R02",
+    "heCode": "HE-N-B-R02",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6240,8 +6258,8 @@ const mockPatterns = [
     "views": 1600
   },
   {
-    "id": "HE-NB-R04",
-    "heCode": "HE-NB-R04",
+    "id": "HE-N-B-R04",
+    "heCode": "HE-N-B-R04",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6300,8 +6318,8 @@ const mockPatterns = [
     "views": 1602
   },
   {
-    "id": "HE-NB-R07",
-    "heCode": "HE-NB-R07",
+    "id": "HE-N-B-R07",
+    "heCode": "HE-N-B-R07",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6360,8 +6378,8 @@ const mockPatterns = [
     "views": 1605
   },
   {
-    "id": "HE-NB-R08",
-    "heCode": "HE-NB-R08",
+    "id": "HE-N-B-R08",
+    "heCode": "HE-N-B-R08",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6420,8 +6438,8 @@ const mockPatterns = [
     "views": 1606
   },
   {
-    "id": "HE-NB-R09",
-    "heCode": "HE-NB-R09",
+    "id": "HE-N-B-R09",
+    "heCode": "HE-N-B-R09",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6480,8 +6498,8 @@ const mockPatterns = [
     "views": 1607
   },
   {
-    "id": "HE-NB-R10",
-    "heCode": "HE-NB-R10",
+    "id": "HE-N-B-R10",
+    "heCode": "HE-N-B-R10",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6540,8 +6558,8 @@ const mockPatterns = [
     "views": 1599
   },
   {
-    "id": "HE-NB-R11",
-    "heCode": "HE-NB-R11",
+    "id": "HE-N-B-R11",
+    "heCode": "HE-N-B-R11",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6600,8 +6618,8 @@ const mockPatterns = [
     "views": 1600
   },
   {
-    "id": "HE-NB-R12",
-    "heCode": "HE-NB-R12",
+    "id": "HE-N-B-R12",
+    "heCode": "HE-N-B-R12",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6660,8 +6678,8 @@ const mockPatterns = [
     "views": 1601
   },
   {
-    "id": "HE-NB-R13",
-    "heCode": "HE-NB-R13",
+    "id": "HE-N-B-R13",
+    "heCode": "HE-N-B-R13",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6720,8 +6738,8 @@ const mockPatterns = [
     "views": 1602
   },
   {
-    "id": "HE-NB-R17",
-    "heCode": "HE-NB-R17",
+    "id": "HE-N-B-R17",
+    "heCode": "HE-N-B-R17",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6780,8 +6798,8 @@ const mockPatterns = [
     "views": 1606
   },
   {
-    "id": "HE-NB-R18",
-    "heCode": "HE-NB-R18",
+    "id": "HE-N-B-R18",
+    "heCode": "HE-N-B-R18",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6840,8 +6858,8 @@ const mockPatterns = [
     "views": 1607
   },
   {
-    "id": "HE-NB-R19",
-    "heCode": "HE-NB-R19",
+    "id": "HE-N-B-R19",
+    "heCode": "HE-N-B-R19",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",
@@ -6900,8 +6918,8 @@ const mockPatterns = [
     "views": 1608
   },
   {
-    "id": "HE-NB-R20",
-    "heCode": "HE-NB-R20",
+    "id": "HE-N-B-R20",
+    "heCode": "HE-N-B-R20",
     "patternCategory": "N",
     "meaningCategory": "B",
     "colorCategory": "R",

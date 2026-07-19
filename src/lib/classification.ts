@@ -60,6 +60,65 @@ const heCodePattern = /^HE-([NHG])-([BSL])-([RGBAM])(\d{2,})$/;
 const legacyHeCodePattern = /^HE-([NHG])([BSL])-([RGBAM])(\d{2,})$/;
 const classificationCache = new WeakMap<PatternGene, PatternClassification>();
 
+// These records were reclassified after manual review. Keep their compact legacy
+// identifiers resolvable so existing bookmarks and Firestore records continue to work.
+const reviewedLegacyHECodeAliases: Record<string, string> = {
+  'HE-NB-B14': 'HE-N-B-G14',
+  'HE-N-B-B14': 'HE-N-B-G14',
+  'HE-NB-B13': 'HE-N-B-G13',
+  'HE-N-B-B13': 'HE-N-B-G13',
+  'HE-NL-B01': 'HE-N-L-R01',
+  'HE-N-L-B01': 'HE-N-L-R01',
+  'HE-HS-M12': 'HE-N-B-M12',
+  'HE-H-S-M12': 'HE-N-B-M12',
+  'HE-NS-M04': 'HE-H-S-M04',
+  'HE-N-S-M04': 'HE-H-S-M04',
+  'HE-NL-A13': 'HE-N-B-A13',
+  'HE-N-L-A13': 'HE-N-B-A13',
+  'HE-HB-R09': 'HE-N-B-R21',
+  'HE-H-B-R09': 'HE-N-B-R21',
+  'HE-NL-M01': 'HE-N-B-M22',
+  'HE-N-L-M01': 'HE-N-B-M22',
+  'HE-NS-B04': 'HE-N-B-B12',
+  'HE-N-S-B04': 'HE-N-B-B12',
+  'HE-HL-A14': 'HE-N-B-A14',
+  'HE-H-L-A14': 'HE-N-B-A14',
+  'HE-HB-A12': 'HE-N-B-A12',
+  'HE-H-B-A12': 'HE-N-B-A12',
+  'HE-GB-M02': 'HE-G-S-M02',
+  'HE-G-B-M02': 'HE-G-S-M02',
+  'HE-HB-R19': 'HE-H-S-R19',
+  'HE-H-B-R19': 'HE-H-S-R19',
+  'HE-HB-R20': 'HE-H-S-R20',
+  'HE-H-B-R20': 'HE-H-S-R20',
+  'HE-HS-M02': 'HE-N-S-M02',
+  'HE-H-S-M02': 'HE-N-S-M02',
+  'HE-HS-M04': 'HE-H-L-M04',
+  'HE-NB-G01': 'HE-N-L-G01',
+  'HE-N-B-G01': 'HE-N-L-G01',
+  'HE-NB-M12': 'HE-N-L-M12',
+};
+
+const classificationTextLabels = {
+  pattern: {
+    N: ['自然纹样'],
+    H: ['人文 / 民俗纹样', '人文/民俗纹样', '人文民俗纹样'],
+    G: ['几何 / 抽象纹样', '几何/抽象纹样', '几何抽象纹样'],
+  },
+  meaning: {
+    B: ['吉祥祈福类'],
+    S: ['精神信仰类'],
+    L: ['生活志趣类'],
+  },
+  color: {
+    R: ['红色系'],
+    G: ['绿色系'],
+    B: ['蓝色系'],
+    A: ['金银色系'],
+    M: ['多色系'],
+  },
+} as const;
+
 function cleanCode(code: string) {
   return code.trim().replace(/\s+/g, '').toUpperCase();
 }
@@ -158,6 +217,10 @@ export function buildHECode(data: {
 }
 
 export function formatHECodeForDisplay(code: string) {
+  const normalizedCode = cleanCode(code);
+  const reviewedCode = reviewedLegacyHECodeAliases[normalizedCode];
+  if (reviewedCode) return reviewedCode;
+
   const parsed = parseHECode(code);
   if (parsed.isValid) {
     return buildHECode(parsed);
@@ -174,6 +237,68 @@ export function formatHECodeForDisplay(code: string) {
   }
 
   return cleanCode(code);
+}
+
+export function resolvePatternHECode(heCode: string, previousHeCode?: string) {
+  const normalizedPreviousCode = previousHeCode ? cleanCode(previousHeCode) : '';
+  if (normalizedPreviousCode && reviewedLegacyHECodeAliases[normalizedPreviousCode]) {
+    return reviewedLegacyHECodeAliases[normalizedPreviousCode];
+  }
+
+  return formatHECodeForDisplay(heCode);
+}
+
+export function getLegacyHECodeAliases(code: string) {
+  const canonicalCode = formatHECodeForDisplay(code);
+  const aliases = new Set<string>([canonicalCode]);
+
+  const parsed = parseHECode(canonicalCode);
+  if (parsed.isValid) {
+    const compactAlias = `HE-${parsed.patternCategory}${parsed.meaningCategory}-${parsed.colorCategory}${formatSequence(parsed.sequence)}`;
+    if (formatHECodeForDisplay(compactAlias) === canonicalCode) aliases.add(compactAlias);
+  }
+
+  Object.entries(reviewedLegacyHECodeAliases).forEach(([legacyCode, reviewedCode]) => {
+    if (reviewedCode === canonicalCode) aliases.add(legacyCode);
+  });
+
+  return [...aliases];
+}
+
+export function normalizePatternClassificationText(pattern: PatternGene): PatternGene {
+  const targets = [
+    ['pattern', pattern.patternCategory],
+    ['meaning', pattern.meaningCategory],
+    ['color', pattern.colorCategory],
+  ] as const;
+
+  const normalizeText = (value: string) => targets.reduce((text, [type, currentCode]) => {
+    const labels = classificationTextLabels[type] as Record<string, readonly string[]>;
+    const currentLabel = currentCode ? labels[currentCode]?.[0] : '';
+    if (!currentLabel || !currentCode) return text;
+
+    return Object.entries(labels).reduce((nextText, [code, variants]) => {
+      if (code === currentCode) return nextText;
+      return variants.reduce((updatedText, label) => updatedText
+        .replaceAll(`${label}（${code}）`, `${currentLabel}（${currentCode}）`)
+        .replaceAll(`${label}(${code})`, `${currentLabel}(${currentCode})`)
+        .replaceAll(label, currentLabel), nextText);
+    }, text);
+  }, value);
+
+  const normalizeField = (field: PatternGene['literature']) => ({
+    'zh-CN': normalizeText(field['zh-CN'] || ''),
+    en: normalizeText(field.en || ''),
+  });
+
+  return {
+    ...pattern,
+    craft: normalizeField(pattern.craft),
+    symbolism: normalizeField(pattern.symbolism),
+    origin: normalizeField(pattern.origin),
+    scenario: normalizeField(pattern.scenario),
+    literature: normalizeField(pattern.literature),
+  };
 }
 
 export function getPatternClassification(pattern: PatternGene): PatternClassification {

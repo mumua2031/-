@@ -34,6 +34,7 @@ export interface StitchTechnique {
 export interface PatternGene {
   id: string; // Document ID
   heCode: string; // HE-N-B-R01
+  previousHeCode?: string; // Legacy alias retained for old links and Firestore records
   patternCategory?: string;
   meaningCategory?: string;
   colorCategory?: string;

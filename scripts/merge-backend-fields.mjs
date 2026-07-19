@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+if (process.env.ALLOW_LEGACY_ARCHIVE_REWRITE !== '1') {
+  throw new Error('该脚本读取旧提取档案，已禁止直接重写主数据。请以 final-import-patterns.json 和 src/data.ts 为当前权威档案。');
+}
+
 const root = process.cwd();
 const dataPath = path.join(root, 'src', 'data.ts');
 const wordPath = path.join(root, 'import-manifests', 'word-records.json');

@@ -1,6 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { mockPatterns } from '../data';
 import { readApiPayload } from './apiResponse';
+import {
+  getCategoryLabel,
+  normalizePatternClassificationText,
+  parseHECode,
+  resolvePatternHECode,
+} from './classification';
 import { normalizeEraForArchive } from './patternArchiveForm';
 import type { PatternGene } from '../types';
 
@@ -33,14 +39,38 @@ async function fetchPatternsFromApi() {
   return payload.data as PatternGene[];
 }
 
-function normalizePatternEra(patterns: PatternGene[]) {
+function normalizePatterns(patterns: PatternGene[]) {
   return patterns.map((pattern) => ({
-    ...pattern,
+    ...normalizePatternIdentity(pattern),
     era: normalizeEraForArchive(pattern.era) || pattern.era,
   }));
 }
 
-const normalizedMockPatterns = normalizePatternEra(mockPatterns);
+function normalizePatternIdentity(pattern: PatternGene): PatternGene {
+  const storedCode = pattern.heCode;
+  const canonicalCode = resolvePatternHECode(storedCode, pattern.previousHeCode);
+  const parsedCode = parseHECode(canonicalCode);
+
+  if (!parsedCode.isValid) return pattern;
+
+  return normalizePatternClassificationText({
+    ...pattern,
+    id: canonicalCode,
+    heCode: canonicalCode,
+    ...(storedCode !== canonicalCode ? { previousHeCode: pattern.previousHeCode || storedCode } : {}),
+    patternCategory: parsedCode.patternCategory,
+    meaningCategory: parsedCode.meaningCategory,
+    colorCategory: parsedCode.colorCategory,
+    sequence: parsedCode.sequence ?? pattern.sequence,
+    categoryLabels: [
+      { 'zh-CN': `${getCategoryLabel('pattern', parsedCode.patternCategory, 'zh')} (${parsedCode.patternCategory})`, en: `${getCategoryLabel('pattern', parsedCode.patternCategory, 'en')} (${parsedCode.patternCategory})` },
+      { 'zh-CN': `${getCategoryLabel('meaning', parsedCode.meaningCategory, 'zh')} (${parsedCode.meaningCategory})`, en: `${getCategoryLabel('meaning', parsedCode.meaningCategory, 'en')} (${parsedCode.meaningCategory})` },
+      { 'zh-CN': `${getCategoryLabel('color', parsedCode.colorCategory, 'zh')} (${parsedCode.colorCategory})`, en: `${getCategoryLabel('color', parsedCode.colorCategory, 'en')} (${parsedCode.colorCategory})` },
+    ],
+  });
+}
+
+const normalizedMockPatterns = normalizePatterns(mockPatterns);
 
 export function PatternDataProvider({ children }: { children: ReactNode }) {
   const [patterns, setPatterns] = useState<PatternGene[]>(normalizedMockPatterns);
@@ -55,7 +85,7 @@ export function PatternDataProvider({ children }: { children: ReactNode }) {
     try {
       const remotePatterns = await fetchPatternsFromApi();
       if (remotePatterns.length > 0) {
-        setPatterns(normalizePatternEra(remotePatterns));
+        setPatterns(normalizePatterns(remotePatterns));
         setSource('api');
       } else {
         setPatterns(normalizedMockPatterns);

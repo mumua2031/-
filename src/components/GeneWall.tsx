@@ -73,7 +73,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
               className="gene-wall-item relative"
             >
               <Link
-                to={`/pattern/${pattern.heCode}`}
+                to={`/pattern/${canonicalCode}`}
                 className="relative flex flex-col items-center group no-underline outline-none"
                 onMouseEnter={() => setActivePatternId(pattern.id)}
                 onMouseLeave={() => setActivePatternId(null)}

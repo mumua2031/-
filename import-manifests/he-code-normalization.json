@@ -1,0 +1,610 @@
+{
+  "generatedAt": "2026-07-19T01:02:50.281Z",
+  "patternCount": 116,
+  "reclassifiedCount": 15,
+  "collisionsResolved": [
+    {
+      "oldCode": "HE-HB-R09",
+      "nextCode": "HE-N-B-R21",
+      "oldSequence": 9,
+      "nextSequence": 21,
+      "name": "红底金线青绿五爪龙圆团绣片"
+    },
+    {
+      "oldCode": "HE-NL-M01",
+      "nextCode": "HE-N-B-M22",
+      "oldSequence": 1,
+      "nextSequence": 22,
+      "name": "荷塘双鹤汉绣"
+    },
+    {
+      "oldCode": "HE-NS-B04",
+      "nextCode": "HE-N-B-B12",
+      "oldSequence": 4,
+      "nextSequence": 12,
+      "name": "蓝底金凤牡丹展陈汉绣"
+    }
+  ],
+  "mappings": [
+    {
+      "oldCode": "HE-NB-M01",
+      "nextCode": "HE-N-B-M01",
+      "name": "鸿图大展双狮戏绣球汉绣"
+    },
+    {
+      "oldCode": "HE-NB-B03",
+      "nextCode": "HE-N-B-B03",
+      "name": "丹凤牡丹圆框汉绣"
+    },
+    {
+      "oldCode": "HE-NB-B09",
+      "nextCode": "HE-N-B-B09",
+      "name": "黑底五福捧寿圆团花绣"
+    },
+    {
+      "oldCode": "HE-HS-B08",
+      "nextCode": "HE-H-S-B08",
+      "name": "军运兵兵江城地标深蓝底纪念汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R03",
+      "nextCode": "HE-N-B-R03",
+      "name": "凤栖牡丹橙底汉绣"
+    },
+    {
+      "oldCode": "HE-NS-M01",
+      "nextCode": "HE-N-S-M01",
+      "name": "凤鸣楚天群凤横向壁挂汉绣"
+    },
+    {
+      "oldCode": "HE-NL-R02",
+      "nextCode": "HE-N-L-R02",
+      "name": "半开粉荷白底汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R01",
+      "nextCode": "HE-N-B-R01",
+      "name": "双狮戏绣球圆框汉绣"
+    },
+    {
+      "oldCode": "HE-NB-B01",
+      "nextCode": "HE-N-B-B01",
+      "name": "双龙捧寿银线汉绣"
+    },
+    {
+      "oldCode": "HE-HS-R02",
+      "nextCode": "HE-H-S-R02",
+      "name": "红底古黄鹤楼群鹤方形绣片"
+    },
+    {
+      "oldCode": "HE-NB-M03",
+      "nextCode": "HE-N-B-M03",
+      "name": "喜迎二十大金凤和平牡丹主题汉绣"
+    },
+    {
+      "oldCode": "HE-HS-A02",
+      "nextCode": "HE-H-S-A02",
+      "name": "圆框金线黄鹤楼山水汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M05",
+      "nextCode": "HE-N-B-M05",
+      "name": "松鹤延年圆形框装汉绣"
+    },
+    {
+      "oldCode": "HE-NS-A01",
+      "nextCode": "HE-N-S-A01",
+      "name": "楚凤江城图圆框汉绣"
+    },
+    {
+      "oldCode": "HE-HL-M10",
+      "nextCode": "HE-H-L-M10",
+      "name": "楚式对称凤鹿复古白地汉绣"
+    },
+    {
+      "oldCode": "HE-NB-G14",
+      "nextCode": "HE-N-B-G14",
+      "name": "橄榄绿底双鹤朝日圆台屏绣芯"
+    },
+    {
+      "oldCode": "HE-NB-G13",
+      "nextCode": "HE-N-B-G13",
+      "name": "湖绿底国色天香牡丹蝴蝶方形绣片"
+    },
+    {
+      "oldCode": "HE-NB-B11",
+      "nextCode": "HE-N-B-B11",
+      "name": "湖蓝底描金牡丹绣片"
+    },
+    {
+      "oldCode": "HE-HB-M02",
+      "nextCode": "HE-H-B-M02",
+      "name": "湘莲闹三棒鼓舞民俗人物汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M06",
+      "nextCode": "HE-N-B-M06",
+      "name": "浅灰底牡丹八宝吉祥纹衣饰汉绣"
+    },
+    {
+      "oldCode": "HE-NL-R01",
+      "nextCode": "HE-N-L-R01",
+      "name": "白地粉荷蜜蜂小品汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M02",
+      "nextCode": "HE-N-B-M02",
+      "name": "紫花对条浅白底戏服汉绣"
+    },
+    {
+      "oldCode": "HE-HS-R08",
+      "nextCode": "HE-H-S-R08",
+      "name": "红底金线黄鹤楼双凤楚纹汉绣"
+    },
+    {
+      "oldCode": "HE-NL-M08",
+      "nextCode": "HE-N-L-M08",
+      "name": "翠竹双绶带鸟白地绣片"
+    },
+    {
+      "oldCode": "HE-NB-M13",
+      "nextCode": "HE-N-B-M13",
+      "name": "蓝白牡丹对称黑底绣片"
+    },
+    {
+      "oldCode": "HE-HB-R03",
+      "nextCode": "HE-H-B-R03",
+      "name": "红底蝶仙游鱼神话装饰汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M09",
+      "nextCode": "HE-N-B-M09",
+      "name": "浅白底蝶恋花牡丹圆形绣片"
+    },
+    {
+      "oldCode": "HE-HS-R01",
+      "nextCode": "HE-H-S-R01",
+      "name": "红底西十七座降龙尊者人物汉绣"
+    },
+    {
+      "oldCode": "HE-HS-A03",
+      "nextCode": "HE-H-S-A03",
+      "name": "金线黄鹤楼云鹤圆形装饰绣片"
+    },
+    {
+      "oldCode": "HE-NB-R06",
+      "nextCode": "HE-N-B-R06",
+      "name": "银杏双喜鹊粉底黑檀圆台屏"
+    },
+    {
+      "oldCode": "HE-NB-R05",
+      "nextCode": "HE-N-B-R05",
+      "name": "锦鸡牡丹红底汉剧服饰绣片"
+    },
+    {
+      "oldCode": "HE-NB-B02",
+      "nextCode": "HE-N-B-B02",
+      "name": "青蓝蝶恋花绣球汉绣"
+    },
+    {
+      "oldCode": "HE-HL-M11",
+      "nextCode": "HE-H-L-M11",
+      "name": "仿古青铜花觚对幅汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M04",
+      "nextCode": "HE-N-B-M04",
+      "name": "浅白底鸳鸯荷花繁花方形绣片"
+    },
+    {
+      "oldCode": "HE-HB-M01",
+      "nextCode": "HE-H-B-M01",
+      "name": "麒麟送子圆补汉绣"
+    },
+    {
+      "oldCode": "HE-HB-R02",
+      "nextCode": "HE-H-B-R02",
+      "name": "红底麻姑献寿人物祝寿汉绣"
+    },
+    {
+      "oldCode": "HE-HS-B15",
+      "nextCode": "HE-H-S-B15",
+      "name": "黑底满铺楚凤云水横向大型壁挂汉绣"
+    },
+    {
+      "oldCode": "HE-GB-A02",
+      "nextCode": "HE-G-B-A02",
+      "name": "戏曲戏服万字锦兽面装饰汉绣"
+    },
+    {
+      "oldCode": "HE-GB-A03",
+      "nextCode": "HE-G-B-A03",
+      "name": "戏曲戏服芦席格花卉几何汉绣"
+    },
+    {
+      "oldCode": "HE-GB-B09",
+      "nextCode": "HE-G-B-B09",
+      "name": "王燕制勾金回纹如意几何汉绣小样"
+    },
+    {
+      "oldCode": "HE-GB-M01",
+      "nextCode": "HE-G-B-M01",
+      "name": "戏曲《立水江崖》几何海水江崖汉绣局部"
+    },
+    {
+      "oldCode": "HE-HB-A03",
+      "nextCode": "HE-H-B-A03",
+      "name": "《百花庆寿》金线花卉寿字汉绣（湖北省群艺馆藏）"
+    },
+    {
+      "oldCode": "HE-HB-A04",
+      "nextCode": "HE-H-B-A04",
+      "name": "红底盘金篆书“禧”字汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M13",
+      "nextCode": "HE-H-B-M13",
+      "name": "黄红英制红地龙纹梅瓶现代装饰汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M14",
+      "nextCode": "HE-H-B-M14",
+      "name": "黑底关公武圣人物汉绣装饰绣片"
+    },
+    {
+      "oldCode": "HE-HB-M15",
+      "nextCode": "HE-H-B-M15",
+      "name": "民间母子多子图人物汉绣纹样"
+    },
+    {
+      "oldCode": "HE-HB-M16",
+      "nextCode": "HE-H-B-M16",
+      "name": "红底折梅书生文人汉绣纹样"
+    },
+    {
+      "oldCode": "HE-HB-M17",
+      "nextCode": "HE-H-B-M17",
+      "name": "清代采花仕女庭院汉绣残片"
+    },
+    {
+      "oldCode": "HE-HB-M18",
+      "nextCode": "HE-H-B-M18",
+      "name": "戴美萱制红底《龙瓶牡丹》博古桌帷汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M19",
+      "nextCode": "HE-H-B-M19",
+      "name": "《尤三姐》古典戏曲人物网绣汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M20",
+      "nextCode": "HE-H-B-M20",
+      "name": "王燕制《福耀中华》华表龙纹现代汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M21",
+      "nextCode": "HE-H-B-M21",
+      "name": "传世红缎《三请樊梨花》戏曲人物汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M22",
+      "nextCode": "HE-H-B-M22",
+      "name": "吴寿康制《八仙图》群仙汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M23",
+      "nextCode": "HE-H-B-M23",
+      "name": "民间藏传世《打金枝》戏曲人物汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M24",
+      "nextCode": "HE-H-B-M24",
+      "name": "吴氏汉绣《渔歌》水乡情侣人物汉绣"
+    },
+    {
+      "oldCode": "HE-HB-M25",
+      "nextCode": "HE-H-B-M25",
+      "name": "辛亥革命武昌起义馆藏《欢庆》革命主题汉绣桌帷局部"
+    },
+    {
+      "oldCode": "HE-HB-R05",
+      "nextCode": "HE-H-B-R05",
+      "name": "20世纪50年代初新婚姻法花卉文字成套枕顶汉绣"
+    },
+    {
+      "oldCode": "HE-HB-R06",
+      "nextCode": "HE-H-B-R06",
+      "name": "汉绣红底龙凤合体“囍”字装饰绣品（任本荣非遗作品）"
+    },
+    {
+      "oldCode": "HE-HB-R14",
+      "nextCode": "HE-H-B-R14",
+      "name": "红底《三星图》禄星文官汉绣局部"
+    },
+    {
+      "oldCode": "HE-HB-R15",
+      "nextCode": "HE-H-B-R15",
+      "name": "红底《三星图》寿星仙翁汉绣局部"
+    },
+    {
+      "oldCode": "HE-HB-R16",
+      "nextCode": "HE-H-B-R16",
+      "name": "《福禄图》禄星开脸人物汉绣局部"
+    },
+    {
+      "oldCode": "HE-HB-R17",
+      "nextCode": "HE-H-B-R17",
+      "name": "传世红缎大型堂彩《福禄图》双禄星人物汉绣局部"
+    },
+    {
+      "oldCode": "HE-HB-R18",
+      "nextCode": "HE-H-B-R18",
+      "name": "任本荣制红缎轿衣《状元踏鳌》汉绣局部"
+    },
+    {
+      "oldCode": "HE-HS-M01",
+      "nextCode": "HE-H-S-M01",
+      "name": "战国楚菱形龙凤舞人动物纹三重经锦"
+    },
+    {
+      "oldCode": "HE-HS-M03",
+      "nextCode": "HE-H-S-M03",
+      "name": "洪湖吴氏汉绣《木兰从军》人物绣品"
+    },
+    {
+      "oldCode": "HE-NB-A01",
+      "nextCode": "HE-N-B-A01",
+      "name": "三鱼旋转金线汉绣局部绣片"
+    },
+    {
+      "oldCode": "HE-NB-A02",
+      "nextCode": "HE-N-B-A02",
+      "name": "盘金彩绣凤凰纹汉绣"
+    },
+    {
+      "oldCode": "HE-NB-A04",
+      "nextCode": "HE-N-B-A04",
+      "name": "民间红底双金龙戏珠大型堂彩汉绣（局部）"
+    },
+    {
+      "oldCode": "HE-NB-A05",
+      "nextCode": "HE-N-B-A05",
+      "name": "清代黑底盘金鲤鱼海水祥云汉绣绣片"
+    },
+    {
+      "oldCode": "HE-NB-A06",
+      "nextCode": "HE-N-B-A06",
+      "name": "王燕制黑底双金龙戏珠团龙蹦针汉绣圆补"
+    },
+    {
+      "oldCode": "HE-NB-B04",
+      "nextCode": "HE-N-B-B04",
+      "name": "清代蓝调葫芦多子多福绣纹残片"
+    },
+    {
+      "oldCode": "HE-NB-B05",
+      "nextCode": "HE-N-B-B05",
+      "name": "青蓝单色菊花汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-B06",
+      "nextCode": "HE-N-B-B06",
+      "name": "青蓝葡萄多子多福植物汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-B07",
+      "nextCode": "HE-N-B-B07",
+      "name": "藏青底五彩团龙海水汉绣圆补"
+    },
+    {
+      "oldCode": "HE-NB-B08",
+      "nextCode": "HE-N-B-B08",
+      "name": "黑底锦鸡牡丹均衡式汉绣枕顶"
+    },
+    {
+      "oldCode": "HE-NB-B10",
+      "nextCode": "HE-N-B-B10",
+      "name": "王凤燕参与制作黑底《蝶飞翠舞》缠枝蝴蝶汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M07",
+      "nextCode": "HE-N-B-M07",
+      "name": "清代桃形福寿蝙蝠复合纹样汉绣残片"
+    },
+    {
+      "oldCode": "HE-NB-M08",
+      "nextCode": "HE-N-B-M08",
+      "name": "汉绣蹦龙针金鱼纹样针法标本"
+    },
+    {
+      "oldCode": "HE-NB-M10",
+      "nextCode": "HE-N-B-M10",
+      "name": "蓝底佛手石榴三多纹汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M11",
+      "nextCode": "HE-N-B-M11",
+      "name": "紫底多色秋菊汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-M14",
+      "nextCode": "HE-N-B-M14",
+      "name": "《连年有鱼》荷花金鱼多色汉绣枕顶纹样"
+    },
+    {
+      "oldCode": "HE-NB-M15",
+      "nextCode": "HE-N-B-M15",
+      "name": "张先松制黑底《盛世麒麟》瑞兽汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M16",
+      "nextCode": "HE-N-B-M16",
+      "name": "张先松《凤鸣吉祥》百凤牡丹长卷汉绣局部"
+    },
+    {
+      "oldCode": "HE-NB-M17",
+      "nextCode": "HE-N-B-M17",
+      "name": "王炜佳心形花卉汉绣《爱》"
+    },
+    {
+      "oldCode": "HE-NB-M18",
+      "nextCode": "HE-N-B-M18",
+      "name": "王炜佳心形花卉字母汉绣《LOVE》"
+    },
+    {
+      "oldCode": "HE-NB-M19",
+      "nextCode": "HE-N-B-M19",
+      "name": "武汉市博物馆藏复古牡丹中堂汉绣主体"
+    },
+    {
+      "oldCode": "HE-NB-M20",
+      "nextCode": "HE-N-B-M20",
+      "name": "李健制红底《天地人和》瑞兽汉绣"
+    },
+    {
+      "oldCode": "HE-NB-M21",
+      "nextCode": "HE-N-B-M21",
+      "name": "张先松设计、廖伶俐刺绣《锦羽祥云》双凤竖幅汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R02",
+      "nextCode": "HE-N-B-R02",
+      "name": "20世纪初民国红底博古花卉桌帷汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R04",
+      "nextCode": "HE-N-B-R04",
+      "name": "老汉口绣花街风格红底博古瓶花方形汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R07",
+      "nextCode": "HE-N-B-R07",
+      "name": "汉绣红底双凤戏珠戏曲女靠局部绣品"
+    },
+    {
+      "oldCode": "HE-NB-R08",
+      "nextCode": "HE-N-B-R08",
+      "name": "红底鸳鸯荷花汉绣婚嫁被单局部"
+    },
+    {
+      "oldCode": "HE-NB-R09",
+      "nextCode": "HE-N-B-R09",
+      "name": "红梅花枝汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-R10",
+      "nextCode": "HE-N-B-R10",
+      "name": "红彩成对金鱼汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-R11",
+      "nextCode": "HE-N-B-R11",
+      "name": "红底“玉堂富贵”牡丹花卉汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R12",
+      "nextCode": "HE-N-B-R12",
+      "name": "清代红底金线鲤鱼海水汉绣绣片"
+    },
+    {
+      "oldCode": "HE-NB-R13",
+      "nextCode": "HE-N-B-R13",
+      "name": "任本荣制红底盘龙祥云汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R17",
+      "nextCode": "HE-N-B-R17",
+      "name": "民间藏红底《松鹤延年》双鹤汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R18",
+      "nextCode": "HE-N-B-R18",
+      "name": "王炜佳制红底《楚凤飞》楚文化凤凰汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R19",
+      "nextCode": "HE-N-B-R19",
+      "name": "民间藏红缎古德禅寺门帘《四季富贵牡丹》汉绣"
+    },
+    {
+      "oldCode": "HE-NB-R20",
+      "nextCode": "HE-N-B-R20",
+      "name": "民间藏红缎近代《双狮五色旗》桌帷汉绣"
+    },
+    {
+      "oldCode": "HE-HS-M12",
+      "nextCode": "HE-N-B-M12",
+      "name": "鸳鸯荷花繁花汉绣"
+    },
+    {
+      "oldCode": "HE-NS-M04",
+      "nextCode": "HE-H-S-M04",
+      "name": "古黄鹤楼彩凤群鹤竖幅装饰汉绣"
+    },
+    {
+      "oldCode": "HE-NL-A13",
+      "nextCode": "HE-N-B-A13",
+      "name": "盘金凤凰羽翼局部绣"
+    },
+    {
+      "oldCode": "HE-HB-R09",
+      "nextCode": "HE-N-B-R21",
+      "name": "红底金线青绿五爪龙圆团绣片"
+    },
+    {
+      "oldCode": "HE-NL-M01",
+      "nextCode": "HE-N-B-M22",
+      "name": "荷塘双鹤汉绣"
+    },
+    {
+      "oldCode": "HE-NS-B04",
+      "nextCode": "HE-N-B-B12",
+      "name": "蓝底金凤牡丹展陈汉绣"
+    },
+    {
+      "oldCode": "HE-HL-A14",
+      "nextCode": "HE-N-B-A14",
+      "name": "黑底盘金楚白虎圆形工艺展示绣片"
+    },
+    {
+      "oldCode": "HE-HB-A12",
+      "nextCode": "HE-N-B-A12",
+      "name": "黑底金线正龙海水江崖绣片"
+    },
+    {
+      "oldCode": "HE-GB-M02",
+      "nextCode": "HE-G-S-M02",
+      "name": "黄圣辉制钉金平绣太极阴阳几何汉绣"
+    },
+    {
+      "oldCode": "HE-HB-R19",
+      "nextCode": "HE-H-S-R19",
+      "name": "任本荣《达摩渡江》竖幅宗教汉绣"
+    },
+    {
+      "oldCode": "HE-HB-R20",
+      "nextCode": "HE-H-S-R20",
+      "name": "叶依子制红底《第一座宾度罗跋罗堕阇尊者》罗汉汉绣"
+    },
+    {
+      "oldCode": "HE-HS-M02",
+      "nextCode": "HE-N-S-M02",
+      "name": "战国楚蟠螭龙凤锁绣丝绣（江陵马山一号楚墓出土）"
+    },
+    {
+      "oldCode": "HE-HS-M04",
+      "nextCode": "HE-H-L-M04",
+      "name": "古典戏曲《红娘》圆形构图汉绣"
+    },
+    {
+      "oldCode": "HE-NB-G01",
+      "nextCode": "HE-N-L-G01",
+      "name": "绿彩青蛙水草汉绣纹样"
+    },
+    {
+      "oldCode": "HE-NB-M12",
+      "nextCode": "HE-N-L-M12",
+      "name": "紫彩蝴蝶牵牛花汉绣纹样"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import type { PatternVisualAnalysis } from '../types';
 
 export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
-  "HE-NB-M12": {
+  "HE-N-L-M12": {
     "originalPattern": {
       "zh-CN": "以“九首彩凤白底圆绣片”为数字归档原纹样。",
       "en": "以“九首彩凤白底圆绣片”为数字归档原纹样。"
@@ -35,7 +35,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "彩凤为主体，结合白底圆形独立绣片形制组织画面。"
     }
   },
-  "HE-NB-M01": {
+  "HE-N-B-M01": {
     "originalPattern": {
       "zh-CN": "以“鸿图大展双狮戏绣球汉绣”为数字归档原纹样。",
       "en": "以“鸿图大展双狮戏绣球汉绣”为数字归档原纹样。"
@@ -69,7 +69,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "狮为主体，结合真丝软缎绣底，实木镜框装饰绣品形制组织画面。"
     }
   },
-  "HE-NB-B10": {
+  "HE-N-B-B10": {
     "originalPattern": {
       "zh-CN": "以“三色牡丹黑底装饰绣片”为数字归档原纹样。",
       "en": "以“三色牡丹黑底装饰绣片”为数字归档原纹样。"
@@ -103,7 +103,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合黑底方形衣饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B03": {
+  "HE-N-B-B03": {
     "originalPattern": {
       "zh-CN": "以“丹凤牡丹圆框汉绣”为数字归档原纹样。",
       "en": "以“丹凤牡丹圆框汉绣”为数字归档原纹样。"
@@ -137,7 +137,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、牡丹为主体，结合深蓝暗纹缎圆形框装绣片形制组织画面。"
     }
   },
-  "HE-HS-M12": {
+  "HE-N-B-M12": {
     "originalPattern": {
       "zh-CN": "以“鸳鸯荷花繁花汉绣”为数字归档原纹样。",
       "en": "以“鸳鸯荷花繁花汉绣”为数字归档原纹样。"
@@ -171,7 +171,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鸳鸯、荷花为主体，结合黑色底绸缎装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B09": {
+  "HE-N-B-B09": {
     "originalPattern": {
       "zh-CN": "以“黑底五福捧寿圆团花绣”为数字归档原纹样。",
       "en": "以“黑底五福捧寿圆团花绣”为数字归档原纹样。"
@@ -205,7 +205,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合黑缎圆团绣片形制组织画面。"
     }
   },
-  "HE-HS-B08": {
+  "HE-H-S-B08": {
     "originalPattern": {
       "zh-CN": "以“军运兵兵江城地标深蓝底纪念汉绣”为数字归档原纹样。",
       "en": "以“军运兵兵江城地标深蓝底纪念汉绣”为数字归档原纹样。"
@@ -239,7 +239,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合深蓝底方形纪念装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-R03": {
+  "HE-N-B-R03": {
     "originalPattern": {
       "zh-CN": "以“凤栖牡丹橙底汉绣”为数字归档原纹样。",
       "en": "以“凤栖牡丹橙底汉绣”为数字归档原纹样。"
@@ -273,7 +273,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、牡丹为主体，结合橙红色绸缎底竖幅装饰绣品形制组织画面。"
     }
   },
-  "HE-NS-M01": {
+  "HE-N-S-M01": {
     "originalPattern": {
       "zh-CN": "以“凤鸣楚天群凤横向壁挂汉绣”为数字归档原纹样。",
       "en": "以“凤鸣楚天群凤横向壁挂汉绣”为数字归档原纹样。"
@@ -307,7 +307,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合浅杂色缎横向大幅壁挂绣片形制组织画面。"
     }
   },
-  "HE-NL-R02": {
+  "HE-N-L-R02": {
     "originalPattern": {
       "zh-CN": "以“半开粉荷白底汉绣”为数字归档原纹样。",
       "en": "以“半开粉荷白底汉绣”为数字归档原纹样。"
@@ -341,7 +341,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合白底独立花卉装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-R01": {
+  "HE-N-B-R01": {
     "originalPattern": {
       "zh-CN": "以“双狮戏绣球圆框汉绣”为数字归档原纹样。",
       "en": "以“双狮戏绣球圆框汉绣”为数字归档原纹样。"
@@ -375,7 +375,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "狮为主体，结合正红色底圆形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B01": {
+  "HE-N-B-B01": {
     "originalPattern": {
       "zh-CN": "以“双龙捧寿银线汉绣”为数字归档原纹样。",
       "en": "以“双龙捧寿银线汉绣”为数字归档原纹样。"
@@ -409,7 +409,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙为主体，结合湖蓝色绸缎面料，服饰帷幔类绣品形制组织画面。"
     }
   },
-  "HE-NS-M04": {
+  "HE-H-S-M04": {
     "originalPattern": {
       "zh-CN": "以“古黄鹤楼彩凤群鹤竖幅装饰汉绣”为数字归档原纹样。",
       "en": "以“古黄鹤楼彩凤群鹤竖幅装饰汉绣”为数字归档原纹样。"
@@ -443,7 +443,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "彩凤、鹤、黄鹤楼为主体，结合浅灰缎长款竖幅装饰绣片形制组织画面。"
     }
   },
-  "HE-HS-R02": {
+  "HE-H-S-R02": {
     "originalPattern": {
       "zh-CN": "以“红底古黄鹤楼群鹤方形绣片”为数字归档原纹样。",
       "en": "以“红底古黄鹤楼群鹤方形绣片”为数字归档原纹样。"
@@ -477,7 +477,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤、黄鹤楼为主体，结合大红缎方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-M03": {
+  "HE-N-B-M03": {
     "originalPattern": {
       "zh-CN": "以“喜迎二十大金凤和平牡丹主题汉绣”为数字归档原纹样。",
       "en": "以“喜迎二十大金凤和平牡丹主题汉绣”为数字归档原纹样。"
@@ -511,7 +511,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、牡丹为主体，结合正红色绸缎底方形装饰绣品形制组织画面。"
     }
   },
-  "HE-HS-A02": {
+  "HE-H-S-A02": {
     "originalPattern": {
       "zh-CN": "以“圆框金线黄鹤楼山水汉绣”为数字归档原纹样。",
       "en": "以“圆框金线黄鹤楼山水汉绣”为数字归档原纹样。"
@@ -545,7 +545,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤、黄鹤楼为主体，结合浅灰底圆形实木框绣片，金线为画面主体视觉形制组织画面。"
     }
   },
-  "HE-NB-M14": {
+  "HE-N-B-M14": {
     "originalPattern": {
       "zh-CN": "以“五彩彩凤祥云局部绣片”为数字归档原纹样。",
       "en": "以“五彩彩凤祥云局部绣片”为数字归档原纹样。"
@@ -579,7 +579,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "彩凤为主体，结合黑缎戏服装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B04": {
+  "HE-N-B-B04": {
     "originalPattern": {
       "zh-CN": "以“旭日金龙戏珠蓝底汉绣”为数字归档原纹样。",
       "en": "以“旭日金龙戏珠蓝底汉绣”为数字归档原纹样。"
@@ -613,7 +613,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙为主体，结合藏蓝色竖幅装饰绸缎绣品形制组织画面。"
     }
   },
-  "HE-NB-M05": {
+  "HE-N-B-M05": {
     "originalPattern": {
       "zh-CN": "以“松鹤延年圆形框装汉绣”为数字归档原纹样。",
       "en": "以“松鹤延年圆形框装汉绣”为数字归档原纹样。"
@@ -647,7 +647,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤为主体，结合米白缎圆形实木框绣片形制组织画面。"
     }
   },
-  "HE-NS-A01": {
+  "HE-N-S-A01": {
     "originalPattern": {
       "zh-CN": "以“楚凤江城图圆框汉绣”为数字归档原纹样。",
       "en": "以“楚凤江城图圆框汉绣”为数字归档原纹样。"
@@ -681,7 +681,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合墨绿色绸缎绣底，红边圆形实木镜框装饰摆件形制组织画面。"
     }
   },
-  "HE-HL-M10": {
+  "HE-H-L-M10": {
     "originalPattern": {
       "zh-CN": "以“楚式对称凤鹿复古白地汉绣”为数字归档原纹样。",
       "en": "以“楚式对称凤鹿复古白地汉绣”为数字归档原纹样。"
@@ -715,7 +715,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合米白底方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-M07": {
+  "HE-N-B-M07": {
     "originalPattern": {
       "zh-CN": "以“橙底荷塘花鸟围兜汉绣”为数字归档原纹样。",
       "en": "以“橙底荷塘花鸟围兜汉绣”为数字归档原纹样。"
@@ -749,7 +749,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "花鸟为主体，结合橙缎底儿童围兜绣件形制组织画面。"
     }
   },
-  "HE-NB-B11": {
+  "HE-N-B-B11": {
     "originalPattern": {
       "zh-CN": "以“湖蓝底描金牡丹绣片”为数字归档原纹样。",
       "en": "以“湖蓝底描金牡丹绣片”为数字归档原纹样。"
@@ -783,7 +783,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合浅湖蓝暗纹缎面绣片形制组织画面。"
     }
   },
-  "HE-HB-M02": {
+  "HE-H-B-M02": {
     "originalPattern": {
       "zh-CN": "以“湘莲闹三棒鼓舞民俗人物汉绣”为数字归档原纹样。",
       "en": "以“湘莲闹三棒鼓舞民俗人物汉绣”为数字归档原纹样。"
@@ -817,7 +817,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "莲、人物为主体，结合浅杂色缎方形民俗壁挂绣片形制组织画面。"
     }
   },
-  "HE-NB-M06": {
+  "HE-N-B-M06": {
     "originalPattern": {
       "zh-CN": "以“浅灰底牡丹八宝吉祥纹衣饰汉绣”为数字归档原纹样。",
       "en": "以“浅灰底牡丹八宝吉祥纹衣饰汉绣”为数字归档原纹样。"
@@ -851,7 +851,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合浅灰缎成对长条衣饰绣片形制组织画面。"
     }
   },
-  "HE-NL-A13": {
+  "HE-N-B-A13": {
     "originalPattern": {
       "zh-CN": "以“盘金凤凰羽翼局部绣”为数字归档原纹样。",
       "en": "以“盘金凤凰羽翼局部绣”为数字归档原纹样。"
@@ -885,7 +885,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤凰为主体，结合黑底局部工艺展示绣片形制组织画面。"
     }
   },
-  "HE-NB-R02": {
+  "HE-N-B-R02": {
     "originalPattern": {
       "zh-CN": "以“朱红底福字花卉蝙蝠方形绣片”为数字归档原纹样。",
       "en": "以“朱红底福字花卉蝙蝠方形绣片”为数字归档原纹样。"
@@ -919,7 +919,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "蝙蝠、福字为主体，结合朱红缎方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B05": {
+  "HE-N-B-B05": {
     "originalPattern": {
       "zh-CN": "以“黑底福寿瓜果彩蝶方形装饰汉绣”为数字归档原纹样。",
       "en": "以“黑底福寿瓜果彩蝶方形装饰汉绣”为数字归档原纹样。"
@@ -953,7 +953,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合纯黑缎方形独立绣片形制组织画面。"
     }
   },
-  "HE-NB-M02": {
+  "HE-N-B-M02": {
     "originalPattern": {
       "zh-CN": "以“紫花对条浅白底戏服汉绣”为数字归档原纹样。",
       "en": "以“紫花对条浅白底戏服汉绣”为数字归档原纹样。"
@@ -987,7 +987,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合米白色绸缎戏服衣身形制组织画面。"
     }
   },
-  "HE-NB-B08": {
+  "HE-N-B-B08": {
     "originalPattern": {
       "zh-CN": "以“紫龙戏珠蓝底装饰绣片”为数字归档原纹样。",
       "en": "以“紫龙戏珠蓝底装饰绣片”为数字归档原纹样。"
@@ -1021,7 +1021,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙为主体，结合藏青缎方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-R04": {
+  "HE-N-B-R04": {
     "originalPattern": {
       "zh-CN": "以“红底松鼠葡萄对幅汉绣”为数字归档原纹样。",
       "en": "以“红底松鼠葡萄对幅汉绣”为数字归档原纹样。"
@@ -1055,7 +1055,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "葡萄、松鼠为主体，结合米纹红底双幅长条服饰绣片形制组织画面。"
     }
   },
-  "HE-HB-R09": {
+  "HE-N-B-R21": {
     "originalPattern": {
       "zh-CN": "以“红底金线青绿五爪龙圆团绣片”为数字归档原纹样。",
       "en": "以“红底金线青绿五爪龙圆团绣片”为数字归档原纹样。"
@@ -1089,7 +1089,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙为主体，结合大红缎面圆形独立装饰绣片，可配实木圆台屏形制组织画面。"
     }
   },
-  "HE-HS-R08": {
+  "HE-H-S-R08": {
     "originalPattern": {
       "zh-CN": "以“红底金线黄鹤楼双凤楚纹汉绣”为数字归档原纹样。",
       "en": "以“红底金线黄鹤楼双凤楚纹汉绣”为数字归档原纹样。"
@@ -1123,7 +1123,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、鹤、黄鹤楼为主体，结合大红缎面大幅壁挂绣品形制组织画面。"
     }
   },
-  "HE-NB-B07": {
+  "HE-N-B-B07": {
     "originalPattern": {
       "zh-CN": "以“八鹤祥云黑檀镂空圆台屏”为数字归档原纹样。",
       "en": "以“八鹤祥云黑檀镂空圆台屏”为数字归档原纹样。"
@@ -1157,7 +1157,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤为主体，结合黑檀木镂空龙头环形底座，圆形缎面绣芯形制组织画面。"
     }
   },
-  "HE-NL-M08": {
+  "HE-N-L-M08": {
     "originalPattern": {
       "zh-CN": "以“翠竹双绶带鸟白地绣片”为数字归档原纹样。",
       "en": "以“翠竹双绶带鸟白地绣片”为数字归档原纹样。"
@@ -1191,7 +1191,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合白底平面装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-R07": {
+  "HE-N-B-R07": {
     "originalPattern": {
       "zh-CN": "以“荣华富贵牡丹蝴蝶圆台屏”为数字归档原纹样。",
       "en": "以“荣华富贵牡丹蝴蝶圆台屏”为数字归档原纹样。"
@@ -1225,7 +1225,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹、蝴蝶为主体，结合黑檀镂空环形圆台屏，浅黄缎圆形绣芯形制组织画面。"
     }
   },
-  "HE-NL-M01": {
+  "HE-N-B-M22": {
     "originalPattern": {
       "zh-CN": "以“荷塘双鹤汉绣”为数字归档原纹样。",
       "en": "以“荷塘双鹤汉绣”为数字归档原纹样。"
@@ -1259,7 +1259,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤为主体，结合浅灰底方形装饰绸缎绣片形制组织画面。"
     }
   },
-  "HE-NS-B04": {
+  "HE-N-B-B12": {
     "originalPattern": {
       "zh-CN": "以“蓝底金凤牡丹展陈汉绣”为数字归档原纹样。",
       "en": "以“蓝底金凤牡丹展陈汉绣”为数字归档原纹样。"
@@ -1293,7 +1293,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、牡丹为主体，结合藏蓝色竖幅绸缎展陈绣品形制组织画面。"
     }
   },
-  "HE-NB-M13": {
+  "HE-N-B-M13": {
     "originalPattern": {
       "zh-CN": "以“蓝白牡丹对称黑底绣片”为数字归档原纹样。",
       "en": "以“蓝白牡丹对称黑底绣片”为数字归档原纹样。"
@@ -1327,7 +1327,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合黑底成对长条绣片形制组织画面。"
     }
   },
-  "HE-NB-B06": {
+  "HE-N-B-B06": {
     "originalPattern": {
       "zh-CN": "以“蓝调青花百花蝴蝶长款竖幅汉绣”为数字归档原纹样。",
       "en": "以“蓝调青花百花蝴蝶长款竖幅汉绣”为数字归档原纹样。"
@@ -1361,7 +1361,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "蝴蝶为主体，结合藏青缎长款竖幅壁挂绣片形制组织画面。"
     }
   },
-  "HE-HB-R03": {
+  "HE-H-B-R03": {
     "originalPattern": {
       "zh-CN": "以“红底蝶仙游鱼神话装饰汉绣”为数字归档原纹样。",
       "en": "以“红底蝶仙游鱼神话装饰汉绣”为数字归档原纹样。"
@@ -1395,7 +1395,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合大红缎方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-M09": {
+  "HE-N-B-M09": {
     "originalPattern": {
       "zh-CN": "以“浅白底蝶恋花牡丹圆形绣片”为数字归档原纹样。",
       "en": "以“浅白底蝶恋花牡丹圆形绣片”为数字归档原纹样。"
@@ -1429,7 +1429,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合米白缎圆形独立绣片（可配圆框）形制组织画面。"
     }
   },
-  "HE-HS-R01": {
+  "HE-H-S-R01": {
     "originalPattern": {
       "zh-CN": "以“红底西十七座降龙尊者人物汉绣”为数字归档原纹样。",
       "en": "以“红底西十七座降龙尊者人物汉绣”为数字归档原纹样。"
@@ -1463,7 +1463,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙、人物为主体，结合朱红缎方形宗教人物壁挂绣片形制组织画面。"
     }
   },
-  "HE-HS-A03": {
+  "HE-H-S-A03": {
     "originalPattern": {
       "zh-CN": "以“金线黄鹤楼云鹤圆形装饰绣片”为数字归档原纹样。",
       "en": "以“金线黄鹤楼云鹤圆形装饰绣片”为数字归档原纹样。"
@@ -1497,7 +1497,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤、黄鹤楼为主体，结合浅灰底圆形独立绣片，金线楼阁仙鹤为核心视觉形制组织画面。"
     }
   },
-  "HE-NB-R06": {
+  "HE-N-B-R06": {
     "originalPattern": {
       "zh-CN": "以“银杏双喜鹊粉底黑檀圆台屏”为数字归档原纹样。",
       "en": "以“银杏双喜鹊粉底黑檀圆台屏”为数字归档原纹样。"
@@ -1531,7 +1531,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合黑檀镂空龙头圆台屏，圆形粉缎绣芯形制组织画面。"
     }
   },
-  "HE-NB-M08": {
+  "HE-N-B-M08": {
     "originalPattern": {
       "zh-CN": "以“银杏三锦鲤圆片绣”为数字归档原纹样。",
       "en": "以“银杏三锦鲤圆片绣”为数字归档原纹样。"
@@ -1565,7 +1565,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合圆形独立绣片（可配框/屏风）形制组织画面。"
     }
   },
-  "HE-NB-R05": {
+  "HE-N-B-R05": {
     "originalPattern": {
       "zh-CN": "以“锦鸡牡丹红底汉剧服饰绣片”为数字归档原纹样。",
       "en": "以“锦鸡牡丹红底汉剧服饰绣片”为数字归档原纹样。"
@@ -1599,7 +1599,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹为主体，结合大红缎汉剧角色戏服绣片形制组织画面。"
     }
   },
-  "HE-NB-M15": {
+  "HE-N-B-M15": {
     "originalPattern": {
       "zh-CN": "以“楚式对称凤鹿复古白地汉绣”为数字归档原纹样。",
       "en": "以“楚式对称凤鹿复古白地汉绣”为数字归档原纹样。"
@@ -1633,7 +1633,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合米白色方形装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-B02": {
+  "HE-N-B-B02": {
     "originalPattern": {
       "zh-CN": "以“青蓝蝶恋花绣球汉绣”为数字归档原纹样。",
       "en": "以“青蓝蝶恋花绣球汉绣”为数字归档原纹样。"
@@ -1667,7 +1667,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合深蓝缎圆形框装绣片形制组织画面。"
     }
   },
-  "HE-HL-M11": {
+  "HE-H-L-M11": {
     "originalPattern": {
       "zh-CN": "以“仿古青铜花觚对幅汉绣”为数字归档原纹样。",
       "en": "以“仿古青铜花觚对幅汉绣”为数字归档原纹样。"
@@ -1701,7 +1701,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "主体纹样为主体，结合浅木色底双联装饰框绣片形制组织画面。"
     }
   },
-  "HE-NB-M04": {
+  "HE-N-B-M04": {
     "originalPattern": {
       "zh-CN": "以“浅白底鸳鸯荷花繁花方形绣片”为数字归档原纹样。",
       "en": "以“浅白底鸳鸯荷花繁花方形绣片”为数字归档原纹样。"
@@ -1735,7 +1735,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鸳鸯、荷花为主体，结合米白缎方形装饰绣片形制组织画面。"
     }
   },
-  "HE-HB-M01": {
+  "HE-H-B-M01": {
     "originalPattern": {
       "zh-CN": "以“麒麟送子圆补汉绣”为数字归档原纹样。",
       "en": "以“麒麟送子圆补汉绣”为数字归档原纹样。"
@@ -1769,7 +1769,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "麒麟为主体，结合圆形绸缎绣片，传统服饰补子类绣品形制组织画面。"
     }
   },
-  "HE-HB-R02": {
+  "HE-H-B-R02": {
     "originalPattern": {
       "zh-CN": "以“红底麻姑献寿人物祝寿汉绣”为数字归档原纹样。",
       "en": "以“红底麻姑献寿人物祝寿汉绣”为数字归档原纹样。"
@@ -1803,7 +1803,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "人物为主体，结合正红缎横向长款人物壁挂绣片形制组织画面。"
     }
   },
-  "HE-HS-B15": {
+  "HE-H-S-B15": {
     "originalPattern": {
       "zh-CN": "以“黑底满铺楚凤云水横向大型壁挂汉绣”为数字归档原纹样。",
       "en": "以“黑底满铺楚凤云水横向大型壁挂汉绣”为数字归档原纹样。"
@@ -1837,7 +1837,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤为主体，结合纯黑缎横向巨型壁挂软装绣品形制组织画面。"
     }
   },
-  "HE-HL-A14": {
+  "HE-N-B-A14": {
     "originalPattern": {
       "zh-CN": "以“黑底盘金楚白虎圆形工艺展示绣片”为数字归档原纹样。",
       "en": "以“黑底盘金楚白虎圆形工艺展示绣片”为数字归档原纹样。"
@@ -1871,7 +1871,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "虎为主体，结合黑缎圆形独立装饰绣片，满盘金白虎为画面主体形制组织画面。"
     }
   },
-  "HE-HB-A12": {
+  "HE-N-B-A12": {
     "originalPattern": {
       "zh-CN": "以“黑底金线正龙海水江崖绣片”为数字归档原纹样。",
       "en": "以“黑底金线正龙海水江崖绣片”为数字归档原纹样。"
@@ -1905,7 +1905,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "龙为主体，结合黑缎大幅壁挂绣片形制组织画面。"
     }
   },
-  "HE-NB-R08": {
+  "HE-N-B-R08": {
     "originalPattern": {
       "zh-CN": "以“红底龙凤呈祥戏珠大幅绣片”为数字归档原纹样。",
       "en": "以“红底龙凤呈祥戏珠大幅绣片”为数字归档原纹样。"
@@ -1939,7 +1939,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "凤、龙为主体，结合正红缎横向长款装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-G13": {
+  "HE-N-B-G13": {
     "originalPattern": {
       "zh-CN": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。",
       "en": "以“湖绿底国色天香牡丹蝴蝶方形绣片”为数字归档原纹样。"
@@ -1973,7 +1973,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "牡丹、蝴蝶为主体，结合湖绿暗纹缎方形独立装饰绣片形制组织画面。"
     }
   },
-  "HE-NB-G14": {
+  "HE-N-B-G14": {
     "originalPattern": {
       "zh-CN": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。",
       "en": "以“橄榄绿底双鹤朝日圆台屏绣芯”为数字归档原纹样。"
@@ -2007,7 +2007,7 @@ export const patternVisualAnalysis: Record<string, PatternVisualAnalysis> = {
       "en": "鹤为主体，结合橄榄绿缎圆形台屏绣芯，适配黑檀镂空底座形制组织画面。"
     }
   },
-  "HE-NL-R01": {
+  "HE-N-L-R01": {
     "originalPattern": {
       "zh-CN": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。",
       "en": "以“白地粉荷蜜蜂小品汉绣”为数字归档原纹样。"

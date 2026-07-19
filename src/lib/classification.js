@@ -26,6 +26,61 @@ const archiveTopFilters = [
 const heCodePattern = /^HE-([NHG])-([BSL])-([RGBAM])(\d{2,})$/;
 const legacyHeCodePattern = /^HE-([NHG])([BSL])-([RGBAM])(\d{2,})$/;
 const classificationCache = /* @__PURE__ */ new WeakMap();
+const reviewedLegacyHECodeAliases = {
+  "HE-NB-B14": "HE-N-B-G14",
+  "HE-N-B-B14": "HE-N-B-G14",
+  "HE-NB-B13": "HE-N-B-G13",
+  "HE-N-B-B13": "HE-N-B-G13",
+  "HE-NL-B01": "HE-N-L-R01",
+  "HE-N-L-B01": "HE-N-L-R01",
+  "HE-HS-M12": "HE-N-B-M12",
+  "HE-H-S-M12": "HE-N-B-M12",
+  "HE-NS-M04": "HE-H-S-M04",
+  "HE-N-S-M04": "HE-H-S-M04",
+  "HE-NL-A13": "HE-N-B-A13",
+  "HE-N-L-A13": "HE-N-B-A13",
+  "HE-HB-R09": "HE-N-B-R21",
+  "HE-H-B-R09": "HE-N-B-R21",
+  "HE-NL-M01": "HE-N-B-M22",
+  "HE-N-L-M01": "HE-N-B-M22",
+  "HE-NS-B04": "HE-N-B-B12",
+  "HE-N-S-B04": "HE-N-B-B12",
+  "HE-HL-A14": "HE-N-B-A14",
+  "HE-H-L-A14": "HE-N-B-A14",
+  "HE-HB-A12": "HE-N-B-A12",
+  "HE-H-B-A12": "HE-N-B-A12",
+  "HE-GB-M02": "HE-G-S-M02",
+  "HE-G-B-M02": "HE-G-S-M02",
+  "HE-HB-R19": "HE-H-S-R19",
+  "HE-H-B-R19": "HE-H-S-R19",
+  "HE-HB-R20": "HE-H-S-R20",
+  "HE-H-B-R20": "HE-H-S-R20",
+  "HE-HS-M02": "HE-N-S-M02",
+  "HE-H-S-M02": "HE-N-S-M02",
+  "HE-HS-M04": "HE-H-L-M04",
+  "HE-NB-G01": "HE-N-L-G01",
+  "HE-N-B-G01": "HE-N-L-G01",
+  "HE-NB-M12": "HE-N-L-M12"
+};
+const classificationTextLabels = {
+  pattern: {
+    N: ["\u81EA\u7136\u7EB9\u6837"],
+    H: ["\u4EBA\u6587 / \u6C11\u4FD7\u7EB9\u6837", "\u4EBA\u6587/\u6C11\u4FD7\u7EB9\u6837", "\u4EBA\u6587\u6C11\u4FD7\u7EB9\u6837"],
+    G: ["\u51E0\u4F55 / \u62BD\u8C61\u7EB9\u6837", "\u51E0\u4F55/\u62BD\u8C61\u7EB9\u6837", "\u51E0\u4F55\u62BD\u8C61\u7EB9\u6837"]
+  },
+  meaning: {
+    B: ["\u5409\u7965\u7948\u798F\u7C7B"],
+    S: ["\u7CBE\u795E\u4FE1\u4EF0\u7C7B"],
+    L: ["\u751F\u6D3B\u5FD7\u8DA3\u7C7B"]
+  },
+  color: {
+    R: ["\u7EA2\u8272\u7CFB"],
+    G: ["\u7EFF\u8272\u7CFB"],
+    B: ["\u84DD\u8272\u7CFB"],
+    A: ["\u91D1\u94F6\u8272\u7CFB"],
+    M: ["\u591A\u8272\u7CFB"]
+  }
+};
 function cleanCode(code) {
   return code.trim().replace(/\s+/g, "").toUpperCase();
 }
@@ -99,6 +154,9 @@ function buildHECode(data) {
   return `HE-${patternCategory}-${meaningCategory}-${colorCategory}${sequence}`;
 }
 function formatHECodeForDisplay(code) {
+  const normalizedCode = cleanCode(code);
+  const reviewedCode = reviewedLegacyHECodeAliases[normalizedCode];
+  if (reviewedCode) return reviewedCode;
   const parsed = parseHECode(code);
   if (parsed.isValid) {
     return buildHECode(parsed);
@@ -108,6 +166,53 @@ function formatHECodeForDisplay(code) {
     return buildHECode(legacyParsed);
   }
   return cleanCode(code);
+}
+function resolvePatternHECode(heCode, previousHeCode) {
+  const normalizedPreviousCode = previousHeCode ? cleanCode(previousHeCode) : "";
+  if (normalizedPreviousCode && reviewedLegacyHECodeAliases[normalizedPreviousCode]) {
+    return reviewedLegacyHECodeAliases[normalizedPreviousCode];
+  }
+  return formatHECodeForDisplay(heCode);
+}
+function getLegacyHECodeAliases(code) {
+  const canonicalCode = formatHECodeForDisplay(code);
+  const aliases = new Set([canonicalCode]);
+  const parsed = parseHECode(canonicalCode);
+  if (parsed.isValid) {
+    const compactAlias = `HE-${parsed.patternCategory}${parsed.meaningCategory}-${parsed.colorCategory}${formatSequence(parsed.sequence)}`;
+    if (formatHECodeForDisplay(compactAlias) === canonicalCode) aliases.add(compactAlias);
+  }
+  Object.entries(reviewedLegacyHECodeAliases).forEach(([legacyCode, reviewedCode]) => {
+    if (reviewedCode === canonicalCode) aliases.add(legacyCode);
+  });
+  return [...aliases];
+}
+function normalizePatternClassificationText(pattern) {
+  const targets = [
+    ["pattern", pattern.patternCategory],
+    ["meaning", pattern.meaningCategory],
+    ["color", pattern.colorCategory]
+  ];
+  const normalizeText = (value) => targets.reduce((text, [type, currentCode]) => {
+    const labels = classificationTextLabels[type];
+    const currentLabel = currentCode ? labels[currentCode]?.[0] : "";
+    if (!currentLabel || !currentCode) return text;
+    return Object.entries(labels).reduce((nextText, [code, variants]) => {
+      if (code === currentCode) return nextText;
+      return variants.reduce((updatedText, label) => updatedText.replaceAll(`${label}\uFF08${code}\uFF09`, `${currentLabel}\uFF08${currentCode}\uFF09`).replaceAll(`${label}(${code})`, `${currentLabel}(${currentCode})`).replaceAll(label, currentLabel), nextText);
+    }, text);
+  }, value);
+  const normalizeField = (field) => Object.fromEntries(
+    Object.entries(field).map(([language, value]) => [language, normalizeText(value || "")])
+  );
+  return {
+    ...pattern,
+    craft: normalizeField(pattern.craft),
+    symbolism: normalizeField(pattern.symbolism),
+    origin: normalizeField(pattern.origin),
+    scenario: normalizeField(pattern.scenario),
+    literature: normalizeField(pattern.literature)
+  };
 }
 function getPatternClassification(pattern) {
   const cachedClassification = classificationCache.get(pattern);
@@ -199,12 +304,15 @@ export {
   formatSequence,
   getCanonicalHECode,
   getCategoryLabel,
+  getLegacyHECodeAliases,
   getPatternClassification,
+  normalizePatternClassificationText,
   hasDuplicateCategorySequences,
   hasDuplicateHECodes,
   matchesArchiveTopFilter,
   meaningCategories,
   parseHECode,
   patternCategories,
+  resolvePatternHECode,
   validateHECode
 };

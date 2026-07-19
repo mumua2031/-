@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 
+if (process.env.ALLOW_LEGACY_ARCHIVE_REWRITE !== '1') {
+  throw new Error('该脚本是旧编号时期的一次性历史脚本，已禁止直接重写主数据。请以 final-import-patterns.json 和 src/data.ts 为当前权威档案。');
+}
+
 const dataPath = 'src/data.ts';
 const source = fs.readFileSync(dataPath, 'utf8');
 const dataPattern = /export const mockPatterns: PatternGene\[] = (\[.*\]);\s*$/s;

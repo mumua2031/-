@@ -7,6 +7,8 @@
     "dev": "tsx server.ts",
     "generate:hero-points": "node scripts/generate-hero-point-cloud.mjs",
     "generate:pattern-thumbs": "node scripts/generate-pattern-thumbnails.mjs",
+    "audit:patterns": "node scripts/audit-pattern-archive.mjs",
+    "sync:production-patterns": "node scripts/sync-production-patterns.mjs",
     "prebuild": "npm run generate:hero-points && npm run generate:pattern-thumbs",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
