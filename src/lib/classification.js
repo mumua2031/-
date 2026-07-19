@@ -98,6 +98,17 @@ function buildHECode(data) {
   }
   return `HE-${patternCategory}-${meaningCategory}-${colorCategory}${sequence}`;
 }
+function formatHECodeForDisplay(code) {
+  const parsed = parseHECode(code);
+  if (parsed.isValid) {
+    return buildHECode(parsed);
+  }
+  const legacyParsed = parseLegacyHECode(code);
+  if (legacyParsed.patternCategory && legacyParsed.meaningCategory && legacyParsed.colorCategory && legacyParsed.sequence !== null) {
+    return buildHECode(legacyParsed);
+  }
+  return cleanCode(code);
+}
 function getPatternClassification(pattern) {
   const cachedClassification = classificationCache.get(pattern);
   if (cachedClassification) return cachedClassification;
@@ -122,6 +133,15 @@ function getPatternClassification(pattern) {
   }
   classificationCache.set(pattern, classification);
   return classification;
+}
+function getCanonicalHECode(pattern) {
+  const classification = getPatternClassification(pattern);
+  return buildHECode({
+    patternCategory: classification.patternCategory,
+    meaningCategory: classification.meaningCategory,
+    colorCategory: classification.colorCategory,
+    sequence: classification.sequence
+  }) || formatHECodeForDisplay(pattern.heCode);
 }
 function getCategoryLabel(categoryType, code, language = "zh") {
   const source = categoryType === "pattern" ? patternCategories : categoryType === "meaning" ? meaningCategories : colorCategories;
@@ -175,7 +195,9 @@ export {
   archiveTopFilters,
   buildHECode,
   colorCategories,
+  formatHECodeForDisplay,
   formatSequence,
+  getCanonicalHECode,
   getCategoryLabel,
   getPatternClassification,
   hasDuplicateCategorySequences,

@@ -107,12 +107,12 @@ const modalContent: Record<FooterModalKey, {
     title: { zh: '编码规范', en: 'Coding Standards' },
     paragraphs: {
       zh: [
-        'HE 编码是本项目内部使用的汉绣纹样数字档案编码，用于分类检索、数据管理和页面展示。编码格式为 HE - 大类 - 寓意 - 色彩 - 序号，示例：HE-HS-R02。',
+        'HE 编码是本项目内部使用的汉绣纹样数字档案编码，用于分类检索、数据管理和页面展示。编码格式为 HE - 大类 - 寓意 - 色彩 - 序号，示例：HE-H-S-R02。',
         'N/H/G 对应自然纹样、人文民俗纹样、几何抽象纹样；B/S/L 对应吉祥祈福类、精神信仰类、生活志趣类；R/G/B/A/M 对应红色系、绿色系、蓝色系、金银色系、多色系。',
         'HE 编码不构成对传统纹样、历史实物、原始图像、馆藏资料或第三方文化资源的权属认定、真伪鉴定或价值评估。',
       ],
       en: [
-        'HE codes are internal archive identifiers for Han embroidery pattern records, supporting classification retrieval, data management and page display. Format: HE - category - meaning - color - sequence. Example: HE-HS-R02.',
+        'HE codes are internal archive identifiers for Han embroidery pattern records, supporting classification retrieval, data management and page display. Format: HE - category - meaning - color - sequence. Example: HE-H-S-R02.',
         'N/H/G indicate nature, humanities and folk, or geometric and abstract motifs. B/S/L indicate blessing, spiritual belief or lifestyle interest. R/G/B/A/M indicate red, green, blue, gold and silver, or multicolor groups.',
         'HE codes do not determine ownership, authenticity or value of traditional motifs, historical objects, original images, collection records or third-party cultural resources.',
       ],

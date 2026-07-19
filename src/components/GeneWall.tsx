@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PatternGene } from '../types';
-import { getCategoryLabel, getPatternClassification } from '../lib/classification';
+import { getCanonicalHECode, getCategoryLabel, getPatternClassification } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName, getLocalizedText } from '../lib/multilingual';
 import { motion, useReducedMotion } from 'motion/react';
@@ -60,6 +60,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
           const classification = getPatternClassification(pattern);
           const categoryLabel = classification.patternCategory ? getCategoryLabel('pattern', classification.patternCategory, categoryLanguage) : '';
           const metaLabel = getMetaLabel?.(pattern) || categoryLabel || getLocalizedText(pattern.symbolism, currentLang, '');
+          const canonicalCode = getCanonicalHECode(pattern);
           const shouldPrioritizeImage = index < 8;
 
           return (
@@ -116,7 +117,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                     className="hanxiu-modal-card pointer-events-none absolute left-1/2 top-[86px] z-20 w-44 -translate-x-1/2 px-3 py-2 text-center"
                   >
                     <div className="truncate text-xs text-white/88">{name}</div>
-                    <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-fuchsia-200/78">{pattern.heCode}</div>
+                    <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-fuchsia-200/78">{canonicalCode}</div>
                     <div className="mt-1 truncate text-[10px] text-white/48">{metaLabel}</div>
                     {showHoverActions && (
                       <div className="mt-2 flex items-center justify-center gap-2 text-[10px] text-fuchsia-100/80">
@@ -130,7 +131,7 @@ export function GeneWall({ patterns, showLabels = true, showHoverInfo = false, g
                 {showLabels && (
                   <div className="text-center">
                     <div className="font-mono text-[10px] tracking-wider text-white/30 mb-1 uppercase">
-                      {pattern.heCode}
+                      {canonicalCode}
                     </div>
                     <div className="text-xs font-light text-white/70 group-hover:text-white transition-colors">
                       {name}

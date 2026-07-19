@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { CheckSquare, Loader2, RefreshCw, RotateCcw } from 'lucide-react';
 import { readApiPayload } from '../lib/apiResponse';
-import { buildHECode, getCategoryLabel, getPatternClassification } from '../lib/classification';
+import { buildHECode, formatHECodeForDisplay, getCategoryLabel, getPatternClassification } from '../lib/classification';
 import { usePatternData } from '../lib/patternData';
 import type { MultilingualString, PatternGene } from '../types';
 
@@ -386,7 +386,7 @@ export function AdminAudit() {
                   className="mt-1 h-4 w-4 accent-fuchsia-500"
                 />
                 <div>
-                  <div className="font-mono text-xs text-fuchsia-200">{suggestion.heCode}</div>
+                  <div className="font-mono text-xs text-fuchsia-200">{formatHECodeForDisplay(suggestion.heCode)}</div>
                   <div className="mt-1 text-white/85">{suggestion.title}</div>
                   <div className="mt-1 text-white/45">
                     {suggestion.current} <span className="mx-2 text-white/30">→</span> <span className="text-green-200">{suggestion.target}</span>
@@ -419,7 +419,7 @@ export function AdminAudit() {
                   className="mt-1 h-4 w-4 accent-fuchsia-500"
                 />
                 <div>
-                  <div className="font-mono text-xs text-fuchsia-200">{suggestion.heCode}</div>
+                  <div className="font-mono text-xs text-fuchsia-200">{formatHECodeForDisplay(suggestion.heCode)}</div>
                   <div className="mt-1 text-white/90">{suggestion.title}</div>
                   <div className="mt-2 font-mono text-xs text-white/50">
                     {formatCategoryTriplet(suggestion.current)} <span className="mx-2 text-white/30">→</span> <span className="text-green-200">{formatCategoryTriplet(suggestion.target)}</span>

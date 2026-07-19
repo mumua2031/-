@@ -37,13 +37,13 @@ const sections: Section[] = [
     title: { zh: 'HE 编码体系', en: 'HE Coding System' },
     paragraphs: {
       zh: [
-        '编码格式：HE - 大类 - 寓意 - 色彩 - 序号（示例：HE-HS-R02）。',
+        '编码格式：HE - 大类 - 寓意 - 色彩 - 序号（示例：HE-H-S-R02）。',
         'HE：Han Embroidery 缩写，本项目汉绣档案统一固定前缀；纹样大类：N 自然纹样 / H 人文民俗纹样 / G 几何抽象纹样；寓意大类：B 吉祥祈福类 / S 精神信仰类 / L 生活志趣类；色彩大类：R 红色系 / G 绿色系 / B 蓝色系 / A 金银色系 / M 多色系；流水序号：同分类组合下唯一两位数字编号，实现一码对应单条纹样档案。',
         'HE 编码仅用于本项目内部的纹样分类、检索与数字档案管理，不构成对传统纹样、历史实物、原始图像或第三方文化资源的权属认定、真伪鉴定或价值评估。',
         '本项目仅就 HE 编码体系的原创文字说明、图形表达、页面呈现及数据库独创性编排主张相应权利，不对抽象分类思想、传统文化元素本身或不属于本项目的既有资料主张排他性所有权。',
       ],
       en: [
-        'Code format: HE - category - meaning - color - sequence. Example: HE-HS-R02.',
+        'Code format: HE - category - meaning - color - sequence. Example: HE-H-S-R02.',
         'HE is the fixed prefix for Han Embroidery records in this project. Pattern category: N nature / H humanities and folk motifs / G geometric and abstract motifs. Meaning category: B blessing / S spiritual belief / L lifestyle interest. Color category: R red / G green / B blue / A gold and silver / M multicolor. Sequence: a unique two-digit number under the same category combination, mapping one code to one pattern record.',
         'HE codes are only used for internal classification, retrieval and digital archive management. They do not determine ownership, authenticity or value of traditional motifs, historical objects, original images or third-party cultural resources.',
         'The project claims rights only in original wording, graphic expression, page presentation and original database arrangement related to the HE coding system. It does not claim exclusive ownership over abstract classification ideas, traditional cultural elements or existing materials outside the project.',

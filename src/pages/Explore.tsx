@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Scan } from 'lucide-react';
 import { GeneWall } from '../components/GeneWall';
 import {
-  buildHECode,
+  getCanonicalHECode,
   getCategoryLabel,
   getPatternClassification,
   meaningCategories,
@@ -43,16 +43,6 @@ const colorSubFilters: SubFilter[] = [
 
 function normalizeSearchText(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, '');
-}
-
-function getCanonicalHECode(pattern: PatternGene) {
-  const classification = getPatternClassification(pattern);
-  return buildHECode({
-    patternCategory: classification.patternCategory,
-    meaningCategory: classification.meaningCategory,
-    colorCategory: classification.colorCategory,
-    sequence: classification.sequence,
-  });
 }
 
 function getMultilingualValues(field: PatternGene['name']) {

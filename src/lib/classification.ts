@@ -157,6 +157,25 @@ export function buildHECode(data: {
   return `HE-${patternCategory}-${meaningCategory}-${colorCategory}${sequence}`;
 }
 
+export function formatHECodeForDisplay(code: string) {
+  const parsed = parseHECode(code);
+  if (parsed.isValid) {
+    return buildHECode(parsed);
+  }
+
+  const legacyParsed = parseLegacyHECode(code);
+  if (
+    legacyParsed.patternCategory &&
+    legacyParsed.meaningCategory &&
+    legacyParsed.colorCategory &&
+    legacyParsed.sequence !== null
+  ) {
+    return buildHECode(legacyParsed);
+  }
+
+  return cleanCode(code);
+}
+
 export function getPatternClassification(pattern: PatternGene): PatternClassification {
   const cachedClassification = classificationCache.get(pattern);
   if (cachedClassification) return cachedClassification;
@@ -192,6 +211,18 @@ export function getPatternClassification(pattern: PatternGene): PatternClassific
 
   classificationCache.set(pattern, classification);
   return classification;
+}
+
+export function getCanonicalHECode(pattern: PatternGene) {
+  const classification = getPatternClassification(pattern);
+  return (
+    buildHECode({
+      patternCategory: classification.patternCategory,
+      meaningCategory: classification.meaningCategory,
+      colorCategory: classification.colorCategory,
+      sequence: classification.sequence,
+    }) || formatHECodeForDisplay(pattern.heCode)
+  );
 }
 
 export function getCategoryLabel(

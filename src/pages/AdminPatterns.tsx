@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Loader2, Pencil, RefreshCw, Save, Search, Trash2, X } from 'lucide-react';
 import { readApiPayload } from '../lib/apiResponse';
+import { formatHECodeForDisplay, getCanonicalHECode } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import {
   archiveBasicFields,
@@ -80,7 +81,9 @@ export function AdminPatterns() {
   const filteredPatterns = useMemo(() => {
     const query = keyword.trim().toLowerCase();
     if (!query) return patterns;
-    return patterns.filter((pattern) => `${pattern.heCode} ${pattern.name?.['zh-CN'] || ''}`.toLowerCase().includes(query));
+    return patterns.filter((pattern) =>
+      `${pattern.heCode} ${getCanonicalHECode(pattern)} ${pattern.name?.['zh-CN'] || ''}`.toLowerCase().includes(query),
+    );
   }, [keyword, patterns]);
 
   const updateEditField = (field: PatternArchiveField, value: string) => {
@@ -193,7 +196,7 @@ export function AdminPatterns() {
               {filteredPatterns.map((pattern) => (
                 <tr key={pattern.id} className="border-t border-white/10">
                   <td className="p-3"><img src={getPatternThumbnailUrl(pattern.imageUrl)} alt="" className="h-10 w-10 rounded object-cover" loading="lazy" decoding="async" fetchPriority="low" /></td>
-                  <td className="p-3 font-mono text-fuchsia-200">{pattern.heCode}</td>
+                  <td className="p-3 font-mono text-fuchsia-200">{getCanonicalHECode(pattern)}</td>
                   <td className="p-3 text-white/85">{pattern.name?.['zh-CN'] || '未命名纹样'}</td>
                   <td className="p-3 text-white/55">{pattern.patternCategory || '-'} / {pattern.meaningCategory || '-'} / {pattern.colorCategory || '-'}</td>
                   <td className="p-3">
@@ -217,7 +220,7 @@ export function AdminPatterns() {
               <div className="mb-5 flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-medium">编辑完整资料</h3>
-                  <p className="mt-1 font-mono text-xs text-fuchsia-200">{editForm.heCode}</p>
+                  <p className="mt-1 font-mono text-xs text-fuchsia-200">{formatHECodeForDisplay(editForm.heCode)}</p>
                 </div>
                 <button onClick={closeEdit} className="text-white/60 hover:text-white"><X className="h-5 w-5" /></button>
               </div>

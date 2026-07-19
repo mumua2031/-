@@ -2,6 +2,7 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Star } from 'lucide-react';
+import { getCanonicalHECode } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
 import { getLocalizedPatternName } from '../lib/multilingual';
 import { usePatternData } from '../lib/patternData';
@@ -104,7 +105,7 @@ export function FloatingActions() {
                     />
                     <span className="min-w-0">
                       <span className="block truncate text-xs text-white/78">{getLocalizedPatternName(pattern, currentLang)}</span>
-                      <span className="block font-mono text-[10px] text-white/35">{pattern.heCode}</span>
+                      <span className="block font-mono text-[10px] text-white/35">{getCanonicalHECode(pattern)}</span>
                     </span>
                   </Link>
                 )

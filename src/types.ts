@@ -33,7 +33,7 @@ export interface StitchTechnique {
 
 export interface PatternGene {
   id: string; // Document ID
-  heCode: string; // HE-NB-R01
+  heCode: string; // HE-N-B-R01
   patternCategory?: string;
   meaningCategory?: string;
   colorCategory?: string;
