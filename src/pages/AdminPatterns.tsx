@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Loader2, Pencil, RefreshCw, Save, Search, Trash2, X } from 'lucide-react';
+import { DatabaseZap, Loader2, Pencil, RefreshCw, Save, Search, Trash2, X } from 'lucide-react';
 import { readApiPayload } from '../lib/apiResponse';
 import { formatHECodeForDisplay, getCanonicalHECode } from '../lib/classification';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
@@ -77,6 +77,7 @@ export function AdminPatterns() {
   const [editForm, setEditForm] = useState<EditPatternForm>(() => createEmptyEditForm());
   const [editPasteText, setEditPasteText] = useState('');
   const [message, setMessage] = useState('');
+  const [isSyncingAll, setIsSyncingAll] = useState(false);
 
   const filteredPatterns = useMemo(() => {
     const query = keyword.trim().toLowerCase();
@@ -165,6 +166,35 @@ export function AdminPatterns() {
     }
   };
 
+  const syncAllCanonicalPatterns = async () => {
+    if (!adminToken.trim()) {
+      setMessage('请先填写管理员接口令牌，再执行全量同步。');
+      return;
+    }
+    if (!window.confirm('确认将网站内 116 条规范纹样档案完整写回 Firestore，并迁移旧编号文档吗？管理员附加字段会保留。')) return;
+
+    setIsSyncingAll(true);
+    setMessage('正在同步全部规范档案，请勿关闭页面……');
+    try {
+      const response = await fetch('/api/admin/patterns/sync', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${adminToken}` },
+      });
+      const payload = await readApiPayload(response, '同步全部规范档案') as {
+        total?: number;
+        created?: number;
+        updated?: number;
+        migrated?: number;
+      };
+      setMessage(`同步完成：共 ${payload.total || 0} 条，新建 ${payload.created || 0} 条，更新 ${payload.updated || 0} 条，迁移旧编号 ${payload.migrated || 0} 条。`);
+      await refresh();
+    } catch (nextError) {
+      setMessage(nextError instanceof Error ? nextError.message : '同步全部规范档案失败。');
+    } finally {
+      setIsSyncingAll(false);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-6xl p-4 md:p-8">
       <div className="rounded-lg border border-white/10 bg-white/5 p-6">
@@ -173,7 +203,13 @@ export function AdminPatterns() {
             <h2 className="text-xl font-medium text-white/90">纹样数据管理</h2>
             <p className="mt-2 text-sm text-white/50">配置 Firestore 与免费 GitHub 图片发布后，可编辑或删除已入库数据。</p>
           </div>
-          <button onClick={() => void refresh()} className="flex items-center gap-2 rounded border border-white/15 px-3 py-2 text-sm text-white/70 hover:text-white"><RefreshCw className="h-4 w-4" />刷新数据</button>
+          <div className="flex flex-wrap gap-2">
+            <button disabled={isSyncingAll || source !== 'api'} onClick={() => void syncAllCanonicalPatterns()} className="flex items-center gap-2 rounded border border-fuchsia-400/35 px-3 py-2 text-sm text-fuchsia-100 hover:border-fuchsia-300 disabled:cursor-not-allowed disabled:opacity-40">
+              {isSyncingAll ? <Loader2 className="h-4 w-4 animate-spin" /> : <DatabaseZap className="h-4 w-4" />}
+              {isSyncingAll ? '正在同步全部档案' : '一键同步全部规范档案'}
+            </button>
+            <button onClick={() => void refresh()} className="flex items-center gap-2 rounded border border-white/15 px-3 py-2 text-sm text-white/70 hover:text-white"><RefreshCw className="h-4 w-4" />刷新数据</button>
+          </div>
         </div>
 
         <div className="mb-5 grid gap-4 md:grid-cols-[1fr_auto]">
