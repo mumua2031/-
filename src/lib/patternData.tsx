@@ -28,6 +28,7 @@ function getApiBaseUrl() {
 
 async function fetchPatternsFromApi() {
   const response = await fetch(`${getApiBaseUrl()}/api/patterns`, {
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
   });
 

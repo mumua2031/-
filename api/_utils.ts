@@ -1,4 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'http';
+import { timingSafeEqual } from 'crypto';
 
 type PatternQuery = {
   keyword?: string;
@@ -67,7 +68,11 @@ export function assertAdminToken(headers: Record<string, string | string[] | und
   const tokenHeader = Array.isArray(headers['x-admin-token']) ? headers['x-admin-token'][0] : headers['x-admin-token'];
   const token = authHeader?.replace(/^Bearer\s+/i, '') || tokenHeader;
 
-  if (token !== configuredToken) {
+  const tokenBuffer = Buffer.from(token || '');
+  const configuredTokenBuffer = Buffer.from(configuredToken);
+  const isTokenValid = tokenBuffer.length === configuredTokenBuffer.length && timingSafeEqual(tokenBuffer, configuredTokenBuffer);
+
+  if (!isTokenValid) {
     const error = new Error('Unauthorized');
     Object.assign(error, { statusCode: 401 });
     throw error;
