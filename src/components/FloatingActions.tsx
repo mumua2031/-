@@ -79,7 +79,7 @@ export function FloatingActions() {
   };
 
   return (
-    <div className="fixed right-6 bottom-12 z-50 flex flex-col gap-4">
+    <div className="fixed bottom-12 right-6 z-50 h-24 w-10">
       <svg width="0" height="0" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="hanxiu-floating-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -92,7 +92,7 @@ export function FloatingActions() {
 
       <button
         onClick={openFavorites}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
+        className="absolute right-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
         title={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
         aria-label={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
         aria-expanded={isFavoritesOpen}
@@ -141,7 +141,7 @@ export function FloatingActions() {
       )}
       <button
         onClick={scrollToTop}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
+        className="absolute bottom-0 right-0 flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
         title={isEnglish ? 'Back to top' : '回到顶部'}
         aria-label={isEnglish ? 'Back to top' : '回到顶部'}
       >

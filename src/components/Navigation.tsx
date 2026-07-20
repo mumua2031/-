@@ -2,16 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Scan, Search, User } from 'lucide-react';
-import { onAuthStateChanged, signOut, type User as FirebaseUser } from 'firebase/auth';
+import { onAuthStateChanged, type User as FirebaseUser } from 'firebase/auth';
 import { readApiPayload } from '../lib/apiResponse';
 import { auth } from '../lib/firebase';
-import { openFavoritesEvent } from '../lib/userAccount';
 
 export function Navigation() {
   const { t, i18n } = useTranslation();
   const [isScanning, setIsScanning] = useState(false);
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(auth.currentUser);
-  const [isAccountOpen, setIsAccountOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, setCurrentUser);
@@ -107,64 +105,23 @@ export function Navigation() {
             ))}
           </div>
 
-          <div className="relative">
+          <div>
             {currentUser ? (
-              <button
-                type="button"
-                onClick={() => setIsAccountOpen((current) => !current)}
+              <Link
+                to="/account"
                 className="text-white/40 transition-colors hover:text-white"
-                aria-label={i18n.language === 'en' ? 'Account' : '账户'}
+                aria-label={i18n.language === 'en' ? 'My account' : '个人中心'}
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-fuchsia-500 via-pink-600 to-purple-800">
                   <User className="h-4 w-4 text-white/80" />
                 </div>
-              </button>
+              </Link>
             ) : (
               <Link to="/login" className="text-white/40 transition-colors hover:text-white" aria-label={t('nav.login')}>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-fuchsia-500 via-pink-600 to-purple-800">
                   <User className="h-4 w-4 text-white/80" />
                 </div>
               </Link>
-            )}
-            {currentUser && isAccountOpen && (
-              <div className="hanxiu-modal-card absolute right-0 top-12 w-64 p-4 text-left text-white">
-                <p className="text-xs text-white/40">{i18n.language === 'en' ? 'Signed in' : '当前登录'}</p>
-                <p className="mt-1 truncate text-sm text-white/85">{currentUser.email || currentUser.displayName || '邮箱账号'}</p>
-                <p className="mt-3 text-xs leading-5 text-white/42">
-                  {i18n.language === 'en'
-                    ? 'Saved patterns and basic visits are kept under this account only.'
-                    : '收藏与基础访问记录仅保存在当前账号下。'}
-                </p>
-                <div className="mt-4 grid gap-2">
-                  <Link
-                    to="/account"
-                    onClick={() => setIsAccountOpen(false)}
-                    className="rounded border border-fuchsia-300/30 px-3 py-2 text-center text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-200/70 hover:text-white"
-                  >
-                    {i18n.language === 'en' ? 'My account' : '个人中心'}
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      window.dispatchEvent(new CustomEvent(openFavoritesEvent));
-                      setIsAccountOpen(false);
-                    }}
-                    className="rounded border border-white/12 px-3 py-2 text-sm text-white/70 transition-colors hover:border-fuchsia-300/45 hover:text-white"
-                  >
-                    {i18n.language === 'en' ? 'My saved patterns' : '我的收藏'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      await signOut(auth).catch(() => undefined);
-                      setIsAccountOpen(false);
-                    }}
-                    className="rounded border border-white/12 px-3 py-2 text-sm text-white/50 transition-colors hover:border-white/30 hover:text-white"
-                  >
-                    {i18n.language === 'en' ? 'Sign out' : '退出登录'}
-                  </button>
-                </div>
-              </div>
             )}
           </div>
         </div>

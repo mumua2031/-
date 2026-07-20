@@ -34,13 +34,22 @@ function normalizeFavoriteCodes(value: unknown) {
   )];
 }
 
-async function getAuthHeaders(user: User) {
-  const token = await user.getIdToken();
+async function getAuthHeaders(user: User, forceRefresh = false) {
+  const token = await user.getIdToken(forceRefresh);
   return {
     Authorization: `Bearer ${token}`,
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
+}
+
+async function fetchWithAccountToken(user: User, init: RequestInit) {
+  const request = async (forceRefresh: boolean) => fetch('/api/users/me', {
+    ...init,
+    headers: await getAuthHeaders(user, forceRefresh),
+  });
+  const initialResponse = await request(false);
+  return initialResponse.status === 401 ? request(true) : initialResponse;
 }
 
 async function readJsonPayload<T>(response: Response, fallbackMessage: string): Promise<T> {
@@ -83,9 +92,8 @@ export async function loadUserFavorites(user: User | null) {
   if (!user) return localCodes;
 
   try {
-    const response = await fetch('/api/users/me', {
+    const response = await fetchWithAccountToken(user, {
       method: 'GET',
-      headers: await getAuthHeaders(user),
     });
     const payload = await readJsonPayload<{ data?: UserProfile }>(response, '读取用户收藏失败。');
     const remoteCodes = normalizeFavoriteCodes(payload.data?.favoriteCodes);
@@ -101,9 +109,8 @@ export async function loadUserFavorites(user: User | null) {
 }
 
 export async function loadUserProfile(user: User) {
-  const response = await fetch('/api/users/me', {
+  const response = await fetchWithAccountToken(user, {
     method: 'GET',
-    headers: await getAuthHeaders(user),
   });
   const payload = await readJsonPayload<{ data?: UserProfile }>(response, '读取个人资料失败。');
   return payload.data || {};
@@ -111,9 +118,8 @@ export async function loadUserProfile(user: User) {
 
 export async function saveUserFavorites(user: User, favoriteCodes: string[]) {
   const normalized = writeLocalFavorites(user, favoriteCodes);
-  const response = await fetch('/api/users/me', {
+  const response = await fetchWithAccountToken(user, {
     method: 'PUT',
-    headers: await getAuthHeaders(user),
     body: JSON.stringify({ favoriteCodes: normalized }),
   });
   await readJsonPayload(response, '保存用户收藏失败。');
@@ -121,9 +127,8 @@ export async function saveUserFavorites(user: User, favoriteCodes: string[]) {
 }
 
 export async function syncUserProfile(user: User) {
-  const response = await fetch('/api/users/me', {
+  const response = await fetchWithAccountToken(user, {
     method: 'PUT',
-    headers: await getAuthHeaders(user),
     body: JSON.stringify({ displayName: user.displayName || user.email || '' }),
   });
   await readJsonPayload(response, '同步用户资料失败。');
@@ -142,9 +147,8 @@ export async function recordUserPageView(user: User | null, path: string, patter
   }
 
   try {
-    const response = await fetch('/api/users/me', {
+    const response = await fetchWithAccountToken(user, {
       method: 'POST',
-      headers: await getAuthHeaders(user),
       body: JSON.stringify({ event: 'page_view', path, patternCode }),
     });
     await readJsonPayload(response, '记录访问失败。');
@@ -156,9 +160,8 @@ export async function recordUserPageView(user: User | null, path: string, patter
 export async function recordUserDownload(user: User | null, path: string, patternCode?: string) {
   if (!user) return;
   try {
-    const response = await fetch('/api/users/me', {
+    const response = await fetchWithAccountToken(user, {
       method: 'POST',
-      headers: await getAuthHeaders(user),
       body: JSON.stringify({ event: 'download', path, patternCode }),
     });
     await readJsonPayload(response, '记录下载失败。');
