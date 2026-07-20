@@ -5,6 +5,7 @@ import {
   Activity,
   BookOpen,
   CheckSquare,
+  Home,
   Image as ImageIcon,
   KeyRound,
   LayoutDashboard,
@@ -62,6 +63,8 @@ type AdminUserProfile = {
   lastPath?: string;
   lastPatternCode?: string;
   lastActiveAt?: string;
+  viewHistory?: Array<{ path?: string; patternCode?: string; recordedAt?: string }>;
+  downloadHistory?: Array<{ path?: string; patternCode?: string; recordedAt?: string }>;
 };
 
 type AdminUsersPayload = {
@@ -87,8 +90,9 @@ export function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-[#08090a] text-white/90">
       <aside className="flex w-64 flex-col border-r border-white/10 bg-black/40">
-        <div className="flex h-16 items-center border-b border-white/10 px-6 font-medium text-white">
-          绣艺境管理后台
+        <div className="flex h-16 items-center gap-3 border-b border-white/10 px-4 font-medium text-white">
+          <Link to="/" title="返回网站首页" aria-label="返回网站首页" className="flex h-8 w-8 items-center justify-center rounded border border-white/15 text-white/60 transition-colors hover:border-fuchsia-300/60 hover:text-white"><Home className="h-4 w-4" /></Link>
+          <span>绣艺境管理后台</span>
         </div>
 
         <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-6">
@@ -134,6 +138,7 @@ export function AdminDashboard() {
   const [userKeyword, setUserKeyword] = useState('');
   const [userPage, setUserPage] = useState(1);
   const [userLimit, setUserLimit] = useState(20);
+  const [selectedUser, setSelectedUser] = useState<AdminUserProfile | null>(null);
 
   const fetchUserStats = async (page = userPage) => {
     setIsLoadingUsers(true);
@@ -153,6 +158,7 @@ export function AdminDashboard() {
       });
       const payload = await readApiPayload<{ data?: AdminUsersPayload }>(response, '读取用户访问数据失败');
       setUserStats(payload.data || null);
+      setSelectedUser(null);
       setUserPage(payload.data?.meta?.page || page);
     } catch (nextError) {
       setUserStats(null);
@@ -274,6 +280,7 @@ export function AdminDashboard() {
                 <th className="px-3 py-2 font-normal">访问</th>
                 <th className="px-3 py-2 font-normal">最近页面</th>
                 <th className="px-3 py-2 font-normal">最后活跃</th>
+                <th className="px-3 py-2 font-normal">记录</th>
               </tr>
             </thead>
             <tbody>
@@ -284,21 +291,31 @@ export function AdminDashboard() {
                   <td className="px-3 py-2">{user.visitCount ?? 0}</td>
                   <td className="max-w-[320px] truncate px-3 py-2">{user.lastPatternCode || user.lastPath || '—'}</td>
                   <td className="px-3 py-2">{user.lastActiveAt ? new Date(user.lastActiveAt).toLocaleString('zh-CN') : '—'}</td>
+                  <td className="px-3 py-2"><button type="button" onClick={() => setSelectedUser(user)} className="rounded border border-white/15 px-2 py-1 text-xs text-white/70 hover:border-fuchsia-300/50 hover:text-white">查看</button></td>
                 </tr>
               ))}
               {userStats && (userStats.users || []).length === 0 && (
                 <tr>
-                  <td className="px-3 py-6 text-center text-white/45" colSpan={5}>暂无用户数据</td>
+                  <td className="px-3 py-6 text-center text-white/45" colSpan={6}>暂无用户数据</td>
                 </tr>
               )}
               {!userStats && !userStatsError && (
                 <tr>
-                  <td className="px-3 py-6 text-center text-white/35" colSpan={5}>输入管理员令牌后可查看用户访问与收藏记录</td>
+                  <td className="px-3 py-6 text-center text-white/35" colSpan={6}>输入管理员令牌后可查看用户访问与收藏记录</td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
+        {selectedUser && (
+          <div className="mt-5 rounded border border-fuchsia-300/20 bg-fuchsia-950/10 p-4 text-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3"><div><strong className="text-white/90">{selectedUser.email || '用户账号'}</strong><p className="mt-1 text-xs text-white/45">最近 20 条浏览与下载记录，仅管理员可见。</p></div><button type="button" onClick={() => setSelectedUser(null)} className="rounded border border-white/15 px-3 py-1.5 text-xs text-white/60 hover:text-white">收起</button></div>
+            <div className="mt-4 grid gap-4 lg:grid-cols-2">
+              <div><h3 className="mb-2 text-xs text-fuchsia-200/75">浏览记录</h3><div className="space-y-2">{(selectedUser.viewHistory || []).length ? selectedUser.viewHistory!.map((item, index) => <div key={`${item.patternCode}-${item.recordedAt}-${index}`} className="rounded bg-black/20 px-3 py-2 text-xs text-white/65"><span className="font-mono text-fuchsia-200/75">{item.patternCode || item.path || '站点页面'}</span><span className="ml-2 text-white/38">{item.recordedAt ? new Date(item.recordedAt).toLocaleString('zh-CN') : ''}</span></div>) : <p className="text-xs text-white/35">暂无记录</p>}</div></div>
+              <div><h3 className="mb-2 text-xs text-fuchsia-200/75">下载记录</h3><div className="space-y-2">{(selectedUser.downloadHistory || []).length ? selectedUser.downloadHistory!.map((item, index) => <div key={`${item.patternCode}-${item.recordedAt}-${index}`} className="rounded bg-black/20 px-3 py-2 text-xs text-white/65"><span className="font-mono text-fuchsia-200/75">{item.patternCode || item.path || '站点页面'}</span><span className="ml-2 text-white/38">{item.recordedAt ? new Date(item.recordedAt).toLocaleString('zh-CN') : ''}</span></div>) : <p className="text-xs text-white/35">暂无记录</p>}</div></div>
+            </div>
+          </div>
+        )}
         {userStats && (
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-white/45">
             <span>第 {userStats.meta?.page || userPage} / {userStats.meta?.totalPages || 1} 页</span>

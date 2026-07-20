@@ -94,13 +94,14 @@ export function Login() {
     setIsSubmitting(true);
     setMessage('');
     try {
+      const normalizedEmail = email.trim().toLowerCase();
       let signedInUser = auth.currentUser;
       if (authMode === 'register') {
-        const result = await createUserWithEmailAndPassword(auth, email.trim(), password);
+        const result = await createUserWithEmailAndPassword(auth, normalizedEmail, password);
         if (displayName.trim()) await updateProfile(result.user, { displayName: displayName.trim() });
         signedInUser = result.user;
       } else {
-        const result = await signInWithEmailAndPassword(auth, email.trim(), password);
+        const result = await signInWithEmailAndPassword(auth, normalizedEmail, password);
         signedInUser = result.user;
       }
       if (signedInUser) await syncUserProfile(signedInUser).catch(() => undefined);

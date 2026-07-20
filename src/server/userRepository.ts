@@ -1,5 +1,3 @@
-import { getAuth } from 'firebase-admin/auth';
-import { FieldValue } from 'firebase-admin/firestore';
 import { formatHECodeForDisplay, validateHECode } from '../lib/classification.js';
 import { getFirestoreDb } from './patternRepository.js';
 
@@ -12,6 +10,26 @@ type UserProfilePatch = {
   path?: unknown;
   patternCode?: unknown;
 };
+
+type UserActivityEntry = {
+  path: string;
+  patternCode: string;
+  recordedAt: string;
+};
+
+const MAX_ACTIVITY_HISTORY = 60;
+let cachedFirebaseAdminModules: Promise<{
+  getAuth: typeof import('firebase-admin/auth').getAuth;
+  FieldValue: typeof import('firebase-admin/firestore').FieldValue;
+}> | null = null;
+
+function getFirebaseAdminModules() {
+  cachedFirebaseAdminModules ||= Promise.all([
+    import('firebase-admin/auth'),
+    import('firebase-admin/firestore'),
+  ]).then(([auth, firestore]) => ({ getAuth: auth.getAuth, FieldValue: firestore.FieldValue }));
+  return cachedFirebaseAdminModules;
+}
 
 function getBearerToken(headers: RequestHeaders) {
   const authHeader = Array.isArray(headers.authorization) ? headers.authorization[0] : headers.authorization;
@@ -41,6 +59,24 @@ function getCleanString(value: unknown, maxLength = 280) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+function normalizeActivityHistory(value: unknown): UserActivityEntry[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === 'object')
+    .map((item) => ({
+      path: getCleanString(item.path),
+      patternCode: getCleanString(item.patternCode, 48),
+      recordedAt: getCleanString(item.recordedAt, 80),
+    }))
+    .filter((item) => item.path || item.patternCode)
+    .slice(0, MAX_ACTIVITY_HISTORY);
+}
+
+function prependActivity(history: UserActivityEntry[], entry: UserActivityEntry) {
+  const key = `${entry.path}:${entry.patternCode}`;
+  return [entry, ...history.filter((item) => `${item.path}:${item.patternCode}` !== key)].slice(0, MAX_ACTIVITY_HISTORY);
+}
+
 export async function verifyFirebaseUser(headers: RequestHeaders) {
   const token = getBearerToken(headers);
   if (!token) {
@@ -51,6 +87,7 @@ export async function verifyFirebaseUser(headers: RequestHeaders) {
 
   await getFirestoreDb();
   try {
+    const { getAuth } = await getFirebaseAdminModules();
     return await getAuth().verifyIdToken(token);
   } catch {
     const error = new Error('登录状态已过期，请重新登录。');
@@ -77,6 +114,8 @@ export async function getCurrentUserProfile(headers: RequestHeaders) {
     visitCount: Number(stored.visitCount || 0),
     lastPath: stored.lastPath || '',
     lastPatternCode: stored.lastPatternCode || '',
+    viewHistory: normalizeActivityHistory(stored.viewHistory),
+    downloadHistory: normalizeActivityHistory(stored.downloadHistory),
     createdAt: stored.createdAt || null,
     updatedAt: stored.updatedAt || null,
     lastActiveAt: stored.lastActiveAt || null,
@@ -88,6 +127,7 @@ export async function upsertCurrentUserProfile(headers: RequestHeaders, patch: U
   if (!db) throw new Error('Persistent database is not configured.');
 
   const user = await verifyFirebaseUser(headers);
+  const { FieldValue } = await getFirebaseAdminModules();
   const ref = db.collection('userProfiles').doc(user.uid);
   const snapshot = await ref.get();
   const favoriteCodes = normalizeFavoriteCodes(patch.favoriteCodes);
@@ -95,6 +135,19 @@ export async function upsertCurrentUserProfile(headers: RequestHeaders, patch: U
   const patternCode = getCleanString(patch.patternCode, 48);
   const displayName = getCleanString(patch.displayName, 80);
   const isPageView = patch.event === 'page_view';
+  const isDownload = patch.event === 'download';
+  const activityEntry = {
+    path,
+    patternCode: patternCode ? formatHECodeForDisplay(patternCode) : '',
+    recordedAt: new Date().toISOString(),
+  };
+  const existing = snapshot.exists ? normalizeProfileRecord(snapshot.data() || {}) : {};
+  const viewHistory = isPageView && (path || activityEntry.patternCode)
+    ? prependActivity(normalizeActivityHistory(existing.viewHistory), activityEntry)
+    : undefined;
+  const downloadHistory = isDownload && (path || activityEntry.patternCode)
+    ? prependActivity(normalizeActivityHistory(existing.downloadHistory), activityEntry)
+    : undefined;
 
   await ref.set({
     uid: user.uid,
@@ -105,6 +158,8 @@ export async function upsertCurrentUserProfile(headers: RequestHeaders, patch: U
     ...(path ? { lastPath: path } : {}),
     ...(patternCode ? { lastPatternCode: formatHECodeForDisplay(patternCode) } : {}),
     ...(isPageView ? { visitCount: FieldValue.increment(1) } : {}),
+    ...(viewHistory ? { viewHistory } : {}),
+    ...(downloadHistory ? { downloadHistory } : {}),
     ...(snapshot.exists ? {} : { createdAt: FieldValue.serverTimestamp() }),
     updatedAt: FieldValue.serverTimestamp(),
     lastActiveAt: FieldValue.serverTimestamp(),
@@ -126,8 +181,10 @@ export async function listUserProfiles(options: ListUserProfilesOptions = {}) {
   const limit = Math.min(Math.max(Number(options.limit) || 50, 1), 100);
   const page = Math.max(Number(options.page) || 1, 1);
   const keyword = getCleanString(options.keyword, 120).toLowerCase();
-  const snapshot = await db.collection('userProfiles').orderBy('lastActiveAt', 'desc').limit(500).get();
-  const allUsers = snapshot.docs.map((doc) => normalizeProfileRecord({ id: doc.id, ...doc.data() }));
+  const snapshot = await db.collection('userProfiles').limit(500).get();
+  const allUsers = snapshot.docs
+    .map((doc) => normalizeProfileRecord({ id: doc.id, ...doc.data() }))
+    .sort((left, right) => String(right.lastActiveAt || '').localeCompare(String(left.lastActiveAt || '')));
   const filteredUsers = keyword
     ? allUsers.filter((user) => {
       const haystack = [
@@ -149,6 +206,8 @@ export async function listUserProfiles(options: ListUserProfilesOptions = {}) {
     visitCount: Number(user.visitCount || 0),
     lastPath: user.lastPath || '',
     lastPatternCode: user.lastPatternCode || '',
+    viewHistory: normalizeActivityHistory(user.viewHistory).slice(0, 20),
+    downloadHistory: normalizeActivityHistory(user.downloadHistory).slice(0, 20),
     createdAt: user.createdAt || null,
     updatedAt: user.updatedAt || null,
     lastActiveAt: user.lastActiveAt || null,

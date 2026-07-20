@@ -10,7 +10,7 @@ import { findStitchesInText } from '../lib/stitches';
 import { getLocalizedPatternName, getLocalizedPlainText, getLocalizedText } from '../lib/multilingual';
 import { normalizeEraForArchive } from '../lib/patternArchiveForm';
 import { usePatternData } from '../lib/patternData';
-import { loadUserFavorites, readLocalFavorites, saveUserFavorites } from '../lib/userAccount';
+import { loadUserFavorites, readLocalFavorites, recordUserDownload, saveUserFavorites } from '../lib/userAccount';
 import type { MultilingualString, PatternGene } from '../types';
 import { buildHECode, formatHECodeForDisplay, getCategoryLabel, getPatternClassification, parseHECode } from '../lib/classification';
 
@@ -509,6 +509,7 @@ export function PatternDetail() {
         { name: `${canonicalCode}_版权使用须知.txt`, content: `\uFEFF${buildCopyrightNotice()}` },
       ]);
       downloadBlob(zip, `${safeBaseName}.zip`);
+      void recordUserDownload(currentUser, location.pathname, canonicalCode);
       setIsDownloadNoticeOpen(false);
       setDownloadConfirmed(false);
       setDownloadFeedback(true);

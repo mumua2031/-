@@ -4,8 +4,20 @@ import { formatHECodeForDisplay, validateHECode } from './classification';
 export const favoritesUpdatedEvent = 'hanxiu:favorites-updated';
 export const openFavoritesEvent = 'hanxiu:open-favorites';
 
-type UserProfile = {
+export type UserActivityEntry = {
+  path?: unknown;
+  patternCode?: unknown;
+  recordedAt?: unknown;
+};
+
+export type UserProfile = {
   favoriteCodes?: unknown;
+  favoriteCount?: unknown;
+  visitCount?: unknown;
+  viewHistory?: unknown;
+  downloadHistory?: unknown;
+  email?: unknown;
+  displayName?: unknown;
 };
 
 function getFavoriteStorageKey(user: User | null) {
@@ -88,6 +100,15 @@ export async function loadUserFavorites(user: User | null) {
   }
 }
 
+export async function loadUserProfile(user: User) {
+  const response = await fetch('/api/users/me', {
+    method: 'GET',
+    headers: await getAuthHeaders(user),
+  });
+  const payload = await readJsonPayload<{ data?: UserProfile }>(response, '读取个人资料失败。');
+  return payload.data || {};
+}
+
 export async function saveUserFavorites(user: User, favoriteCodes: string[]) {
   const normalized = writeLocalFavorites(user, favoriteCodes);
   const response = await fetch('/api/users/me', {
@@ -129,5 +150,19 @@ export async function recordUserPageView(user: User | null, path: string, patter
     await readJsonPayload(response, '记录访问失败。');
   } catch {
     // 访问记录不影响前台浏览；后台配置未完成时静默降级。
+  }
+}
+
+export async function recordUserDownload(user: User | null, path: string, patternCode?: string) {
+  if (!user) return;
+  try {
+    const response = await fetch('/api/users/me', {
+      method: 'POST',
+      headers: await getAuthHeaders(user),
+      body: JSON.stringify({ event: 'download', path, patternCode }),
+    });
+    await readJsonPayload(response, '记录下载失败。');
+  } catch {
+    // 下载文件已生成时不应被记录接口的异常阻断。
   }
 }

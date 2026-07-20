@@ -31,6 +31,7 @@ const AdminPatterns = lazy(() => import('./pages/AdminPatterns').then((module) =
 const AdminAudit = lazy(() => import('./pages/AdminAudit').then((module) => ({ default: module.AdminAudit })));
 const AdminGuide = lazy(() => import('./pages/AdminGuide').then((module) => ({ default: module.AdminGuide })));
 const Login = lazy(() => import('./pages/Login').then((module) => ({ default: module.Login })));
+const Account = lazy(() => import('./pages/Account').then((module) => ({ default: module.Account })));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -171,6 +172,7 @@ export default function App() {
         <UserActivityTracker />
         <Suspense fallback={<div className="min-h-screen bg-black" />}><Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<RequireAuth><Navigation /><Account /><FloatingActions /><Footer /></RequireAuth>} />
         <Route path="/" element={
           <>
             <Navigation />

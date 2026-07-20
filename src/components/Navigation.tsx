@@ -136,6 +136,13 @@ export function Navigation() {
                     : '收藏与基础访问记录仅保存在当前账号下。'}
                 </p>
                 <div className="mt-4 grid gap-2">
+                  <Link
+                    to="/account"
+                    onClick={() => setIsAccountOpen(false)}
+                    className="rounded border border-fuchsia-300/30 px-3 py-2 text-center text-sm text-fuchsia-100 transition-colors hover:border-fuchsia-200/70 hover:text-white"
+                  >
+                    {i18n.language === 'en' ? 'My account' : '个人中心'}
+                  </Link>
                   <button
                     type="button"
                     onClick={() => {

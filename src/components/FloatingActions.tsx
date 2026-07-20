@@ -2,7 +2,7 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { onAuthStateChanged, type User } from 'firebase/auth';
-import { ArrowUp, Star } from 'lucide-react';
+import { ArrowUp, Star, X } from 'lucide-react';
 import { getCanonicalHECode } from '../lib/classification';
 import { auth } from '../lib/firebase';
 import { getPatternThumbnailUrl } from '../lib/imageUrls';
@@ -95,14 +95,15 @@ export function FloatingActions() {
         className="flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-300/25 bg-black/55 shadow-[0_0_20px_rgba(236,72,153,0.18)] backdrop-blur-sm transition-all hover:scale-110 hover:border-fuchsia-200/60 hover:bg-black/75"
         title={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
         aria-label={currentUser ? (isEnglish ? 'Saved patterns' : '收藏纹样') : (isEnglish ? 'Sign in to save patterns' : '登录后收藏纹样')}
+        aria-expanded={isFavoritesOpen}
       >
-        <Star className={iconClassName} stroke="url(#hanxiu-floating-icon-gradient)" />
+        <Star className={iconClassName} stroke="url(#hanxiu-floating-icon-gradient)" fill={isFavoritesOpen ? 'url(#hanxiu-floating-icon-gradient)' : 'none'} />
       </button>
       {isFavoritesOpen && (
         <div className="hanxiu-modal-card absolute right-0 bottom-28 w-72 p-4 text-white">
           <div className="mb-3 flex items-center justify-between">
             <strong className="text-sm font-medium">{isEnglish ? 'Saved Patterns' : '收藏纹样'}</strong>
-            <span className="text-xs text-white/42">{favoritePatterns.length} {isEnglish ? 'items' : '项'}</span>
+            <span className="flex items-center gap-2"><span className="text-xs text-white/42">{favoritePatterns.length} {isEnglish ? 'items' : '项'}</span><button type="button" onClick={() => setIsFavoritesOpen(false)} aria-label={isEnglish ? 'Collapse saved patterns' : '收起收藏纹样'} className="rounded p-1 text-white/50 transition-colors hover:bg-white/10 hover:text-white"><X className="h-3.5 w-3.5" /></button></span>
           </div>
           {favoritePatterns.length > 0 ? (
             <div className="max-h-72 space-y-3 overflow-y-auto pr-1">
